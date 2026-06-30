@@ -1,0 +1,3430 @@
+Version =20
+VersionRequired =20
+Begin Report
+    LayoutForPrint = NotDefault
+    DefaultView =0
+    TabularCharSet =128
+    TabularFamily =50
+    DateGrouping =1
+    GrpKeepTogether =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =10544
+    DatasheetFontHeight =9
+    ItemSuffix =446
+    Left =5265
+    Right =19875
+    Bottom =9075
+    DatasheetGridlinesColor =12632256
+    OnNoData ="[Event Procedure]"
+    RecSrcDt = Begin
+        0x0c188624530fe540
+    End
+    RecordSource ="SELECT 設計Ｈワーク.*, 編立工場マスタ.編立工場名, 用途マスタ.用途名, 組織マスタ.組織名, 編機マスタ.タイプ, 編機マスタ.メーカＣＤ, 編機"
+        "マスタ.ゲージ, 編機マスタ.針本数, 編機マスタ.給糸口数, 編機メーカマスタ.編機メーカ名, 編機マスタ.釜経, 商社.メーカー商社名, 気付先マスタ.気付"
+        "先名, メーカー.メーカー商社名 FROM (((((((設計Ｈワーク LEFT JOIN 編立工場マスタ ON 設計Ｈワーク.編立工場ＣＤ=編立工場マスタ.編"
+        "立工場ＣＤ) LEFT JOIN 編機マスタ ON 設計Ｈワーク.編機ＣＤ=編機マスタ.編機ＣＤ) LEFT JOIN 編機メーカマスタ ON 編機マスタ.メー"
+        "カＣＤ=編機メーカマスタ.編機メーカＣＤ) LEFT JOIN 用途マスタ ON 設計Ｈワーク.用途ＣＤ=用途マスタ.用途ＣＤ) LEFT JOIN 組織マスタ"
+        " ON 設計Ｈワーク.組織ＣＤ=組織マスタ.組織ＣＤ) LEFT JOIN 気付先マスタ ON 設計Ｈワーク.気付先ＣＤ=気付先マスタ.気付先ＣＤ) LEFT "
+        "JOIN メーカー商社マスタ AS 商社 ON 設計Ｈワーク.商社ＣＤ=商社.メーカー商社CD) LEFT JOIN メーカー商社マスタ AS メーカー ON "
+        "設計Ｈワーク.メーカーＣＤ=メーカー.メーカー商社CD ORDER BY 設計Ｈワーク.生機品番, 設計Ｈワーク.設計ID; "
+    Caption ="設計書"
+    MenuBar ="印刷プレビュー用"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0x370200005503000020010000200100000000000030290000693b000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            Width =850
+            Height =850
+        End
+        Begin Line
+            Width =1701
+        End
+        Begin Image
+            OldBorderStyle =0
+            PictureAlignment =2
+            Width =1701
+            Height =1701
+        End
+        Begin CheckBox
+            LabelX =230
+            LabelY =-30
+        End
+        Begin TextBox
+            OldBorderStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            Width =1701
+            Height =216
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            OldBorderStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            Width =1701
+            Height =216
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Subform
+            Width =1701
+            Height =1701
+        End
+        Begin UnboundObjectFrame
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin PageHeader
+            Height =0
+            Name ="ページヘッダー"
+        End
+        Begin Section
+            KeepTogether = NotDefault
+            CanGrow = NotDefault
+            Height =15209
+            OnFormat ="[Event Procedure]"
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =225
+                    Top =13152
+                    Width =3507
+                    Height =2057
+                    FontSize =11
+                    TabIndex =43
+                    LeftMargin =29
+                    Name ="r備考左"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =8497
+                    Top =5666
+                    Width =454
+                    Height =227
+                    FontSize =10
+                    TabIndex =44
+                    Name ="ウエル数"
+                    ControlSource ="ウエル数"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =226
+                    Top =1700
+                    Width =1361
+                    Height =227
+                    FontSize =10
+                    Name ="生機品番"
+                    ControlSource ="生機品番"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =1587
+                    Top =1700
+                    Width =680
+                    Height =227
+                    FontSize =10
+                    TabIndex =1
+                    Name ="号機"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =1587
+                    Top =2381
+                    Width =907
+                    Height =226
+                    FontSize =10
+                    TabIndex =2
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="作成日付"
+                    Format ="yy\\.mm\\.dd"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2494
+                    Top =2381
+                    Width =3402
+                    Height =226
+                    FontSize =10
+                    TabIndex =3
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="メーカ名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Top =1927
+                    Width =623
+                    Height =227
+                    FontSize =10
+                    TabIndex =4
+                    Name ="設計ID"
+                    ControlSource ="設計ID"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    CanShrink = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =5896
+                    Top =2381
+                    Width =3508
+                    Height =226
+                    FontSize =10
+                    TabIndex =5
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="気付先名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4308
+                    Top =2834
+                    Width =1474
+                    Height =227
+                    FontSize =10
+                    TabIndex =6
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="組織名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =5782
+                    Top =2834
+                    Width =1474
+                    Height =227
+                    FontSize =10
+                    TabIndex =7
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="品名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =7256
+                    Top =2834
+                    Width =1474
+                    Height =227
+                    FontSize =10
+                    TabIndex =8
+                    LeftMargin =57
+                    Name ="用途名"
+                    ControlSource ="用途名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =226
+                    Top =3288
+                    Width =2268
+                    Height =226
+                    FontSize =10
+                    TabIndex =9
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="編機メーカ名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =2494
+                    Top =3288
+                    Width =907
+                    Height =226
+                    FontSize =10
+                    TabIndex =10
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="タイプ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3401
+                    Top =3288
+                    Width =680
+                    Height =226
+                    FontSize =10
+                    TabIndex =11
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="ゲージ"
+                    Format ="Fixed"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =4081
+                    Top =3288
+                    Width =907
+                    Height =226
+                    FontSize =10
+                    TabIndex =12
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="釜経"
+                    Format ="General Number"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =4988
+                    Top =3288
+                    Width =567
+                    Height =226
+                    FontSize =10
+                    TabIndex =13
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="針本数"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =5555
+                    Top =3288
+                    Width =1134
+                    Height =226
+                    FontSize =10
+                    TabIndex =14
+                    LeftMargin =57
+                    Name ="使用口数"
+                    ControlSource ="使用口数"
+                    Format ="Fixed"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =6689
+                    Top =3288
+                    Width =1134
+                    Height =226
+                    FontSize =10
+                    TabIndex =15
+                    LeftMargin =57
+                    Name ="給糸本数"
+                    ControlSource ="給糸本数"
+                    Format ="Fixed"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7823
+                    Top =3288
+                    Width =907
+                    Height =226
+                    FontSize =10
+                    TabIndex =16
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="ＲＰＭ"
+                    Format ="Fixed"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8730
+                    Top =3288
+                    Width =907
+                    Height =226
+                    FontSize =10
+                    TabIndex =17
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="一反カウント"
+                    Format ="Fixed"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =1
+                    TextFontFamily =17
+                    Left =9637
+                    Top =3288
+                    Width =907
+                    Height =226
+                    FontSize =10
+                    TabIndex =18
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="作成者名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =223
+                    Top =2837
+                    Width =2498
+                    Height =227
+                    FontSize =10
+                    TabIndex =19
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="商社名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2721
+                    Top =2834
+                    Width =1587
+                    Height =227
+                    FontSize =10
+                    TabIndex =20
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="非連結編立工場名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3975
+                    Top =3741
+                    Width =682
+                    Height =227
+                    FontSize =10
+                    TabIndex =21
+                    Name ="出荷許容範囲＿自"
+                    ControlSource ="出荷許容範囲＿自"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    BorderWidth =1
+                    TextAlign =1
+                    TextFontFamily =17
+                    Left =4794
+                    Top =3741
+                    Width =584
+                    Height =227
+                    FontSize =10
+                    TabIndex =22
+                    Name ="出荷許容範囲＿至"
+                    ControlSource ="出荷許容範囲＿至"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =5378
+                    Top =3741
+                    Width =515
+                    Height =227
+                    FontSize =10
+                    TabIndex =23
+                    LeftMargin =57
+                    Name ="出荷許容罰点数"
+                    ControlSource ="出荷許容罰点数"
+                    Format ="Fixed"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Top =3968
+                    Width =737
+                    Height =227
+                    FontSize =10
+                    TabIndex =24
+                    Name ="使用面"
+                    ControlSource ="使用面"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =6689
+                    Top =3741
+                    Width =2037
+                    Height =227
+                    FontSize =10
+                    TabIndex =25
+                    LeftMargin =57
+                    Name ="染検品質"
+                    ControlSource ="染検品質"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =1474
+                    Top =4422
+                    Width =1247
+                    Height =226
+                    FontSize =10
+                    TabIndex =26
+                    RightMargin =284
+                    Name ="規格性量＿生機巾"
+                    ControlSource ="規格性量＿生機巾"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =2721
+                    Top =4422
+                    Width =1247
+                    Height =226
+                    FontSize =10
+                    TabIndex =27
+                    RightMargin =284
+                    Name ="規格性量＿生機長"
+                    ControlSource ="規格性量＿生機長"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =3968
+                    Top =4422
+                    Width =1361
+                    Height =226
+                    FontSize =10
+                    TabIndex =28
+                    RightMargin =397
+                    Name ="規格性量＿生機重量"
+                    ControlSource ="規格性量＿生機重量"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =5329
+                    Top =4422
+                    Width =1700
+                    Height =226
+                    FontSize =10
+                    TabIndex =29
+                    RightMargin =567
+                    Name ="規格性量＿生機目付"
+                    ControlSource ="規格性量＿生機目付"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =7029
+                    Top =4422
+                    Height =226
+                    FontSize =10
+                    TabIndex =30
+                    RightMargin =567
+                    Name ="規格性量＿生機ウエル"
+                    ControlSource ="規格性量＿生機ウエル"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =8730
+                    Top =4422
+                    Width =1814
+                    Height =226
+                    FontSize =10
+                    TabIndex =31
+                    RightMargin =567
+                    Name ="規格性量＿生機コース"
+                    ControlSource ="規格性量＿生機コース"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =1474
+                    Top =4648
+                    Width =1247
+                    Height =227
+                    FontSize =10
+                    TabIndex =32
+                    RightMargin =284
+                    Name ="規格性量＿仕上巾"
+                    ControlSource ="規格性量＿仕上巾"
+                    Format ="#,###.#;#,###.#;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =2721
+                    Top =4648
+                    Width =1247
+                    Height =227
+                    FontSize =10
+                    TabIndex =33
+                    RightMargin =284
+                    Name ="規格性量＿仕上長"
+                    ControlSource ="規格性量＿仕上長"
+                    Format ="#,###.#;#,###.#;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =3968
+                    Top =4648
+                    Width =1361
+                    Height =227
+                    FontSize =10
+                    TabIndex =34
+                    RightMargin =397
+                    Name ="規格性量＿仕上重量"
+                    ControlSource ="規格性量＿仕上重量"
+                    Format ="#,###.##;#,###.##;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =5329
+                    Top =4648
+                    Width =1700
+                    Height =227
+                    FontSize =10
+                    TabIndex =35
+                    RightMargin =567
+                    Name ="規格性量＿仕上目付"
+                    ControlSource ="規格性量＿仕上目付"
+                    Format ="#,### ;#,### ;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =7029
+                    Top =4648
+                    Height =227
+                    FontSize =10
+                    TabIndex =36
+                    RightMargin =567
+                    Name ="規格性量＿仕上ウエル"
+                    ControlSource ="規格性量＿仕上ウエル"
+                    Format ="#,###.#;#,###.#;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =8730
+                    Top =4648
+                    Width =1814
+                    Height =227
+                    FontSize =10
+                    TabIndex =37
+                    RightMargin =567
+                    Name ="規格性量＿仕上コース"
+                    ControlSource ="規格性量＿仕上コース"
+                    Format ="#,###.##;#,###.##;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4025
+                    Top =510
+                    Width =283
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル殿"
+                    Caption ="殿"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =8445
+                    Top =340
+                    Width =466
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル発行"
+                    Caption ="発行"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =9180
+                    Top =340
+                    Width =269
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル年"
+                    Caption ="年"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =9721
+                    Top =340
+                    Width =268
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル月"
+                    Caption ="月"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10261
+                    Top =340
+                    Width =268
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル日"
+                    Caption ="日"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =8912
+                    Top =340
+                    Width =271
+                    Height =226
+                    FontSize =10
+                    TabIndex =38
+                    Name ="YY"
+                    ControlSource ="=Format(Date(),\"yy\")"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =9450
+                    Top =340
+                    Width =272
+                    Height =226
+                    FontSize =10
+                    TabIndex =39
+                    Name ="MM"
+                    ControlSource ="=DatePart(\"m\",Date())"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =9990
+                    Top =340
+                    Width =272
+                    Height =226
+                    FontSize =10
+                    TabIndex =40
+                    Name ="DD"
+                    ControlSource ="=DatePart(\"d\",Date())"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Line
+                    LineSlant = NotDefault
+                    BorderWidth =1
+                    Left =113
+                    Top =737
+                    Width =4195
+                    Name ="直線108"
+                End
+                Begin Label
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =3855
+                    Top =1410
+                    Width =3061
+                    Height =566
+                    FontSize =24
+                    Name ="ラベル116"
+                    Caption =" 丸編設計書"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =1587
+                    Top =1474
+                    Width =680
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル号機"
+                    Caption ="号機"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7256
+                    Top =2607
+                    Width =1474
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル用途"
+                    Caption ="用    途"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =226
+                    Top =2154
+                    Width =681
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル区分"
+                    Caption ="区分"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =1587
+                    Top =2154
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル作成日付"
+                    Caption ="作成日付"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2494
+                    Top =2154
+                    Width =3402
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル受注先"
+                    Caption ="メ ー カ ー"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =5896
+                    Top =2154
+                    Width =3508
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル気付"
+                    Caption ="気  付  (部課)"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =4308
+                    Top =2607
+                    Width =1474
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル組織"
+                    Caption ="組    織"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =5782
+                    Top =2607
+                    Width =1474
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル品名"
+                    Caption ="品    名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =5555
+                    Top =3061
+                    Width =1134
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル給糸口数"
+                    Caption ="糸本数"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =6689
+                    Top =3061
+                    Width =1134
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル131"
+                    Caption ="給糸口数"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7823
+                    Top =3061
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベルＲＰＭ"
+                    Caption ="ＲＰＭ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8730
+                    Top =3061
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル１反カウント"
+                    Caption ="１反ｶｳﾝﾄ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =9637
+                    Top =3061
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル作成者"
+                    Caption ="設計者"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =223
+                    Top =2610
+                    Width =2498
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル出荷先"
+                    Caption ="商　　　　　　　　社"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =226
+                    Top =3061
+                    Width =2268
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル編機メーカ"
+                    Caption ="編機メーカ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =2494
+                    Top =3061
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベルタイプ"
+                    Caption ="タイプ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3401
+                    Top =3061
+                    Width =680
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベルゲージ"
+                    Caption ="ゲージ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =4081
+                    Top =3061
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル釜径"
+                    Caption ="釜径(in)"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =4988
+                    Top =3061
+                    Width =567
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル針数"
+                    Caption ="針数"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =225
+                    Top =12925
+                    Width =7030
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル備考"
+                    Caption ="備                          考"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2721
+                    Top =2607
+                    Width =1587
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル編立工場"
+                    Caption ="編立工場"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3975
+                    Top =3514
+                    Width =1403
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル出荷許容範囲"
+                    Caption ="出荷許容範囲"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =5378
+                    Top =3514
+                    Width =515
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル罰点"
+                    Caption ="罰点"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =5893
+                    Top =3514
+                    Width =802
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル使用面"
+                    Caption ="使用面"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =6689
+                    Top =3510
+                    Width =2037
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル染検"
+                    Caption ="染検品質"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =5893
+                    Top =3741
+                    Width =802
+                    Height =227
+                    FontSize =10
+                    TabIndex =41
+                    LeftMargin =57
+                    Name ="使用面名"
+                    ControlSource ="=IIf([使用面]=0,\"中面\",IIf([使用面]=1,\"表面\",IIf([使用面]=2,\"裏面\",\"\")))"
+                    Format ="Standard"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =1474
+                    Top =4195
+                    Width =1247
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル巾"
+                    Caption ="巾  (cm)"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =2721
+                    Top =4195
+                    Width =1247
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル長さ"
+                    Caption ="長  (ｍ)"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3968
+                    Top =4195
+                    Width =1361
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル重量"
+                    Caption ="重量(Kg)"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =5329
+                    Top =4195
+                    Width =1700
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル目付"
+                    Caption ="目付・ｇ／ｍ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7029
+                    Top =4195
+                    Width =1701
+                    Height =227
+                    FontSize =10
+                    Name ="ラベルウエル"
+                    Caption ="ウエル・Ｗ／IN"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8730
+                    Top =4195
+                    Width =1814
+                    Height =227
+                    FontSize =10
+                    Name ="ラベルコース"
+                    Caption ="コース・Ｃ／IN"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =566
+                    Top =4422
+                    Width =908
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル生機"
+                    Caption ="生機"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =566
+                    Top =4648
+                    Width =908
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル仕上"
+                    Caption ="仕上"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =566
+                    Top =4875
+                    Width =908
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル編下実測"
+                    Caption ="編下実測"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Vertical = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =226
+                    Top =4195
+                    Width =340
+                    Height =907
+                    FontSize =10
+                    Name ="ラベル規格性量"
+                    Caption ="規格性量"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Subform
+                    OldBorderStyle =0
+                    BorderWidth =1
+                    Top =5896
+                    Width =10543
+                    Height =2721
+                    TabIndex =42
+                    Name ="埋め込み224"
+                    SourceObject ="Report.丸編設計書サブ"
+                    LinkChildFields ="設計ＩＤ"
+                    LinkMasterFields ="設計ID"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =453
+                    Top =5442
+                    Width =4175
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル原糸品種"
+                    Caption ="原  糸  品  種"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =450
+                    Top =5670
+                    Width =3374
+                    Height =227
+                    FontSize =10
+                    Name ="ラベルコメント"
+                    Caption ="コメント "
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3825
+                    Top =5670
+                    Width =816
+                    Height =227
+                    FontSize =8
+                    TopMargin =29
+                    Name ="ラベル給糸本数"
+                    Caption ="給糸本数"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =4635
+                    Top =5325
+                    Width =1134
+                    Height =567
+                    FontSize =10
+                    TopMargin =113
+                    Name ="ラベル見掛繊度"
+                    Caption ="見掛繊度\015\012(ﾃﾞｼﾃｯｸｽ)"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =5769
+                    Top =5325
+                    Width =2721
+                    Height =567
+                    FontSize =10
+                    TopMargin =113
+                    Name ="ラベル給糸NO"
+                    Caption ="給      糸      № "
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8490
+                    Top =5325
+                    Width =680
+                    Height =567
+                    Name ="ラベルループ長"
+                    Caption ="ﾙｰﾌﾟ長\015\012mm/\015\012    w"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =9851
+                    Top =5325
+                    Width =680
+                    Height =567
+                    FontSize =10
+                    TopMargin =113
+                    Name ="ラベル交編率"
+                    Caption ="交編率 ％"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Top =8617
+                    Width =850
+                    Height =227
+                    FontSize =10
+                    TabIndex =45
+                    Name ="出合い"
+                    ControlSource ="出合い"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =226
+                    Top =1474
+                    Width =1361
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル品番"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Width =396
+                    Height =170
+                    FontSize =10
+                    TabIndex =46
+                    Name ="組織CD01"
+                    ControlSource ="組織CD01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =453
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =47
+                    Name ="組織CD02"
+                    ControlSource ="組織CD02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =907
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =48
+                    Name ="組織CD03"
+                    ControlSource ="組織CD03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =1247
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =49
+                    Name ="組織CD04"
+                    ControlSource ="組織CD04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =1644
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =50
+                    Name ="組織CD05"
+                    ControlSource ="組織CD05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2040
+                    Width =341
+                    Height =170
+                    FontSize =10
+                    TabIndex =51
+                    Name ="組織CD06"
+                    ControlSource ="組織CD06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2437
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =52
+                    Name ="組織CD07"
+                    ControlSource ="組織CD07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2834
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =53
+                    Name ="組織CD08"
+                    ControlSource ="組織CD08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =3231
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =54
+                    Name ="組織CD09"
+                    ControlSource ="組織CD09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =3628
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =55
+                    Name ="組織CD10"
+                    ControlSource ="組織CD10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4025
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =56
+                    Name ="組織CD11"
+                    ControlSource ="組織CD11"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4422
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =57
+                    Name ="組織CD12"
+                    ControlSource ="組織CD12"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4762
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =58
+                    Name ="組織CD13"
+                    ControlSource ="組織CD13"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =5215
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =59
+                    Name ="組織CD14"
+                    ControlSource ="組織CD14"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =5612
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =60
+                    Name ="組織CD15"
+                    ControlSource ="組織CD15"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =6009
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =61
+                    Name ="組織CD16"
+                    ControlSource ="組織CD16"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =6406
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =62
+                    Name ="組織CD17"
+                    ControlSource ="組織CD17"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =6803
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =63
+                    Name ="組織CD18"
+                    ControlSource ="組織CD18"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =7200
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =64
+                    Name ="組織CD19"
+                    ControlSource ="組織CD19"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =7596
+                    Width =341
+                    Height =170
+                    FontSize =10
+                    TabIndex =65
+                    Name ="組織CD20"
+                    ControlSource ="組織CD20"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =7993
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =66
+                    Name ="組織CD21"
+                    ControlSource ="組織CD21"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =8390
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =67
+                    Name ="組織CD22"
+                    ControlSource ="組織CD22"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =8787
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =68
+                    Name ="組織CD23"
+                    ControlSource ="組織CD23"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =9184
+                    Width =340
+                    Height =170
+                    FontSize =10
+                    TabIndex =69
+                    Name ="組織CD24"
+                    ControlSource ="組織CD24"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =9410
+                    Top =2380
+                    Width =1134
+                    Height =227
+                    FontSize =10
+                    TabIndex =70
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="受注先担当"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =9410
+                    Top =2153
+                    Width =1134
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル受注先担当"
+                    Caption ="担当者"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =9634
+                    Top =3741
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    TabIndex =71
+                    LeftMargin =57
+                    Name ="ハンガー№"
+                    ControlSource ="ハンガー№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =9634
+                    Top =3510
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベルハンガーNO"
+                    Caption ="ﾊﾝｶﾞｰ№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextAlign =1
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =120
+                    Top =510
+                    Width =3855
+                    Height =212
+                    FontSize =10
+                    TabIndex =72
+                    Name ="宛先名10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =2267
+                    Top =1474
+                    Width =1154
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル379"
+                    Caption ="承認№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =2267
+                    Top =1700
+                    Width =1154
+                    Height =227
+                    FontSize =10
+                    TabIndex =73
+                    Name ="承認№"
+                    ControlSource ="承認NO"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =907
+                    Top =2381
+                    Width =680
+                    Height =226
+                    FontSize =10
+                    TabIndex =74
+                    LeftMargin =57
+                    Name ="テキスト382"
+                    ControlSource ="設計ID"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =907
+                    Top =2154
+                    Width =680
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル383"
+                    Caption ="設計№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =3741
+                    Top =1927
+                    Width =3175
+                    Name ="直線384"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8730
+                    Top =2834
+                    Width =1814
+                    Height =227
+                    FontSize =10
+                    TabIndex =75
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="非連結公称規格"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8730
+                    Top =2607
+                    Width =1814
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル388"
+                    Caption ="製品公称規格"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =226
+                    Top =3741
+                    Width =3742
+                    Height =227
+                    FontSize =10
+                    TabIndex =76
+                    LeftMargin =57
+                    ForeColor =16777215
+                    Name ="出荷先名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =226
+                    Top =3514
+                    Width =3742
+                    Height =227
+                    FontSize =10
+                    LeftMargin =57
+                    Name ="ラベル390"
+                    Caption ="出  荷  先"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    BorderWidth =1
+                    TextFontFamily =50
+                    Left =4657
+                    Top =3741
+                    Width =137
+                    Height =227
+                    FontSize =8
+                    Name ="ラベルから"
+                    Caption ="-"
+                End
+                Begin Rectangle
+                    BackStyle =0
+                    BorderWidth =1
+                    Left =3975
+                    Top =3741
+                    Width =1403
+                    Height =227
+                    Name ="ボックス393"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =566
+                    Top =4195
+                    Width =908
+                    Height =227
+                    Name ="ボックス394"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =1474
+                    Top =4875
+                    Width =1247
+                    Height =227
+                    Name ="ボックス395"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =2721
+                    Top =4875
+                    Width =1247
+                    Height =227
+                    Name ="ボックス396"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =3968
+                    Top =4875
+                    Width =1361
+                    Height =227
+                    Name ="ボックス397"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =5329
+                    Top =4875
+                    Width =1700
+                    Height =227
+                    Name ="ボックス398"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =7029
+                    Top =4875
+                    Width =1701
+                    Height =227
+                    Name ="ボックス399"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =8730
+                    Top =4875
+                    Width =1814
+                    Height =227
+                    Name ="ボックス400"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =9170
+                    Top =5325
+                    Width =681
+                    Height =567
+                    FontSize =10
+                    TopMargin =113
+                    Name ="ラベル402"
+                    Caption ="計測値"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =226
+                    Top =5442
+                    Width =227
+                    Height =454
+                    Name ="ボックス403"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7370
+                    Top =12925
+                    Width =3174
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル408"
+                    Caption ="設計承認"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7425
+                    Top =14011
+                    Width =884
+                    Height =227
+                    FontSize =10
+                    BorderColor =255
+                    ForeColor =255
+                    Name ="ラベル409"
+                    Caption ="ＤＲ１"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7425
+                    Top =14238
+                    Width =884
+                    Height =226
+                    FontSize =10
+                    BorderColor =255
+                    ForeColor =255
+                    Name ="ラベル410"
+                    Caption ="ＤＲ２"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7365
+                    Top =13379
+                    Width =1064
+                    Height =227
+                    FontSize =10
+                    BorderColor =4210752
+                    Name ="ラベル412"
+                    Caption ="営業承認"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7365
+                    Top =13152
+                    Width =1064
+                    Height =227
+                    FontSize =10
+                    BorderColor =4210752
+                    Name ="ラベル413"
+                    Caption ="開発承認"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8309
+                    Top =14011
+                    Width =865
+                    Height =227
+                    FontSize =10
+                    TabIndex =77
+                    BorderColor =255
+                    ForeColor =255
+                    Name ="設計承認_DR1"
+                    ControlSource ="設計承認DR1"
+                    Format ="Short Date"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8309
+                    Top =14238
+                    Width =865
+                    Height =226
+                    FontSize =10
+                    TabIndex =78
+                    BorderColor =255
+                    ForeColor =255
+                    Name ="設計承認_DR2"
+                    ControlSource ="設計承認DR2"
+                    Format ="Short Date"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8429
+                    Top =13379
+                    Width =1045
+                    Height =227
+                    FontSize =10
+                    TabIndex =79
+                    BorderColor =4210752
+                    Name ="設計承認_営業"
+                    ControlSource ="設計承認営業承認"
+                    Format ="Short Date"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =8429
+                    Top =13152
+                    Width =1045
+                    Height =227
+                    FontSize =10
+                    TabIndex =80
+                    BorderColor =4210752
+                    Name ="設計承認_技術"
+                    ControlSource ="設計承認技術承認"
+                    Format ="Short Date"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Image
+                    Visible = NotDefault
+                    BackStyle =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    Left =1644
+                    Top =340
+                    Width =113
+                    Height =113
+                    Name ="イメージ空白"
+                    Picture ="C:\\Mitukawa\\SOSIKI\\000000.BMP"
+                End
+                Begin CheckBox
+                    Visible = NotDefault
+                    OldBorderStyle =0
+                    BorderWidth =1
+                    Left =737
+                    Top =1927
+                    Width =283
+                    Height =227
+                    TabIndex =81
+                    Name ="試編区分"
+                    ControlSource ="=IIf([設計区分]=0,Yes,No)"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =226
+                    Top =2381
+                    Width =681
+                    Height =226
+                    FontSize =10
+                    TabIndex =82
+                    LeftMargin =57
+                    Name ="試編区分名"
+                    ControlSource ="=Choose([設計区分]+1,\"計算\",\"机上\",\"試験\",\"暫定\",\"登録\",\"ルート\")"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =9174
+                    Top =14010
+                    Width =880
+                    Height =227
+                    FontSize =10
+                    TabIndex =83
+                    BorderColor =255
+                    ForeColor =255
+                    Name ="テキスト429"
+                    ControlSource ="設計承認者DR1"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =9174
+                    Top =14237
+                    Width =880
+                    Height =226
+                    FontSize =10
+                    TabIndex =84
+                    BorderColor =255
+                    ForeColor =255
+                    Name ="テキスト430"
+                    ControlSource ="設計承認者DR2"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =9474
+                    Top =13379
+                    Width =1060
+                    Height =227
+                    FontSize =10
+                    TabIndex =85
+                    BorderColor =4210752
+                    Name ="テキスト432"
+                    ControlSource ="設計承認営業承認者"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =9474
+                    Top =13152
+                    Width =1060
+                    Height =227
+                    FontSize =10
+                    TabIndex =86
+                    BorderColor =4210752
+                    Name ="テキスト433"
+                    ControlSource ="設計承認技術承認者"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Left =5676
+                    Top =390
+                    Width =951
+                    TabIndex =87
+                    ForeColor =255
+                    Name ="ＱＲ公称巾"
+                    ControlSource ="ＱＲ公称巾"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Left =5670
+                    Top =597
+                    Width =951
+                    TabIndex =88
+                    ForeColor =255
+                    Name ="ＱＲ公称長"
+                    ControlSource ="ＱＲ公称長"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Left =5655
+                    Top =810
+                    Width =951
+                    TabIndex =89
+                    ForeColor =255
+                    Name ="編立工場名"
+                    ControlSource ="編立工場名"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =9075
+                    Width =3077
+                    Height =454
+                    Name ="組織図01"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =9529
+                    Width =3077
+                    Height =454
+                    Name ="組織図02"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =9983
+                    Width =3077
+                    Height =454
+                    Name ="組織図03"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =10437
+                    Width =3077
+                    Height =454
+                    Name ="組織図04"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =10891
+                    Width =3077
+                    Height =454
+                    Name ="組織図05"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =11345
+                    Width =3077
+                    Height =454
+                    Name ="組織図06"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =11799
+                    Width =3077
+                    Height =454
+                    Name ="組織図07"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =555
+                    Top =12253
+                    Width =3077
+                    Height =454
+                    Name ="組織図08"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =9075
+                    Width =3077
+                    Height =454
+                    Name ="組織図09"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =9529
+                    Width =3077
+                    Height =454
+                    Name ="組織図10"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =9983
+                    Width =3077
+                    Height =454
+                    Name ="組織図11"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =10437
+                    Width =3077
+                    Height =454
+                    Name ="組織図12"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =10891
+                    Width =3077
+                    Height =454
+                    Name ="組織図13"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =11345
+                    Width =3077
+                    Height =454
+                    Name ="組織図14"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =11799
+                    Width =3077
+                    Height =454
+                    Name ="組織図15"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =3975
+                    Top =12253
+                    Width =3077
+                    Height =454
+                    Name ="組織図16"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =9075
+                    Width =3092
+                    Height =454
+                    Name ="組織図17"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =9529
+                    Width =3092
+                    Height =454
+                    Name ="組織図18"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =9983
+                    Width =3092
+                    Height =454
+                    Name ="組織図19"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =10437
+                    Width =3092
+                    Height =454
+                    Name ="組織図20"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =10891
+                    Width =3092
+                    Height =454
+                    Name ="組織図21"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =11345
+                    Width =3092
+                    Height =454
+                    Name ="組織図22"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =11799
+                    Width =3092
+                    Height =454
+                    Name ="組織図23"
+                End
+                Begin Image
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    SizeMode =1
+                    PictureType =1
+                    Left =7395
+                    Top =12253
+                    Width =3092
+                    Height =454
+                    Name ="組織図24"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =8850
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    Name ="ラベルNO1"
+                    Caption ="№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =8850
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    Name ="ラベルNO2"
+                    Caption ="№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =9076
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル292"
+                    Caption ="01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =9530
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル293"
+                    Caption ="02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =9983
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル294"
+                    Caption ="03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =10437
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル295"
+                    Caption ="04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =10891
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル296"
+                    Caption ="05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =11344
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル297"
+                    Caption ="06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =11798
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル298"
+                    Caption ="07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =9076
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル299"
+                    Caption ="09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =9530
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル300"
+                    Caption ="10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =9983
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル301"
+                    Caption ="11"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =10437
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル302"
+                    Caption ="12"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =10891
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル303"
+                    Caption ="13"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =11344
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル304"
+                    Caption ="14"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =210
+                    Top =12251
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル311"
+                    Caption ="08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =11798
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル312"
+                    Caption ="15"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3630
+                    Top =12251
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル314"
+                    Caption ="16"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =550
+                    Top =8850
+                    Width =3077
+                    Height =226
+                    FontSize =10
+                    TabIndex =90
+                    Name ="出合い表示１"
+                    ControlSource ="=IIf([出合い]=1,\"インターロック\",IIf([出合い]=2,\"リブ\",\"その他\"))"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3970
+                    Top =8850
+                    Width =3080
+                    Height =226
+                    FontSize =10
+                    TabIndex =91
+                    Name ="出合い表示２"
+                    ControlSource ="=IIf([出合い]=1,\"インターロック\",IIf([出合い]=2,\"リブ\",\"その他\"))"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7391
+                    Top =8850
+                    Width =3091
+                    Height =226
+                    FontSize =10
+                    TabIndex =92
+                    Name ="出合い表示３"
+                    ControlSource ="=IIf([出合い]=1,\"インターロック\",IIf([出合い]=2,\"リブ\",\"その他\"))"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =8850
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    Name ="ラベル451"
+                    Caption ="№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =9076
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル452"
+                    Caption ="17"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =9530
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル453"
+                    Caption ="18"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =9983
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル454"
+                    Caption ="19"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =10437
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル455"
+                    Caption ="20"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =10891
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル456"
+                    Caption ="21"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =11344
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル457"
+                    Caption ="22"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =11798
+                    Width =340
+                    Height =453
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル458"
+                    Caption ="23"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7050
+                    Top =12251
+                    Width =340
+                    Height =454
+                    FontSize =10
+                    TopMargin =86
+                    Name ="ラベル459"
+                    Caption ="24"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextAlign =1
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =120
+                    Top =465
+                    Width =3855
+                    Height =257
+                    FontSize =12
+                    TabIndex =93
+                    Name ="宛先名12"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextAlign =1
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =120
+                    Top =420
+                    Width =3855
+                    Height =317
+                    FontSize =14
+                    TabIndex =94
+                    Name ="宛先名14"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =8730
+                    Top =3741
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    TabIndex =95
+                    LeftMargin =57
+                    Name ="染検査目面"
+                    ControlSource ="染検査目面"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =8730
+                    Top =3510
+                    Width =907
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル440"
+                    Caption ="染検目面"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =8429
+                    Top =13710
+                    Width =680
+                    Height =226
+                    FontSize =10
+                    TabIndex =96
+                    LeftMargin =57
+                    Name ="暫定設計ID"
+                    ControlSource ="暫定設計ID"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =7365
+                    Top =13710
+                    Width =1064
+                    Height =227
+                    FontSize =10
+                    Name ="ラベル442"
+                    Caption ="暫定設計№"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =3748
+                    Top =13152
+                    Width =3507
+                    Height =2057
+                    FontSize =11
+                    TabIndex =97
+                    LeftMargin =29
+                    Name ="r備考右"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Left =7382
+                    Top =14513
+                    Width =951
+                    TabIndex =98
+                    ForeColor =255
+                    Name ="備考左"
+                    ControlSource ="備考左"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Left =8333
+                    Top =14513
+                    Width =951
+                    TabIndex =99
+                    ForeColor =255
+                    Name ="備考右"
+                    ControlSource ="備考右"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =8265
+                    Top =645
+                    Width =2267
+                    Height =212
+                    FontSize =10
+                    TabIndex =100
+                    Name ="ユーザー名"
+                    ControlSource ="=\"ミツカワ株式会社\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Rectangle
+                    BorderWidth =1
+                    Left =9393
+                    Top =872
+                    Width =1133
+                    Height =1133
+                    Name ="ボックス386"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =9393
+                    Top =865
+                    Width =1144
+                    Height =242
+                    FontSize =10
+                    TopMargin =17
+                    Name ="ラベル426"
+                    Caption ="発行者"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+            End
+        End
+        Begin PageFooter
+            Height =0
+            Name ="ページフッター"
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Report_NoData(Cancel As Integer)
+    Cancel = True
+End Sub
+
+Private Sub 詳細_Format(Cancel As Integer, FormatCount As Integer)
+
+    Dim i As Integer
+
+    i = Len(Trim(LINK_ATESAKI))
+    If i < 14 Then
+        Me.宛先名14 = LINK_ATESAKI
+    ElseIf i < 17 Then
+        Me.宛先名12 = LINK_ATESAKI
+    Else
+        Me.宛先名10 = LINK_ATESAKI
+    End If
+
+''''''''''    If Me.QR公称巾 <> 0 Or Me.QR公称長 <> 0 Then
+''''''''''        Me![非連結公称規格] = Me.QR公称巾 & "×" & Me.QR公称長
+''''''''''    Else
+''''''''''        Me![非連結公称規格] = ""
+''''''''''    End If
+
+    If Trim(LINK_ATESAKI) = "" Then
+        Me![号機] = LINK_GOUKI
+''''''''''        Me.非連結編立工場名 = Me.編立工場名
+        Me.r備考左 = Me.備考左
+        Me.r備考右 = Me.備考右
+    Else
+        Me![号機] = ""
+'''''''''        Me.非連結編立工場名 = ""
+
+        Dim vl As Variant
+        vl = Split(Me.備考左, vbCrLf)
+        Dim ml As Long
+        ml = UBound(vl)
+        Dim bl As String
+        bl = ""
+        For i = 0 To ml
+            If Left(vl(i), 4) <> "MM0." Then
+                bl = bl & vl(i) & vbCrLf
+            End If
+        Next i
+        Me.r備考左 = bl
+
+        Dim vr As Variant
+        vr = Split(Me.備考右, vbCrLf)
+        Dim mr As Long
+        mr = UBound(vr)
+        Dim br As String
+        br = ""
+        For i = 0 To mr
+            If Left(vr(i), 4) <> "MM0." Then
+                br = br & vr(i) & vbCrLf
+            End If
+        Next i
+        Me.r備考右 = br
+    End If
+    On Error GoTo Err_詳細_Format
+    Dim intNO As Integer
+    Dim strNO As String * 2
+    For intNO = 1 To 24
+        strNO = Format(intNO, "00")
+        If LINK_設計書印刷時の組織図有無 Then
+            Me("組織図" & strNO).PictureData = IIf(Me("組織CD" & strNO) = 0, イメージ空白.PictureData, DLookup("組織図DATA", "組織図マスタ", "組織CD=" & Me("組織CD" & strNO)))
+        Else
+            Me("組織図" & strNO).PictureData = イメージ空白.PictureData
+        End If
+    Next intNO
+
+Exit_詳細_Format:
+    Exit Sub
+
+Err_詳細_Format:
+    Resume Next
+End Sub

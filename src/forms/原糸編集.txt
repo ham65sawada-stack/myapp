@@ -1,0 +1,373 @@
+Version =20
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    AllowDeletions = NotDefault
+    CloseButton = NotDefault
+    AllowAdditions = NotDefault
+    KeyPreview = NotDefault
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =49
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridX =64
+    GridY =64
+    Width =4832
+    DatasheetFontHeight =9
+    ItemSuffix =97
+    Left =6120
+    Top =3840
+    Right =13350
+    Bottom =10230
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0xb08b181a30f8e140
+    End
+    Caption ="原糸編集"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0x8905000089050000890500008905000000000000831200005914000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    OnKeyDown ="[Event Procedure]"
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Line
+            Width =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            LabelX =230
+            LabelY =-30
+        End
+        Begin TextBox
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ListBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Section
+            Height =5208
+            BackColor =12632256
+            Name ="詳細"
+            Begin
+                Begin ListBox
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    OldBorderStyle =0
+                    ColumnCount =2
+                    Left =840
+                    Top =915
+                    Width =3797
+                    Height =3352
+                    TabIndex =1
+                    Name ="絞込みリスト"
+                    RowSourceType ="Table/Query"
+                    ColumnWidths ="2776;628"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin TextBox
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    Left =840
+                    Top =4800
+                    Width =2775
+                    Height =270
+                    TopMargin =29
+                    Name ="原糸品番"
+                    FontName ="ＭＳ ゴシック"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =45
+                            Top =4800
+                            Width =795
+                            Height =255
+                            TopMargin =29
+                            Name ="ラベル90"
+                            Caption ="原糸品種"
+                        End
+                    End
+                End
+                Begin TextBox
+                    OverlapFlags =215
+                    TextFontFamily =49
+                    IMEMode =2
+                    Left =840
+                    Top =555
+                    Width =3797
+                    Height =270
+                    TabIndex =2
+                    TopMargin =29
+                    Name ="検索原糸品番"
+                    FontName ="ＭＳ ゴシック"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =45
+                            Top =555
+                            Width =810
+                            Height =255
+                            TopMargin =29
+                            Name ="ラベル89"
+                            Caption ="検索条件"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    Default = NotDefault
+                    OverlapFlags =85
+                    Left =30
+                    Top =90
+                    Width =1176
+                    TabIndex =3
+                    Name ="絞込み"
+                    Caption ="絞込み(Ent)"
+                    OnClick ="[Event Procedure]"
+                    ObjectPalette = Begin
+                        0x0003100000000000800000000080000080800000000080008000800000808000 ,
+                        0xc0c0c00080808000ff00000000ff0000ffff00000000ff00ff00ff0000ffff00 ,
+                        0xffffff0000000000
+                    End
+                    ControlTipText ="レコードの検索"
+                End
+                Begin Label
+                    OverlapFlags =215
+                    TextFontFamily =49
+                    Left =840
+                    Top =4395
+                    Width =2775
+                    Height =405
+                    Name ="ラベル88"
+                    Caption ="         1         2         3\015\012123456789012345678901234567890"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =3510
+                    Top =90
+                    Width =1161
+                    TabIndex =4
+                    Name ="閉じる"
+                    Caption ="書き込み(F5)"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OverlapFlags =87
+                    TextAlign =3
+                    TextFontFamily =49
+                    Left =3675
+                    Top =4800
+                    Width =795
+                    Height =270
+                    TabIndex =5
+                    TopMargin =29
+                    Name ="見掛繊度"
+                    Format ="Standard"
+                    DefaultValue ="0"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="###.#"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =3675
+                            Top =4590
+                            Width =795
+                            Height =210
+                            Name ="ラベル94"
+                            Caption ="見掛繊度"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =2352
+                    Top =90
+                    Width =1161
+                    TabIndex =6
+                    Name ="取り消し"
+                    Caption ="取り消し(F3)"
+                    OnClick ="[Event Procedure]"
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+Dim sPassWord As String
+
+Private Sub Form_Open(Cancel As Integer)
+    Me.原糸品番 = Trim(Form_設計Hメンテ.設計Bメンテ![原糸品番])
+    Me.検索原糸品番 = Trim(Form_設計Hメンテ.設計Bメンテ![原糸品番])
+    Me.見掛繊度 = x.FormatNumeric(Form_設計Hメンテ.設計Bメンテ![見掛繊度])
+End Sub
+
+Private Sub 絞込み_Click()
+    Dim sSQL As String
+    Dim sScanWord As String
+    Dim sWord(30) As String
+    Dim iCnt As Integer
+    Dim i As Integer
+    Dim iPosEnd As Integer
+
+    If Not IsNull(Me.検索原糸品番) Then
+        sScanWord = Trim(Me.検索原糸品番)
+        If Len(sScanWord) > 0 Then
+            iCnt = 0
+            Do While Len(sScanWord) > 0
+                iCnt = iCnt + 1
+                iPosEnd = InStr(1, sScanWord, " ")
+                If iPosEnd = 0 Then
+                    sWord(iCnt) = "*" & sScanWord & "*"
+                    sScanWord = ""
+                Else
+                    sWord(iCnt) = "*" & Trim(Left(sScanWord, iPosEnd)) & "*"
+                    sScanWord = Trim(Mid(sScanWord, iPosEnd))
+                End If
+            Loop
+'            sSQL = "SELECT IIf([設計区分]=1,'ルート','試編') AS 区分, 原糸品番, Right(Space(7) & Format(IIf(IsNull([見掛繊度]),0,[見掛繊度]),'0.0'),7) AS 式1"
+'            sSQL = sSQL & " FROM 設計原糸一覧マスタ"
+'            sSQL = sSQL & " WHERE (((メーカーCD) = [Forms]![設計Ｈメンテ]![メーカーCD]) And ((気付先CD) = [Forms]![設計Ｈメンテ]![気付先CD]))"
+
+
+            If iCnt > 0 Then
+                sSQL = "SELECT 原糸品種, Right(Space(7) & Format(IIf(IsNull([見掛繊度]),0,[見掛繊度]),'0.0'),7) AS 式1"
+                sSQL = sSQL & " FROM 原糸品種マスタ"
+                sSQL = sSQL & " WHERE "
+                For i = 1 To iCnt
+                    If i > 1 Then
+                        sSQL = sSQL & " and"
+                    End If
+                    sSQL = sSQL & " 原糸品種 Like " & x.FormatString(sWord(i))
+                Next i
+                sSQL = sSQL & " ORDER BY 原糸品種"
+                Me.Painting = False
+                Me.絞込みリスト.RowSource = sSQL
+                Me.絞込みリスト.Requery
+                Me.Painting = True
+            Else
+                Me.Painting = False
+                Me.絞込みリスト.RowSource = ""
+                Me.絞込みリスト.Requery
+                Me.Painting = True
+            End If
+        End If
+    End If
+End Sub
+
+Private Sub 絞込みリスト_Click()
+    If IsNull(Me.絞込みリスト.Column(0)) Then
+        Exit Sub
+    End If
+    Me.原糸品番 = Me.絞込みリスト.Column(0)
+    If IsNumeric(Me.見掛繊度 = Me.絞込みリスト.Column(1)) Then
+        Me.見掛繊度 = Me.絞込みリスト.Column(1)
+    Else
+        Me.見掛繊度 = 0
+    End If
+End Sub
+
+Private Sub 取り消し_Click()
+    DoCmd.Close
+End Sub
+
+Private Sub 閉じる_Click()
+    If Not IsNull(Me.原糸品番) Then
+        Form_設計Hメンテ.設計Bメンテ![原糸品番] = Me.原糸品番
+    End If
+    If IsNumeric(Me.見掛繊度) Then
+        Form_設計Hメンテ.設計Bメンテ![見掛繊度] = Me.見掛繊度
+    Else
+        Form_設計Hメンテ.設計Bメンテ![見掛繊度] = 0
+    End If
+    DoCmd.SetWarnings False
+    DoCmd.RunSQL "UPDATE 原糸品種マスタ SET 見掛繊度=" & x.FormatNumeric(Me.見掛繊度) & " WHERE 原糸品種=" & x.FormatString(Me.原糸品番) & ";"
+    DoCmd.SetWarnings True
+    DoCmd.Close
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    If Shift = 0 Then
+        Select Case KeyCode
+        Case 112    'F1
+            KeyCode = 0
+        Case 113    'F2
+            KeyCode = 0
+        Case 114    'F3
+            KeyCode = 0
+            Call 取り消し_Click
+        Case 115    'F4
+            KeyCode = 0
+        Case 116    'F5
+            KeyCode = 0
+            Call 閉じる_Click
+        Case 34
+            KeyCode = 0
+        Case 27     'ESC
+            KeyCode = 0
+            If Me.Dirty Then
+                On Error Resume Next
+                DoCmd.RunCommand acCmdUndo
+                On Error GoTo 0
+                If Not Me.Dirty Then
+'                   Call Form_Current
+                End If
+            End If
+        End Select
+    End If
+End Sub

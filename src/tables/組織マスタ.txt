@@ -1,0 +1,6 @@
+TABLE	組織マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.組織マスタ
+FIELD	組織ＣＤ	Text	Size=6	Req=True	ZeroLen=True
+FIELD	組織名	Text	Size=10	Req=False	ZeroLen=True
+INDEX	PK_組織マスタ	(組織ＣＤ)	PK=True	Unique=True

@@ -1,0 +1,7 @@
+TABLE	Switchboard Items
+FIELD	SwitchboardID	Long	Size=4	Req=False	ZeroLen=False
+FIELD	ItemNumber	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	ItemText	Text	Size=255	Req=False	ZeroLen=False
+FIELD	Command	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	Argument	Text	Size=255	Req=False	ZeroLen=True
+INDEX	PrimaryKey	(SwitchboardID,ItemNumber)	PK=True	Unique=True

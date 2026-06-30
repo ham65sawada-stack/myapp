@@ -1,0 +1,751 @@
+Version =21
+VersionRequired =20
+Begin Form
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    DividingLines = NotDefault
+    AllowAdditions = NotDefault
+    KeyPreview = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    TabularCharSet =128
+    TabularFamily =50
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =5499
+    DatasheetFontHeight =9
+    ItemSuffix =36
+    Left =11600
+    Top =5670
+    Right =18380
+    Bottom =12340
+    DatasheetGridlinesColor =12632256
+    Filter ="設計ID =353860"
+    RecSrcDt = Begin
+        0x9c8a54f8f2a3e240
+    End
+    RecordSource ="SELECT 設計Ｈワーク.*, 編立工場マスタ.編立工場名 FROM 設計Ｈワーク LEFT JOIN 編立工場マスタ ON 設計Ｈワーク.編立工場ＣＤ=編立"
+        "工場マスタ.編立工場ＣＤ; "
+    Caption ="設計書印刷"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0x89050000890500008905000089050000000000007b1500002c0e000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    OnKeyDown ="[Event Procedure]"
+    FilterOnLoad =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            BorderLineStyle =0
+            Width =850
+            Height =850
+        End
+        Begin Line
+            BorderLineStyle =0
+            Width =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin UnboundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin CustomControl
+            SpecialEffect =2
+            Width =4536
+            Height =2835
+        End
+        Begin Section
+            Height =5159
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =4
+                    Left =1515
+                    Top =60
+                    Width =2935
+                    Height =225
+                    TabIndex =1
+                    Name ="画面編立工場名"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OverlapFlags =85
+                    Left =675
+                    Top =1200
+                    Width =500
+                    Height =239
+                    TabIndex =4
+                    Name ="画面号機"
+                    Format ="Fixed"
+                    InputMask ="9999"
+
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =60
+                    Top =1230
+                    Width =510
+                    Height =195
+                    Name ="ラベル3"
+                    Caption ="号機"
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =165
+                    Top =1610
+                    Width =3990
+                    TabIndex =5
+                    Name ="設計書組織図あり"
+                    Caption ="設計書"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =4620
+                    Top =45
+                    Width =825
+                    Height =510
+                    TabIndex =9
+                    Name ="閉じる"
+                    Caption ="閉じる(F5)"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =4422
+                    Top =1303
+                    Width =621
+                    TabIndex =10
+                    ForeColor =255
+                    Name ="設計ID"
+                    ControlSource ="設計ID"
+
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =165
+                    Top =2133
+                    Width =3990
+                    TabIndex =6
+                    Name ="設計書組織図なし"
+                    Caption ="組織図なし設計書"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =165
+                    Top =3643
+                    Width =3990
+                    TabIndex =7
+                    Name ="柄替報告書兼初反品質確認書"
+                    Caption ="柄替報告書兼初反品質確認書"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =4478
+                    Top =2097
+                    Width =621
+                    TabIndex =11
+                    ForeColor =255
+                    Name ="設計区分"
+                    ControlSource ="設計区分"
+
+                End
+                Begin ComboBox
+                    OverlapFlags =87
+                    ColumnCount =4
+                    ListRows =20
+                    ListWidth =3969
+                    Left =645
+                    Top =45
+                    Width =828
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"\";\"\";\"\";\"\";\"10\";\"10\""
+                    Name ="画面編立工場ＣＤ"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT 編立工場マスタ.編立工場ＣＤ, 編立工場マスタ.編立工場名, 編立工場マスタ.FAX, 編立工場マスタ.MAIL FROM 編立工場マスタ; "
+                    ColumnWidths ="852;2835;0;0"
+                    OnChange ="[Event Procedure]"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =45
+                            Top =45
+                            Width =600
+                            Height =225
+                            Name ="ラベル12"
+                            Caption ="編工場:"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =165
+                    Top =4166
+                    Width =3990
+                    TabIndex =8
+                    Name ="設計柄替報告書兼初反品質確認書"
+                    Caption ="設計書＋柄替報告書兼初反品質確認書"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin OptionGroup
+                    OverlapFlags =85
+                    Left =724
+                    Top =690
+                    Width =1847
+                    Height =368
+                    TabIndex =3
+                    Name ="optOutput"
+                    DefaultValue ="1"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OverlapFlags =85
+                            Left =60
+                            Top =745
+                            Width =615
+                            Height =225
+                            BackColor =-2147483633
+                            Name ="ラベル18"
+                            Caption ="出力先"
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =915
+                            Top =793
+                            OptionValue =1
+                            Name ="オプション20"
+
+                            Begin
+                                Begin Label
+                                    OverlapFlags =247
+                                    Left =1145
+                                    Top =765
+                                    Width =435
+                                    Height =225
+                                    Name ="ラベル21"
+                                    Caption ="印刷"
+                                End
+                            End
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =1650
+                            Top =793
+                            OptionValue =2
+                            Name ="オプション24"
+
+                            Begin
+                                Begin Label
+                                    OverlapFlags =247
+                                    Left =1880
+                                    Top =765
+                                    Width =570
+                                    Height =225
+                                    Name ="ラベル25"
+                                    Caption ="メール"
+                                End
+                            End
+                        End
+                    End
+                End
+                Begin TextBox
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =1538
+                    Top =364
+                    Width =2935
+                    Height =225
+                    TabIndex =2
+                    Name ="MailAdd"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =915
+                            Top =345
+                            Width =600
+                            Height =225
+                            Name ="ラベル29"
+                            Caption ="Mail:"
+                        End
+                    End
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =4478
+                    Top =2457
+                    Width =621
+                    TabIndex =12
+                    ForeColor =255
+                    Name ="生機品番"
+                    ControlSource ="生機品番"
+
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =165
+                    Top =3120
+                    Width =3990
+                    TabIndex =13
+                    Name ="客先提出用"
+                    Caption ="客先提出用"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =165
+                    Top =4676
+                    Width =3990
+                    TabIndex =14
+                    Name ="ラベル印刷"
+                    Caption ="ラベル印刷"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =165
+                    Top =2643
+                    Width =3990
+                    TabIndex =15
+                    Name ="生産課設計書"
+                    Caption ="生産課設計書"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_Open(Cancel As Integer)
+    If Trim(Me![編立工場CD]) = "MA79" Then
+        Me![画面編立工場ＣＤ] = Null
+        Me![画面編立工場名] = Null
+        Me![画面号機] = Me![号機]
+    Else
+        Me![画面編立工場ＣＤ] = Trim(Me![編立工場CD])
+        Me![画面編立工場名] = Me![編立工場名]
+        Me![MailAdd] = [画面編立工場ＣＤ].[Column](3)
+        Me![画面号機] = Null
+    End If
+End Sub
+
+Private Sub 画面編立工場CD_Change()
+    Me![画面編立工場名] = [画面編立工場ＣＤ].[Column](1)
+    Me![MailAdd] = [画面編立工場ＣＤ].[Column](3)
+End Sub
+
+Private Sub 客先提出用_Click()
+Dim sDocName(1 To 1)  As String
+    DoCmd.SetWarnings True
+    LINK_設計書印刷時の組織図有無 = False
+    LINK_設計書印刷時の生産課用 = False
+    LINK_設計書客先提出用 = True
+    Call 設計書印刷
+    If optOutput = 2 Then Call subSendMail(1)
+    DoCmd.SetWarnings False
+End Sub
+
+Private Sub 生産課設計書_Click()
+Dim sDocName(1 To 1)  As String
+    DoCmd.SetWarnings True
+    LINK_設計書印刷時の組織図有無 = True
+    LINK_設計書印刷時の生産課用 = True
+    LINK_設計書客先提出用 = False
+    Call 設計書印刷
+    If optOutput = 2 Then Call subSendMail(1)
+    DoCmd.SetWarnings False
+End Sub
+
+Private Sub 設計書組織図あり_Click()
+    DoCmd.SetWarnings True
+    Dim sDocName(1 To 1)  As String
+    LINK_設計書印刷時の組織図有無 = True
+    LINK_設計書印刷時の生産課用 = False
+    LINK_設計書客先提出用 = False
+    Call 設計書印刷
+    If optOutput = 2 Then Call subSendMail(1)
+    DoCmd.SetWarnings False
+End Sub
+
+Private Sub 設計書組織図なし_Click()
+Dim sDocName(1 To 1)  As String
+    DoCmd.SetWarnings True
+    LINK_設計書印刷時の組織図有無 = False
+    LINK_設計書印刷時の生産課用 = False
+    LINK_設計書客先提出用 = False
+    Call 設計書印刷
+    If optOutput = 2 Then Call subSendMail(1)
+    DoCmd.SetWarnings False
+End Sub
+
+Private Sub ラベル印刷_Click()
+    DoCmd.OpenForm "ラベル印刷画面", , , , , acDialog, Me![設計ID]
+End Sub
+
+Private Sub 柄替報告書兼初反品質確認書_Click()
+Dim sDocName(1 To 1)  As String
+Dim W設計ID
+Dim LAST_組織CD_CNT
+    DoCmd.SetWarnings True
+    W設計ID = val(Me![設計ID])
+    If VarType(Me![画面編立工場名]) = vbString Then
+        LINK_ATESAKI = Me![画面編立工場名]
+    Else
+        LINK_ATESAKI = ""
+    End If
+
+    If Not IsNumeric(Me![画面号機]) Then
+        Me![画面号機] = 0
+        LINK_GOUKI = 0
+    Else
+        LINK_GOUKI = Me![画面号機]
+    End If
+
+    Call 柄替報告書兼初反品質確認書印刷
+    If optOutput = 2 Then Call subSendMail(2)
+    DoCmd.SetWarnings False
+End Sub
+
+Private Sub 設計柄替報告書兼初反品質確認書_Click()
+Dim sTempPath         As String
+Dim sDocName(1 To 2)  As String
+    DoCmd.SetWarnings True
+    LINK_設計書印刷時の組織図有無 = True
+    LINK_設計書印刷時の生産課用 = False
+    LINK_設計書客先提出用 = False
+    Call 設計書印刷
+    Call 柄替報告書兼初反品質確認書印刷
+    If optOutput = 2 Then Call subSendMail(3)
+    DoCmd.SetWarnings False
+End Sub
+
+Private Sub 設計書印刷()
+Dim prtDefault As Printer
+Dim W設計ID
+    On Error GoTo Err_設計書印刷
+
+    W設計ID = Me![設計ID]
+    If VarType(Me![画面編立工場名]) = vbString Then
+        LINK_ATESAKI = Me![画面編立工場名]
+    Else
+        LINK_ATESAKI = ""
+    End If
+
+    If Not IsNumeric(Me![画面号機]) Then
+        Me![画面号機] = 0
+        LINK_GOUKI = 0
+    Else
+        LINK_GOUKI = Me![画面号機]
+    End If
+
+    If optOutput = 1 Then
+        If pubs設計書プリンター <> "" Then
+            '現在のプリンタ設定を退避
+            Set prtDefault = Application.Printer
+            '設計書プリンターの情報を設定
+            Set Application.Printer = Application.Printers(pubs設計書プリンター)
+        End If
+        If LINK_設計書客先提出用 Then
+            DoCmd.OpenReport "丸編設計書客先提出用"
+        Else
+            If LINK_設計書印刷時の生産課用 Then
+                DoCmd.OpenReport "丸編設計書生産課用"
+            Else
+                DoCmd.OpenReport "丸編設計書"
+            End If
+        End If
+        If pubs設計書プリンター <> "" Then
+            'プリンタ設定を元に戻す
+            Set Application.Printer = prtDefault
+        End If
+    Else
+        On Error Resume Next
+        Kill "C:\PDF\設計書.pdf"
+        On Error GoTo 0
+''''''''''        '現在のプリンタ設定を退避
+''''''''''        Set prtDefault = Application.Printer
+''''''''''        'ＰＤＦの情報を設定
+''''''''''        Set Application.Printer = Application.Printers("業務用PDF")
+        'レポートを開く
+        If LINK_設計書客先提出用 Then
+            ''''''''''DoCmd.OpenReport "丸編設計書客先提出用"
+''''''''''            If Not ConvertReportToPDF("丸編設計書客先提出用", vbNullString, "C:\PDF\設計書.pdf", False, False, 150, "", "", 0, 0, 0) Then
+''''''''''                MsgBox "丸編設計書客先提出用PDF化失敗しました。", vbOKOnly, "エラーメッセージ"
+''''''''''            End If
+        Else
+            ''''''''''DoCmd.OpenReport "丸編設計書"
+''''''''''            If Not ConvertReportToPDF("丸編設計書", vbNullString, "C:\PDF\設計書.pdf", False, False, 150, "", "", 0, 0, 0) Then
+''''''''''                MsgBox "丸編設計書PDF化失敗しました。", vbOKOnly, "エラーメッセージ"
+''''''''''            End If
+        End If
+        DoEvents
+'''''        Do While Dir("C:\PDF\設計書.pdf") = ""
+'''''            DoEvents
+'''''        Loop
+'''''        Wait 5
+''''''''''        'プリンタ設定を元に戻す
+''''''''''        Set Application.Printer = prtDefault
+    End If
+Exit_設計書印刷:
+    Exit Sub
+
+Err_設計書印刷:
+    MsgBox Err.Description
+    Resume Exit_設計書印刷
+End Sub
+
+Private Sub 柄替報告書兼初反品質確認書印刷()
+Dim prtDefault As Printer
+Dim sDocName(1 To 1)  As String
+Dim W設計ID
+Dim LAST_組織CD_CNT
+    On Error GoTo Err_柄替報告書兼初反品質確認書印刷
+
+    W設計ID = Me![設計ID]
+    If VarType(Me![画面編立工場名]) = vbString Then
+        LINK_ATESAKI = Me![画面編立工場名]
+    Else
+        LINK_ATESAKI = ""
+    End If
+
+    If Not IsNumeric(Me![画面号機]) Then
+        Me![画面号機] = 0
+        LINK_GOUKI = 0
+    Else
+        LINK_GOUKI = Me![画面号機]
+    End If
+
+    If optOutput = 1 Then
+        gReport_柄替報告書兼初反品質確認書_設計ID = W設計ID
+        DoCmd.OpenReport "柄替報告書兼初反品質確認書"
+    Else
+        On Error Resume Next
+        Kill "C:\PDF\柄替報告書兼初反品質確認書.pdf"
+        On Error GoTo 0
+''''''''''        '現在のプリンタ設定を退避
+''''''''''        Set prtDefault = Application.Printer
+''''''''''        '選択されたプリンタの情報を設定
+''''''''''        Set Application.Printer = Application.Printers("業務用PDF")
+''''''''''        'レポートを開く
+''''''''''        DoCmd.OpenReport "柄替報告書兼初反品質確認書", , , "設計ID =" & W設計ID
+        gReport_柄替報告書兼初反品質確認書_設計ID = W設計ID
+''''''''''        If Not ConvertReportToPDF("柄替報告書兼初反品質確認書", vbNullString, "C:\PDF\柄替報告書兼初反品質確認書.pdf", False, False, 150, "", "", 0, 0, 0) Then
+''''''''''            MsgBox "失敗しました。", vbOKOnly, "エラーメッセージ"
+''''''''''        End If
+        DoEvents
+''''''''''        Do While Dir("C:\PDF\柄替報告書兼初反品質確認書.pdf") = ""
+''''''''''            DoEvents
+''''''''''        Loop
+''''''''''        Wait 5
+''''''''''        'プリンタ設定を元に戻す
+''''''''''        Set Application.Printer = prtDefault
+    End If
+
+Exit_柄替報告書兼初反品質確認書印刷:
+    Exit Sub
+
+Err_柄替報告書兼初反品質確認書印刷:
+    MsgBox Err.Description
+    Resume Exit_柄替報告書兼初反品質確認書印刷
+End Sub
+
+Private Sub 閉じる_Click()
+    DoCmd.Close acForm, "設計書印刷"
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    If Shift = 0 Then
+        Select Case KeyCode
+        Case 112    'F1
+            KeyCode = 0
+            Call 設計書組織図あり_Click
+        Case 113    'F2
+            KeyCode = 0
+            Call 設計書組織図なし_Click
+        Case 114    'F3
+            KeyCode = 0
+            Call 柄替報告書兼初反品質確認書_Click
+        Case 115    'F4
+            KeyCode = 0
+            Call 設計柄替報告書兼初反品質確認書_Click
+        Case 116    'F5
+            KeyCode = 0
+            Call 閉じる_Click
+        Case 27     'ESC
+            KeyCode = 0
+            If Me.Dirty Then
+                On Error Resume Next
+                DoCmd.RunCommand acCmdUndo
+                On Error GoTo 0
+                If Not Me.Dirty Then
+'                   Call Form_Current
+                End If
+            End If
+        End Select
+    End If
+End Sub
+
+Private Sub subSendMail(longSyubetu As Long)
+Dim strタイトル As String
+Dim str添付ファイル As String
+Dim rt As Variant
+    If IsNull(Me.MailAdd) Then Exit Sub
+    If Trim(Me.MailAdd) = "" Then Exit Sub
+    Select Case longSyubetu
+    Case 1
+        strタイトル = "設計書"
+        str添付ファイル = "C:\PDF\設計書.pdf"
+    Case 2  '
+        strタイトル = "柄替報告書兼初反品質確認書"
+        str添付ファイル = "C:\PDF\柄替報告書兼初反品質確認書.pdf"
+    Case 3
+        strタイトル = "設計書＆柄替報告書兼初反品質確認書"
+        str添付ファイル = "C:\PDF\設計書.pdf" & vbTab & "C:\PDF\柄替報告書兼初反品質確認書.pdf"
+    End Select
+''''''''''    rt = SendMail("mitsukawa.com:587", Me.MailAdd & vbTab & "bcc" & vbTab & pubsMail, pubsMail & vbTab & "send:0120219969", "品番[" & Trim(Me.生機品番) & "](" & Format(Date, "yyyy/mm/dd") & ")" & strタイトル, strタイトル, str添付ファイル)
+End Sub

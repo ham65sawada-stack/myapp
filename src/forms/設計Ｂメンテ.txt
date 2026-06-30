@@ -1,0 +1,1357 @@
+Version =20
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    NavigationButtons = NotDefault
+    AllowDeletions = NotDefault
+    AllowAdditions = NotDefault
+    KeyPreview = NotDefault
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =49
+    BorderStyle =0
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridX =64
+    GridY =64
+    Width =10395
+    DatasheetFontHeight =9
+    ItemSuffix =108
+    Left =6150
+    Top =6465
+    Right =16545
+    Bottom =9150
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x61bad411033ce340
+    End
+    RecordSource ="SELECT 設計Ｂワーク.*, 原糸品種マスタ.原糸品種 FROM 設計Ｂワーク LEFT JOIN 原糸品種マスタ ON 設計Ｂワーク.原糸品番=原糸品種マ"
+        "スタ.原糸品種 WHERE (((設計Ｂワーク.設計ＩＤ)=Forms!設計Ｈメンテ!設計ID)) ORDER BY 設計Ｂワーク.設計ＩＤ, 設計Ｂワーク.原"
+        "糸区分, 設計Ｂワーク.原糸品番, 設計Ｂワーク.給糸ＮＯＵ01, 設計Ｂワーク.設計明細ＮＯ; "
+    BeforeUpdate ="[Event Procedure]"
+    AfterUpdate ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0x89050000890500008905000089050000000000009b280000c001000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    OnKeyDown ="[Event Procedure]"
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Line
+            Width =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            LabelX =230
+            LabelY =-30
+        End
+        Begin TextBox
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Section
+            Height =447
+            BackColor =16777088
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8700
+                    Width =547
+                    Height =210
+                    TabIndex =14
+                    Name ="一周長１"
+                    ControlSource ="一周長１"
+                    Format ="#;#;;\"\""
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99999"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8700
+                    Top =240
+                    Width =547
+                    Height =195
+                    TabIndex =24
+                    Name ="一周長２"
+                    ControlSource ="一周長２"
+                    Format ="#;#;;\"\""
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99999"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =255
+                    TextFontFamily =50
+                    IMEMode =3
+                    Left =8655
+                    Top =15
+                    Width =637
+                    Height =195
+                    TabIndex =39
+                    BackColor =10092543
+                    Name ="ＱＲ正味糸量"
+                    ControlSource ="ＱＲ正味糸量"
+                    Format ="0.00;0.00;#;#"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =247
+                    TextFontFamily =50
+                    IMEMode =3
+                    Left =8655
+                    Top =240
+                    Width =637
+                    Height =195
+                    TabIndex =40
+                    BackColor =10092543
+                    Name ="ＱＲ持掛糸量"
+                    ControlSource ="ＱＲ持掛糸量"
+                    Format ="0.00;0.00;#;#"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =4
+                    Left =1440
+                    Top =240
+                    Width =2736
+                    Height =195
+                    TabIndex =2
+                    Name ="原糸コメント"
+                    ControlSource ="原糸コメント"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin ComboBox
+                    AutoExpand = NotDefault
+                    RowSourceTypeInt =1
+                    SpecialEffect =0
+                    OldBorderStyle =0
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    IMEMode =3
+                    DecimalPlaces =0
+                    ListWidth =291
+                    Left =5235
+                    Top =140
+                    Width =471
+                    Height =195
+                    ColumnWidth =750
+                    TabIndex =4
+                    Name ="給糸本数"
+                    ControlSource ="給糸本数"
+                    RowSourceType ="Value List"
+                    RowSource ="1;2;3;4;5;6"
+                    ColumnWidths ="290"
+                    AfterUpdate ="[Event Procedure]"
+                    DefaultValue ="1"
+                    FontName ="ＭＳ ゴシック"
+                    Format ="#"
+                    InputMask ="#"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =4425
+                    Top =135
+                    Width =786
+                    Height =195
+                    TabIndex =3
+                    Name ="見掛繊度"
+                    ControlSource ="見掛繊度"
+                    Format ="#.#;#.#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="9999.9"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =5730
+                    Width =256
+                    Height =210
+                    TabIndex =5
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ01"
+                    ControlSource ="給糸ＮＯＵ01"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6015
+                    Width =256
+                    Height =210
+                    TabIndex =6
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ02"
+                    ControlSource ="給糸ＮＯＵ02"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6300
+                    Width =256
+                    Height =210
+                    TabIndex =7
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ03"
+                    ControlSource ="給糸ＮＯＵ03"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6585
+                    Width =256
+                    Height =210
+                    TabIndex =8
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ04"
+                    ControlSource ="給糸ＮＯＵ04"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6870
+                    Width =256
+                    Height =210
+                    TabIndex =9
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ05"
+                    ControlSource ="給糸ＮＯＵ05"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7155
+                    Width =256
+                    Height =210
+                    TabIndex =10
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ06"
+                    ControlSource ="給糸ＮＯＵ06"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7440
+                    Width =256
+                    Height =210
+                    TabIndex =11
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ07"
+                    ControlSource ="給糸ＮＯＵ07"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7725
+                    Width =256
+                    Height =210
+                    TabIndex =12
+                    TopMargin =17
+                    Name ="給糸ＮＯＵ08"
+                    ControlSource ="給糸ＮＯＵ08"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =5730
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =15
+                    Name ="給糸ＮＯＤ01"
+                    ControlSource ="給糸ＮＯＤ01"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6015
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =16
+                    Name ="給糸ＮＯＤ02"
+                    ControlSource ="給糸ＮＯＤ02"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6300
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =17
+                    Name ="給糸ＮＯＤ03"
+                    ControlSource ="給糸ＮＯＤ03"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6585
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =18
+                    Name ="給糸ＮＯＤ04"
+                    ControlSource ="給糸ＮＯＤ04"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6870
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =19
+                    Name ="給糸ＮＯＤ05"
+                    ControlSource ="給糸ＮＯＤ05"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7155
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =20
+                    Name ="給糸ＮＯＤ06"
+                    ControlSource ="給糸ＮＯＤ06"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7440
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =21
+                    Name ="給糸ＮＯＤ07"
+                    ControlSource ="給糸ＮＯＤ07"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7725
+                    Top =240
+                    Width =256
+                    Height =195
+                    TabIndex =22
+                    Name ="給糸ＮＯＤ08"
+                    ControlSource ="給糸ＮＯＤ08"
+                    Format ="#;#;\"\";\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8175
+                    Width =352
+                    Height =210
+                    TabIndex =13
+                    Name ="ループ長１"
+                    ControlSource ="ループ長１"
+                    Format ="#;#;;\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="999"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8175
+                    Top =240
+                    Width =352
+                    Height =195
+                    TabIndex =23
+                    Name ="ループ長２"
+                    ControlSource ="ループ長２"
+                    Format ="#;#;;\"\""
+                    AfterUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="999"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9315
+                    Top =15
+                    Width =606
+                    Height =195
+                    TabIndex =25
+                    Name ="交編率"
+                    ControlSource ="交編率"
+                    Format ="#.##;#.##;\"\";\"\""
+                    BeforeUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="999.99"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =8640
+                    Width =0
+                    Height =447
+                    Name ="直線24"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =7995
+                    Width =0
+                    Height =447
+                    Name ="直線25"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =5715
+                    Width =0
+                    Height =447
+                    Name ="直線27"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =1425
+                    Width =0
+                    Height =447
+                    Name ="直線29"
+                End
+                Begin Line
+                    OverlapFlags =85
+                    Left =5220
+                    Width =0
+                    Height =447
+                    Name ="直線30"
+                End
+                Begin Line
+                    OverlapFlags =85
+                    Left =4408
+                    Width =0
+                    Height =447
+                    Name ="直線33"
+                End
+                Begin Line
+                    OverlapFlags =95
+                    Left =1425
+                    Top =210
+                    Width =2743
+                    Height =15
+                    Name ="直線35"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =6855
+                    Width =0
+                    Height =447
+                    Name ="直線58"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =7140
+                    Width =0
+                    Height =447
+                    Name ="直線59"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =7425
+                    Width =0
+                    Height =447
+                    Name ="直線60"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =7710
+                    Width =0
+                    Height =447
+                    Name ="直線61"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =6000
+                    Width =0
+                    Height =447
+                    Name ="直線62"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =6285
+                    Width =0
+                    Height =447
+                    Name ="直線63"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =6570
+                    Width =0
+                    Height =447
+                    Name ="直線64"
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    RowSourceTypeInt =1
+                    SpecialEffect =0
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    ColumnCount =2
+                    ListWidth =284
+                    Left =1005
+                    Top =105
+                    Width =411
+                    BoundColumn =1
+                    Name ="原糸区分"
+                    ControlSource ="原糸区分"
+                    RowSourceType ="Value List"
+                    RowSource ="A;A;B;B;C;C;D;D;E;E;F;F"
+                    FontName ="ＭＳ ゴシック"
+                    OnChange ="[Event Procedure]"
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =30
+                    Top =60
+                    Width =300
+                    Height =345
+                    TabIndex =27
+                    Name ="削除"
+                    Caption ="削"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    ControlTipText ="この行を削除します。"
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =375
+                    Top =60
+                    Width =300
+                    Height =345
+                    TabIndex =28
+                    Name ="複写"
+                    Caption ="複"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    ControlTipText ="この行を複写して最後に追加します。"
+                End
+                Begin Line
+                    OverlapFlags =85
+                    Left =690
+                    Width =0
+                    Height =447
+                    Name ="直線67"
+                End
+                Begin Line
+                    OverlapFlags =85
+                    Left =345
+                    Width =0
+                    Height =447
+                    Name ="直線68"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9945
+                    Top =135
+                    Width =426
+                    Height =195
+                    TabIndex =26
+                    Name ="ＱＲ編立ロス率"
+                    ControlSource ="ＱＲ編立ロス率"
+                    Format ="#.#;#.#;\"\";\"\""
+                    BeforeUpdate ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99.9"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =9300
+                    Width =0
+                    Height =447
+                    Name ="直線78"
+                End
+                Begin Line
+                    OverlapFlags =93
+                    Left =9930
+                    Width =0
+                    Height =447
+                    Name ="直線80"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =1440
+                    Top =15
+                    Width =2736
+                    Height =195
+                    TabIndex =1
+                    Name ="原糸品番"
+                    ControlSource ="原糸品番"
+                    FontName ="ＭＳ ゴシック"
+                    ConditionalFormat = Begin
+                        0x0100000086000000010000000100000000000000000000001200000001000000 ,
+                        0xff000000ffffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x490073004e0075006c006c0028005b009f53f87cc1542e7a5d0029003d002d00 ,
+                        0x310000000000
+                    End
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =4185
+                    Width =227
+                    Height =446
+                    TabIndex =29
+                    Name ="原糸編集"
+                    Caption =">"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    IMEMode =1
+                    Left =5562
+                    Width =516
+                    Height =180
+                    TabIndex =30
+                    BorderColor =255
+                    Name ="ＱＲ原糸区分"
+                    ControlSource ="ＱＲ原糸区分"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    IMEMode =1
+                    Left =5562
+                    Top =180
+                    Width =516
+                    Height =180
+                    TabIndex =31
+                    BorderColor =255
+                    Name ="ＱＲ原糸品名"
+                    ControlSource ="ＱＲ原糸品名"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    IMEMode =1
+                    Left =6078
+                    Width =516
+                    Height =180
+                    TabIndex =32
+                    BorderColor =255
+                    Name ="ＱＲ原糸品種"
+                    ControlSource ="ＱＲ原糸品種"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    IMEMode =1
+                    Left =6078
+                    Top =180
+                    Width =516
+                    Height =180
+                    TabIndex =33
+                    BorderColor =255
+                    Name ="ＱＲ糸加工コメント"
+                    ControlSource ="ＱＲ糸加工コメント"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    Left =6594
+                    Width =516
+                    Height =180
+                    TabIndex =34
+                    BorderColor =255
+                    Name ="ＱＲ見掛繊度"
+                    ControlSource ="ＱＲ見掛繊度"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    IMEMode =1
+                    Left =6594
+                    Top =180
+                    Width =516
+                    Height =180
+                    TabIndex =35
+                    BorderColor =255
+                    Name ="ＱＲ糸量単位"
+                    ControlSource ="ＱＲ糸量単位"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    Left =7110
+                    Width =516
+                    Height =180
+                    TabIndex =36
+                    BorderColor =255
+                    Name ="ＱＲ交編率"
+                    ControlSource ="ＱＲ交編率"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    Left =7110
+                    Top =180
+                    Width =516
+                    Height =180
+                    TabIndex =37
+                    BorderColor =255
+                    Name ="テキスト93"
+                    ControlSource ="ＱＲ編立ロス率"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    Left =7626
+                    Width =516
+                    Height =180
+                    TabIndex =38
+                    BorderColor =255
+                    Name ="ＱＲ整経本数"
+                    ControlSource ="ＱＲ整経本数"
+                End
+                Begin Line
+                    OverlapFlags =127
+                    Left =5730
+                    Top =225
+                    Width =4193
+                    Name ="直線34"
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    DecimalPlaces =2
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9315
+                    Top =240
+                    Width =606
+                    Height =195
+                    TabIndex =41
+                    BackColor =10092543
+                    Name ="計算値"
+                    ControlSource ="=gf計算値()"
+                    Format ="#.##;#.##;\"\";\"\""
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="999.99"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =255
+                    Left =7626
+                    Top =180
+                    Width =516
+                    Height =180
+                    TabIndex =42
+                    BorderColor =255
+                    Name ="設計明細ＮＯ"
+                    ControlSource ="設計明細ＮＯ"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =247
+                    TextFontFamily =50
+                    Left =8145
+                    Width =516
+                    Height =180
+                    TabIndex =43
+                    BorderColor =255
+                    Name ="原糸品種"
+                    ControlSource ="原糸品種"
+                End
+                Begin Line
+                    OverlapFlags =85
+                    Left =975
+                    Width =0
+                    Height =447
+                    Name ="直線104"
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =1
+                    OverlapFlags =85
+                    Left =720
+                    Top =120
+                    Width =227
+                    Height =244
+                    TabIndex =44
+                    Name ="変換"
+                    ControlSource ="変換"
+                    OnClick ="[Event Procedure]"
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_AfterUpdate()
+    計算判定 = True
+End Sub
+
+Private Sub Form_BeforeUpdate(Cancel As Integer)
+    Dim vCnt As Variant
+    Dim i    As Integer
+    If Me![原糸区分] = "X" Then
+        Me![原糸コメント] = Null
+        Me![給糸本数] = 0
+        Me![見掛繊度] = 0
+        Me![給糸NOU01] = 0
+        Me![給糸NOU02] = 0
+        Me![給糸NOU03] = 0
+        Me![給糸NOU04] = 0
+        Me![給糸NOU05] = 0
+        Me![給糸NOU06] = 0
+        Me![給糸NOU07] = 0
+        Me![給糸NOU08] = 0
+        Me![給糸NOD01] = 0
+        Me![給糸NOD02] = 0
+        Me![給糸NOD03] = 0
+        Me![給糸NOD04] = 0
+        Me![給糸NOD05] = 0
+        Me![給糸NOD06] = 0
+        Me![給糸NOD07] = 0
+        Me![給糸NOD08] = 0
+        Me![ループ長1] = 0
+        Me![ループ長2] = 0
+        Me![一周長1] = 0
+        Me![一周長2] = 0
+        Me![交編率] = 0
+        Me![QR編立ロス率] = 0
+        Me![原糸品番] = Null
+        Me![変換] = "〇"
+    End If
+    If Not IsNumeric(Me.給糸本数) Then Me.給糸本数 = 0
+    If Not IsNumeric(Me.見掛繊度) Then Me.見掛繊度 = 0
+    If Not IsNumeric(Me.給糸本数) Then Me.給糸本数 = 0
+    If Not IsNumeric(Me.ループ長1) Then Me.ループ長1 = 0
+    If Not IsNumeric(Me.ループ長2) Then Me.ループ長2 = 0
+    If Not IsNumeric(Me.一周長1) Then Me.一周長1 = 0
+    If Not IsNumeric(Me.一周長2) Then Me.一周長2 = 0
+    If Not IsNumeric(Me.交編率) Then Me.交編率 = 0
+    If Not IsNumeric(Me.QR編立ロス率) Then Me.QR編立ロス率 = 0
+    For i = 1 To 8
+        If Not IsNumeric(Me("給糸ＮＯＵ0" & i)) Then Me("給糸ＮＯＵ0" & i) = 0
+        If Not IsNumeric(Me("給糸ＮＯＤ0" & i)) Then Me("給糸ＮＯＤ0" & i) = 0
+    Next i
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    If KeyCode = 34 Then
+        KeyCode = 0
+        Shift = 0
+    End If
+End Sub
+
+Private Sub QR編立ロス率_BeforeUpdate(Cancel As Integer)
+    On Error Resume Next
+    If IsNumeric(Me.QR編立ロス率) Then
+        Me.QR編立ロス率 = Format(Fix(Me.QR編立ロス率 * 10) / 10, "0.0")
+    End If
+    Me.原糸区分.SetFocus
+    On Error GoTo 0
+End Sub
+
+Private Sub ループ長1_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    If Me.一周長1.Visible Then
+        Me.一周長1.SetFocus
+    Else
+        Me.給糸NOD01.SetFocus
+    End If
+End Sub
+
+Private Sub ループ長2_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    If Me.一周長2.Visible Then
+        Me.一周長2.SetFocus
+    Else
+        Me.交編率.SetFocus
+    End If
+End Sub
+
+Private Sub 給糸NOU01_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU02.SetFocus
+End Sub
+
+Private Sub 給糸NOU02_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU03.SetFocus
+End Sub
+
+Private Sub 給糸NOU03_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU04.SetFocus
+End Sub
+
+Private Sub 給糸NOU04_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU05.SetFocus
+End Sub
+
+Private Sub 給糸NOU05_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU06.SetFocus
+End Sub
+
+Private Sub 給糸NOU06_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU07.SetFocus
+End Sub
+
+Private Sub 給糸NOU07_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU08.SetFocus
+End Sub
+
+Private Sub 給糸NOU08_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.ループ長1.SetFocus
+End Sub
+
+Private Sub 給糸NOD01_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOD02.SetFocus
+End Sub
+
+Private Sub 給糸NOD02_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOD03.SetFocus
+End Sub
+
+Private Sub 給糸NOD03_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOD04.SetFocus
+End Sub
+
+Private Sub 給糸NOD04_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOD05.SetFocus
+End Sub
+
+Private Sub 給糸NOD05_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOD06.SetFocus
+End Sub
+
+Private Sub 給糸NOD06_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOD07.SetFocus
+End Sub
+
+Private Sub 給糸NOD07_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOD08.SetFocus
+End Sub
+
+Private Sub 給糸NOD08_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.ループ長2.SetFocus
+End Sub
+
+Private Sub 給糸本数_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸NOU01.SetFocus
+End Sub
+
+Private Sub 見掛繊度_AfterUpdate()
+    On Error Resume Next
+    DoCmd.RunCommand acCmdSaveRecord
+    Call Form_設計Hメンテ.KEISAN
+    Me.給糸本数.SetFocus
+End Sub
+
+Private Sub 原糸区分_Change()
+    If IsNull(Me![給糸本数]) Then
+        Me![給糸本数] = 1
+    Else
+        If Me![給糸本数] = 0 Then
+            Me![給糸本数] = 1
+        End If
+    End If
+End Sub
+
+Private Sub 原糸編集_Click()
+    DoCmd.OpenForm "原糸編集", , , , , acDialog
+End Sub
+
+Private Sub 交編率_BeforeUpdate(Cancel As Integer)
+    On Error Resume Next
+    If IsNumeric(Me.交編率) Then
+        Me.交編率 = Format(Fix(Me.交編率 * 100) / 100, "0.00")
+    End If
+    On Error GoTo 0
+End Sub
+
+Private Sub 削除_Click()
+    Me![原糸区分] = "X"
+    Me![原糸コメント] = Null
+    Me![給糸本数] = Null
+    Me![見掛繊度] = Null
+    Me![給糸NOU01] = Null
+    Me![給糸NOU02] = Null
+    Me![給糸NOU03] = Null
+    Me![給糸NOU04] = Null
+    Me![給糸NOU05] = Null
+    Me![給糸NOU06] = Null
+    Me![給糸NOU07] = Null
+    Me![給糸NOU08] = Null
+    Me![給糸NOD01] = Null
+    Me![給糸NOD02] = Null
+    Me![給糸NOD03] = Null
+    Me![給糸NOD04] = Null
+    Me![給糸NOD05] = Null
+    Me![給糸NOD06] = Null
+    Me![給糸NOD07] = Null
+    Me![給糸NOD08] = Null
+    Me![ループ長1] = Null
+    Me![ループ長2] = Null
+    Me![一周長1] = Null
+    Me![一周長2] = Null
+    Me![交編率] = Null
+    Me![原糸品番] = Null
+    Me![QR編立ロス率] = Null
+    On Error GoTo Err_削除_Click
+'    DoCmd.DoMenuItem acFormBar, acRecordsMenu, acSaveRecord, , acMenuVer70
+    DoCmd.RunCommand acCmdSaveRecord
+    Me![原糸区分].SetFocus
+Exit_削除_Click:
+    Exit Sub
+
+Err_削除_Click:
+    Resume Next
+End Sub
+
+Private Sub 複写_Click()
+    On Error GoTo Err_複写_Click
+'    DoCmd.DoMenuItem acFormBar, acRecordsMenu, acSaveRecord, , acMenuVer70
+    DoCmd.RunCommand acCmdSaveRecord
+    Dim f As Form
+    Dim rs As DAO.Recordset
+    Set f = Me
+    Set rs = f.RecordsetClone
+    If 0 < rs.RecordCount Then
+        rs.MoveFirst
+    End If
+    If Not rs.EOF Then
+        Do Until rs.EOF
+            If rs![原糸区分] = "X" Then
+                rs.Edit
+                rs![原糸区分] = Me![原糸区分]
+                rs![原糸コメント] = Me![原糸コメント]
+                rs![給糸本数] = Me![給糸本数]
+                rs![見掛繊度] = Me![見掛繊度]
+                rs![給糸NOU01] = Me![給糸NOU01]
+                rs![給糸NOU02] = Me![給糸NOU02]
+                rs![給糸NOU03] = Me![給糸NOU03]
+                rs![給糸NOU04] = Me![給糸NOU04]
+                rs![給糸NOU05] = Me![給糸NOU05]
+                rs![給糸NOU06] = Me![給糸NOU06]
+                rs![給糸NOU07] = Me![給糸NOU07]
+                rs![給糸NOU08] = Me![給糸NOU08]
+                rs![給糸NOD01] = Me![給糸NOD01]
+                rs![給糸NOD02] = Me![給糸NOD02]
+                rs![給糸NOD03] = Me![給糸NOD03]
+                rs![給糸NOD04] = Me![給糸NOD04]
+                rs![給糸NOD05] = Me![給糸NOD05]
+                rs![給糸NOD06] = Me![給糸NOD06]
+                rs![給糸NOD07] = Me![給糸NOD07]
+                rs![給糸NOD08] = Me![給糸NOD08]
+                rs![ループ長1] = Me![ループ長1]
+                rs![ループ長2] = Me![ループ長2]
+                rs![一周長1] = Me![一周長1]
+                rs![一周長2] = Me![一周長2]
+                rs![交編率] = 0
+                rs![QR編立ロス率] = 0
+                rs![原糸品番] = Me![原糸品番]
+                rs.Update
+                Exit Do
+            Else
+                rs.MoveNext
+            End If
+        Loop
+    End If
+    rs.Close
+Exit_複写_Click:
+    Exit Sub
+
+Err_複写_Click:
+    Resume Next
+End Sub
+
+Private Sub 変換_Click()
+    On Error Resume Next
+    Me.原糸区分.SetFocus
+    On Error GoTo 0
+    If Me.変換 = "●" Then
+        Me.変換 = "〇"
+    Else
+        Me.変換 = "●"
+    End If
+End Sub

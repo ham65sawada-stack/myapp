@@ -1,0 +1,6 @@
+TABLE	設計ＣＴマスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.設計ＣＴマスタ
+FIELD	コード	Text	Size=2	Req=True	ZeroLen=True
+FIELD	カウント	Long	Size=4	Req=False	ZeroLen=False
+INDEX	PK_H_設計ＣＴマスタ	(コード)	PK=True	Unique=True

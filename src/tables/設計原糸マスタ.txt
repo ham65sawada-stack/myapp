@@ -1,0 +1,9 @@
+TABLE	設計原糸マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.設計原糸マスタ
+FIELD	メーカＣＤ	Decimal	Size=16	Req=True	ZeroLen=False
+FIELD	気付ＣＤ	Text	Size=5	Req=True	ZeroLen=True
+FIELD	原糸品番	Text	Size=30	Req=True	ZeroLen=True
+FIELD	見掛繊度	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	試験糸区分	Decimal	Size=16	Req=False	ZeroLen=False
+INDEX	PK_H_設計原糸マスタ	(メーカＣＤ,気付ＣＤ,原糸品番)	PK=True	Unique=True

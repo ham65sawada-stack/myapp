@@ -1,0 +1,7 @@
+TABLE	tbl_xref_var
+FIELD	id	Long	Size=4	Req=False	ZeroLen=False
+FIELD	module_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	var_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	var_kind	Text	Size=8	Req=False	ZeroLen=False
+FIELD	var_scope	Text	Size=10	Req=False	ZeroLen=False
+INDEX	Index_4E915808_3094_4B2E	(id)	PK=True	Unique=True

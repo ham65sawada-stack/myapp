@@ -1,0 +1,1193 @@
+Option Compare Database
+Option Explicit
+
+'==============================================================
+'  Access VBA 相互リファレンス生成ツール(統合版)
+'
+'  ■ エントリポイント
+'    BuildVBAXRefFull        : 完全版(推奨)
+'        VBA + イベントプロパティ/式 + マクロ + クエリSQL + API Declare
+'        + モジュールレベル変数・定数の相互参照(引数シャドウ対応)
+'    BuildVBACrossReference  : 軽量版(VBA呼び出しグラフのみ・高速)
+'
+'  ■ 生成テーブル(既存の同名テーブルは上書き)
+'    tbl_xref_proc      : プロシージャ定義一覧(API Declare含む)
+'    tbl_xref_call      : VBA呼び出し関係(呼出元→呼出先)
+'    tbl_xref_ref       : 非VBA参照(イベント/式/マクロ/クエリ → 関数)
+'    tbl_xref_var       : モジュールレベル変数・定数の定義
+'    tbl_xref_var_use   : 変数・定数の使用箇所
+'    tbl_xref_param     : 引数抽出の検証用
+'
+'  ■ 前提
+'    Trust Center > マクロの設定 >
+'      「VBA プロジェクト オブジェクト モデルへのアクセスを信頼する」を ON
+'    %TEMP% への一時ファイル書込み(SaveAsText用)を使用
+'    参照設定は DAO(Access標準)のみ。VBE/Dictionary は遅延バインディング
+'
+'  ※ 参考クエリはファイル末尾のコメントを参照
+'==============================================================
+
+' vbext_ProcKind 相当(参照設定不要にするため自前定義)
+Private Const PK_PROC As Long = 0
+Private Const PK_LET  As Long = 1
+Private Const PK_SET  As Long = 2
+Private Const PK_GET  As Long = 3
+
+'======================== エントリ:完全版 ========================
+Public Sub BuildVBAXRefFull()
+    Dim vbProj As Object, vbComp As Object
+    Dim procList As Object, procNames As Object, callEdges As Object
+    Dim varList As Object, varNames As Object
+    Dim refEdges As Object, usageEdges As Object
+
+    On Error GoTo EH
+    Set vbProj = Application.VBE.ActiveVBProject
+    Set procList = NewDict(): Set procNames = NewDict()
+    Set varList = NewDict():  Set varNames = NewDict()
+    Set callEdges = New Collection
+    Set refEdges = New Collection
+    Set usageEdges = New Collection
+
+    ' 1) プロシージャ列挙 + 宣言部(API Declare / モジュール変数・定数)
+    For Each vbComp In vbProj.VBComponents
+        CollectProcs vbComp.CodeModule, vbComp.Name, procList, procNames
+        ScanDeclarations vbComp.CodeModule, vbComp.Name, procList, procNames, varList, varNames
+    Next vbComp
+
+    ' 2) VBA呼出関係(procNamesにAPI Declare名も含む)
+    Dim k As Variant, info As Variant
+    For Each k In procList.Keys
+        info = procList(k)
+        If CLng(info(5)) > 0 Then
+            ScanCalls vbProj.VBComponents(info(0)).CodeModule, _
+                      CStr(info(0)), CStr(info(1)), _
+                      CLng(info(4)), CLng(info(5)), CLng(info(6)), procNames, callEdges
+        End If
+    Next k
+
+    ' 3) イベントプロパティ / 式 / マクロ / クエリ からの参照
+    ScanFormsReports procNames, refEdges
+    ScanMacros procNames, refEdges
+    ScanQueries procNames, refEdges
+
+    ' 4) モジュールレベル変数・定数の使用箇所(引数シャドウ対応)
+    ScanVarUsage vbProj, procList, varNames, usageEdges
+
+    ' 5) 出力
+    WriteProcTable procList
+    WriteCallTable callEdges
+    WriteRefTable refEdges
+    WriteVarTable varList
+    WriteVarUsageTable usageEdges
+    WriteParamTable vbProj, procList
+
+    MsgBox "生成完了" & vbCrLf & _
+           "プロシージャ: " & procList.Count & vbCrLf & _
+           "VBA呼出: " & callEdges.Count & vbCrLf & _
+           "非VBA参照(Event/Expr/Macro/Query): " & refEdges.Count & vbCrLf & _
+           "変数・定数定義: " & varList.Count & vbCrLf & _
+           "変数・定数使用: " & usageEdges.Count, vbInformation
+    Exit Sub
+EH:
+    MsgBox "エラー " & Err.Number & ": " & Err.Description, vbCritical
+End Sub
+
+'======================== エントリ:軽量版 ========================
+' VBA呼び出しグラフのみを高速生成(フォーム/マクロ/クエリ/変数は対象外)
+Public Sub BuildVBACrossReference()
+    Dim vbProj As Object, vbComp As Object
+    Dim procList As Object, procNames As Object, callEdges As Object
+
+    On Error GoTo EH
+    Set vbProj = Application.VBE.ActiveVBProject
+    Set procList = NewDict(): Set procNames = NewDict()
+    Set callEdges = New Collection
+
+    For Each vbComp In vbProj.VBComponents
+        CollectProcs vbComp.CodeModule, vbComp.Name, procList, procNames
+    Next vbComp
+
+    Dim k As Variant, info As Variant
+    For Each k In procList.Keys
+        info = procList(k)
+        If CLng(info(5)) > 0 Then
+            ScanCalls vbProj.VBComponents(info(0)).CodeModule, _
+                      CStr(info(0)), CStr(info(1)), _
+                      CLng(info(4)), CLng(info(5)), CLng(info(6)), procNames, callEdges
+        End If
+    Next k
+
+    WriteProcTable procList
+    WriteCallTable callEdges
+
+    MsgBox "生成完了(軽量版)" & vbCrLf & _
+           "プロシージャ: " & procList.Count & vbCrLf & _
+           "VBA呼出: " & callEdges.Count, vbInformation
+    Exit Sub
+EH:
+    MsgBox "エラー " & Err.Number & ": " & Err.Description, vbCritical
+End Sub
+
+Private Function NewDict() As Object
+    Dim D As Object: Set D = CreateObject("Scripting.Dictionary")
+    D.CompareMode = vbTextCompare
+    Set NewDict = D
+End Function
+
+'======================== プロシージャ列挙 ========================
+Private Sub CollectProcs(cm As Object, ByVal moduleName As String, _
+                         procList As Object, procNames As Object)
+    Dim total As Long, lineNum As Long
+    total = cm.CountOfLines
+    lineNum = cm.CountOfDeclarationLines + 1
+
+    Do While lineNum <= total
+        Dim kind As Long, pName As String
+        pName = cm.ProcOfLine(lineNum, kind)
+
+        If Len(pName) = 0 Then
+            lineNum = lineNum + 1
+        Else
+            Dim sLine As Long, cLine As Long, bLine As Long
+            sLine = cm.ProcStartLine(pName, kind)
+            cLine = cm.ProcCountLines(pName, kind)
+            bLine = cm.ProcBodyLine(pName, kind)
+
+            Dim key As String
+            key = moduleName & "|" & pName & "|" & kind
+            If Not procList.Exists(key) Then
+                procList.Add key, Array(moduleName, pName, _
+                    ProcTypeText(cm, bLine, kind), ProcScopeText(cm, bLine), _
+                    sLine, cLine, bLine)
+            End If
+            procNames(pName) = True
+
+            Dim nextLine As Long
+            If cLine <= 0 Then nextLine = lineNum + 1 Else nextLine = sLine + cLine
+            If nextLine <= lineNum Then nextLine = lineNum + 1
+            lineNum = nextLine
+        End If
+    Loop
+End Sub
+
+'--- 1プロシージャの本体を走査し呼出先を抽出 ---
+Private Sub ScanCalls(cm As Object, ByVal callerMod As String, ByVal callerProc As String, _
+                      ByVal startLine As Long, ByVal lineCount As Long, ByVal bodyLine As Long, _
+                      procNames As Object, callEdges As Object)
+    ' 宣言行は除外して本体だけ走査(自己名の誤検出回避)
+    Dim scanStart As Long, scanCount As Long
+    scanStart = bodyLine + 1
+    scanCount = (startLine + lineCount - 1) - bodyLine
+    If scanCount <= 0 Then Exit Sub
+
+    Dim rows() As String
+    rows = Split(cm.Lines(scanStart, scanCount), vbCrLf)
+
+    Dim seen As Object: Set seen = NewDict()
+
+    Dim i As Long
+    For i = LBound(rows) To UBound(rows)
+        CollectMatches StripCommentAndStrings(rows(i)), procNames, seen
+    Next i
+
+    Dim T As Variant
+    For Each T In seen.Keys
+        callEdges.Add Array(callerMod, callerProc, CStr(T))
+    Next T
+End Sub
+
+'--- 1行から識別子を取り出し既知proc名と照合 ---
+Private Sub CollectMatches(ByVal S As String, procNames As Object, seen As Object)
+    Dim i As Long, n As Long
+    n = Len(S): i = 1
+    Do While i <= n
+        Dim ch As String: ch = Mid$(S, i, 1)
+        If ch Like "[A-Za-z_]" Then
+            Dim j As Long: j = i + 1
+            Do While j <= n
+                If Mid$(S, j, 1) Like "[A-Za-z0-9_]" Then j = j + 1 Else Exit Do
+            Loop
+            Dim tok As String, prevCh As String
+            tok = Mid$(S, i, j - i)
+            If i > 1 Then prevCh = Mid$(S, i - 1, 1)
+            ' 直前が "." の場合はメンバアクセスとして除外
+            '  (modUtil.Foo の様な修飾呼出も拾うなら次行の条件を外す)
+            If prevCh <> "." Then
+                If procNames.Exists(tok) Then
+                    If Not seen.Exists(tok) Then seen.Add tok, True
+                End If
+            End If
+            i = j
+        Else
+            i = i + 1
+        End If
+    Loop
+End Sub
+
+'--- 文字列リテラルと行末/行頭コメントを除去 ---
+Private Function StripCommentAndStrings(ByVal S As String) As String
+    Dim res As String, i As Long, n As Long, inQuote As Boolean
+    n = Len(S)
+    For i = 1 To n
+        Dim ch As String: ch = Mid$(S, i, 1)
+        If inQuote Then
+            res = res & " "
+            If ch = """" Then inQuote = False
+        Else
+            If ch = """" Then
+                inQuote = True: res = res & " "
+            ElseIf ch = "'" Then
+                Exit For
+            Else
+                res = res & ch
+            End If
+        End If
+    Next i
+    If UCase$(Left$(LTrim$(res) & "   ", 4)) = "REM " Then res = ""
+    StripCommentAndStrings = res
+End Function
+
+Private Function ProcTypeText(cm As Object, ByVal bodyLine As Long, ByVal kind As Long) As String
+    Select Case kind
+        Case PK_GET: ProcTypeText = "Property Get"
+        Case PK_LET: ProcTypeText = "Property Let"
+        Case PK_SET: ProcTypeText = "Property Set"
+        Case Else
+            Dim u As String: u = " " & UCase$(cm.Lines(bodyLine, 1)) & " "
+            If InStr(u, " FUNCTION ") > 0 Then
+                ProcTypeText = "Function"
+            ElseIf InStr(u, " SUB ") > 0 Then
+                ProcTypeText = "Sub"
+            Else
+                ProcTypeText = "Proc"
+            End If
+    End Select
+End Function
+
+Private Function ProcScopeText(cm As Object, ByVal bodyLine As Long) As String
+    Dim u As String: u = LTrim$(UCase$(cm.Lines(bodyLine, 1)))
+    If Left$(u, 7) = "PUBLIC " Then
+        ProcScopeText = "Public"
+    ElseIf Left$(u, 8) = "PRIVATE " Then
+        ProcScopeText = "Private"
+    ElseIf Left$(u, 7) = "FRIEND " Then
+        ProcScopeText = "Friend"
+    Else
+        ProcScopeText = "(Public)"
+    End If
+End Function
+
+'======================== 宣言部の解析 ========================
+Private Sub ScanDeclarations(cm As Object, ByVal moduleName As String, _
+                             procList As Object, procNames As Object, _
+                             varList As Object, varNames As Object)
+    Dim dcount As Long: dcount = cm.CountOfDeclarationLines
+    If dcount <= 0 Then Exit Sub
+    Dim rows() As String: rows = Split(cm.Lines(1, dcount), vbCrLf)
+    Dim logical As Collection: Set logical = JoinContinued(rows)
+
+    Dim v As Variant
+    For Each v In logical
+        Dim T As String: T = Trim$(StripCommentAndStrings(CStr(v)))
+        If Len(T) = 0 Then GoTo nextLine
+
+        ' API Declare
+        Dim decl As String, dscope As String
+        If IsDeclareLine(T, decl, dscope) Then
+            Dim keyD As String: keyD = moduleName & "|" & decl & "|Declare"
+            If Not procList.Exists(keyD) Then
+                procList.Add keyD, Array(moduleName, decl, "API Declare", dscope, 0, 0, 0)
+            End If
+            procNames(decl) = True
+            GoTo nextLine
+        End If
+
+        ' Const / 変数
+        Dim scope As String, isConst As Boolean, rest As String
+        If ParseDeclHead(T, scope, isConst, rest) Then
+            Dim names As Collection: Set names = ExtractDeclNames(rest)
+            Dim nm As Variant
+            For Each nm In names
+                Dim kindTxt As String: kindTxt = IIf(isConst, "Const", "Var")
+                Dim keyV As String: keyV = moduleName & "|" & CStr(nm) & "|" & kindTxt
+                If Not varList.Exists(keyV) Then
+                    varList.Add keyV, Array(moduleName, CStr(nm), kindTxt, scope)
+                End If
+                If Not varNames.Exists(CStr(nm)) Then varNames.Add CStr(nm), New Collection
+                varNames(CStr(nm)).Add Array(moduleName, scope, kindTxt)
+            Next nm
+        End If
+nextLine:
+    Next v
+End Sub
+
+Private Function JoinContinued(rows() As String) As Collection
+    Dim col As New Collection, buf As String, i As Long
+    For i = LBound(rows) To UBound(rows)
+        Dim r As String: r = RTrim$(rows(i))
+        If Len(r) >= 2 And Right$(r, 2) = " _" Then
+            buf = buf & Left$(r, Len(r) - 1) & " "
+        Else
+            buf = buf & rows(i)
+            col.Add buf
+            buf = ""
+        End If
+    Next i
+    If Len(buf) > 0 Then col.Add buf
+    Set JoinContinued = col
+End Function
+
+Private Function IsDeclareLine(ByVal T As String, ByRef declName As String, ByRef scope As String) As Boolean
+    Dim u As String: u = UCase$(T): scope = "Private"
+    If Left$(u, 7) = "PUBLIC " Then
+        scope = "Public": T = LTrim$(Mid$(T, 8))
+    ElseIf Left$(u, 8) = "PRIVATE " Then
+        scope = "Private": T = LTrim$(Mid$(T, 9))
+    End If
+    u = UCase$(T)
+    If Left$(u, 8) <> "DECLARE " Then Exit Function
+    Dim rest As String: rest = LTrim$(Mid$(T, 9))
+    If UCase$(Left$(rest, 8)) = "PTRSAFE " Then rest = LTrim$(Mid$(rest, 9))
+    If UCase$(Left$(rest, 4)) = "SUB " Then
+        rest = Mid$(rest, 5)
+    ElseIf UCase$(Left$(rest, 9)) = "FUNCTION " Then
+        rest = Mid$(rest, 10)
+    End If
+    declName = FirstIdent(rest)
+    IsDeclareLine = (Len(declName) > 0)
+End Function
+
+Private Function ParseDeclHead(ByVal T As String, ByRef scope As String, _
+                               ByRef isConst As Boolean, ByRef rest As String) As Boolean
+    Dim u As String: u = UCase$(T): scope = "Private": isConst = False
+    If Left$(u, 7) = "PUBLIC " Then
+        scope = "Public": T = LTrim$(Mid$(T, 8))
+    ElseIf Left$(u, 8) = "PRIVATE " Then
+        scope = "Private": T = LTrim$(Mid$(T, 9))
+    ElseIf Left$(u, 7) = "GLOBAL " Then
+        scope = "Public": T = LTrim$(Mid$(T, 8))
+    ElseIf Left$(u, 4) = "DIM " Then
+        scope = "Private": T = LTrim$(Mid$(T, 5))
+    ElseIf Left$(u, 6) = "CONST " Then
+        ' Private Const 相当(スコープ語なし)
+    Else
+        Exit Function   ' Option/Type/Enum/Implements/DefXXX 等
+    End If
+
+    u = UCase$(T)
+    If Left$(u, 6) = "CONST " Then
+        isConst = True: T = LTrim$(Mid$(T, 6))
+    ElseIf Left$(u, 11) = "WITHEVENTS " Then
+        T = LTrim$(Mid$(T, 11))
+    ElseIf Left$(u, 5) = "TYPE " Or Left$(u, 5) = "ENUM " Then
+        Exit Function
+    End If
+    rest = T
+    ParseDeclHead = (Len(Trim$(rest)) > 0)
+End Function
+
+Private Function ExtractDeclNames(ByVal S As String) As Collection
+    Dim col As New Collection
+    Dim parts As Collection: Set parts = SplitTopLevelCommas(S)
+    Dim v As Variant
+    For Each v In parts
+        Dim nm As String: nm = FirstIdent(CStr(v))
+        If Len(nm) > 0 Then col.Add nm
+    Next v
+    Set ExtractDeclNames = col
+End Function
+
+Private Function SplitTopLevelCommas(ByVal S As String) As Collection
+    Dim col As New Collection
+    Dim depth As Long, start As Long, i As Long, n As Long
+    n = Len(S): start = 1
+    For i = 1 To n
+        Dim ch As String: ch = Mid$(S, i, 1)
+        If ch = "(" Then
+            depth = depth + 1
+        ElseIf ch = ")" Then
+            If depth > 0 Then depth = depth - 1
+        ElseIf ch = "," And depth = 0 Then
+            col.Add Mid$(S, start, i - start): start = i + 1
+        End If
+    Next i
+    col.Add Mid$(S, start, n - start + 1)
+    Set SplitTopLevelCommas = col
+End Function
+
+Private Function FirstIdent(ByVal S As String) As String
+    Dim i As Long, n As Long: n = Len(S): i = 1
+    Do While i <= n
+        If Mid$(S, i, 1) Like "[A-Za-z_]" Then Exit Do
+        i = i + 1
+    Loop
+    If i > n Then Exit Function
+    Dim j As Long: j = i + 1
+    Do While j <= n
+        If Mid$(S, j, 1) Like "[A-Za-z0-9_]" Then j = j + 1 Else Exit Do
+    Loop
+    FirstIdent = Mid$(S, i, j - i)
+End Function
+
+'======================== フォーム/レポート ========================
+Private Sub ScanFormsReports(procNames As Object, refEdges As Object)
+    Dim ao As Object, txt As String
+    For Each ao In CurrentProject.AllForms
+        txt = ExportAndRead(acForm, ao.Name)
+        If Len(txt) > 0 Then ParseFormText txt, ao.Name, procNames, refEdges
+    Next ao
+    For Each ao In CurrentProject.AllReports
+        txt = ExportAndRead(acReport, ao.Name)
+        If Len(txt) > 0 Then ParseFormText txt, ao.Name, procNames, refEdges
+    Next ao
+End Sub
+
+Private Function ExportAndRead(ByVal objType As AcObjectType, ByVal objName As String) As String
+    Dim p As String, S As String
+    p = Environ$("TEMP") & "\xref_tmp.txt"
+    On Error Resume Next
+    If Dir$(p) <> "" Then Kill p
+    Err.Clear
+    Application.SaveAsText objType, objName, p
+    If Err.Number = 0 Then
+        S = ReadAllText(p)
+        Kill p
+    End If
+    On Error GoTo 0
+    ExportAndRead = S
+End Function
+
+Private Function ReadAllText(ByVal path As String) As String
+    Dim f As Integer, S As String, line As String
+    f = FreeFile
+    Open path For Input As #f
+    Do Until EOF(f)
+        Line Input #f, line
+        S = S & line & vbCrLf
+    Loop
+    Close #f
+    ReadAllText = S
+End Function
+
+Private Sub ParseFormText(ByVal txt As String, ByVal objName As String, _
+                          procNames As Object, refEdges As Object)
+    Dim rows() As String: rows = Split(txt, vbCrLf)
+    Dim depth As Long
+    Dim names() As String, owners() As String
+    Dim evs() As Object, exps() As Object
+    ReDim names(0 To 256): ReDim owners(0 To 256)
+    ReDim evs(0 To 256): ReDim exps(0 To 256)
+
+    Dim i As Long
+    For i = LBound(rows) To UBound(rows)
+        Dim T As String: T = Trim$(rows(i))
+        If Len(T) = 0 Then GoTo nexti
+
+        Dim isBegin As Boolean, beginType As String, isEnd As Boolean
+        isBegin = False: isEnd = False: beginType = ""
+        If StrComp(Left$(T, 5), "Begin", vbTextCompare) = 0 And _
+           (Len(T) = 5 Or Mid$(T, 6, 1) = " ") Then
+            isBegin = True: beginType = Trim$(Mid$(T, 6))
+        ElseIf InStr(T, "=") > 0 And StrComp(Right$(T, 5), "Begin", vbTextCompare) = 0 Then
+            isBegin = True                       ' PrtMip = Begin 等のバイナリブロック
+        ElseIf StrComp(T, "End", vbTextCompare) = 0 Then
+            isEnd = True
+        End If
+
+        If isBegin Then
+            depth = depth + 1
+            If depth > UBound(names) Then
+                ReDim Preserve names(0 To depth + 128)
+                ReDim Preserve owners(0 To depth + 128)
+                ReDim Preserve evs(0 To depth + 128)
+                ReDim Preserve exps(0 To depth + 128)
+            End If
+            names(depth) = ""
+            If StrComp(beginType, "Form", vbTextCompare) = 0 Then
+                owners(depth) = "Form"
+            ElseIf StrComp(beginType, "Report", vbTextCompare) = 0 Then
+                owners(depth) = "Report"
+            Else
+                owners(depth) = ""
+            End If
+            Set evs(depth) = New Collection
+            Set exps(depth) = New Collection
+        ElseIf isEnd Then
+            If depth >= 1 Then
+                ResolveFrame names(depth), owners(depth), evs(depth), exps(depth), _
+                             objName, procNames, refEdges
+                depth = depth - 1
+            End If
+        Else
+            If depth >= 1 Then
+                Dim pn As String, pv As String
+                If SplitProperty(T, pn, pv) Then
+                    If StrComp(pn, "Name", vbTextCompare) = 0 Then
+                        If Len(names(depth)) = 0 Then names(depth) = pv
+                    ElseIf StrComp(pv, "[Event Procedure]", vbTextCompare) = 0 Then
+                        evs(depth).Add pn
+                    ElseIf Left$(pv, 1) = "=" Then
+                        exps(depth).Add Array(pn, Mid$(pv, 2))
+                    End If
+                End If
+            End If
+        End If
+nexti:
+    Next i
+End Sub
+
+Private Sub ResolveFrame(ByVal frmName As String, ByVal owner As String, _
+                         ev As Object, exps As Object, ByVal objName As String, _
+                         procNames As Object, refEdges As Object)
+    Dim ownerName As String
+    If owner = "Form" Then
+        ownerName = "Form"
+    ElseIf owner = "Report" Then
+        ownerName = "Report"
+    Else
+        ownerName = frmName
+    End If
+
+    Dim v As Variant
+    If Not ev Is Nothing Then
+        For Each v In ev
+            If Len(ownerName) > 0 Then
+                Dim handler As String: handler = ownerName & "_" & EventNameFromProp(CStr(v))
+                If procNames.Exists(handler) Then
+                    refEdges.Add Array("EventProc", objName, CStr(v), handler)
+                End If
+            End If
+        Next v
+    End If
+    If Not exps Is Nothing Then
+        For Each v In exps
+            Dim seen As Object: Set seen = NewDict()
+            MatchCalls CStr(v(1)), procNames, seen
+            Dim kk As Variant
+            For Each kk In seen.Keys
+                refEdges.Add Array("Expr", objName, CStr(v(0)), CStr(kk))
+            Next kk
+        Next v
+    End If
+End Sub
+
+Private Function SplitProperty(ByVal T As String, ByRef pName As String, ByRef pVal As String) As Boolean
+    Dim p As Long: p = InStr(T, "=")
+    If p < 2 Then Exit Function
+    pName = Trim$(Left$(T, p - 1))
+    If Not (Left$(pName, 1) Like "[A-Za-z]") Then Exit Function
+    pVal = Unquote(Trim$(Mid$(T, p + 1)))
+    SplitProperty = True
+End Function
+
+Private Function Unquote(ByVal S As String) As String
+    If Len(S) >= 2 And Left$(S, 1) = """" And Right$(S, 1) = """" Then
+        S = Mid$(S, 2, Len(S) - 2)
+        S = Replace(S, """""", """")
+    End If
+    Unquote = S
+End Function
+
+Private Function EventNameFromProp(ByVal p As String) As String
+    If Len(p) > 2 And StrComp(Left$(p, 2), "On", vbBinaryCompare) = 0 Then
+        EventNameFromProp = Mid$(p, 3)
+    Else
+        EventNameFromProp = p
+    End If
+End Function
+
+'======================== マクロ / クエリ ========================
+Private Sub ScanMacros(procNames As Object, refEdges As Object)
+    Dim ao As Object, txt As String
+    For Each ao In CurrentProject.AllMacros
+        txt = ExportAndRead(acMacro, ao.Name)
+        If Len(txt) > 0 Then
+            Dim seen As Object: Set seen = NewDict()
+            MatchCalls txt, procNames, seen
+            Dim kk As Variant
+            For Each kk In seen.Keys
+                refEdges.Add Array("Macro", ao.Name, "", CStr(kk))
+            Next kk
+        End If
+    Next ao
+End Sub
+
+Private Sub ScanQueries(procNames As Object, refEdges As Object)
+    Dim qd As Object
+    For Each qd In CurrentDb.QueryDefs
+        Dim nm As String: nm = qd.Name
+        If Left$(nm, 1) <> "~" And Left$(nm, 4) <> "MSys" Then
+            Dim sql As String
+            On Error Resume Next
+            sql = qd.sql
+            On Error GoTo 0
+            If Len(sql) > 0 Then
+                Dim seen As Object: Set seen = NewDict()
+                MatchCalls StripSql(sql), procNames, seen
+                Dim kk As Variant
+                For Each kk In seen.Keys
+                    refEdges.Add Array("Query", nm, "", CStr(kk))
+                Next kk
+            End If
+        End If
+    Next qd
+End Sub
+
+' 識別子の直後が "(" のものだけ関数呼出として照合
+Private Sub MatchCalls(ByVal S As String, nameSet As Object, seen As Object)
+    Dim i As Long, n As Long: n = Len(S): i = 1
+    Do While i <= n
+        Dim ch As String: ch = Mid$(S, i, 1)
+        If ch Like "[A-Za-z_]" Then
+            Dim j As Long: j = i + 1
+            Do While j <= n
+                If Mid$(S, j, 1) Like "[A-Za-z0-9_]" Then j = j + 1 Else Exit Do
+            Loop
+            Dim tok As String: tok = Mid$(S, i, j - i)
+            Dim kpos As Long: kpos = j
+            Do While kpos <= n
+                If Mid$(S, kpos, 1) = " " Then kpos = kpos + 1 Else Exit Do
+            Loop
+            Dim prevCh As String
+            If i > 1 Then prevCh = Mid$(S, i - 1, 1)
+            If prevCh <> "." Then
+                If kpos <= n And Mid$(S, kpos, 1) = "(" Then
+                    If nameSet.Exists(tok) Then
+                        If Not seen.Exists(tok) Then seen.Add tok, True
+                    End If
+                End If
+            End If
+            i = j
+        Else
+            i = i + 1
+        End If
+    Loop
+End Sub
+
+Private Function StripSql(ByVal S As String) As String
+    Dim res As String, i As Long, n As Long, q As String
+    n = Len(S): q = ""
+    For i = 1 To n
+        Dim ch As String: ch = Mid$(S, i, 1)
+        If Len(q) > 0 Then
+            res = res & " "
+            If ch = q Then q = ""
+        Else
+            If ch = "'" Or ch = """" Then
+                q = ch: res = res & " "
+            Else
+                res = res & ch
+            End If
+        End If
+    Next i
+    StripSql = res
+End Function
+
+'======================== 変数・定数の使用箇所(引数シャドウ対応) ========================
+Private Sub ScanVarUsage(vbProj As Object, procList As Object, _
+                         varNames As Object, usageEdges As Object)
+    Dim k As Variant, info As Variant
+    For Each k In procList.Keys
+        info = procList(k)
+        If CLng(info(5)) > 0 Then
+            Dim mdl As String, prc As String
+            mdl = CStr(info(0)): prc = CStr(info(1))
+            Dim cm As Object: Set cm = vbProj.VBComponents(mdl).CodeModule
+            Dim bodyTxt As String
+            bodyTxt = cm.Lines(CLng(info(4)), CLng(info(5)))
+
+            ' シャドウ集合 = ローカル宣言名 + 引数名
+            Dim shadow As Object: Set shadow = CollectLocalNames(bodyTxt)
+            Dim argStr As String, params As Object
+            ParseSignature cm, CLng(info(6)), argStr, params
+            MergeNames shadow, params
+
+            Dim usedVars As Object: Set usedVars = NewDict()
+            Dim rows() As String: rows = Split(bodyTxt, vbCrLf)
+            Dim i As Long
+            For i = LBound(rows) To UBound(rows)
+                MatchVarTokens StripCommentAndStrings(rows(i)), varNames, mdl, shadow, usedVars
+            Next i
+
+            Dim vv As Variant
+            For Each vv In usedVars.Keys
+                Dim D As Variant: D = usedVars(vv)
+                usageEdges.Add Array(mdl, prc, CStr(D(0)), CStr(vv), CStr(D(1)), CStr(D(2)))
+            Next vv
+        End If
+    Next k
+End Sub
+
+' プロシージャ本体内の Dim/Static/ReDim/Const 名(シャドウ判定用。引数は ParseSignature 側)
+Private Function CollectLocalNames(ByVal bodyTxt As String) As Object
+    Dim D As Object: Set D = NewDict()
+    Dim rows() As String: rows = Split(bodyTxt, vbCrLf)
+    Dim logical As Collection: Set logical = JoinContinued(rows)
+    Dim v As Variant
+    For Each v In logical
+        Dim T As String: T = Trim$(StripCommentAndStrings(CStr(v)))
+        If Len(T) = 0 Then GoTo nx
+        Dim u As String, rest As String
+        u = UCase$(T): rest = ""
+        If Left$(u, 4) = "DIM " Then
+            rest = Mid$(T, 5)
+        ElseIf Left$(u, 7) = "STATIC " Then
+            rest = Mid$(T, 8)
+        ElseIf Left$(u, 6) = "REDIM " Then
+            rest = Mid$(T, 7)
+            If UCase$(Left$(LTrim$(rest), 9)) = "PRESERVE " Then rest = LTrim$(Mid$(LTrim$(rest), 10))
+        ElseIf Left$(u, 6) = "CONST " Then
+            rest = Mid$(T, 6)
+        Else
+            GoTo nx
+        End If
+        If UCase$(Left$(LTrim$(rest), 11)) = "WITHEVENTS " Then rest = LTrim$(Mid$(LTrim$(rest), 12))
+        Dim names As Collection: Set names = ExtractDeclNames(rest)
+        Dim nm As Variant
+        For Each nm In names
+            If Not D.Exists(CStr(nm)) Then D.Add CStr(nm), True
+        Next nm
+nx:
+    Next v
+    Set CollectLocalNames = D
+End Function
+
+Private Sub MatchVarTokens(ByVal S As String, varNames As Object, ByVal curMod As String, _
+                           localNames As Object, usedVars As Object)
+    Dim i As Long, n As Long: n = Len(S): i = 1
+    Do While i <= n
+        Dim ch As String: ch = Mid$(S, i, 1)
+        If ch Like "[A-Za-z_]" Then
+            Dim j As Long: j = i + 1
+            Do While j <= n
+                If Mid$(S, j, 1) Like "[A-Za-z0-9_]" Then j = j + 1 Else Exit Do
+            Loop
+            Dim tok As String: tok = Mid$(S, i, j - i)
+            Dim prevCh As String
+            If i > 1 Then prevCh = Mid$(S, i - 1, 1)
+            If prevCh <> "." Then
+                If Not localNames.Exists(tok) Then
+                    If varNames.Exists(tok) Then
+                        Dim chosen As Variant
+                        If PickVarDecl(varNames(tok), curMod, chosen) Then
+                            If Not usedVars.Exists(tok) Then usedVars.Add tok, chosen
+                        End If
+                    End If
+                End If
+            End If
+            i = j
+        Else
+            i = i + 1
+        End If
+    Loop
+End Sub
+
+Private Function PickVarDecl(decls As Object, ByVal curMod As String, ByRef chosen As Variant) As Boolean
+    Dim v As Variant
+    For Each v In decls                       ' 同一モジュール宣言を優先
+        If StrComp(CStr(v(0)), curMod, vbTextCompare) = 0 Then
+            chosen = v: PickVarDecl = True: Exit Function
+        End If
+    Next v
+    For Each v In decls                       ' 他モジュールのPublic
+        If StrComp(CStr(v(1)), "Public", vbTextCompare) = 0 Then
+            chosen = v: PickVarDecl = True: Exit Function
+        End If
+    Next v
+End Function
+
+' 宣言行(行継続込み)から引数名を抽出。argStr=引数リスト原文、names=引数名集合
+Private Sub ParseSignature(cm As Object, ByVal bodyLine As Long, _
+                           ByRef argStr As String, ByRef names As Object)
+    Set names = NewDict(): argStr = ""
+    If bodyLine <= 0 Then Exit Sub
+
+    ' 1) 宣言行を行継続結合
+    Dim sig As String, ln As Long, total As Long
+    total = cm.CountOfLines: ln = bodyLine
+    Do While ln <= total
+        Dim phys As String: phys = cm.Lines(ln, 1)
+        Dim r As String: r = RTrim$(phys)
+        If Len(r) >= 2 And Right$(r, 2) = " _" Then
+            sig = sig & Left$(r, Len(r) - 1) & " ": ln = ln + 1
+        Else
+            sig = sig & phys: Exit Do
+        End If
+    Loop
+
+    ' 2) 文字列・コメント除去(=既定値内の "," "(" ")" "'" を無害化し括弧を健全化)
+    sig = StripCommentAndStrings(sig)
+
+    ' 3) 最初の "(" から対応する ")" までを引数リストとして切り出し
+    Dim p As Long: p = InStr(sig, "(")
+    If p = 0 Then Exit Sub                       ' 括弧なし=引数なし
+    Dim depth As Long, i As Long, n As Long, startArg As Long, closeArg As Long
+    n = Len(sig)
+    For i = p To n
+        Dim ch As String: ch = Mid$(sig, i, 1)
+        If ch = "(" Then
+            depth = depth + 1
+            If depth = 1 Then startArg = i + 1
+        ElseIf ch = ")" Then
+            depth = depth - 1
+            If depth = 0 Then closeArg = i: Exit For
+        End If
+    Next i
+    If closeArg = 0 Or closeArg <= startArg Then Exit Sub
+
+    argStr = Trim$(Mid$(sig, startArg, closeArg - startArg))
+    If Len(argStr) = 0 Then Exit Sub             ' () 空
+
+    ' 4) トップレベルのカンマで分割し、各引数の名前を取得
+    Dim parts As Collection: Set parts = SplitTopLevelCommas(argStr)
+    Dim v As Variant
+    For Each v In parts
+        Dim pnm As String: pnm = FirstParamName(CStr(v))
+        If Len(pnm) > 0 Then If Not names.Exists(pnm) Then names.Add pnm, True
+    Next v
+End Sub
+
+' 引数1個分から名前を取得(修飾子 Optional/ByVal/ByRef/ParamArray を読み飛ばし最初の識別子)
+Private Function FirstParamName(ByVal S As String) As String
+    Dim i As Long, n As Long: n = Len(S): i = 1
+    Do While i <= n
+        Dim ch As String: ch = Mid$(S, i, 1)
+        If ch Like "[A-Za-z_]" Then
+            Dim j As Long: j = i + 1
+            Do While j <= n
+                If Mid$(S, j, 1) Like "[A-Za-z0-9_]" Then j = j + 1 Else Exit Do
+            Loop
+            Dim tok As String: tok = Mid$(S, i, j - i)
+            Select Case UCase$(tok)
+                Case "OPTIONAL", "BYVAL", "BYREF", "PARAMARRAY"   ' 修飾子→次へ
+                Case Else
+                    FirstParamName = tok: Exit Function           ' 名前確定
+            End Select
+            i = j
+        Else
+            i = i + 1
+        End If
+    Loop
+End Function
+
+Private Sub MergeNames(target As Object, src As Object)
+    Dim kk As Variant
+    For Each kk In src.Keys
+        If Not target.Exists(CStr(kk)) Then target.Add CStr(kk), True
+    Next kk
+End Sub
+
+'======================== 出力テーブル ========================
+Private Sub WriteProcTable(procList As Object)
+    Const T As String = "tbl_xref_proc"
+    DropTable T
+    CurrentDb.Execute "CREATE TABLE [" & T & "] (" & _
+        "[id] AUTOINCREMENT PRIMARY KEY,[module_name] TEXT(128)," & _
+        "[proc_name] TEXT(128),[proc_type] TEXT(20),[proc_scope] TEXT(12)," & _
+        "[start_line] LONG,[line_count] LONG);", dbFailOnError
+    Dim rs As DAO.Recordset: Set rs = CurrentDb.OpenRecordset(T, dbOpenTable, dbAppendOnly)
+    Dim k As Variant, info As Variant
+    For Each k In procList.Keys
+        info = procList(k)
+        rs.AddNew
+        rs![module_name] = info(0): rs![proc_name] = info(1)
+        rs![proc_type] = info(2):  rs![proc_scope] = info(3)
+        rs![start_line] = info(4): rs![line_count] = info(5)
+        rs.Update
+    Next k
+    rs.Close
+End Sub
+
+Private Sub WriteCallTable(callEdges As Object)
+    Const T As String = "tbl_xref_call"
+    DropTable T
+    CurrentDb.Execute "CREATE TABLE [" & T & "] (" & _
+        "[id] AUTOINCREMENT PRIMARY KEY,[caller_module] TEXT(128)," & _
+        "[caller_proc] TEXT(128),[callee_name] TEXT(128));", dbFailOnError
+    Dim rs As DAO.Recordset: Set rs = CurrentDb.OpenRecordset(T, dbOpenTable, dbAppendOnly)
+    Dim e As Variant
+    For Each e In callEdges
+        rs.AddNew
+        rs![caller_module] = e(0): rs![caller_proc] = e(1): rs![callee_name] = e(2)
+        rs.Update
+    Next e
+    rs.Close
+End Sub
+
+Private Sub WriteRefTable(refEdges As Object)
+    Const T As String = "tbl_xref_ref"
+    DropTable T
+    CurrentDb.Execute "CREATE TABLE [" & T & "] (" & _
+        "[id] AUTOINCREMENT PRIMARY KEY,[ref_kind] TEXT(16)," & _
+        "[src_name] TEXT(128),[src_detail] TEXT(128),[callee_name] TEXT(128));", dbFailOnError
+    Dim rs As DAO.Recordset: Set rs = CurrentDb.OpenRecordset(T, dbOpenTable, dbAppendOnly)
+    Dim e As Variant
+    For Each e In refEdges
+        rs.AddNew
+        rs![ref_kind] = e(0): rs![src_name] = e(1): rs![src_detail] = e(2): rs![callee_name] = e(3)
+        rs.Update
+    Next e
+    rs.Close
+End Sub
+
+Private Sub WriteVarTable(varList As Object)
+    Const T As String = "tbl_xref_var"
+    DropTable T
+    CurrentDb.Execute "CREATE TABLE [" & T & "] (" & _
+        "[id] AUTOINCREMENT PRIMARY KEY,[module_name] TEXT(128)," & _
+        "[var_name] TEXT(128),[var_kind] TEXT(8),[var_scope] TEXT(10));", dbFailOnError
+    Dim rs As DAO.Recordset: Set rs = CurrentDb.OpenRecordset(T, dbOpenTable, dbAppendOnly)
+    Dim k As Variant, info As Variant
+    For Each k In varList.Keys
+        info = varList(k)
+        rs.AddNew
+        rs![module_name] = info(0): rs![var_name] = info(1)
+        rs![var_kind] = info(2):    rs![var_scope] = info(3)
+        rs.Update
+    Next k
+    rs.Close
+End Sub
+
+Private Sub WriteVarUsageTable(usageEdges As Object)
+    Const T As String = "tbl_xref_var_use"
+    DropTable T
+    CurrentDb.Execute "CREATE TABLE [" & T & "] (" & _
+        "[id] AUTOINCREMENT PRIMARY KEY,[use_module] TEXT(128),[use_proc] TEXT(128)," & _
+        "[var_module] TEXT(128),[var_name] TEXT(128),[var_scope] TEXT(10),[var_kind] TEXT(8));", dbFailOnError
+    Dim rs As DAO.Recordset: Set rs = CurrentDb.OpenRecordset(T, dbOpenTable, dbAppendOnly)
+    Dim e As Variant
+    For Each e In usageEdges
+        rs.AddNew
+        rs![use_module] = e(0): rs![use_proc] = e(1)
+        rs![var_module] = e(2): rs![var_name] = e(3)
+        rs![var_scope] = e(4):  rs![var_kind] = e(5)
+        rs.Update
+    Next e
+    rs.Close
+End Sub
+
+Private Sub WriteParamTable(vbProj As Object, procList As Object)
+    Const T As String = "tbl_xref_param"
+    DropTable T
+    CurrentDb.Execute "CREATE TABLE [" & T & "] (" & _
+        "[id] AUTOINCREMENT PRIMARY KEY,[module_name] TEXT(128),[proc_name] TEXT(128)," & _
+        "[param_count] LONG,[param_names] TEXT(255),[arg_list] TEXT(255),[suspicious] LONG);", dbFailOnError
+    Dim rs As DAO.Recordset: Set rs = CurrentDb.OpenRecordset(T, dbOpenTable, dbAppendOnly)
+    Dim k As Variant, info As Variant
+    For Each k In procList.Keys
+        info = procList(k)
+        If CLng(info(5)) > 0 Then
+            Dim cm As Object: Set cm = vbProj.VBComponents(info(0)).CodeModule
+            Dim argStr As String, params As Object
+            ParseSignature cm, CLng(info(6)), argStr, params
+            rs.AddNew
+            rs![module_name] = info(0): rs![proc_name] = info(1)
+            rs![param_count] = params.Count
+            rs![param_names] = Left$(JoinKeys(params), 255)
+            rs![arg_list] = Left$(argStr, 255)
+            ' 引数リスト原文は非空なのに1個も抽出できない→解析失敗の疑い
+            rs![suspicious] = IIf(Len(Trim$(argStr)) > 0 And params.Count = 0, 1, 0)
+            rs.Update
+        End If
+    Next k
+    rs.Close
+End Sub
+
+Private Function JoinKeys(D As Object) As String
+    Dim S As String, kk As Variant
+    For Each kk In D.Keys
+        S = S & IIf(Len(S) > 0, ", ", "") & CStr(kk)
+    Next kk
+    JoinKeys = S
+End Function
+
+Private Sub DropTable(ByVal tableName As String)
+    On Error Resume Next
+    CurrentDb.Execute "DROP TABLE [" & tableName & "];"
+    On Error GoTo 0
+End Sub
+
+'==============================================================
+'  参考クエリ(下記をクエリとして保存して利用)
+'--------------------------------------------------------------
+' ■ 全参照(VBA + イベント/式/マクロ/クエリ)で呼出元を探す
+'   PARAMETERS 対象 TEXT(128);
+'   SELECT * FROM (
+'     SELECT 'VBA' AS kind, caller_module AS src, caller_proc AS detail, callee_name FROM tbl_xref_call
+'     UNION ALL
+'     SELECT ref_kind, src_name, src_detail, callee_name FROM tbl_xref_ref
+'   ) AS q
+'   WHERE callee_name = [対象]
+'   ORDER BY kind, src;
+'
+' ■ 未使用プロシージャ(イベント/式/マクロ/クエリ参照を考慮)
+'   SELECT p.module_name, p.proc_name, p.proc_type, p.proc_scope
+'   FROM tbl_xref_proc AS p
+'   LEFT JOIN (
+'       SELECT callee_name FROM tbl_xref_call
+'       UNION
+'       SELECT callee_name FROM tbl_xref_ref
+'   ) AS u ON p.proc_name = u.callee_name
+'   WHERE u.callee_name IS NULL
+'   ORDER BY p.module_name, p.proc_name;
+'
+' ■ 未使用のモジュールレベル変数・定数
+'   SELECT v.module_name, v.var_name, v.var_kind, v.var_scope
+'   FROM tbl_xref_var AS v
+'   LEFT JOIN tbl_xref_var_use AS u
+'     ON v.module_name = u.var_module AND v.var_name = u.var_name
+'   WHERE u.var_name IS NULL
+'   ORDER BY v.module_name, v.var_name;
+'
+' ■ 変数・定数の使用箇所
+'   PARAMETERS 変数名 TEXT(128);
+'   SELECT use_module, use_proc, var_module, var_scope, var_kind
+'   FROM tbl_xref_var_use
+'   WHERE var_name = [変数名]
+'   ORDER BY use_module, use_proc;
+'
+' ■ 引数抽出の検証(期待値=0件)
+'   SELECT module_name, proc_name, arg_list, param_names
+'   FROM tbl_xref_param WHERE suspicious = 1;
+'==============================================================
+
+'==============================================================
+'  相互リファレンスを Excel(多シート)へ出力
+'  前提: 先に BuildVBAXRefFull を実行 / Excelインストール済み
+'==============================================================
+Public Sub ExportXRefToExcel()
+    Const xlXLSX As Long = 51
+
+    If Not TableExists("tbl_xref_proc") Then
+        MsgBox "先に BuildVBAXRefFull を実行してテーブルを生成してください。", vbExclamation
+        Exit Sub
+    End If
+
+    ' --- 出力ビュー(シート名, SQL) ---
+    Dim q1 As String, q2 As String, q3 As String, q4 As String
+    Dim q5 As String, q6 As String, q7 As String, q8 As String
+
+    q1 = "SELECT module_name AS モジュール, proc_name AS プロシージャ, proc_type AS 種別, " & _
+         "proc_scope AS スコープ, start_line AS 開始行, line_count AS 行数 " & _
+         "FROM tbl_xref_proc ORDER BY module_name, proc_name;"
+
+    q2 = "SELECT callee_name AS 呼出先, 'VBA' AS 系統, caller_module AS 呼出元, caller_proc AS 詳細 FROM tbl_xref_call " & _
+         "UNION ALL " & _
+         "SELECT callee_name, ref_kind, src_name, src_detail FROM tbl_xref_ref " & _
+         "ORDER BY 呼出先, 系統, 呼出元;"
+
+    q3 = "SELECT 呼出先, COUNT(*) AS 被参照数 FROM " & _
+         "(SELECT callee_name AS 呼出先 FROM tbl_xref_call " & _
+         "UNION ALL SELECT callee_name FROM tbl_xref_ref) AS u " & _
+         "GROUP BY 呼出先 ORDER BY COUNT(*) DESC;"
+
+    q4 = "SELECT p.module_name AS モジュール, p.proc_name AS プロシージャ, p.proc_type AS 種別, p.proc_scope AS スコープ " & _
+         "FROM tbl_xref_proc AS p LEFT JOIN " & _
+         "(SELECT callee_name FROM tbl_xref_call UNION SELECT callee_name FROM tbl_xref_ref) AS u " & _
+         "ON p.proc_name = u.callee_name WHERE u.callee_name IS NULL " & _
+         "ORDER BY p.module_name, p.proc_name;"
+
+    q5 = "SELECT module_name AS モジュール, var_name AS 名前, var_kind AS 種別, var_scope AS スコープ " & _
+         "FROM tbl_xref_var ORDER BY module_name, var_name;"
+
+    q6 = "SELECT var_module AS 定義モジュール, var_name AS 名前, var_scope AS スコープ, var_kind AS 種別, " & _
+         "use_module AS 使用モジュール, use_proc AS 使用プロシージャ " & _
+         "FROM tbl_xref_var_use ORDER BY var_module, var_name, use_module, use_proc;"
+
+    q7 = "SELECT v.module_name AS モジュール, v.var_name AS 名前, v.var_kind AS 種別, v.var_scope AS スコープ " & _
+         "FROM tbl_xref_var AS v LEFT JOIN tbl_xref_var_use AS u " & _
+         "ON v.module_name = u.var_module AND v.var_name = u.var_name " & _
+         "WHERE u.var_name IS NULL ORDER BY v.module_name, v.var_name;"
+
+    q8 = "SELECT module_name AS モジュール, proc_name AS プロシージャ, param_count AS 引数数, " & _
+         "param_names AS 引数名, arg_list AS 引数リスト, suspicious AS 要確認 " & _
+         "FROM tbl_xref_param ORDER BY module_name, proc_name;"
+
+    Dim defs As Variant
+    defs = Array( _
+        Array("プロシージャ一覧", q1), _
+        Array("呼び出し一覧", q2), _
+        Array("被参照数ランキング", q3), _
+        Array("未使用プロシージャ", q4), _
+        Array("変数定数_定義", q5), _
+        Array("変数定数_使用箇所", q6), _
+        Array("変数定数_未使用", q7), _
+        Array("引数一覧", q8))
+
+    Dim db As DAO.Database, rs As DAO.Recordset
+    Dim xl As Object, wb As Object, ws As Object
+    Dim i As Long, shName As String, sql As String
+    Dim outPath As String, shown As Boolean
+
+    On Error GoTo EH
+    Set db = CurrentDb
+    Set xl = CreateObject("Excel.Application")
+    xl.Visible = False
+    xl.DisplayAlerts = False
+    Set wb = xl.Workbooks.Add
+
+    Do While wb.Worksheets.Count > 1          ' 既定シートを1枚に
+        wb.Worksheets(wb.Worksheets.Count).Delete
+    Loop
+
+    For i = LBound(defs) To UBound(defs)
+        shName = defs(i)(0): sql = defs(i)(1)
+        If i = LBound(defs) Then
+            Set ws = wb.Worksheets(1)
+        Else
+            Set ws = wb.Worksheets.Add(After:=wb.Worksheets(wb.Worksheets.Count))
+        End If
+        ws.Name = Left$(shName, 31)
+
+        Set rs = db.OpenRecordset(sql, dbOpenSnapshot)
+        DumpRecordset ws, rs
+        rs.Close: Set rs = Nothing
+    Next i
+
+    wb.Worksheets(1).Activate
+    outPath = CurrentProject.path & "\VBA相互リファレンス_" & Format$(Now, "yyyymmdd_hhnnss") & ".xlsx"
+    wb.SaveAs outPath, xlXLSX
+    xl.DisplayAlerts = True
+    xl.Visible = True
+    shown = True
+
+    MsgBox "Excelに出力しました:" & vbCrLf & outPath, vbInformation
+
+CleanExit:
+    Set ws = Nothing: Set wb = Nothing: Set xl = Nothing: Set db = Nothing
+    Exit Sub
+EH:
+    Dim eNumb As Long
+    Dim eDesc As String
+    eNumb = Err.Number: eDesc = Err.Description
+    On Error Resume Next
+    If Not rs Is Nothing Then rs.Close
+    If Not xl Is Nothing And Not shown Then xl.DisplayAlerts = True: xl.Quit
+    On Error GoTo 0
+    MsgBox "エラー　" & eNumb & ": " & eDesc, vbCritical
+    Resume CleanExit
+End Sub
+
+Private Sub DumpRecordset(ws As Object, rs As DAO.Recordset)
+    Dim nCols As Long: nCols = rs.Fields.Count
+    Dim c As Long
+    For c = 0 To nCols - 1
+        ws.Cells(1, c + 1).Value = rs.Fields(c).Name
+    Next c
+    ws.Range(ws.Cells(1, 1), ws.Cells(1, nCols)).Font.Bold = True
+    If Not rs.EOF Then ws.Cells(2, 1).CopyFromRecordset rs
+    ws.Cells(1, 1).AutoFilter
+    ws.Columns.AutoFit
+    On Error Resume Next                      ' 先頭行固定(環境差で失敗しても無視)
+    ws.Activate
+    ws.Range("A2").Select
+    ws.Application.ActiveWindow.FreezePanes = True
+    On Error GoTo 0
+End Sub
+
+Private Function TableExists(ByVal tname As String) As Boolean
+    On Error Resume Next
+    Dim x As Long: x = CurrentDb.TableDefs(tname).Fields.Count
+    TableExists = (Err.Number = 0)
+    On Error GoTo 0
+End Function

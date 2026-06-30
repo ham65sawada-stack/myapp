@@ -1,0 +1,6 @@
+TABLE	tbl_xref_call
+FIELD	id	Long	Size=4	Req=False	ZeroLen=False
+FIELD	caller_module	Text	Size=128	Req=False	ZeroLen=False
+FIELD	caller_proc	Text	Size=128	Req=False	ZeroLen=False
+FIELD	callee_name	Text	Size=128	Req=False	ZeroLen=False
+INDEX	Index_D5651894_460A_435A	(id)	PK=True	Unique=True

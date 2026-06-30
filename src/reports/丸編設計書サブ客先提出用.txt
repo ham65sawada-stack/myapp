@@ -1,0 +1,1036 @@
+Version =20
+VersionRequired =20
+Begin Report
+    LayoutForPrint = NotDefault
+    DefaultView =0
+    TabularCharSet =128
+    TabularFamily =50
+    DateGrouping =1
+    GrpKeepTogether =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridX =5
+    GridY =5
+    Width =10531
+    DatasheetFontHeight =9
+    ItemSuffix =74
+    Left =3600
+    Top =435
+    Right =13920
+    Bottom =3150
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x3b389d02b095e340
+    End
+    RecordSource ="SELECT 設計Ｂワーク.*, IIf([原糸区分]<>\"X\" And ISNULL([原糸品種]),\"*\",\"\") AS ルート未登録 FROM"
+        " 設計Ｂワーク LEFT JOIN 原糸品種マスタ ON 設計Ｂワーク.原糸品番=原糸品種マスタ.原糸品種 ORDER BY 設計Ｂワーク.設計ＩＤ, 設計Ｂワ"
+        "ーク.原糸区分, 設計Ｂワーク.原糸品番, 設計Ｂワーク.給糸ＮＯＵ01, 設計Ｂワーク.設計明細ＮＯ; "
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0xa8000000a8000000a8000000a80000000000000023290000c501000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            Width =850
+            Height =850
+        End
+        Begin Line
+            Width =1701
+        End
+        Begin TextBox
+            OldBorderStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            Width =1701
+            Height =216
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin BreakLevel
+            ControlSource ="原糸区分"
+        End
+        Begin BreakLevel
+            ControlSource ="原糸品番"
+        End
+        Begin BreakLevel
+            ControlSource ="給糸ＮＯＵ01"
+        End
+        Begin BreakLevel
+            ControlSource ="設計明細ＮＯ"
+        End
+        Begin PageHeader
+            Height =0
+            Name ="ページヘッダー"
+        End
+        Begin Section
+            KeepTogether = NotDefault
+            Height =453
+            OnFormat ="[Event Procedure]"
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =3810
+                    Top =225
+                    Width =820
+                    Height =227
+                    FontSize =10
+                    TabIndex =25
+                    ForeColor =16777215
+                    Name ="給糸本数表示"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =451
+                    Width =4190
+                    Height =226
+                    FontSize =10
+                    TabIndex =1
+                    Name ="原糸品番"
+                    ControlSource ="原糸品番"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =451
+                    Top =226
+                    Width =3353
+                    Height =227
+                    FontSize =10
+                    TabIndex =2
+                    ForeColor =16777215
+                    Name ="原糸コメント"
+                    ControlSource ="原糸コメント"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4635
+                    Width =1134
+                    Height =453
+                    FontSize =10
+                    TabIndex =4
+                    LeftMargin =113
+                    TopMargin =113
+                    RightMargin =284
+                    Name ="見掛繊度"
+                    ControlSource ="見掛繊度"
+                    Format ="#,###.#;#\\.#;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2715
+                    Top =45
+                    Width =220
+                    Height =166
+                    FontSize =8
+                    TabIndex =5
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ01"
+                    ControlSource ="給糸ＮＯＵ01"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2935
+                    Top =45
+                    Width =220
+                    Height =166
+                    FontSize =8
+                    TabIndex =6
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ02"
+                    ControlSource ="給糸ＮＯＵ02"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3155
+                    Top =45
+                    Width =221
+                    Height =166
+                    FontSize =8
+                    TabIndex =7
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ03"
+                    ControlSource ="給糸ＮＯＵ03"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3376
+                    Top =45
+                    Width =220
+                    Height =166
+                    FontSize =8
+                    TabIndex =8
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ04"
+                    ControlSource ="給糸ＮＯＵ04"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3596
+                    Top =45
+                    Width =220
+                    Height =166
+                    FontSize =8
+                    TabIndex =9
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ05"
+                    ControlSource ="給糸ＮＯＵ05"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3816
+                    Top =45
+                    Width =220
+                    Height =166
+                    FontSize =8
+                    TabIndex =10
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ06"
+                    ControlSource ="給糸ＮＯＵ06"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4036
+                    Top =45
+                    Width =220
+                    Height =166
+                    FontSize =8
+                    TabIndex =11
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ07"
+                    ControlSource ="給糸ＮＯＵ07"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4256
+                    Top =45
+                    Width =220
+                    Height =166
+                    FontSize =8
+                    TabIndex =12
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＵ08"
+                    ControlSource ="給糸ＮＯＵ08"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2715
+                    Top =211
+                    Width =220
+                    Height =167
+                    FontSize =8
+                    TabIndex =13
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ01"
+                    ControlSource ="給糸ＮＯＤ01"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2935
+                    Top =211
+                    Width =220
+                    Height =167
+                    FontSize =8
+                    TabIndex =14
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ02"
+                    ControlSource ="給糸ＮＯＤ02"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3155
+                    Top =211
+                    Width =221
+                    Height =167
+                    FontSize =8
+                    TabIndex =15
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ03"
+                    ControlSource ="給糸ＮＯＤ03"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3376
+                    Top =211
+                    Width =220
+                    Height =167
+                    FontSize =8
+                    TabIndex =16
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ04"
+                    ControlSource ="給糸ＮＯＤ04"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3596
+                    Top =211
+                    Width =220
+                    Height =167
+                    FontSize =8
+                    TabIndex =17
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ05"
+                    ControlSource ="給糸ＮＯＤ05"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3816
+                    Top =211
+                    Width =220
+                    Height =167
+                    FontSize =8
+                    TabIndex =18
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ06"
+                    ControlSource ="給糸ＮＯＤ06"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4036
+                    Top =211
+                    Width =220
+                    Height =167
+                    FontSize =8
+                    TabIndex =19
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ07"
+                    ControlSource ="給糸ＮＯＤ07"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4256
+                    Top =211
+                    Width =220
+                    Height =167
+                    FontSize =8
+                    TabIndex =20
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="給糸ＮＯＤ08"
+                    ControlSource ="給糸ＮＯＤ08"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4476
+                    Top =45
+                    Width =561
+                    Height =166
+                    FontSize =8
+                    TabIndex =21
+                    RightMargin =113
+                    ForeColor =16777215
+                    Name ="ループ長１"
+                    ControlSource ="ループ長１"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4476
+                    Top =211
+                    Width =561
+                    Height =167
+                    FontSize =8
+                    TabIndex =22
+                    RightMargin =113
+                    ForeColor =16777215
+                    Name ="ループ長２"
+                    ControlSource ="ループ長２"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =9851
+                    Width =680
+                    Height =453
+                    FontSize =10
+                    TabIndex =23
+                    TopMargin =113
+                    Name ="交編率"
+                    ControlSource ="交編率"
+                    Format ="#,###.##;#,###.##;\"\""
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =225
+                    Width =226
+                    Height =453
+                    FontSize =10
+                    TabIndex =24
+                    TopMargin =113
+                    ForeColor =16777215
+                    Name ="原糸区分"
+                    ControlSource ="=IIf([設計Ｂワーク.原糸区分]=\"X\",\"\",[設計Ｂワーク.原糸区分])"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5037
+                    Top =45
+                    Width =560
+                    Height =166
+                    FontSize =8
+                    TabIndex =26
+                    RightMargin =57
+                    ForeColor =16777215
+                    Name ="テキスト41"
+                    ControlSource ="一周長１"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5037
+                    Top =211
+                    Width =560
+                    Height =167
+                    FontSize =8
+                    TabIndex =27
+                    RightMargin =57
+                    ForeColor =16777215
+                    Name ="テキスト42"
+                    ControlSource ="一周長２"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2379
+                    Top =113
+                    Width =226
+                    Height =227
+                    FontSize =10
+                    ForeColor =16777215
+                    Name ="設計ＩＤ"
+                    ControlSource ="設計ＩＤ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =1925
+                    Top =113
+                    Width =227
+                    Height =227
+                    FontSize =10
+                    TabIndex =3
+                    ForeColor =16777215
+                    Name ="給糸本数"
+                    ControlSource ="給糸本数"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5775
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    TabIndex =28
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ01"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6115
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    TabIndex =29
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ02"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6455
+                    Width =341
+                    Height =226
+                    FontSize =10
+                    TabIndex =30
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ03"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6796
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    TabIndex =31
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ04"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7136
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    TabIndex =32
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ05"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7476
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    TabIndex =33
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ06"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7816
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    TabIndex =34
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ07"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8156
+                    Width =340
+                    Height =226
+                    FontSize =10
+                    TabIndex =35
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＵ08"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5775
+                    Top =226
+                    Width =340
+                    Height =227
+                    FontSize =10
+                    TabIndex =36
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ01"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6115
+                    Top =226
+                    Width =340
+                    Height =227
+                    FontSize =10
+                    TabIndex =37
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ02"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6455
+                    Top =226
+                    Width =341
+                    Height =227
+                    FontSize =10
+                    TabIndex =38
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ03"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6796
+                    Top =226
+                    Width =340
+                    Height =227
+                    FontSize =10
+                    TabIndex =39
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ04"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7136
+                    Top =226
+                    Width =340
+                    Height =227
+                    FontSize =10
+                    TabIndex =40
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ05"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7476
+                    Top =226
+                    Width =340
+                    Height =227
+                    FontSize =10
+                    TabIndex =41
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ06"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7816
+                    Top =226
+                    Width =340
+                    Height =227
+                    FontSize =10
+                    TabIndex =42
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ07"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8156
+                    Top =226
+                    Width =340
+                    Height =227
+                    FontSize =10
+                    TabIndex =43
+                    RightMargin =46
+                    ForeColor =16777215
+                    Name ="非連結給糸ＮＯＤ08"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8496
+                    Width =681
+                    Height =226
+                    FontSize =10
+                    TabIndex =44
+                    RightMargin =113
+                    ForeColor =16777215
+                    Name ="非連結ループ長１"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8496
+                    Top =226
+                    Width =681
+                    Height =227
+                    FontSize =10
+                    TabIndex =45
+                    RightMargin =113
+                    ForeColor =16777215
+                    Name ="非連結ループ長２"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9177
+                    Width =680
+                    Height =226
+                    FontSize =10
+                    TabIndex =46
+                    RightMargin =57
+                    ForeColor =16777215
+                    Name ="非連結一周長１"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9177
+                    Top =226
+                    Width =680
+                    Height =227
+                    FontSize =10
+                    TabIndex =47
+                    RightMargin =57
+                    ForeColor =16777215
+                    Name ="非連結一周長２"
+                    Format ="#"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Rectangle
+                    BackStyle =0
+                    BorderWidth =1
+                    Left =5775
+                    Width =2721
+                    Height =226
+                    Name ="ボックス71"
+                End
+                Begin Rectangle
+                    BackStyle =0
+                    BorderWidth =1
+                    Left =5775
+                    Top =226
+                    Width =2721
+                    Height =227
+                    Name ="ボックス72"
+                End
+                Begin TextBox
+                    BorderWidth =1
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =30
+                    Top =120
+                    Width =167
+                    Height =227
+                    FontSize =10
+                    TabIndex =48
+                    ForeColor =16777215
+                    Name ="ルート未登録"
+                    ControlSource ="ルート未登録"
+                    FontName ="ＭＳ 明朝"
+                End
+            End
+        End
+        Begin PageFooter
+            Height =0
+            Name ="ページフッター"
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub 詳細_Format(Cancel As Integer, FormatCount As Integer)
+
+    Select Case Me![給糸本数]
+      Case 1
+           Me![給糸本数表示] = ""
+      Case 2
+           Me![給糸本数表示] = "//2"
+      Case 3
+           Me![給糸本数表示] = "///3"
+      Case 4
+           Me![給糸本数表示] = "///4"
+      Case 5
+           Me![給糸本数表示] = "///5"
+      Case 6
+           Me![給糸本数表示] = "///6"
+      Case Else
+           Me![給糸本数表示] = ""
+    End Select
+
+    If LINK_設計書印刷時の組織図有無 Then
+        Me![非連結給糸ＮＯＵ01] = Me![給糸NOU01]
+        Me![非連結給糸ＮＯＵ02] = Me![給糸NOU02]
+        Me![非連結給糸ＮＯＵ03] = Me![給糸NOU03]
+        Me![非連結給糸ＮＯＵ04] = Me![給糸NOU04]
+        Me![非連結給糸ＮＯＵ05] = Me![給糸NOU05]
+        Me![非連結給糸ＮＯＵ06] = Me![給糸NOU06]
+        Me![非連結給糸ＮＯＵ07] = Me![給糸NOU07]
+        Me![非連結給糸ＮＯＵ08] = Me![給糸NOU08]
+        Me![非連結給糸ＮＯＤ01] = Me![給糸NOD01]
+        Me![非連結給糸ＮＯＤ02] = Me![給糸NOD02]
+        Me![非連結給糸ＮＯＤ03] = Me![給糸NOD03]
+        Me![非連結給糸ＮＯＤ04] = Me![給糸NOD04]
+        Me![非連結給糸ＮＯＤ05] = Me![給糸NOD05]
+        Me![非連結給糸ＮＯＤ06] = Me![給糸NOD06]
+        Me![非連結給糸ＮＯＤ07] = Me![給糸NOD07]
+        Me![非連結給糸ＮＯＤ08] = Me![給糸NOD08]
+        Me![非連結ループ長１] = Me![ループ長1]
+        Me![非連結ループ長２] = Me![ループ長2]
+        Me![非連結一周長１] = Me![一周長1]
+        Me![非連結一周長２] = Me![一周長2]
+    Else
+        Me![非連結給糸ＮＯＵ01] = ""
+        Me![非連結給糸ＮＯＵ02] = ""
+        Me![非連結給糸ＮＯＵ03] = ""
+        Me![非連結給糸ＮＯＵ04] = ""
+        Me![非連結給糸ＮＯＵ05] = ""
+        Me![非連結給糸ＮＯＵ06] = ""
+        Me![非連結給糸ＮＯＵ07] = ""
+        Me![非連結給糸ＮＯＵ08] = ""
+        Me![非連結給糸ＮＯＤ01] = ""
+        Me![非連結給糸ＮＯＤ02] = ""
+        Me![非連結給糸ＮＯＤ03] = ""
+        Me![非連結給糸ＮＯＤ04] = ""
+        Me![非連結給糸ＮＯＤ05] = ""
+        Me![非連結給糸ＮＯＤ06] = ""
+        Me![非連結給糸ＮＯＤ07] = ""
+        Me![非連結給糸ＮＯＤ08] = ""
+        Me![非連結ループ長１] = ""
+        Me![非連結ループ長２] = ""
+        Me![非連結一周長１] = ""
+        Me![非連結一周長２] = ""
+    End If
+End Sub

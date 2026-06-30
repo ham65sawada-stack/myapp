@@ -1,0 +1,39 @@
+Operation =4
+Option =0
+Begin InputTables
+    Name ="設計Ｂ"
+End
+Begin OutputColumns
+    Name ="設計Ｂ.変換"
+    Expression ="\"〇\""
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbBoolean "UseTransaction" ="-1"
+dbBoolean "FailOnError" ="0"
+dbByte "Orientation" ="0"
+Begin
+End
+Begin
+    State =0
+    Left =18
+    Top =40
+    Right =1898
+    Bottom =358
+    Left =-1
+    Top =-1
+    Right =1865
+    Bottom =144
+    Left =0
+    Top =0
+    ColumnsShown =579
+    Begin
+        Left =38
+        Top =6
+        Right =134
+        Bottom =120
+        Top =36
+        Name ="設計Ｂ"
+        Name =""
+    End
+End

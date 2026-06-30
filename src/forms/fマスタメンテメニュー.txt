@@ -1,0 +1,394 @@
+Version =21
+VersionRequired =20
+Begin Form
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    ShortcutMenu = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    CloseButton = NotDefault
+    DividingLines = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =50
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =4705
+    DatasheetFontHeight =9
+    ItemSuffix =70
+    Left =11490
+    Top =5670
+    Right =19090
+    Bottom =12030
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x5c6171795d62e240
+    End
+    Caption ="ミツカワ業務システムメニュー"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0x8905000089050000890500008905000000000000201c0000e010000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    FilterOnLoad =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CommandButton
+            BorderLineStyle =0
+        End
+        Begin Subform
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin Tab
+            TextFontCharSet =128
+            Width =5103
+            Height =3402
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin Page
+            Width =1701
+            Height =1701
+        End
+        Begin Section
+            Height =5102
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontCharSet =128
+                    TextFontFamily =49
+                    Left =120
+                    Top =4695
+                    Width =4470
+                    Height =348
+                    FontSize =9
+                    FontWeight =400
+                    Name ="閉じる"
+                    Caption ="閉じる"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin Tab
+                    OverlapFlags =85
+                    Left =120
+                    Top =60
+                    Width =4470
+                    Height =4590
+                    TabIndex =1
+                    Name ="タブ32"
+
+                    Begin
+                        Begin Page
+                            OverlapFlags =87
+                            Left =210
+                            Top =390
+                            Width =4290
+                            Height =4170
+                            Name ="マスタメンテ"
+                            LayoutCachedLeft =210
+                            LayoutCachedTop =390
+                            LayoutCachedWidth =4500
+                            LayoutCachedHeight =4560
+                            WebImagePaddingLeft =3
+                            WebImagePaddingTop =3
+                            WebImagePaddingRight =3
+                            WebImagePaddingBottom =3
+                            Begin
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =526
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    Name ="メーカ・商社マスタ"
+                                    Caption ="メーカ・商社マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =930
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =1
+                                    Name ="気付・部課マスタ"
+                                    Caption ="気付・部課マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =1334
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =2
+                                    Name ="作成者マスタ"
+                                    Caption ="作成者マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =2142
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =3
+                                    Name ="組織マスタ"
+                                    Caption ="組織マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =2546
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =4
+                                    Name ="備考マスタ"
+                                    Caption ="備考マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =2950
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =5
+                                    Name ="編機メーカマスタ"
+                                    Caption ="編機メーカマスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =345
+                                    Top =1738
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =6
+                                    Name ="出荷先マスタ"
+                                    Caption ="出荷先マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =3354
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =7
+                                    Name ="編機マスタ"
+                                    Caption ="編機マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =3758
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =8
+                                    Name ="編立工場マスタ"
+                                    Caption ="編立工場マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                                Begin CommandButton
+                                    TabStop = NotDefault
+                                    OverlapFlags =215
+                                    TextFontCharSet =128
+                                    TextFontFamily =50
+                                    Left =367
+                                    Top =4162
+                                    Width =3969
+                                    Height =348
+                                    FontSize =9
+                                    FontWeight =400
+                                    TabIndex =9
+                                    Name ="用途マスタ"
+                                    Caption ="用途マスタ"
+                                    OnClick ="[Event Procedure]"
+                                    FontName ="ＭＳ Ｐゴシック"
+
+                                    WebImagePaddingLeft =3
+                                    WebImagePaddingTop =3
+                                    WebImagePaddingRight =2
+                                    WebImagePaddingBottom =2
+                                End
+                            End
+                        End
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub 作成者マスタ_Click()
+    DoCmd.OpenForm "M_作成者マスタ"
+End Sub
+
+Private Sub 出荷先マスタ_Click()
+    DoCmd.OpenForm "M_出荷先マスタ"
+End Sub
+
+Private Sub 組織マスタ_Click()
+    DoCmd.OpenForm "M_組織マスタ"
+End Sub
+
+Private Sub 備考マスタ_Click()
+    DoCmd.OpenForm "M_備考マスタ"
+End Sub
+
+Private Sub 編機マスタ_Click()
+    DoCmd.OpenForm "M_編機マスタ"
+End Sub
+
+Private Sub 編機メーカマスタ_Click()
+    DoCmd.OpenForm "M_編機メーカマスタ"
+End Sub
+
+Private Sub 編立工場マスタ_Click()
+    DoCmd.OpenForm "M_編立工場マスタ"
+End Sub
+
+Private Sub 用途マスタ_Click()
+    DoCmd.OpenForm "M_用途マスタ"
+End Sub
+
+Private Sub 閉じる_Click()
+    DoCmd.Close
+End Sub

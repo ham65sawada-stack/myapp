@@ -1,0 +1,253 @@
+Version =21
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    AllowDeletions = NotDefault
+    CloseButton = NotDefault
+    AllowAdditions = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =0
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =16725
+    DatasheetFontHeight =9
+    ItemSuffix =203
+    Left =5960
+    Top =110
+    Right =22680
+    Bottom =9860
+    DatasheetGridlinesColor =12632256
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0xa93f861f3678e340
+    End
+    Caption ="設計書"
+    MenuBar ="設計検索用"
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0xa0050000a0050000a0050000a005000000000000201c0000e010000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    AllowFormView =0
+    AllowDatasheetView =0
+    FilterOnLoad =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            AsianLineBreak =255
+        End
+        Begin ListBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Subform
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin ToggleButton
+            TextFontCharSet =128
+            Width =283
+            Height =283
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin Section
+            CanGrow = NotDefault
+            Height =10035
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin Subform
+                    OverlapFlags =85
+                    SpecialEffect =0
+                    Width =15210
+                    Height =10035
+                    Name ="設計一覧表"
+                    SourceObject ="Form.設計一覧表"
+
+                End
+                Begin ListBox
+                    SpecialEffect =0
+                    OverlapFlags =87
+                    MultiSelect =1
+                    ColumnCount =2
+                    Left =15270
+                    Top =765
+                    Width =1428
+                    Height =4347
+                    TabIndex =1
+                    Name ="特徴選択"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT 設計特徴マスタ.特徴CD, 設計特徴マスタ.特徴名 FROM 設計特徴マスタ ORDER BY 設計特徴マスタ.特徴CD; "
+                    ColumnWidths ="0;1760"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =15270
+                            Top =540
+                            Width =1428
+                            Height =225
+                            TopMargin =14
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル179"
+                            Caption ="特徴"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin ListBox
+                    SpecialEffect =0
+                    OverlapFlags =87
+                    MultiSelect =1
+                    ColumnCount =2
+                    Left =15270
+                    Top =5337
+                    Width =1428
+                    Height =4347
+                    TabIndex =2
+                    Name ="機能選択"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT 設計機能マスタ.機能CD, 設計機能マスタ.機能名 FROM 設計機能マスタ ORDER BY 設計機能マスタ.機能CD; "
+                    ColumnWidths ="0;1761"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =15270
+                            Top =5112
+                            Width =1428
+                            Height =225
+                            TopMargin =14
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル182"
+                            Caption ="機能"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =15255
+                    Top =75
+                    Width =1470
+                    Height =405
+                    TabIndex =3
+                    Name ="終了"
+                    Caption ="終了(F5)"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_Unload(Cancel As Integer)
+    DoCmd.Quit acSave
+End Sub
+
+Private Sub 終了_Click()
+    DoCmd.Quit
+End Sub

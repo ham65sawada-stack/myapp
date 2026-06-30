@@ -1,0 +1,7 @@
+TABLE	気付先マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.気付先マスタ
+FIELD	気付先ＣＤ	Text	Size=5	Req=True	ZeroLen=True
+FIELD	気付先名	Text	Size=32	Req=False	ZeroLen=True
+FIELD	表示順	Currency	Size=8	Req=False	ZeroLen=False
+INDEX	PK_気付先マスタ	(気付先ＣＤ)	PK=True	Unique=True

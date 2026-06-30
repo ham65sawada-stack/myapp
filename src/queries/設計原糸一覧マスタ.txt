@@ -1,0 +1,92 @@
+Operation =1
+Option =0
+Begin InputTables
+    Name ="設計Ｂ"
+    Name ="設計Ｈ"
+End
+Begin OutputColumns
+    Expression ="設計Ｈ.メーカーＣＤ"
+    Expression ="設計Ｈ.気付先ＣＤ"
+    Expression ="設計Ｂ.原糸品番"
+    Alias ="見掛繊度"
+    Expression ="Max(設計Ｂ.見掛繊度)"
+    Alias ="設計区分"
+    Expression ="Max(設計Ｈ.設計区分)"
+End
+Begin Joins
+    LeftTable ="設計Ｂ"
+    RightTable ="設計Ｈ"
+    Expression ="設計Ｂ.設計ＩＤ=設計Ｈ.設計ID"
+    Flag =1
+End
+Begin Groups
+    Expression ="設計Ｈ.メーカーＣＤ"
+    GroupLevel =0
+    Expression ="設計Ｈ.気付先ＣＤ"
+    GroupLevel =0
+    Expression ="設計Ｂ.原糸品番"
+    GroupLevel =0
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="-1"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+Begin
+    Begin
+        dbText "Name" ="設計Ｂ.原糸品番"
+        dbInteger "ColumnWidth" ="2880"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="設計Ｈ.メーカーＣＤ"
+        dbInteger "ColumnWidth" ="1260"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="設計Ｈ.気付先ＣＤ"
+        dbInteger "ColumnWidth" ="1080"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="見掛繊度"
+        dbInteger "ColumnWidth" ="1440"
+        dbBoolean "ColumnHidden" ="0"
+    End
+    Begin
+        dbText "Name" ="設計区分"
+    End
+End
+Begin
+    State =0
+    Left =18
+    Top =14
+    Right =1898
+    Bottom =834
+    Left =-1
+    Top =-1
+    Right =1873
+    Bottom =322
+    Left =0
+    Top =0
+    ColumnsShown =543
+    Begin
+        Left =38
+        Top =6
+        Right =218
+        Bottom =290
+        Top =0
+        Name ="設計Ｂ"
+        Name =""
+    End
+    Begin
+        Left =256
+        Top =6
+        Right =464
+        Bottom =220
+        Top =0
+        Name ="設計Ｈ"
+        Name =""
+    End
+End

@@ -1,0 +1,75 @@
+Version =20
+VersionRequired =20
+Begin Form
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    CloseButton = NotDefault
+    DividingLines = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    TabularCharSet =128
+    TabularFamily =1
+    BorderStyle =0
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =8239
+    DatasheetFontHeight =9
+    ItemSuffix =1
+    Left =5595
+    Top =4140
+    Right =17100
+    Bottom =10020
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0xcc6262a3312fe340
+    End
+    DatasheetFontName ="ＭＳ ゴシック"
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Section
+            Height =1984
+            BackColor =65535
+            Name ="詳細"
+            Begin
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =6
+                    OverlapFlags =85
+                    TextFontCharSet =186
+                    TextAlign =2
+                    Left =75
+                    Top =60
+                    Width =8100
+                    Height =1860
+                    FontSize =36
+                    BackColor =10092543
+                    BorderColor =255
+                    ForeColor =255
+                    Name ="ラベル0"
+                    Caption ="処理中です！\015\012しばらくお待ち下さい"
+                    FontName ="Arial Baltic"
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database

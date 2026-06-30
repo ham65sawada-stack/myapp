@@ -1,0 +1,6 @@
+TABLE	編機メーカマスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.編機メーカマスタ
+FIELD	編機メーカＣＤ	Text	Size=10	Req=True	ZeroLen=True
+FIELD	編機メーカ名	Text	Size=50	Req=False	ZeroLen=True
+INDEX	PK_編機メーカマスタ	(編機メーカＣＤ)	PK=True	Unique=True

@@ -1,0 +1,9 @@
+TABLE	tbl_xref_var_use
+FIELD	id	Long	Size=4	Req=False	ZeroLen=False
+FIELD	use_module	Text	Size=128	Req=False	ZeroLen=False
+FIELD	use_proc	Text	Size=128	Req=False	ZeroLen=False
+FIELD	var_module	Text	Size=128	Req=False	ZeroLen=False
+FIELD	var_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	var_scope	Text	Size=10	Req=False	ZeroLen=False
+FIELD	var_kind	Text	Size=8	Req=False	ZeroLen=False
+INDEX	Index_27E1920B_6CCB_4834	(id)	PK=True	Unique=True

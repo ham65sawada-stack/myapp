@@ -1,0 +1,233 @@
+Version =20
+VersionRequired =20
+Begin Form
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    CloseButton = NotDefault
+    DividingLines = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =0
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =2948
+    DatasheetFontHeight =9
+    ItemSuffix =11
+    Left =7890
+    Top =2460
+    Right =16545
+    Bottom =9495
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x3629b7d83672e340
+    End
+    Caption ="メールしますか？"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ ゴシック"
+    AllowFormView =0
+    AllowDatasheetView =0
+    AllowPivotTableView =0
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            Width =1701
+            Height =1701
+        End
+        Begin ToggleButton
+            TextFontCharSet =128
+            Width =283
+            Height =283
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Section
+            Height =4251
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =165
+                    Top =3186
+                    Width =2517
+                    Height =360
+                    TabIndex =7
+                    OptionValue =1
+                    Name ="メールするＣＣなし"
+                    Caption ="メールする（ＣＣ：なし）"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =165
+                    Top =270
+                    Width =2517
+                    Height =360
+                    TabIndex =1
+                    OptionValue =2
+                    Name ="メールするＣＣ森"
+                    Caption ="メールする（ＣＣ：森）"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =165
+                    Top =1242
+                    Width =2517
+                    Height =360
+                    TabIndex =3
+                    OptionValue =3
+                    Name ="メールするＣＣ清水"
+                    Caption ="メールする（ＣＣ：清水）"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =167
+                    Top =2214
+                    Width =2517
+                    Height =360
+                    TabIndex =5
+                    OptionValue =4
+                    Name ="メールするＣＣ田中宏"
+                    Caption ="メールする（ＣＣ：田中宏）"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =167
+                    Top =1728
+                    Width =2517
+                    Height =360
+                    TabIndex =4
+                    OptionValue =5
+                    Name ="メールするＣＣ牧野"
+                    Caption ="メールする（ＣＣ：牧野）"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =165
+                    Top =756
+                    Width =2517
+                    Height =360
+                    TabIndex =2
+                    OptionValue =6
+                    Name ="メールするＣＣ辻岡"
+                    Caption ="メールする（ＣＣ：辻岡）"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =165
+                    Top =2700
+                    Width =2517
+                    Height =360
+                    TabIndex =6
+                    OptionValue =7
+                    Name ="メールするＣＣ小林孔"
+                    Caption ="メールする（ＣＣ：小林孔）"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin ToggleButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =165
+                    Top =3672
+                    Width =2517
+                    Height =360
+                    OptionValue =8
+                    Name ="メールしない"
+                    Caption ="メールしない"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_Open(Cancel As Integer)
+    gs試編出荷案内書メールCC先 = "メールしない"
+End Sub
+
+Private Sub メールしない_Click()
+    gs試編出荷案内書メールCC先 = "メールしない"
+    DoCmd.Close
+End Sub
+
+Private Sub メールするCCなし_Click()
+    gs試編出荷案内書メールCC先 = ""
+    DoCmd.Close
+End Sub
+
+Private Sub メールするCC小林孔_Click()
+    gs試編出荷案内書メールCC先 = "k-kobayasi@mitsukawa.com"
+    DoCmd.Close
+End Sub
+
+Private Sub メールするCC清水_Click()
+    gs試編出荷案内書メールCC先 = "simizu@mitsukawa.com"
+    DoCmd.Close
+End Sub
+
+Private Sub メールするCC森_Click()
+    gs試編出荷案内書メールCC先 = "mori@mitsukawa.com"
+    DoCmd.Close
+End Sub
+
+Private Sub メールするCC田中宏_Click()
+    gs試編出荷案内書メールCC先 = "h-tanaka@mitsukawa.com"
+    DoCmd.Close
+End Sub
+
+Private Sub メールするCC辻岡_Click()
+    gs試編出荷案内書メールCC先 = "tujioka@mitsukawa.com"
+    DoCmd.Close
+End Sub
+
+Private Sub メールするCC牧野_Click()
+    gs試編出荷案内書メールCC先 = "makino@mitsukawa.com"
+    DoCmd.Close
+End Sub

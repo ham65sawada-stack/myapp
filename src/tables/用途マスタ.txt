@@ -1,0 +1,6 @@
+TABLE	用途マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.用途マスタ
+FIELD	用途ＣＤ	Text	Size=6	Req=True	ZeroLen=True
+FIELD	用途名	Text	Size=10	Req=False	ZeroLen=True
+INDEX	PK_用途マスタ	(用途ＣＤ)	PK=True	Unique=True

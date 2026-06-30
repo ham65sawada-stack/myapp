@@ -1,0 +1,181 @@
+Option Compare Database
+Option Explicit
+'''Public Const CONST_USER_NAME = "ミツカワ株式会社"
+Public Const Path添付資料 = "\\192.168.1.252\品質dbs\設計書社内備考添付資料\"
+Public Const Path目面写真 = "\\192.168.1.252\品質dbs\目面写真\"
+''''''''''Public Const Path添付資料 = "c:\品質dbs\設計書社内備考添付資料\"
+''''''''''Public Const Path目面写真 = "c:\品質dbs\目面写真\"
+Public CONST_USER_WSNO As Byte
+Public LINK_ATESAKI As String
+Public LINK_GOUKI As Integer
+Public LINK_Sosiki As Long
+Public LINK_設計書印刷時の組織図有無 As Boolean
+Public LINK_設計書印刷時の生産課用 As Boolean
+Public LINK_設計書客先提出用 As Boolean
+Public Sw_Close As Boolean
+Public Sw_ActWin As Boolean
+Public 計算判定 As Boolean
+
+Public Const HWND_TOPMOST = -1
+Public Const SWP_FRAMECHANGED = &H20
+Public Const SWP_DRAWFRAME = SWP_FRAMECHANGED
+Public Const SWP_HIDEWINDOW = &H80
+Public Const SWP_NOACTIVATE = &H10
+Public Const SWP_NOCOPYBITS = &H100
+Public Const SWP_NOMOVE = &H2
+Public Const SWP_NOOWNERZORDER = &H200
+Public Const SWP_NOREDRAW = &H8
+Public Const SWP_NOREPOSITION = SWP_NOOWNERZORDER
+Public Const SWP_NOSIZE = &H1
+Public Const SWP_NOZORDER = &H4
+Public Const SWP_SHOWWINDOW = &H40
+
+Public gcKeisan(0 To 6) As Currency
+
+Public gl検索_組織方法 As Long
+Public gl検索_組織CD(1 To 24) As Long
+Public gl検索_原糸品番(1 To 6) As String
+Public gl検索_or(1 To 5) As Boolean
+
+Public gs試編出荷案内書メールCC先 As String
+
+Public gl検索件数 As Long
+Public gl設計No() As Long
+Public gl一覧行 As Long
+
+Public gl検索特徴選択 As String
+Public gl検索機能選択 As String
+
+Public gReport_柄替報告書兼初反品質確認書_設計ID As Long
+
+Public pubs氏名 As String
+Public pubs部課 As String
+Public pubs役職 As String
+Public pubs権限 As String
+Public pubsMail As String
+Public pubs設計書プリンター As String
+
+
+Public Function ErrSyori(DataErr As Integer) As Integer
+    Select Case DataErr
+        Case 2169   'フォーム終了時の更新失敗　MsgBoxによる処理不可
+            ErrSyori = acDataErrDisplay
+        Case 2237   'コンボのデーターチェックエラー
+            MsgBox "入力された値は正しくありません" & "(" & DataErr & ")", , "入力失敗"
+            ErrSyori = acDataErrContinue
+        Case 2473   'フォーム終了時の失敗　MsgBoxによる処理不可
+            Call SysCmd(acSysCmdSetStatus, "フォーム終了時の失敗")
+            ErrSyori = acDataErrContinue
+        Case 3022
+            MsgBox "同じキーを持つレコードが有ります" & "(" & DataErr & ")", , "レコード更新失敗"
+            ErrSyori = acDataErrContinue
+        Case 3058
+            Call SysCmd(acSysCmdSetStatus, "レコード保存失敗")
+            ErrSyori = acDataErrContinue
+        Case 3314   'Nullを設定した
+            MsgBox "入力を省略できません" & "(" & DataErr & ")", , "入力失敗"
+            ErrSyori = acDataErrContinue
+        Case 8515   'クリップボードのデータが多すぎる　MsgBoxによる処理不可
+            ErrSyori = acDataErrDisplay
+        Case Else
+            Call SysCmd(acSysCmdSetStatus, Error(DataErr) & "(" & DataErr & ")")
+            ErrSyori = acDataErrDisplay
+    End Select
+End Function
+
+Private Function IsOpen(strForm As String)
+    IsOpen = (SysCmd(acSysCmdGetObjectState, acForm, strForm) > 0)
+End Function
+
+Function ahtGetDate(varDate As Variant) As Variant
+
+    Const ahtcCalForm = "frmPopupCal"
+
+    ' Open calendar form in dialog mode
+    ' passing it the current date using OpenArgs
+    DoCmd.OpenForm ahtcCalForm, WindowMode:=acDialog, OpenArgs:=Nz(varDate)
+
+    ' Check if the form is open; if so return the date
+    ' selected in the calendar control and close the
+    ' popup calendar form and pass the new date back
+    ' to the control. Otherwise, just return a null.
+    If IsOpen(ahtcCalForm) Then
+        ahtGetDate = Forms(ahtcCalForm).CalDate
+        DoCmd.Close acForm, ahtcCalForm
+    Else
+        ahtGetDate = Null
+    End If
+
+End Function
+
+Public Function gf計算値() As Currency
+    If gcKeisan(0) = 0 Then
+        gf計算値 = 0
+    Else
+        gf計算値 = Format(gcKeisan(Form_設計Ｂメンテ.設計明細NO) / gcKeisan(0) * 10000) / 100
+    End If
+End Function
+
+Public Sub ワークに設計データをセット()
+    Dim i As Long
+    Dim db As DAO.Database
+    Dim qrdef As QueryDef
+    Dim mysql As String
+    Set db = CurrentDb
+    mysql = "DELETE 設計Ｈワーク.* FROM 設計Ｈワーク"
+    db.Execute mysql
+    mysql = "INSERT INTO 設計Ｈワーク SELECT 設計Ｈ.* FROM 設計Ｈ Where 設計ID = " & Format(gl設計No(gl一覧行)) & ";"
+    db.Execute mysql
+    mysql = "UPDATE 設計Ｈワーク INNER JOIN 設計Ｈ社内備考 ON 設計Ｈワーク.設計ID = 設計Ｈ社内備考.設計ID SET"
+    mysql = mysql & " 設計Ｈワーク.社内備考 = [設計Ｈ社内備考].[社内備考]"
+    For i = 1 To 15
+        mysql = mysql & ", 設計Ｈワーク.社内備考添付資料" & i & " = [設計Ｈ社内備考].[社内備考添付資料" & i & "]"
+    Next i
+    mysql = mysql & ", 設計Ｈワーク.社内備考メモ = [設計Ｈ社内備考].[社内備考メモ]"
+    mysql = mysql & ", 設計Ｈワーク.暫定設計ID = [設計Ｈ社内備考].[暫定設計ID]"
+    mysql = mysql & ", 設計Ｈワーク.備考右 = [設計Ｈ社内備考].[備考右]"
+    mysql = mysql & ", 設計Ｈワーク.備考左 = [設計Ｈ社内備考].[備考左]"
+    mysql = mysql & ", 設計Ｈワーク.計算カウント = [設計Ｈ社内備考].[計算カウント]"
+    mysql = mysql & ", 設計Ｈワーク.染検品質 = [設計Ｈ社内備考].[染検品質]"
+    mysql = mysql & ", 設計Ｈワーク.規格性量＿生機目付平米 = [設計Ｈ社内備考].[規格性量＿生機目付平米]"
+    mysql = mysql & ", 設計Ｈワーク.規格性量＿仕上目付平米 = [設計Ｈ社内備考].[規格性量＿仕上目付平米]"
+    mysql = mysql & ", 設計Ｈワーク.加工注番 = [設計Ｈ社内備考].[加工注番]"
+    mysql = mysql & ", 設計Ｈワーク.量産可否 = [設計Ｈ社内備考].[量産可否]"
+    mysql = mysql & ", 設計Ｈワーク.通気量 = [設計Ｈ社内備考].[通気量]"
+    mysql = mysql & ", 設計Ｈワーク.通気量加工注番 = [設計Ｈ社内備考].[通気量加工注番]"
+    mysql = mysql & ", 設計Ｈワーク.UPF = [設計Ｈ社内備考].[UPF]"
+    mysql = mysql & ", 設計Ｈワーク.UPF加工注番 = [設計Ｈ社内備考].[UPF加工注番]"
+    mysql = mysql & ", 設計Ｈワーク.引裂強度タテ = [設計Ｈ社内備考].[引裂強度タテ]"
+    mysql = mysql & ", 設計Ｈワーク.引裂強度ヨコ = [設計Ｈ社内備考].[引裂強度ヨコ]"
+    mysql = mysql & ", 設計Ｈワーク.引裂強度加工注番 = [設計Ｈ社内備考].[引裂強度加工注番]"
+    mysql = mysql & ", 設計Ｈワーク.引張強度タテ = [設計Ｈ社内備考].[引張強度タテ]"
+    mysql = mysql & ", 設計Ｈワーク.引張強度ヨコ = [設計Ｈ社内備考].[引張強度ヨコ]"
+    mysql = mysql & ", 設計Ｈワーク.引張強度加工注番 = [設計Ｈ社内備考].[引張強度加工注番]"
+    mysql = mysql & ", 設計Ｈワーク.引張伸度タテ = [設計Ｈ社内備考].[引張伸度タテ]"
+    mysql = mysql & ", 設計Ｈワーク.引張伸度ヨコ = [設計Ｈ社内備考].[引張伸度ヨコ]"
+    mysql = mysql & ", 設計Ｈワーク.引張伸度加工注番 = [設計Ｈ社内備考].[引張伸度加工注番]"
+    mysql = mysql & ", 設計Ｈワーク.厚み径 = [設計Ｈ社内備考].[厚み径]"
+    mysql = mysql & ", 設計Ｈワーク.厚み = [設計Ｈ社内備考].[厚み]"
+    mysql = mysql & ", 設計Ｈワーク.厚み加工注番 = [設計Ｈ社内備考].[厚み加工注番]"
+    mysql = mysql & ";"
+    db.Execute mysql
+    mysql = "DELETE 設計Ｂワーク.* FROM 設計Ｂワーク"
+    db.Execute mysql
+    mysql = "INSERT INTO 設計Ｂワーク SELECT 設計Ｂ.* FROM 設計Ｂ Where 設計ID = " & Format(gl設計No(gl一覧行)) & ";"
+    db.Execute mysql
+    db.Close
+End Sub
+
+Public Sub コンボボックスでキー操作を不可に(ActiveControlNAME As String, KeyCode As Integer, Shift As Integer)
+    Select Case KeyCode
+    Case 9
+    Case 13
+    Case 37
+    Case 38
+    Case 39
+    Case 40
+    Case Else
+        KeyCode = 0
+        Shift = 0
+    End Select
+End Sub

@@ -1,0 +1,12 @@
+TABLE	編機マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.編機マスタ
+FIELD	編機ＣＤ	Long	Size=4	Req=True	ZeroLen=False
+FIELD	編機区分	Text	Size=2	Req=False	ZeroLen=True
+FIELD	タイプ	Text	Size=8	Req=False	ZeroLen=True
+FIELD	メーカＣＤ	Text	Size=10	Req=False	ZeroLen=True
+FIELD	ゲージ	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	釜経	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	針本数	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸口数	Currency	Size=8	Req=False	ZeroLen=False
+INDEX	PK_編機マスタ	(編機ＣＤ)	PK=True	Unique=True

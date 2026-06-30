@@ -1,0 +1,72 @@
+Operation =1
+Option =0
+Where ="(((設計Ｈ.組織CD01)=[S])) OR (((設計Ｈ.組織CD02)=[S])) OR (((設計Ｈ.組織CD03)=[S])) OR (((設計Ｈ.組"
+    "織CD04)=[S])) OR (((設計Ｈ.組織CD05)=[S])) OR (((設計Ｈ.組織CD06)=[S])) OR (((設計Ｈ.組織CD07)=["
+    "S])) OR (((設計Ｈ.組織CD08)=[S])) OR (((設計Ｈ.組織CD09)=[S])) OR (((設計Ｈ.組織CD10)=[S])) OR "
+    "(((設計Ｈ.組織CD11)=[S])) OR (((設計Ｈ.組織CD12)=[S])) OR (((設計Ｈ.組織CD13)=[S])) OR (((設計Ｈ.組"
+    "織CD14)=[S])) OR (((設計Ｈ.組織CD15)=[S])) OR (((設計Ｈ.組織CD16)=[S])) OR (((設計Ｈ.組織CD17)=["
+    "S])) OR (((設計Ｈ.組織CD18)=[S])) OR (((設計Ｈ.組織CD19)=[S])) OR (((設計Ｈ.組織CD20)=[S])) OR "
+    "(((設計Ｈ.組織CD21)=[S])) OR (((設計Ｈ.組織CD22)=[S])) OR (((設計Ｈ.組織CD23)=[S])) OR (((設計Ｈ.組"
+    "織CD24)=[S]))"
+Begin InputTables
+    Name ="設計Ｈ"
+End
+Begin OutputColumns
+    Expression ="設計Ｈ.設計ID"
+    Expression ="設計Ｈ.組織CD01"
+    Expression ="設計Ｈ.組織CD02"
+    Expression ="設計Ｈ.組織CD03"
+    Expression ="設計Ｈ.組織CD04"
+    Expression ="設計Ｈ.組織CD05"
+    Expression ="設計Ｈ.組織CD06"
+    Expression ="設計Ｈ.組織CD07"
+    Expression ="設計Ｈ.組織CD08"
+    Expression ="設計Ｈ.組織CD09"
+    Expression ="設計Ｈ.組織CD10"
+    Expression ="設計Ｈ.組織CD11"
+    Expression ="設計Ｈ.組織CD12"
+    Expression ="設計Ｈ.組織CD13"
+    Expression ="設計Ｈ.組織CD14"
+    Expression ="設計Ｈ.組織CD15"
+    Expression ="設計Ｈ.組織CD16"
+    Expression ="設計Ｈ.組織CD17"
+    Expression ="設計Ｈ.組織CD18"
+    Expression ="設計Ｈ.組織CD19"
+    Expression ="設計Ｈ.組織CD20"
+    Expression ="設計Ｈ.組織CD21"
+    Expression ="設計Ｈ.組織CD22"
+    Expression ="設計Ｈ.組織CD23"
+    Expression ="設計Ｈ.組織CD24"
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbByte "RecordsetType" ="0"
+dbBoolean "OrderByOn" ="-1"
+dbByte "Orientation" ="0"
+dbByte "DefaultView" ="2"
+dbMemo "OrderBy" ="tool指定された組織図が使用されてるか調べるクエリ.設計ID DESC"
+Begin
+End
+Begin
+    State =0
+    Left =18
+    Top =14
+    Right =1898
+    Bottom =319
+    Left =-1
+    Top =-1
+    Right =1869
+    Bottom =144
+    Left =0
+    Top =0
+    ColumnsShown =539
+    Begin
+        Left =38
+        Top =6
+        Right =134
+        Bottom =122
+        Top =88
+        Name ="設計Ｈ"
+        Name =""
+    End
+End

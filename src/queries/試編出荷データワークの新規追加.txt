@@ -1,0 +1,77 @@
+Operation =3
+Name ="試編出荷データワーク"
+Option =0
+Where ="(((設計Ｈ.設計ID)=[P設計ID]))"
+Begin InputTables
+    Name ="設計Ｈ"
+End
+Begin OutputColumns
+    Alias ="式1"
+    Name ="連番"
+    Expression ="[P連番]"
+    Name ="設計ＮＯ"
+    Expression ="設計Ｈ.設計ID"
+    Name ="品番"
+    Expression ="設計Ｈ.生機品番"
+    Name ="メーカ"
+    Expression ="設計Ｈ.メーカーＣＤ"
+    Name ="気付"
+    Expression ="設計Ｈ.気付先ＣＤ"
+    Name ="担当者名"
+    Expression ="設計Ｈ.担当者"
+    Name ="出荷先"
+    Expression ="設計Ｈ.出荷先ＣＤ"
+    Name ="出荷先名"
+    Expression ="設計Ｈ.出荷先名"
+    Name ="出荷元"
+    Expression ="設計Ｈ.編立工場ＣＤ"
+    Name ="品番１"
+    Expression ="設計Ｈ.生機品番"
+    Name ="巾１"
+    Expression ="設計Ｈ.規格性量＿生機巾"
+    Name ="長１"
+    Expression ="設計Ｈ.規格性量＿生機長"
+    Name ="重量１"
+    Expression ="設計Ｈ.規格性量＿生機重量"
+    Name ="目付１"
+    Expression ="設計Ｈ.規格性量＿生機目付"
+    Alias ="式2"
+    Name ="伝票日付"
+    Expression ="Date()"
+End
+Begin Parameters
+    Name ="P設計ID"
+    Flag =4
+    Name ="P連番"
+    Flag =4
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbBoolean "UseTransaction" ="-1"
+dbByte "Orientation" ="0"
+dbText "Description" ="必要なクエリ　消さない事！"
+Begin
+End
+Begin
+    State =0
+    Left =18
+    Top =40
+    Right =1258
+    Bottom =439
+    Left =-1
+    Top =-1
+    Right =1225
+    Bottom =225
+    Left =0
+    Top =0
+    ColumnsShown =651
+    Begin
+        Left =38
+        Top =6
+        Right =257
+        Bottom =190
+        Top =0
+        Name ="設計Ｈ"
+        Name =""
+    End
+End

@@ -1,0 +1,10 @@
+TABLE	商社マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.商社マスタ
+FIELD	商社集計ＣＤ	Text	Size=4	Req=True	ZeroLen=True
+FIELD	商社ＣＤ	Text	Size=4	Req=False	ZeroLen=True
+FIELD	商社名	Text	Size=32	Req=False	ZeroLen=True
+FIELD	部課名	Text	Size=32	Req=False	ZeroLen=True
+FIELD	商社略称	Text	Size=20	Req=False	ZeroLen=True
+FIELD	売掛締日	Integer	Size=2	Req=False	ZeroLen=False
+INDEX	PK_商社マスタ	(商社集計ＣＤ)	PK=True	Unique=True

@@ -1,0 +1,11 @@
+TABLE	工場マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.工場マスタ
+FIELD	工場集計ＣＤ	Text	Size=2	Req=True	ZeroLen=True
+FIELD	工場ＣＤ	Text	Size=2	Req=False	ZeroLen=True
+FIELD	工場名	Text	Size=20	Req=False	ZeroLen=True
+FIELD	工場区分	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	ミツカワ外注ＣＤ	Text	Size=8	Req=False	ZeroLen=True
+FIELD	東レ外注ＣＤ	Text	Size=8	Req=False	ZeroLen=True
+FIELD	ベルテキ外注ＣＤ	Text	Size=8	Req=False	ZeroLen=True
+INDEX	PK_工場マスタ	(工場集計ＣＤ)	PK=True	Unique=True

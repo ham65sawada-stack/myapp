@@ -1,0 +1,430 @@
+Version =21
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    AllowDeletions = NotDefault
+    DividingLines = NotDefault
+    AllowAdditions = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =0
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =5102
+    DatasheetFontHeight =9
+    ItemSuffix =22
+    Left =3320
+    Top =-3270
+    Right =8420
+    Bottom =1080
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0xd30a97deaa18e340
+    End
+    RecordSource ="SELECT 設計Ｈワーク.設計ID, 設計Ｈワーク.生機品番, Val(Mid([ハンガー№],2)) AS ハンガー№連番, InStr(1,\"WS\","
+        "Left([ハンガー№],1)) AS ハンガー№区分 FROM 設計Ｈワーク; "
+    Caption ="ハンガー№入力"
+    OnCurrent ="[Event Procedure]"
+    OnOpen ="[Event Procedure]"
+    OnClose ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0x8905000089050000890500008905000000000000ee130000ca09000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    FilterOnLoad =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            AsianLineBreak =255
+        End
+        Begin Section
+            Height =2505
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =165
+                    Top =1920
+                    Width =1230
+                    Height =510
+                    TabIndex =3
+                    ForeColor =0
+                    Name ="OK"
+                    Caption ="OK"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =1455
+                    Top =1920
+                    Width =1230
+                    Height =510
+                    TabIndex =4
+                    ForeColor =0
+                    Name ="CmdCancel"
+                    Caption ="キャンセル"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =3780
+                    Top =585
+                    Width =1230
+                    Height =1230
+                    FontSize =16
+                    FontWeight =700
+                    TabIndex =5
+                    ForeColor =0
+                    Name ="採番"
+                    Caption ="採番"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin OptionGroup
+                    OverlapFlags =85
+                    Left =165
+                    Top =603
+                    Width =2277
+                    Height =1197
+                    Name ="区分"
+                    DefaultValue ="1"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OverlapFlags =215
+                            TextFontFamily =50
+                            Left =226
+                            Top =488
+                            Width =735
+                            Height =330
+                            FontSize =16
+                            FontWeight =700
+                            BackColor =-2147483633
+                            Name ="ラベル5"
+                            Caption ="区分"
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =340
+                            Top =1247
+                            Height =285
+                            OptionValue =1
+                            Name ="D"
+
+                            Begin
+                                Begin Label
+                                    OverlapFlags =247
+                                    TextFontFamily =50
+                                    Left =575
+                                    Top =1020
+                                    Width =495
+                                    Height =570
+                                    FontSize =26
+                                    FontWeight =700
+                                    Name ="ラベル17"
+                                    Caption ="W"
+                                End
+                            End
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =1360
+                            Top =1247
+                            Height =225
+                            OptionValue =2
+                            Name ="S"
+
+                            Begin
+                                Begin Label
+                                    OverlapFlags =247
+                                    TextFontFamily =50
+                                    Left =1590
+                                    Top =1020
+                                    Width =480
+                                    Height =570
+                                    FontSize =26
+                                    FontWeight =700
+                                    Name ="ラベル13"
+                                    Caption ="Ｓ"
+                                End
+                            End
+                        End
+                    End
+                End
+                Begin OptionGroup
+                    OverlapFlags =93
+                    Left =2535
+                    Top =593
+                    Width =1156
+                    Height =1205
+                    TabIndex =1
+                    Name ="フレームハンガー№"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OverlapFlags =215
+                            TextFontFamily =50
+                            Left =2607
+                            Top =465
+                            Width =990
+                            Height =270
+                            FontSize =10
+                            BackColor =-2147483633
+                            Name ="ラベル21"
+                            Caption ="ハンガー№"
+                        End
+                    End
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OverlapFlags =215
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =2775
+                    Top =1080
+                    Width =739
+                    Height =329
+                    FontSize =12
+                    TabIndex =2
+                    LeftMargin =29
+                    TopMargin =29
+                    Name ="ハンガー№"
+                    Format ="General Number"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="####0"
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =2
+                    Left =825
+                    Top =45
+                    Width =2046
+                    Height =360
+                    FontSize =14
+                    FontWeight =700
+                    TabIndex =6
+                    TopMargin =14
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="生機品番"
+                    ControlSource ="生機品番"
+                    FontName ="ＭＳ ゴシック"
+                    AsianLineBreak =0
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =60
+                            Top =45
+                            Width =765
+                            Height =360
+                            FontSize =16
+                            FontWeight =700
+                            TopMargin =14
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル173"
+                            Caption ="品番"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Dim vOyaForm As Variant
+
+Private Sub cmdCancel_Click()
+    DoCmd.Close
+End Sub
+
+Private Sub Form_Close()
+    On Error Resume Next
+    Forms(vOyaForm).Tag = "設計ID=" & Me.設計ID
+'    FormClose (vOyaForm)
+    On Error GoTo 0
+End Sub
+
+Private Sub Form_Current()
+    Me.区分 = Me.ハンガー№区分
+    Me.ハンガー№ = Me.ハンガー№連番
+End Sub
+
+Private Sub Form_Open(Cancel As Integer)
+    On Error Resume Next
+    vOyaForm = Me.OpenArgs
+'    Forms(vOyaForm).Visible = False
+    Me.OrderByOn = False
+    Me.FilterOn = False
+    Me.OrderBy = ""
+    Me.Filter = ""
+    On Error GoTo 0
+End Sub
+
+Private Sub OK_Click()
+    Dim db       As DAO.Database
+    Dim rs       As DAO.Recordset
+    Dim Kubun    As String
+    Dim HangerNo As String
+    Dim H_No As Long
+    Select Case 区分
+    Case 1
+        Kubun = "W"
+    Case 2
+        Kubun = "S"
+    Case Else
+        Kubun = ""
+    End Select
+
+    If IsNumeric(Me.ハンガー№) Then
+        H_No = Me.ハンガー№
+    Else
+        H_No = 0
+    End If
+
+    If H_No > 9999 Then
+        HangerNo = Kubun & Format(H_No, "00000")
+    Else
+        HangerNo = Kubun & Format(H_No, "0000")
+    End If
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset("SELECT ハンガー№,ＱＲ修正区分 FROM 設計Ｈ where 設計ID=" & Me.設計ID)
+    If Not rs.EOF Then
+        rs.Edit
+            rs.Fields("ハンガー№") = HangerNo
+            rs.Fields("ＱＲ修正区分") = "*"
+        rs.Update
+    End If
+    rs.Close
+    Set rs = Nothing
+    Set db = Nothing
+    DoCmd.Close
+End Sub
+
+Private Sub 採番_Click()
+    If MsgBox("ハンガー№を採番します確認して下さい。", vbYesNo + vbCritical + vbDefaultButton2, "確認メッセージ") = vbYes Then
+        ハンガー№ = ハンガー№採番()
+    End If
+End Sub
+
+Private Function ハンガー№採番() As Long
+    Dim db    As DAO.Database
+    Dim rs    As DAO.Recordset
+    Dim Kubun As String
+    Select Case 区分
+    Case 1
+        Kubun = "W"
+    Case 2
+        Kubun = "S"
+    Case Else
+        ハンガー№採番 = 0
+        Exit Function
+    End Select
+
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset("SELECT カウント FROM 設計ＣＴマスタ where コード='" & Kubun & "'")
+    If Not rs.EOF Then
+        rs.Edit
+            ハンガー№採番 = rs.Fields("カウント")
+            rs.Fields("カウント") = rs.Fields("カウント") + 1
+        rs.Update
+    Else
+        ハンガー№採番 = 0
+    End If
+    rs.Close
+    Set rs = Nothing
+    Set db = Nothing
+End Function

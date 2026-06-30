@@ -1,0 +1,7 @@
+TABLE	作成者マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.作成者マスタ
+FIELD	作成者ＣＤ	Text	Size=10	Req=True	ZeroLen=True
+FIELD	SAKUSEISYA	Text	Size=10	Req=False	ZeroLen=True
+FIELD	表示順	Currency	Size=8	Req=False	ZeroLen=False
+INDEX	PK_作成者マスタ	(作成者ＣＤ)	PK=True	Unique=True

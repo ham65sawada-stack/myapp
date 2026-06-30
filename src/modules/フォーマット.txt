@@ -1,0 +1,277 @@
+Option Compare Database
+Option Explicit
+
+Public Function FormatStr(avString As Variant, aiLength) As String
+    If IsNull(avString) Then
+        FormatStr = Space(aiLength)
+    Else
+        FormatStr = StrConv(MidB(StrConv(avString, vbFromUnicode), 1, aiLength), vbUnicode)
+    End If
+End Function
+
+Public Function FormatVal(acValue As Currency, aiLength, Optional avZero As String) As String
+    If IsMissing(avZero) Then
+        FormatVal = Right$(Space(aiLength) + Format(acValue), aiLength)
+    ElseIf avZero = "" Then
+        FormatVal = Right$(Space(aiLength) + Format(acValue), aiLength)
+    Else
+        FormatVal = Right$(String(aiLength, avZero) + LTrim$(Format(acValue)), aiLength)
+    End If
+End Function
+
+Private Function MakeInsertSQL(asTargetTable As String, asSourceTable As String) As String
+    Dim wspSpc      As DAO.Workspace
+    Dim dbDB        As DAO.Database
+    Dim daoTblDef   As DAO.TableDef
+    Dim daoQryDef   As DAO.QueryDef
+    Dim daoFLD      As DAO.Field
+
+    Set wspSpc = DBEngine.Workspaces(0)
+    Set dbDB = CurrentDb
+
+    On Error GoTo ErrMakeIns
+
+    Set daoTblDef = dbDB.TableDefs(asTargetTable)
+    With daoTblDef
+        MakeInsertSQL = "INSERT INTO " & asTargetTable & "("
+
+        For Each daoFLD In .Fields
+            With daoFLD
+                MakeInsertSQL = MakeInsertSQL & .Name
+            End With
+            MakeInsertSQL = MakeInsertSQL & ","
+        Next daoFLD
+        Mid$(MakeInsertSQL, Len(MakeInsertSQL), 1) = ") "
+    End With
+    Set daoTblDef = Nothing
+
+    On Error Resume Next
+
+    Set daoTblDef = dbDB.TableDefs(asSourceTable)
+    If Err.Number > 0 Then
+        Set daoQryDef = dbDB.QueryDefs(asSourceTable)
+        With daoQryDef
+            MakeInsertSQL = MakeInsertSQL & " SELECT "
+
+            For Each daoFLD In .Fields
+                With daoFLD
+                    MakeInsertSQL = MakeInsertSQL & .Name
+                End With
+                MakeInsertSQL = MakeInsertSQL & ","
+            Next daoFLD
+            Mid$(MakeInsertSQL, Len(MakeInsertSQL), 1) = " "
+
+            .Close
+        End With
+        Set daoTblDef = Nothing
+    Else
+        With daoTblDef
+            MakeInsertSQL = MakeInsertSQL & " SELECT "
+
+            For Each daoFLD In .Fields
+                With daoFLD
+                    MakeInsertSQL = MakeInsertSQL & .Name
+                End With
+                MakeInsertSQL = MakeInsertSQL & ","
+            Next daoFLD
+            Mid$(MakeInsertSQL, Len(MakeInsertSQL), 1) = " "
+        End With
+        Set daoTblDef = Nothing
+    End If
+
+    MakeInsertSQL = MakeInsertSQL & " FROM [" & asSourceTable & "]"
+
+    Exit Function
+ErrMakeIns:
+    Set daoQryDef = Nothing
+End Function
+
+Public Sub 属性チェック(MeH As Object)
+    Dim i As Integer
+    If Not IsNumeric(MeH("号機")) Then MeH("号機") = 0
+    If Not IsNumeric(MeH("編機ＣＤ")) Then MeH("編機ＣＤ") = 0
+    If Not IsNumeric(MeH("編機ゲージ")) Then MeH("編機ゲージ") = 0
+    If Not IsNumeric(MeH("編機釜経")) Then MeH("編機釜経") = 0
+    If Not IsNumeric(MeH("編機針数")) Then MeH("編機針数") = 0
+    If Not IsNumeric(MeH("給糸口数")) Then MeH("給糸口数") = 0
+    If Not IsNumeric(MeH("使用口数")) Then MeH("使用口数") = 0
+    If Not IsNumeric(MeH("給糸本数")) Then MeH("給糸本数") = 0
+    If Not IsNumeric(MeH("ＲＰＭ")) Then MeH("ＲＰＭ") = 0
+    If Not IsNumeric(MeH("ＣＲ")) Then MeH("ＣＲ") = 0
+    If Not IsNumeric(MeH("稼動率")) Then MeH("稼動率") = 0
+    If Not IsNumeric(MeH("計算カウント")) Then MeH("計算カウント") = 0
+    If Not IsNumeric(MeH("一反カウント")) Then MeH("一反カウント") = 0
+    If Not IsNumeric(MeH("出荷許容範囲＿自")) Then MeH("出荷許容範囲＿自") = 0
+    If Not IsNumeric(MeH("出荷許容範囲＿至")) Then MeH("出荷許容範囲＿至") = 0
+    If Not IsNumeric(MeH("出荷許容罰点数")) Then MeH("出荷許容罰点数") = 0
+    If Not IsNumeric(MeH("機能")) Then MeH("機能") = 0
+    If Not IsNumeric(MeH("使用面")) Then MeH("使用面") = 0
+    If Not IsNumeric(MeH("生産量反月")) Then MeH("生産量反月") = 0
+    If Not IsNumeric(MeH("生産量Ｋ月")) Then MeH("生産量Ｋ月") = 0
+    If Not IsNumeric(MeH("試編数量")) Then MeH("試編数量") = 0
+    If Not IsNumeric(MeH("規格性量＿生機巾")) Then MeH("規格性量＿生機巾") = 0
+    If Not IsNumeric(MeH("規格性量＿生機長")) Then MeH("規格性量＿生機長") = 0
+    If Not IsNumeric(MeH("規格性量＿生機重量")) Then MeH("規格性量＿生機重量") = 0
+    If Not IsNumeric(MeH("規格性量＿生機目付")) Then MeH("規格性量＿生機目付") = 0
+    If Not IsNumeric(MeH("規格性量＿生機目付平米")) Then MeH("規格性量＿生機目付平米") = 0
+    If Not IsNumeric(MeH("規格性量＿生機ウエル")) Then MeH("規格性量＿生機ウエル") = 0
+    If Not IsNumeric(MeH("規格性量＿生機コース")) Then MeH("規格性量＿生機コース") = 0
+    If Not IsNumeric(MeH("規格性量＿仕上巾")) Then MeH("規格性量＿仕上巾") = 0
+    If Not IsNumeric(MeH("規格性量＿仕上長")) Then MeH("規格性量＿仕上長") = 0
+    If Not IsNumeric(MeH("規格性量＿仕上重量")) Then MeH("規格性量＿仕上重量") = 0
+    If Not IsNumeric(MeH("規格性量＿仕上目付")) Then MeH("規格性量＿仕上目付") = 0
+    If Not IsNumeric(MeH("規格性量＿仕上目付平米")) Then MeH("規格性量＿仕上目付平米") = 0
+    If Not IsNumeric(MeH("規格性量＿仕上ウエル")) Then MeH("規格性量＿仕上ウエル") = 0
+    If Not IsNumeric(MeH("規格性量＿仕上コース")) Then MeH("規格性量＿仕上コース") = 0
+    If Not IsNumeric(MeH("出合い")) Then MeH("出合い") = 1
+    If Not IsNumeric(MeH("ウエル数")) Then MeH("ウエル数") = 0
+    If Not IsNumeric(MeH("ＱＲ送信区分")) Then MeH("ＱＲ送信区分") = 0
+    If Not IsNumeric(MeH("ＱＲ公称巾")) Then MeH("ＱＲ公称巾") = 0
+    If Not IsNumeric(MeH("ＱＲ公称長")) Then MeH("ＱＲ公称長") = 0
+    If Not IsNumeric(MeH("ＱＲ総正味糸量")) Then MeH("ＱＲ総正味糸量") = 0
+    If Not IsNumeric(MeH("ＱＲ総持掛糸量")) Then MeH("ＱＲ総持掛糸量") = 0
+    If Not IsNumeric(MeH("ＱＲ生機巾")) Then MeH("ＱＲ生機巾") = 0
+    If Not IsNumeric(MeH("ＱＲ下晒巾")) Then MeH("ＱＲ下晒巾") = 0
+    If Not IsNumeric(MeH("ＱＲ製品巾")) Then MeH("ＱＲ製品巾") = 0
+    MeH("ＱＲ生機巾取数") = 1
+    MeH("ＱＲ下晒取数") = 0
+    MeH("ＱＲ製品巾取数") = 1
+    MeH("ＱＲ生機長") = MeH("規格性量＿生機長")
+    MeH("ＱＲ下晒長") = 0
+    MeH("ＱＲ製品長") = MeH("規格性量＿仕上長")
+    MeH("ＱＲ生機ウェル") = MeH("規格性量＿生機ウエル")
+    MeH("ＱＲ下晒ウェル") = 0
+    MeH("ＱＲ製品ウェル") = MeH("規格性量＿仕上ウエル")
+    MeH("ＱＲ生機コース") = MeH("規格性量＿生機コース")
+    MeH("ＱＲ下晒コース") = 0
+    MeH("ＱＲ製品コース") = MeH("規格性量＿仕上コース")
+    MeH("ＱＲ生機重量") = MeH("規格性量＿生機重量")
+    MeH("ＱＲ下晒重量") = 0
+    MeH("ＱＲ製品重量") = MeH("規格性量＿仕上重量")
+    MeH("ＱＲ生機目付") = MeH("規格性量＿生機目付")
+    MeH("ＱＲ下晒目付") = 0
+    MeH("ＱＲ製品目付") = MeH("規格性量＿仕上目付")
+    If Not IsNumeric(MeH("ＱＲ持掛目付")) Then MeH("ＱＲ持掛目付") = 0
+    If Not IsNumeric(MeH("ＱＲ仕上目付")) Then MeH("ＱＲ仕上目付") = 0
+    MeH("ＱＲゲージ") = MeH("編機ゲージ")
+    MeH("ＱＲ針本数") = MeH("編機針数")
+    MeH("ＱＲ釜経") = MeH("編機釜経")
+    MeH("ＱＲ出合い") = MeH("出合い")
+    MeH("ＱＲ給糸口数") = MeH("給糸口数")
+    MeH("ＱＲ使用口数") = MeH("使用口数")
+    MeH("ＱＲ回転数") = MeH("ＲＰＭ")
+    If Not IsNumeric(MeH("ＱＲ耳カット巾")) Then MeH("ＱＲ耳カット巾") = 0
+    If Not IsNumeric(MeH("ＱＲ反末ロス")) Then MeH("ＱＲ反末ロス") = 0
+    If Not IsNumeric(MeH("ＱＲ精練原料率")) Then MeH("ＱＲ精練原料率") = 0
+    If Not IsNumeric(MeH("ＱＲ耳カットロス率")) Then MeH("ＱＲ耳カットロス率") = 0
+    If Not IsNumeric(MeH("ＱＲ反末ロス率")) Then MeH("ＱＲ反末ロス率") = 0
+    If Not IsNumeric(MeH("ＱＲその他ロス率")) Then MeH("ＱＲその他ロス率") = 0
+    If Not IsNumeric(MeH("ＱＲロス率合計")) Then MeH("ＱＲロス率合計") = 0
+    If IsNull(MeH("生機品番")) Then MeH("生機品番") = " " Else MeH("生機品番") = RTrim(MeH("生機品番"))
+    If IsNull(MeH("作成者ＣＤ")) Then MeH("作成者ＣＤ") = "" Else MeH("作成者ＣＤ") = Trim(MeH("作成者ＣＤ"))
+    If IsNull(MeH("修正者ＣＤ")) Then MeH("修正者ＣＤ") = "" Else MeH("修正者ＣＤ") = Trim(MeH("修正者ＣＤ"))
+    If IsNull(MeH("メーカーＣＤ")) Then MeH("メーカーＣＤ") = ""
+    If IsNull(MeH("気付先ＣＤ")) Then MeH("気付先ＣＤ") = ""
+    If IsNull(MeH("担当者")) Then MeH("担当者") = ""
+    If IsNull(MeH("商社ＣＤ")) Then MeH("商社ＣＤ") = ""
+    If IsNull(MeH("出荷先ＣＤ")) Then MeH("出荷先ＣＤ") = ""
+    If IsNull(MeH("出荷先名")) Then MeH("出荷先名") = ""
+    If IsNull(MeH("編立工場ＣＤ")) Then MeH("編立工場ＣＤ") = ""
+    If IsNull(MeH("組織ＣＤ")) Then MeH("組織ＣＤ") = ""
+    If IsNull(MeH("用途ＣＤ")) Then MeH("用途ＣＤ") = ""
+    If IsNull(MeH("品名")) Then MeH("品名") = ""
+    If IsNull(MeH("編機タイプ")) Then MeH("編機タイプ") = ""
+    If IsNull(MeH("染検品質")) Then MeH("染検品質") = ""
+    If IsNull(MeH("染検査目面")) Then MeH("染検査目面") = ""
+    If IsNull(MeH("ハンガー№")) Then MeH("ハンガー№") = ""
+    If IsNull(MeH("サンプル№")) Then MeH("サンプル№") = ""
+    If IsNull(MeH("備考左")) Then MeH("備考左") = ""
+    If IsNull(MeH("備考右")) Then MeH("備考右") = ""
+    If IsNull(MeH("量産可否")) Then MeH("量産可否") = ""
+    If IsNull(MeH("加工注番")) Then MeH("加工注番") = ""
+    If Not IsNumeric(MeH("通気量")) Then MeH("通気量") = 0
+    If IsNull(MeH("通気量加工注番")) Then MeH("通気量加工注番") = ""
+    If IsNull(MeH("UPF")) Then MeH("UPF") = ""
+    If IsNull(MeH("UPF加工注番")) Then MeH("UPF加工注番") = ""
+    If Not IsNumeric(MeH("引裂強度タテ")) Then MeH("引裂強度タテ") = 0
+    If Not IsNumeric(MeH("引裂強度ヨコ")) Then MeH("引裂強度ヨコ") = 0
+    If IsNull(MeH("引裂強度加工注番")) Then MeH("引裂強度加工注番") = ""
+    If Not IsNumeric(MeH("引張強度タテ")) Then MeH("引張強度タテ") = 0
+    If Not IsNumeric(MeH("引張強度ヨコ")) Then MeH("引張強度ヨコ") = 0
+    If IsNull(MeH("引張強度加工注番")) Then MeH("引張強度加工注番") = ""
+    If Not IsNumeric(MeH("引張伸度タテ")) Then MeH("引張伸度タテ") = 0
+    If Not IsNumeric(MeH("引張伸度ヨコ")) Then MeH("引張伸度ヨコ") = 0
+    If IsNull(MeH("引張伸度加工注番")) Then MeH("引張伸度加工注番") = ""
+    If Not IsNumeric(MeH("厚み")) Then MeH("厚み") = 0
+    If IsNull(MeH("厚み径")) Then MeH("厚み径") = ""
+    If IsNull(MeH("厚み加工注番")) Then MeH("厚み加工注番") = ""
+    MeH("ＱＲ編工場") = "MA79"
+    MeH("ＱＲ設計区分") = "2"
+    MeH("ＱＲ織編区分") = "Y"
+    MeH("ＱＲ部課") = Left(MeH("気付先ＣＤ"), 4)
+    If IsNull(MeH("ＱＲ品名")) Then MeH("ＱＲ品名") = ""
+    MeH("ＱＲ品番") = RTrim(Left(MeH("生機品番"), 7))
+    If IsNull(MeH("ＱＲ織物柄名")) Then MeH("ＱＲ織物柄名") = ""
+    If IsNull(MeH("ＱＲ修正区分")) Then MeH("ＱＲ修正区分") = ""
+    If IsNull(MeH("ＱＲ糸量計算区分")) Then MeH("ＱＲ糸量計算区分") = ""
+    If IsNull(MeH("ＱＲ編物設計登録者名")) Then MeH("ＱＲ編物設計登録者名") = ""
+    MeH("ＱＲ公称単位") = "C"
+    MeH("ＱＲ糸量単位名") = "K"
+    If IsNull(MeH("ＱＲ柄名ＣＤ")) Then MeH("ＱＲ柄名ＣＤ") = ""
+    MeH("ＱＲ地組織ＣＤ") = MeH("組織ＣＤ")
+    MeH("ＱＲ用途ＣＤ") = MeH("用途ＣＤ")
+    MeH("ＱＲ巾単位") = "C"
+    If IsNull(MeH("ＱＲ混用率1")) Then MeH("ＱＲ混用率1") = ""
+    If IsNull(MeH("ＱＲ混用率2")) Then MeH("ＱＲ混用率2") = ""
+    If IsNull(MeH("ＱＲ混用率3")) Then MeH("ＱＲ混用率3") = ""
+    If IsNull(MeH("ＱＲ混用率4")) Then MeH("ＱＲ混用率4") = ""
+    If IsNull(MeH("ＱＲ編機区分")) Then MeH("ＱＲ編機区分") = ""
+    If IsNull(MeH("ＱＲメーカ区分")) Then MeH("ＱＲメーカ区分") = ""
+    If IsNull(MeH("ＱＲ編機タイプ")) Then MeH("ＱＲ編機タイプ") = ""
+    If IsNull(MeH("ＱＲ加工区分")) Then MeH("ＱＲ加工区分") = ""
+    If IsNull(MeH("ＱＲ特殊加工ＣＤ")) Then MeH("ＱＲ特殊加工ＣＤ") = ""
+    If IsNull(MeH("ＱＲ特殊加工")) Then MeH("ＱＲ特殊加工") = ""
+    MeH("ＱＲ耳カット単位") = "C"
+    If IsNull(MeH("ＱＲ反末ロス単位")) Then MeH("ＱＲ反末ロス単位") = ""
+    If IsNull(MeH("ＱＲ染加工場")) Then MeH("ＱＲ染加工場") = ""
+    If IsNull(MeH("ＱＲコメント１")) Then MeH("ＱＲコメント１") = ""
+    If IsNull(MeH("ＱＲコメント２")) Then MeH("ＱＲコメント２") = ""
+    If IsNull(MeH("ＱＲ編条件")) Then MeH("ＱＲ編条件") = ""
+End Sub
+
+Public Sub 試編出荷データワークの属性チェック(ByRef aoForm As Form)
+    Dim i As Integer
+    With aoForm
+        If Not IsNumeric(!連番) Then !連番 = 0
+        If Not IsDate(!伝票日付) Then !伝票日付 = Date
+        If Not IsNumeric(!設計NO) Then !設計NO = 0
+        If IsNull(!品番) Then !品番 = ""
+        If Not IsNumeric(!メーカ) Then !メーカ = 0
+        If IsNull(!気付) Then !気付 = ""
+        If IsNull(!担当者名) Then !担当者名 = ""
+        If IsNull(!写) Then !写 = ""
+        If IsNull(!出荷先) Then !出荷先 = ""
+        If IsNull(!出荷先名) Then !出荷先名 = ""
+        If IsNull(!出荷元) Then !出荷元 = ""
+        For i = 1 To 10
+            If IsNull(aoForm("品番" & i)) Then aoForm("品番" & i) = ""
+            If IsNull(aoForm("反番" & i)) Then aoForm("反番" & i) = ""
+            If Not IsNumeric(aoForm("巾" & i)) Then aoForm("巾" & i) = 0
+            If Not IsNumeric(aoForm("長" & i)) Then aoForm("長" & i) = 0
+            If Not IsNumeric(aoForm("重量" & i)) Then aoForm("重量" & i) = 0
+            If Not IsNumeric(aoForm("目付" & i)) Then aoForm("目付" & i) = 0
+            If Not IsNumeric(aoForm("落傷" & i)) Then aoForm("落傷" & i) = 0
+            If Not IsNumeric(aoForm("針折" & i)) Then aoForm("針折" & i) = 0
+            If Not IsNumeric(aoForm("ハネ" & i)) Then aoForm("ハネ" & i) = 0
+            If Not IsNumeric(aoForm("その他" & i)) Then aoForm("その他" & i) = 0
+            If Not IsNumeric(aoForm("カット" & i)) Then aoForm("カット" & i) = 0
+            aoForm("罰計" & i) = aoForm("落傷" & i) + aoForm("針折" & i) + aoForm("ハネ" & i) + aoForm("その他" & i)
+            If IsNull(aoForm("明細備考" & i)) Then aoForm("明細備考" & i) = ""
+        Next i
+        For i = 1 To 6
+            If IsNull(aoForm("原糸備考" & i)) Then aoForm("原糸備考" & i) = ""
+            If IsNull(aoForm("備考" & i)) Then aoForm("備考" & i) = ""
+        Next i
+        If Not IsNumeric(!単価) Then !単価 = 0
+    End With
+End Sub

@@ -1,0 +1,9 @@
+TABLE	tbl_xref_proc
+FIELD	id	Long	Size=4	Req=False	ZeroLen=False
+FIELD	module_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	proc_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	proc_type	Text	Size=20	Req=False	ZeroLen=False
+FIELD	proc_scope	Text	Size=12	Req=False	ZeroLen=False
+FIELD	start_line	Long	Size=4	Req=False	ZeroLen=False
+FIELD	line_count	Long	Size=4	Req=False	ZeroLen=False
+INDEX	Index_21DC6658_4FB6_4129	(id)	PK=True	Unique=True

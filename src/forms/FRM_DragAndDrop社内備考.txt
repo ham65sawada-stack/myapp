@@ -1,0 +1,369 @@
+Version =21
+VersionRequired =20
+Begin Form
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    CloseButton = NotDefault
+    DividingLines = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =1
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    Cycle =2
+    GridY =10
+    Width =3915
+    DatasheetFontHeight =9
+    ItemSuffix =23
+    Left =10560
+    Top =170
+    Right =21890
+    Bottom =9230
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x30d59171b5a1e340
+    End
+    Caption ="添付"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0xac050000a3050000a3050000a305000000000000201c0000e010000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    OnActivate ="[Event Procedure]"
+    AllowFormView =0
+    AllowDatasheetView =0
+    FilterOnLoad =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            AsianLineBreak =255
+        End
+        Begin ListBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin UnboundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin CustomControl
+            SpecialEffect =2
+            Width =4536
+            Height =2835
+        End
+        Begin ToggleButton
+            TextFontCharSet =128
+            Width =283
+            Height =283
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin Section
+            Height =4875
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =2584
+                    Top =45
+                    Width =1294
+                    Height =611
+                    Name ="閉じる"
+                    Caption ="閉じる\015\012"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CustomControl
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    TabStop = NotDefault
+                    SizeMode =1
+                    SpecialEffect =0
+                    OverlapFlags =93
+                    Left =1534
+                    Top =2522
+                    Width =480
+                    Height =480
+                    AutoActivate =1
+                    TabIndex =1
+                    Name ="ctlDlg"
+                    OLEClass ="CommonDialog"
+                    Class ="MSComDlg.CommonDialog.1"
+
+                End
+                Begin CustomControl
+                    Enabled = NotDefault
+                    SizeMode =1
+                    SpecialEffect =0
+                    OverlapFlags =247
+                    Left =30
+                    Top =705
+                    Width =3855
+                    Height =4110
+                    AutoActivate =1
+                    TabIndex =2
+                    Name ="ListView1"
+                    OLEClass ="ListViewCtrl"
+                    Class ="MSComctlLib.ListViewCtrl.2"
+
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =1305
+                    Top =45
+                    Width =1264
+                    Height =611
+                    TabIndex =3
+                    Name ="削除"
+                    Caption ="削　除"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =30
+                    Top =45
+                    Width =1264
+                    Height =611
+                    TabIndex =4
+                    Name ="表示"
+                    Caption ="表　示"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Dim s書き込み先PDFのフルパス名 As String
+Dim s書き込み先PDF名 As String
+Dim sコピー元PDF名 As String
+Dim sコピー元PDFの新フルパス名 As String
+Dim n As String
+Dim f As String
+Dim dt As Date
+
+Private Sub Form_Open(Cancel As Integer)
+    f = Trim(IfString(Me.OpenArgs))
+    s書き込み先PDF名 = Left(Form_設計Hメンテ(f), 1)
+    s書き込み先PDFのフルパス名 = "C:\pin\Mitsukawa\Sekkei\PDF\" & val(IfNumeric(Form_設計Hメンテ.設計ID)) & s書き込み先PDF名 & ".pdf"
+End Sub
+
+Private Sub ListView1_OLEDragDrop(Data As Object, Effect As Long, Button As Integer, Shift As Integer, x As Single, Y As Single)
+    Dim S As String
+    On Error Resume Next
+    S = ""
+    S = Data.files(1)
+    On Error GoTo 0
+    If S <> "" Then
+        If CopyFile(S) Then
+            DoCmd.Close acForm, Me.Name
+        End If
+    End If
+End Sub
+
+Private Sub Form_Activate()
+    With Me.ListView1
+        .OLEDragMode = 1
+        .OLEDropMode = 1
+        .View = 2
+    End With
+End Sub
+
+Private Function CopyFile(コピー元 As String) As Boolean
+    sコピー元PDFの新フルパス名 = ""
+    If InStr(1, コピー元, ".", vbTextCompare) > 0 Then
+        Select Case Right(コピー元, 4)
+            Case ".PDF"
+                sコピー元PDF名 = Mid(コピー元, InStrRev(コピー元, "\", -1, vbTextCompare) + 1)
+                sコピー元PDF名 = Choose(val(Right(f, 1)), "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮") & Mid(sコピー元PDF名, 1, Len(sコピー元PDF名) - 4)
+                sコピー元PDFの新フルパス名 = "C:\pin\Mitsukawa\Sekkei\PDF\" & val(IfNumeric(Form_設計Hメンテ.設計ID)) & sコピー元PDF名 & ".pdf"
+            Case Else
+                CopyFile = False
+                Exit Function
+        End Select
+        If s書き込み先PDFのフルパス名 <> "" And Dir(s書き込み先PDFのフルパス名) <> "" Then
+            Dim Anser As Variant
+            Anser = MsgBox("追加しますか？" & vbCrLf & "[はい]追加" & vbCrLf & "[いいえ]置き換え" & vbCrLf & "[キャンセル]何もしない", vbYesNoCancel, "確認メッセージ")
+            If Anser = vbYes Then
+                If PDFTK_File結合(コピー元, s書き込み先PDFのフルパス名) = False Then
+                    MsgBox "指定ファイルの結合に失敗しました。", , "エラーメッセージ"
+                    Exit Function
+                End If
+                CopyFile = True
+            ElseIf Anser = vbNo Then
+                On Error Resume Next
+                Kill s書き込み先PDFのフルパス名
+                FileCopy コピー元, s書き込み先PDFのフルパス名
+                If Dir(s書き込み先PDFのフルパス名) = "" Then
+                    MsgBox "指定ファイルの結合に失敗しました。", , "エラーメッセージ"
+                    Exit Function
+                Else
+                    Form_設計Hメンテ(f) = sコピー元PDF名
+                End If
+                On Error GoTo 0
+                CopyFile = True
+            Else
+                CopyFile = False
+                Exit Function
+            End If
+        Else
+            On Error Resume Next
+            FileCopy コピー元, s書き込み先PDFのフルパス名
+            If Dir(s書き込み先PDFのフルパス名) = "" Then
+                MsgBox "指定ファイルの結合に失敗しました。", , "エラーメッセージ"
+                Exit Function
+            Else
+                Form_設計Hメンテ(f) = sコピー元PDF名
+            End If
+            On Error GoTo 0
+            CopyFile = True
+        End If
+    End If
+End Function
+
+Private Sub 削除_Click()
+    If MsgBox("添付ファイルを削除しますか？", vbOKCancel, "確認メッセージ") = vbOK Then
+        On Error Resume Next
+        Kill s書き込み先PDFのフルパス名
+        Form_設計Hメンテ(f) = Choose(val(Right(f, 1)), "①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮") & "ここをクリックして添付"
+        On Error GoTo 0
+        DoCmd.Close
+    End If
+End Sub
+
+Private Sub 表示_Click()
+    If Trim(IfString(Form_設計Hメンテ(f))) <> "" Then
+        Dim s社内備考添付資料PdfName As String
+        s社内備考添付資料PdfName = "C:\pin\Mitsukawa\Sekkei\PDF\" & val(IfNumeric(Form_設計Hメンテ.設計ID)) & Left(Form_設計Hメンテ(f), 1) & ".pdf"
+        If Dir(s社内備考添付資料PdfName) <> "" Then
+            Dim objWSH As Object
+            Set objWSH = CreateObject("WScript.Shell")
+            objWSH.Run s社内備考添付資料PdfName, 1, True
+            Set objWSH = Nothing
+            DoCmd.Close acForm, Me.Name
+        End If
+    End If
+End Sub
+
+Private Sub 閉じる_Click()
+    DoCmd.Close
+End Sub
+
+'--- PDFファイルの結合 ---
+'引数①:元ファイル FullPath
+'引数②:追加ファイル FullPath
+Private Function PDFTK_File結合(元ファイル As String, 追加ファイル As String) As Boolean
+On Error GoTo Err_PDFTK_File結合
+    Dim strCommand As String
+    '--①ファイルの名前換え（漢字が使えないおそれがあるため）--
+    FileCopy 元ファイル, CurrentProject.path & "\xyz_aaa.pdf"
+    FileCopy 追加ファイル, CurrentProject.path & "\xyz_bbb.pdf"
+
+    '-- 作業フォルダへの移動 --
+    ChDir CurrentProject.path
+
+    '--②PDFTKによるファイルの結合 --
+    strCommand = "pdftk.exe xyz_aaa.pdf xyz_bbb.pdf cat output xyz_ccc.pdf"
+
+    ' WSHを使ってコマンドを実行する
+    Dim objWSH As Object              ' WSH
+    Set objWSH = CreateObject("WScript.Shell")
+    objWSH.Run strCommand, vbHide, True ' 第3引数がTrueなら、同期実行
+    Set objWSH = Nothing
+
+    '--③結合後ファイルの名前換え
+    Kill 追加ファイル
+    FileCopy "xyz_ccc.pdf", 追加ファイル
+
+    '--④作業ファイルの削除
+    Kill "xyz_aaa.pdf"
+    Kill "xyz_bbb.pdf"
+    Kill "xyz_ccc.pdf"
+
+    PDFTK_File結合 = True
+    Exit Function
+
+Err_PDFTK_File結合:
+    MsgBox Err.Number & "；" & Err.Description
+    PDFTK_File結合 = False
+
+End Function

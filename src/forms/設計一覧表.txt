@@ -1,0 +1,3850 @@
+Version =21
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    Modal = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    ShortcutMenu = NotDefault
+    AutoCenter = NotDefault
+    AllowDeletions = NotDefault
+    CloseButton = NotDefault
+    PictureTiling = NotDefault
+    KeyPreview = NotDefault
+    ScrollBars =2
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =49
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridX =64
+    GridY =64
+    Width =14655
+    DatasheetFontHeight =9
+    ItemSuffix =134
+    Left =6000
+    Top =110
+    Right =20930
+    Bottom =9590
+    DatasheetGridlinesColor =12632256
+    OnUnload ="[Event Procedure]"
+    RecSrcDt = Begin
+        0x32169b5b760fe540
+    End
+    OnDirty ="[Event Procedure]"
+    RecordSource ="SELECT WK設計一覧表.* FROM WK設計一覧表 ORDER BY WK設計一覧表.生機品番, WK設計一覧表.設計区分; "
+    Caption ="設計一覧表"
+    BeforeInsert ="[Event Procedure]"
+    BeforeUpdate ="[Event Procedure]"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0x890500008905000089050000890500000000000040390000f200000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    OnKeyDown ="[Event Procedure]"
+    OnError ="[Event Procedure]"
+    FilterOnLoad =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            BorderLineStyle =0
+            Width =850
+            Height =850
+        End
+        Begin Line
+            BorderLineStyle =0
+            Width =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin FormHeader
+            Height =2327
+            BackColor =-2147483633
+            Name ="フォームヘッダー"
+            Begin
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =600
+                    Top =2085
+                    Width =1140
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル0"
+                    Caption ="生機品番"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =95
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =1740
+                    Top =2085
+                    Width =825
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル1"
+                    Caption ="編機ﾀｲﾌﾟ"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =95
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =2565
+                    Top =2085
+                    Width =495
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル2"
+                    Caption ="ｹﾞｰｼﾞ"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =95
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =3060
+                    Top =2085
+                    Width =435
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル3"
+                    Caption ="釜径"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =4140
+                    Top =2085
+                    Width =1875
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル5"
+                    Caption ="メーカー"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =8715
+                    Top =2085
+                    Width =990
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル8"
+                    Caption ="組織名"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =13122
+                    Top =2085
+                    Width =795
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル9"
+                    Caption ="作成日付"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =3495
+                    Top =2085
+                    Width =645
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル4"
+                    Caption ="区分"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =95
+                    TextAlign =2
+                    Left =7890
+                    Top =2085
+                    Width =825
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル24"
+                    Caption ="担当者"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =223
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =9702
+                    Top =2085
+                    Width =975
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル26"
+                    Caption ="用途名"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =93
+                    Left =30
+                    Top =1635
+                    Width =2235
+                    TabIndex =56
+                    Name ="設計書印刷"
+                    Caption ="設計書印刷(F2)"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =11577
+                    Top =2085
+                    Width =780
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    ForeColor =-2147483630
+                    Name ="ラベル57"
+                    Caption ="ﾊﾝｶﾞｰ№"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =12357
+                    Top =2085
+                    Width =765
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    ForeColor =-2147483630
+                    Name ="ラベル59"
+                    Caption ="ｻﾝﾌﾟﾙ№"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin CommandButton
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    TabStop = NotDefault
+                    OverlapFlags =93
+                    Left =14146
+                    Width =360
+                    TabIndex =55
+                    Name ="新規設計"
+                    Caption ="新規設計"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =633
+                    Top =782
+                    Width =1875
+                    Height =242
+                    TabIndex =22
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="検索メーカー名"
+                    ControlSource ="=検索メーカーＣＤ.Column(1)"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin ComboBox
+                    SpecialEffect =0
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    ColumnCount =2
+                    ListRows =30
+                    ListWidth =4536
+                    Left =30
+                    Top =782
+                    Width =603
+                    Height =242
+                    TabIndex =21
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"6\""
+                    Name ="検索メーカーＣＤ"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT メーカー商社マスタ.メーカー商社CD, メーカー商社マスタ.メーカー商社名 FROM メーカー商社マスタ ORDER BY メーカー商社マスタ.メ"
+                        "ーカー商社CD; "
+                    ColumnWidths ="567;3688"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =30
+                            Top =540
+                            Width =2475
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル167"
+                            Caption ="メーカー"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =2295
+                    Top =272
+                    Width =831
+                    Height =242
+                    TabIndex =5
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始作成日付"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99\\/99\\/99;0;_"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =2295
+                            Top =30
+                            Width =1890
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル174"
+                            Caption ="作成日付"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =3351
+                    Top =272
+                    Width =831
+                    Height =242
+                    TabIndex =6
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了作成日付"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99\\/99\\/99;0;_"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =3126
+                    Top =272
+                    Width =225
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル17"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =4182
+                    Top =273
+                    Width =771
+                    Height =242
+                    TabIndex =7
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索編機タイプ"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCCCCCCC"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =4185
+                            Top =31
+                            Width =771
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル22"
+                            Caption ="編機ﾀｲﾌﾟ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6086
+                    Top =273
+                    Width =261
+                    Height =242
+                    TabIndex =10
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始釜経"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =6096
+                            Top =31
+                            Width =750
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル23"
+                            Caption ="釜経"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6572
+                    Top =273
+                    Width =261
+                    Height =242
+                    TabIndex =11
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了釜経"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =6347
+                    Top =273
+                    Width =225
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル35"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =4953
+                    Top =273
+                    Width =454
+                    Height =242
+                    TabIndex =8
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始ゲージ"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =4956
+                            Top =31
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル21"
+                            Caption ="ゲージ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =5632
+                    Top =273
+                    Width =454
+                    Height =242
+                    TabIndex =9
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了ゲージ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =5407
+                    Top =273
+                    Width =225
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル38"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin CommandButton
+                    Default = NotDefault
+                    TabStop = NotDefault
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =11760
+                    Top =90
+                    Width =1410
+                    Name ="検索"
+                    Caption ="検索(Ent)"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =215
+                    TextFontFamily =49
+                    Left =13170
+                    Top =90
+                    Width =1410
+                    TabIndex =1
+                    Name ="リセット"
+                    Caption ="リセット(+F1)"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    RowSourceTypeInt =1
+                    SpecialEffect =0
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    ColumnCount =2
+                    ListRows =30
+                    ListWidth =1134
+                    Left =1191
+                    Top =272
+                    Width =441
+                    Height =242
+                    TabIndex =3
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索設計区分"
+                    RowSourceType ="Value List"
+                    RowSource ="1;机上;2;試験;3;暫定;4;登録;5;ルート"
+                    ColumnWidths ="285;851"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =1185
+                            Top =30
+                            Width =1110
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル141"
+                            Caption ="設計区分"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =1632
+                    Top =272
+                    Width =663
+                    Height =242
+                    TabIndex =4
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="検索設計区分名"
+                    ControlSource ="=検索設計区分.Column(1)"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =13917
+                    Top =2085
+                    Width =735
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    ForeColor =-2147483630
+                    Name ="設計№"
+                    Caption ="設計№"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6833
+                    Top =273
+                    Width =771
+                    Height =242
+                    TabIndex =12
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索設計ID"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="######"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =223
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =6833
+                            Top =31
+                            Width =765
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル"
+                            Caption ="設計№"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =3261
+                    Top =782
+                    Width =1875
+                    Height =242
+                    TabIndex =24
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="検索気付先名"
+                    ControlSource ="=検索気付先ＣＤ.Column(1)"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin ComboBox
+                    SpecialEffect =0
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    ColumnCount =2
+                    ListRows =30
+                    ListWidth =4536
+                    Left =2508
+                    Top =782
+                    Width =753
+                    Height =242
+                    TabIndex =23
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"10\""
+                    Name ="検索気付先ＣＤ"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT 気付先マスタ.気付先ＣＤ, 気付先マスタ.気付先名 FROM 気付先マスタ ORDER BY 気付先マスタ.気付先ＣＤ; "
+                    ColumnWidths ="567;3686"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =2505
+                            Top =540
+                            Width =2625
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル62"
+                            Caption ="気付先（部課）"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =2
+                    Left =30
+                    Top =272
+                    Width =1161
+                    Height =242
+                    TabIndex =2
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索品番"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =30
+                            Top =30
+                            Width =1155
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル173"
+                            Caption ="品番"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    ColumnCount =2
+                    ListRows =30
+                    ListWidth =2268
+                    Left =6270
+                    Top =782
+                    Width =816
+                    Height =242
+                    TabIndex =26
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"12\""
+                    Name ="検索組織ＣＤ"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT 組織マスタ.組織ＣＤ, 組織マスタ.組織名 FROM 組織マスタ ORDER BY 組織マスタ.組織ＣＤ; "
+                    ColumnWidths ="680;1134"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =6270
+                            Top =540
+                            Width =1770
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル175"
+                            Caption ="組織"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7086
+                    Top =782
+                    Width =948
+                    Height =242
+                    TabIndex =27
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="検索組織ＣＤ名"
+                    ControlSource ="=検索組織ＣＤ.Column(1)"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    ColumnCount =2
+                    ListRows =30
+                    ListWidth =2268
+                    Left =8034
+                    Top =782
+                    Width =816
+                    Height =242
+                    TabIndex =28
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"12\""
+                    Name ="検索用途CD"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT 用途マスタ.用途ＣＤ, 用途マスタ.用途名 FROM 用途マスタ ORDER BY 用途マスタ.用途ＣＤ; "
+                    ColumnWidths ="680;1134"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =223
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =8034
+                            Top =540
+                            Width =1800
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル53"
+                            Caption ="用途"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8850
+                    Top =782
+                    Width =993
+                    Height =242
+                    TabIndex =29
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="検索用途名"
+                    ControlSource ="=検索用途CD.Column(1)"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9843
+                    Top =782
+                    Width =756
+                    Height =242
+                    TabIndex =30
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索ハンガーNO"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =9834
+                            Top =540
+                            Width =765
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル48"
+                            Caption ="ﾊﾝｶﾞｰ№"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =10599
+                    Top =782
+                    Width =765
+                    Height =242
+                    TabIndex =31
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索サンプルNO"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =10599
+                            Top =540
+                            Width =765
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル49"
+                            Caption ="ｻﾝﾌﾟﾙ№"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =6015
+                    Top =2085
+                    Width =1875
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル63"
+                    Caption ="気付先（部課）"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextAlign =3
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =13871
+                    Top =1784
+                    Width =780
+                    Height =242
+                    TabIndex =57
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="検索件数"
+                    Format ="#,###"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =13076
+                            Top =1788
+                            Width =795
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル66"
+                            Caption ="検索件数"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =95
+                    Left =2265
+                    Top =1635
+                    Width =2235
+                    TabIndex =58
+                    Name ="試編生機出荷案内書"
+                    Caption ="試編生機出荷案内書(F3)"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin ComboBox
+                    SpecialEffect =0
+                    OverlapFlags =247
+                    TextFontFamily =49
+                    Left =5130
+                    Top =782
+                    Width =1146
+                    TabIndex =25
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    ColumnInfo ="\"\";\"\";\"10\";\"16\""
+                    Name ="検索担当者"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT 担当者マスタ.担当者 FROM 担当者マスタ ORDER BY 担当者マスタ.担当者CD; "
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =223
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =5130
+                            Top =540
+                            Width =1146
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル61"
+                            Caption ="担当者"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =95
+                    Left =4500
+                    Top =1635
+                    Width =2235
+                    TabIndex =59
+                    Name ="HangerNoSet"
+                    Caption ="ハンガー№セット(F9)"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =87
+                    Left =6735
+                    Top =1635
+                    Width =2235
+                    TabIndex =60
+                    Name ="SampleNoSet"
+                    Caption ="サンプル№セット(F10)"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =11370
+                    Top =782
+                    Width =3285
+                    Height =242
+                    TabIndex =32
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索原糸品番1"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =11370
+                            Top =540
+                            Width =3285
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル71"
+                            Caption ="原糸"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9375
+                    Top =1785
+                    Width =405
+                    Height =242
+                    TabIndex =61
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =255
+                    Name ="検索原糸品番2"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =10677
+                    Top =2085
+                    Width =900
+                    Height =242
+                    TopMargin =29
+                    BackColor =16777088
+                    Name ="ラベル75"
+                    Caption ="機能名"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =10785
+                    Top =1635
+                    Width =2100
+                    TabIndex =62
+                    Name ="組織図検索条件設定"
+                    Caption ="組織図検索条件設定"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9878
+                    Top =272
+                    Width =396
+                    Height =242
+                    TabIndex =17
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索混用率1"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCC"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =9878
+                            Top =30
+                            Width =1581
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル79"
+                            Caption ="混用率"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =10274
+                    Top =272
+                    Width =396
+                    Height =242
+                    TabIndex =18
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索混用率2"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCC"
+
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =10670
+                    Top =272
+                    Width =396
+                    Height =242
+                    TabIndex =19
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索混用率3"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCC"
+
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =11066
+                    Top =272
+                    Width =396
+                    Height =242
+                    TabIndex =20
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索混用率4"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCC"
+
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7604
+                    Top =273
+                    Width =454
+                    Height =242
+                    TabIndex =13
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始仕上目付"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =7598
+                            Top =31
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル85"
+                            Caption ="仕上目付"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8284
+                    Top =273
+                    Width =454
+                    Height =242
+                    TabIndex =14
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了仕上目付"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =8058
+                    Top =273
+                    Width =225
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル87"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8738
+                    Top =272
+                    Width =454
+                    Height =242
+                    TabIndex =15
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始仕上巾"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =8738
+                            Top =30
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル89"
+                            Caption ="仕上巾"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9424
+                    Top =272
+                    Width =454
+                    Height =242
+                    TabIndex =16
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了仕上巾"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =9192
+                    Top =272
+                    Width =225
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル91"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =36
+                    Top =1293
+                    Width =454
+                    Height =242
+                    TabIndex =33
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始通気量"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =30
+                            Top =1051
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル93"
+                            Caption ="通気量"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =716
+                    Top =1293
+                    Width =454
+                    Height =242
+                    TabIndex =34
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了通気量"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =490
+                    Top =1293
+                    Width =225
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル95"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =1170
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =35
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始UPF"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =1170
+                            Top =1050
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル97"
+                            Caption ="ＵＰＦ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =1856
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =36
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了UPF"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =1624
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル99"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9195
+                    Top =1292
+                    Width =559
+                    Height =242
+                    TabIndex =50
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始厚み"
+                    Format ="Fixed"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99.99"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =9195
+                            Top =1050
+                            Width =555
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル101"
+                            Caption ="厚み"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    DecimalPlaces =2
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =9989
+                    Top =1289
+                    Width =559
+                    Height =242
+                    TabIndex =51
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了厚み"
+                    Format ="Fixed"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99.99"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    Left =9750
+                    Top =1289
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル103"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =4606
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =41
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始引張強度タテ"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =93
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =4605
+                            Top =1050
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル105"
+                            Caption ="引張強度タテ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =5300
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =42
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了引張強度タテ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =5060
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル107"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =5754
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =43
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始引張強度ヨコ"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =5745
+                            Top =1050
+                            Width =1155
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル109"
+                            Caption ="引張強度ヨコ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6448
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =44
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了引張強度ヨコ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =6208
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル111"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin ComboBox
+                    LimitToList = NotDefault
+                    AutoExpand = NotDefault
+                    RowSourceTypeInt =1
+                    SpecialEffect =0
+                    OverlapFlags =95
+                    TextAlign =1
+                    TextFontFamily =49
+                    ListWidth =567
+                    Left =9750
+                    Top =1050
+                    Width =798
+                    Height =242
+                    TabIndex =49
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索厚み径"
+                    RowSourceType ="Value List"
+                    RowSource =";10Φ;30Φ"
+                    ColumnWidths ="567"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =11633
+                    Top =1292
+                    Width =559
+                    Height =242
+                    TabIndex =53
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始社内備考"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =10545
+                            Top =1050
+                            Width =2445
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル113"
+                            Caption ="社内備考"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =12432
+                    Top =1290
+                    Width =559
+                    Height =242
+                    TabIndex =54
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了社内備考"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =12192
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル115"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =247
+                    TextFontFamily =49
+                    IMEMode =4
+                    Left =10546
+                    Top =1292
+                    Width =1095
+                    Height =242
+                    TabIndex =52
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索社内備考"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =2310
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =37
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始引裂強度タテ"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =2310
+                            Top =1050
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル119"
+                            Caption ="引裂強さタテ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =3004
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =38
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了引裂強度タテ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =2764
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル121"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =3458
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =39
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始引裂強度ヨコ"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =3450
+                            Top =1050
+                            Width =1155
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル123"
+                            Caption ="引裂強さヨコ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =4152
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =40
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了引裂強度ヨコ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =3912
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル125"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6900
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =45
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始引張伸度タテ"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =6900
+                            Top =1050
+                            Width =1140
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル127"
+                            Caption ="引張伸度タテ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =7594
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =46
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了引張伸度タテ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =7354
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル129"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8048
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =47
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索開始引張伸度ヨコ"
+                    FontName ="ＭＳ ゴシック"
+
+                    Begin
+                        Begin Label
+                            BackStyle =1
+                            OldBorderStyle =1
+                            OverlapFlags =95
+                            TextAlign =2
+                            TextFontFamily =49
+                            Left =8040
+                            Top =1050
+                            Width =1155
+                            Height =242
+                            TopMargin =29
+                            BackColor =16777088
+                            ForeColor =-2147483630
+                            Name ="ラベル131"
+                            Caption ="引張伸度ヨコ"
+                            FontName ="ＭＳ ゴシック"
+                        End
+                    End
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =8742
+                    Top =1292
+                    Width =454
+                    Height =242
+                    TabIndex =48
+                    TopMargin =29
+                    BackColor =-2147483643
+                    ForeColor =-2147483640
+                    Name ="検索終了引張伸度ヨコ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =8502
+                    Top =1292
+                    Width =240
+                    Height =242
+                    TopMargin =29
+                    Name ="ラベル133"
+                    Caption ="～"
+                    FontName ="ＭＳ ゴシック"
+                End
+            End
+        End
+        Begin Section
+            Height =242
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    Visible = NotDefault
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    OverlapFlags =93
+                    Width =0
+                    Height =0
+                    TabIndex =1
+                    Name ="組織ＣＤ"
+                    ControlSource ="組織ＣＤ"
+
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Width =0
+                    Height =0
+                    TabIndex =2
+                    Name ="商社ＣＤ"
+                    ControlSource ="商社ＣＤ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =1746
+                    Width =816
+                    Height =242
+                    TabIndex =3
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="編機タイプ"
+                    ControlSource ="編機タイプ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    DecimalPlaces =0
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =3063
+                    Width =426
+                    Height =242
+                    TabIndex =4
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="編機釜径"
+                    ControlSource ="編機釜経"
+                    Format ="Standard"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =8721
+                    Width =981
+                    Height =242
+                    TabIndex =5
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="組織名"
+                    ControlSource ="組織名"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =13125
+                    Width =801
+                    Height =242
+                    TabIndex =6
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="作成日付"
+                    ControlSource ="作成日付"
+                    Format ="Short Date"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =600
+                    Width =1146
+                    Height =242
+                    TabIndex =7
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="生機品番"
+                    ControlSource ="生機品番"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    DecimalPlaces =1
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =2562
+                    Width =501
+                    Height =242
+                    TabIndex =8
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="編機ゲージ"
+                    ControlSource ="編機ゲージ"
+                    Format ="Standard"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =4140
+                    Width =1875
+                    Height =242
+                    TabIndex =9
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="メーカー商社名"
+                    ControlSource ="メーカー商社名"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    Left =7890
+                    Width =831
+                    Height =242
+                    TabIndex =10
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="担当者"
+                    ControlSource ="担当者"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    Left =9702
+                    Width =981
+                    Height =242
+                    TabIndex =11
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="テキスト25"
+                    ControlSource ="用途名"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextAlign =1
+                    TextFontFamily =50
+                    Left =3489
+                    Width =651
+                    Height =242
+                    TabIndex =12
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="区分"
+                    ControlSource ="区分"
+                    Format ="Yes/No"
+
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =45
+                    Width =538
+                    Height =242
+                    FontSize =8
+                    Name ="選択"
+                    Caption ="(F4)"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =11583
+                    Width =771
+                    Height =242
+                    TabIndex =13
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="テキスト56"
+                    ControlSource ="ハンガー№"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCCCCCCC"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =12354
+                    Width =771
+                    Height =242
+                    TabIndex =14
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="テキスト58"
+                    ControlSource ="サンプル№"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCCCCCCC"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =13926
+                    Width =726
+                    Height =242
+                    TabIndex =15
+                    TopMargin =29
+                    BackColor =10092543
+                    ForeColor =-2147483640
+                    Name ="テキスト55"
+                    ControlSource ="設計ID"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="CCCCCCCC"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =6015
+                    Width =1875
+                    Height =242
+                    TabIndex =16
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="気付先名"
+                    ControlSource ="気付先名"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =10677
+                    Width =906
+                    Height =242
+                    TabIndex =17
+                    TopMargin =29
+                    BackColor =10092543
+                    Name ="機能名"
+                    ControlSource ="機能名"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+            End
+        End
+        Begin FormFooter
+            Height =0
+            BackColor =-2147483633
+            Name ="フォームフッター"
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Dim vOyaForm As Variant
+Dim WK_WHERE As String
+
+Private Sub Form_Error(DataErr As Integer, Response As Integer)
+    Response = ErrSyori(DataErr)
+End Sub
+
+Private Sub Form_Open(Cancel As Integer)
+Dim strIni As String
+Dim strSec As String
+Dim strKey As String
+Dim blnRt As Boolean
+    Application.RefreshTitleBar
+    CommandBars("Menu Bar").Enabled = False
+    Application.SetOption ("Confirm Action Queries"), False
+    Application.SetOption ("Confirm Record Changes"), False
+'第一引数： INIファイルフルパス（String）
+'第二引数： セクション名（String）
+'第三引数： Key名（String）
+'第四引数： 取得失敗時の戻り値（String）
+'第五引数： True：文字列 / False：数値（Boolean）
+'戻り値： 結果（Variant）
+'''''    strIni = "C:\pin\Mitsukawa\MA.INI"
+'''''    strSec = "ID"
+'''''    strKey = "氏名"
+'''''    blnRt = ktINI_GetValue(strIni, strSec, strKey, pubs氏名)
+'''''    If pubs氏名 = "" Then
+'''''        MsgBox "氏名が登録されていません", , "エラーメッセージ"
+'''''        DoCmd.Quit
+'''''    End If
+'''''    strKey = "部課"
+'''''    blnRt = ktINI_GetValue(strIni, strSec, strKey, pubs部課)
+'''''    If pubs部課 = "" Then
+'''''        MsgBox "部課が登録されていません", , "エラーメッセージ"
+'''''        DoCmd.Quit
+'''''    End If
+'''''    strKey = "権限"
+'''''    blnRt = ktINI_GetValue(strIni, strSec, strKey, pubs権限)
+'''''    strKey = "役職"
+'''''    blnRt = ktINI_GetValue(strIni, strSec, strKey, pubs役職)
+'''''    strKey = "Mail"
+'''''    blnRt = ktINI_GetValue(strIni, strSec, strKey, pubsMail)
+'''''    strKey = "設計書プリンター"
+'''''    blnRt = ktINI_GetValue(strIni, strSec, strKey, pubs設計書プリンター)
+
+    On Error Resume Next
+'   Access.CommandBars.ActiveMenuBar.Enabled = False
+    Access.CommandBars.ActiveMenuBar.Enabled = True
+    vOyaForm = Me.OpenArgs
+    Forms(vOyaForm).Visible = False
+    Me.OrderByOn = False
+    Me.FilterOn = False
+    Me.OrderBy = ""
+    Me.Filter = ""
+    Call リセット_Click
+    On Error GoTo 0
+End Sub
+
+Private Sub Form_BeforeInsert(Cancel As Integer)
+    On Error Resume Next
+    DoCmd.RunCommand acCmdUndo
+    DoCmd.RunCommand acCmdUndo
+    On Error GoTo 0
+    Cancel = True
+End Sub
+
+Private Sub Form_BeforeUpdate(Cancel As Integer)
+    On Error Resume Next
+    DoCmd.RunCommand acCmdUndo
+    DoCmd.RunCommand acCmdUndo
+    On Error GoTo 0
+    Cancel = True
+End Sub
+
+Private Sub Form_Dirty(Cancel As Integer)
+    On Error Resume Next
+    DoCmd.RunCommand acCmdUndo
+    DoCmd.RunCommand acCmdUndo
+    On Error GoTo 0
+    Cancel = True
+End Sub
+
+Private Sub Form_Unload(Cancel As Integer)
+    Quit
+End Sub
+
+Private Sub HangerNoSet_Click()
+    On Error GoTo Err_HangerNoSet_Click
+    If Not IsNull(Me![設計ID]) Then
+        Dim db As DAO.Database
+        Dim qrdef As DAO.QueryDef
+        Dim mysql As String
+        Set db = CurrentDb
+        mysql = "DELETE 設計Ｈワーク.* FROM 設計Ｈワーク"
+        db.Execute mysql
+        mysql = "INSERT INTO 設計Ｈワーク SELECT 設計Ｈ.* FROM 設計Ｈ Where 設計ID = " & Format(Me![設計ID])
+        db.Execute mysql
+        Set db = Nothing
+        DoCmd.OpenForm "ハンガー№入力", , , , , , Me.Name
+    End If
+    Exit Sub
+Err_HangerNoSet_Click:
+End Sub
+
+Private Sub SampleNoSet_Click()
+    On Error GoTo Err_SampleNoSet_Click
+    If Not IsNull(Me![設計ID]) Then
+        Dim db As DAO.Database
+        Dim qrdef As DAO.QueryDef
+        Dim mysql As String
+        Set db = CurrentDb
+        mysql = "DELETE 設計Ｈワーク.* FROM 設計Ｈワーク"
+        db.Execute mysql
+        mysql = "INSERT INTO 設計Ｈワーク SELECT 設計Ｈ.* FROM 設計Ｈ Where 設計ID = " & Format(Me![設計ID])
+        db.Execute mysql
+        Set db = Nothing
+        DoCmd.OpenForm "サンプル№入力", , , , , , Me.Name
+    End If
+    Exit Sub
+Err_SampleNoSet_Click:
+End Sub
+
+Private Sub リセット_Click()
+Dim sSQL As String
+Dim i As Long
+    Me.Painting = False
+    Me.検索品番 = Null
+    Me.検索設計区分 = Null
+    Me.検索開始作成日付 = Null
+    Me.検索終了作成日付 = Null
+    Me.検索編機タイプ = Null
+    Me.検索開始ゲージ = Null
+    Me.検索終了ゲージ = Null
+    Me.検索開始釜経 = Null
+    Me.検索終了釜経 = Null
+    Me.検索開始仕上目付 = Null
+    Me.検索終了仕上目付 = Null
+    Me.検索開始仕上巾 = Null
+    Me.検索終了仕上巾 = Null
+    Me.検索設計ID = Null
+    Me.検索メーカーCD = Null
+    Me.検索気付先CD = Null
+    Me.検索担当者 = Null
+    Me.検索組織CD = Null
+    Me.検索用途CD = Null
+    Me.検索ハンガーNO = Null
+    Me.検索サンプルNO = Null
+    Me.検索開始通気量 = Null
+    Me.検索終了通気量 = Null
+    Me.検索開始UPF = Null
+    Me.検索終了UPF = Null
+    Me.検索開始引裂強度タテ = Null
+    Me.検索終了引裂強度タテ = Null
+    Me.検索開始引裂強度ヨコ = Null
+    Me.検索終了引裂強度ヨコ = Null
+    Me.検索開始引張強度タテ = Null
+    Me.検索終了引張強度タテ = Null
+    Me.検索開始引張強度ヨコ = Null
+    Me.検索終了引張強度ヨコ = Null
+    Me.検索開始引張伸度タテ = Null
+    Me.検索終了引張伸度タテ = Null
+    Me.検索開始引張伸度ヨコ = Null
+    Me.検索終了引張伸度ヨコ = Null
+    Me.検索開始厚み = Null
+    Me.検索終了厚み = Null
+    Me.検索厚み径 = Null
+    Me.検索社内備考 = Null
+    Me.検索開始社内備考 = Null
+    Me.検索終了社内備考 = Null
+    Me.検索原糸品番1 = Null
+    Me.検索原糸品番2 = Null
+    Me.検索混用率1 = Null
+    Me.検索混用率2 = Null
+    Me.検索混用率3 = Null
+    Me.検索混用率4 = Null
+    For i = 0 To Form_設計検索.機能選択.ListCount - 1
+        Form_設計検索.機能選択.Selected(i) = False
+    Next i
+    For i = 0 To Form_設計検索.特徴選択.ListCount - 1
+        Form_設計検索.特徴選択.Selected(i) = False
+    Next i
+    DoCmd.SetWarnings False
+    DoCmd.RunSQL "DELETE FROM wk設計一覧;"
+    DoCmd.RunSQL "DELETE FROM wk設計一覧表;"
+    Me.Requery
+    Me.検索品番.SetFocus
+    Me.検索件数 = 0
+    Me.Painting = True
+    gl検索_組織方法 = 1
+    For i = 1 To 24
+        gl検索_組織CD(i) = 0
+    Next i
+    For i = 1 To 6
+        gl検索_原糸品番(i) = ""
+    Next i
+    For i = 1 To 5
+        gl検索_or(i) = False
+    Next i
+End Sub
+
+Private Sub 検索_Click()
+    DoCmd.Hourglass True
+Dim sSQL        As String
+Dim sScanWord   As String
+Dim sWord(30)   As String
+Dim i           As Integer
+Dim j           As Integer
+Dim iPosEnd     As Integer
+Dim sWHERE1     As String
+
+Dim l検索_組織図Cnt As Long
+Dim l検索_組織CD個数(1 To 24) As Long
+Dim l検索_組織CD(1 To 24) As Long
+Dim lRs検索_組織図(1 To 24) As Long
+Dim l検索_組織図条件(1 To 24) As Long
+Dim b検索_原糸品番チェック As Boolean
+
+Dim b検索_原糸品番判定 As Boolean       '原糸検索条件　一致=True 不一致=False
+Dim b検索_原糸条件(1 To 6) As Boolean
+
+Dim cn As New ADODB.Connection
+Dim rs As New ADODB.Recordset
+Dim lOld_設計ID As Long
+Dim v原糸品番 As Variant
+
+    WK_WHERE = ""
+
+    If Not IsNull(Me.検索品番) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[生機品番] LIKE '" & Trim(Me.検索品番) & "*'"
+    End If
+
+    If IsNumeric(Me.検索設計区分) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[設計区分]=" & Me.検索設計区分
+    End If
+
+    If IsDate(Me.検索開始作成日付) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[作成日付] >= #" & Format(Me.検索開始作成日付, "YYYY/MM/DD") & "#"
+    End If
+
+    If IsDate(Me.検索終了作成日付) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[作成日付] <= #" & Format(Me.検索終了作成日付, "YYYY/MM/DD") & "#"
+    End If
+
+    If Not IsNull(Me.検索編機タイプ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[編機タイプ] LIKE '" & Trim(Me.検索編機タイプ) & "*'"
+    End If
+
+    If IsNumeric(Me.検索設計ID) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[設計Ｈ].[設計ID] = " & Me.検索設計ID
+    End If
+
+    If IsNumeric(Me.検索開始ゲージ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[編機ゲージ] >= " & Me.検索開始ゲージ
+    End If
+
+    If IsNumeric(Me.検索終了ゲージ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[編機ゲージ] <= " & Me.検索終了ゲージ
+    End If
+
+    If IsNumeric(Me.検索開始釜経) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[編機釜経] >= " & Me.検索開始釜経
+    End If
+
+    If IsNumeric(Me.検索終了釜経) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[編機釜経] <= " & Me.検索終了釜経
+    End If
+
+    If IsNumeric(Me.検索開始仕上目付) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & " iif(規格性量＿仕上巾=0,0,規格性量＿仕上目付/(規格性量＿仕上巾/100)) >= " & Me.検索開始仕上目付
+    End If
+
+    If IsNumeric(Me.検索終了仕上目付) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & " iif(規格性量＿仕上巾=0,0,規格性量＿仕上目付/(規格性量＿仕上巾/100)) <= " & Me.検索終了仕上目付
+    End If
+
+    If IsNumeric(Me.検索開始仕上巾) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[規格性量＿仕上巾] >= " & Me.検索開始仕上巾
+    End If
+
+    If IsNumeric(Me.検索終了仕上巾) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[規格性量＿仕上巾] <= " & Me.検索終了仕上巾
+    End If
+
+    If Not IsNull(Me.検索組織CD) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[設計Ｈ].[組織ＣＤ] = '" & Trim(Me.検索組織CD) & "'"
+    End If
+
+    If Not IsNull(Me.検索用途CD) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[設計Ｈ].[用途ＣＤ] = '" & Trim(Me.検索用途CD) & "'"
+    End If
+
+    If Not IsNull(Me.検索メーカーCD) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[メーカーCD] = '" & Trim(Me.検索メーカーCD) & "'"
+    End If
+
+    If Not IsNull(Me.検索気付先CD) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[設計Ｈ].[気付先CD] = '" & Trim(Me.検索気付先CD) & "'"
+    End If
+
+    If Not IsNull(Me.検索担当者) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[担当者] LIKE '" & Trim(Me.検索担当者) & "*'"
+    End If
+
+    If Not IsNull(Me.検索ハンガーNO) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[ハンガー№] LIKE '" & Trim(Me.検索ハンガーNO) & "*'"
+    End If
+
+    If Not IsNull(Me.検索サンプルNO) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[サンプル№] LIKE '" & Trim(Me.検索サンプルNO) & "*'"
+    End If
+
+
+    If IsNumeric(Me.検索開始通気量) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[通気量] >= " & Me.検索開始通気量
+    End If
+
+    If IsNumeric(Me.検索終了通気量) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始通気量)) = 0 Then
+            WK_WHERE = WK_WHERE & "[通気量] > 0 AND [通気量] <= " & Me.検索終了通気量
+        Else
+            WK_WHERE = WK_WHERE & "[通気量] <= " & Me.検索終了通気量
+        End If
+    End If
+
+    If Trim(IfString(Me.検索開始UPF)) <> "" Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[UPF] >= " & x.FormatString(Trim(IfString(Me.検索開始UPF)))
+    End If
+    If Trim(IfString(Me.検索終了UPF)) <> "" Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If Trim(IfString(Me.検索開始UPF)) = "" Then
+            WK_WHERE = WK_WHERE & "[UPF] > ' ' AND [UPF] <= " & x.FormatString(Trim(IfString(Me.検索終了UPF)))
+        Else
+            WK_WHERE = WK_WHERE & "[UPF] <= " & x.FormatString(Trim(IfString(Me.検索終了UPF)))
+        End If
+    End If
+
+    If IsNumeric(Me.検索開始引裂強度タテ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[引裂強度タテ] >= " & Me.検索開始引裂強度タテ
+    End If
+
+    If IsNumeric(Me.検索終了引裂強度タテ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始引裂強度タテ)) = 0 Then
+            WK_WHERE = WK_WHERE & "[引裂強度タテ] > 0 AND [引裂強度タテ] <= " & Me.検索終了引裂強度タテ
+        Else
+            WK_WHERE = WK_WHERE & "[引裂強度タテ] <= " & Me.検索終了引裂強度タテ
+        End If
+    End If
+
+    If IsNumeric(Me.検索開始引裂強度ヨコ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[引裂強度ヨコ] >= " & Me.検索開始引裂強度ヨコ
+    End If
+
+    If IsNumeric(Me.検索終了引裂強度ヨコ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始引裂強度ヨコ)) = 0 Then
+            WK_WHERE = WK_WHERE & "[引裂強度ヨコ] > 0 AND [引裂強度ヨコ] <= " & Me.検索終了引裂強度ヨコ
+        Else
+            WK_WHERE = WK_WHERE & "[引裂強度ヨコ] <= " & Me.検索終了引裂強度ヨコ
+        End If
+    End If
+
+    If IsNumeric(Me.検索開始引張強度タテ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[引張強度タテ] >= " & Me.検索開始引張強度タテ
+    End If
+    If IsNumeric(Me.検索終了引張強度タテ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始引張強度タテ)) = 0 Then
+            WK_WHERE = WK_WHERE & "[引張強度タテ] > 0 AND [引張強度タテ] <= " & Me.検索終了引張強度タテ
+        Else
+            WK_WHERE = WK_WHERE & "[引張強度タテ] <= " & Me.検索終了引張強度タテ
+        End If
+    End If
+
+    If IsNumeric(Me.検索開始引張強度ヨコ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[引張強度ヨコ] >= " & Me.検索開始引張強度ヨコ
+    End If
+    If IsNumeric(Me.検索終了引張強度ヨコ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始引張強度ヨコ)) = 0 Then
+            WK_WHERE = WK_WHERE & "[引張強度ヨコ] > 0 AND [引張強度ヨコ] <= " & Me.検索終了引張強度ヨコ
+        Else
+            WK_WHERE = WK_WHERE & "[引張強度ヨコ] <= " & Me.検索終了引張強度ヨコ
+        End If
+    End If
+
+    If IsNumeric(Me.検索開始引張伸度タテ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[引張伸度タテ] >= " & Me.検索開始引張伸度タテ
+    End If
+    If IsNumeric(Me.検索終了引張伸度タテ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始引張伸度タテ)) = 0 Then
+            WK_WHERE = WK_WHERE & "[引張伸度タテ] > 0 AND [引張伸度タテ] <= " & Me.検索終了引張伸度タテ
+        Else
+            WK_WHERE = WK_WHERE & "[引張伸度タテ] <= " & Me.検索終了引張伸度タテ
+        End If
+    End If
+
+    If IsNumeric(Me.検索開始引張伸度ヨコ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[引張伸度ヨコ] >= " & Me.検索開始引張伸度ヨコ
+    End If
+    If IsNumeric(Me.検索終了引張伸度ヨコ) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始引張伸度ヨコ)) = 0 Then
+            WK_WHERE = WK_WHERE & "[引張伸度ヨコ] > 0 AND [引張伸度ヨコ] <= " & Me.検索終了引張伸度ヨコ
+        Else
+            WK_WHERE = WK_WHERE & "[引張伸度ヨコ] <= " & Me.検索終了引張伸度ヨコ
+        End If
+    End If
+
+    If Trim(IfString(Me.検索厚み径)) <> "" Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[厚み径]=" & x.FormatString(Trim(IfString(Me.検索厚み径)))
+    End If
+
+    If IsNumeric(Me.検索開始厚み) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[厚み] >= " & Me.検索開始厚み
+    End If
+    If IsNumeric(Me.検索終了厚み) Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        If val(IfNumeric(Me.検索開始厚み)) = 0 Then
+            WK_WHERE = WK_WHERE & "[厚み] > 0 AND [厚み] <= " & Me.検索終了厚み
+        Else
+            WK_WHERE = WK_WHERE & "[厚み] <= " & Me.検索終了厚み
+        End If
+    End If
+
+    If Trim(IfString(Me.検索社内備考)) <> "" Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[社内備考メモ] LIKE '*" & Trim(IfString(Me.検索社内備考)) & "*'"
+    End If
+
+    'Like "N"
+
+    Dim s検索混用率(1 To 4) As String
+    For i = 1 To 4
+        s検索混用率(i) = ""
+    Next i
+
+    Dim i検索混用率指定数 As Integer
+    i検索混用率指定数 = 0
+
+    For i = 1 To 4
+        If Not IsNull(Me("検索混用率" & i)) Then
+            i検索混用率指定数 = i検索混用率指定数 + 1
+            s検索混用率(i検索混用率指定数) = Trim(Me("検索混用率" & i))
+        End If
+    Next i
+
+    If i検索混用率指定数 > 0 Then
+        For i = 1 To i検索混用率指定数
+            If WK_WHERE <> "" Then
+                WK_WHERE = WK_WHERE & " and ("
+            Else
+                WK_WHERE = WK_WHERE & " ("
+            End If
+            For j = 1 To 4
+                If j > 1 Then
+                    WK_WHERE = WK_WHERE & " or "
+                End If
+                WK_WHERE = WK_WHERE & "[ＱＲ混用率" & j & "] LIKE '" & s検索混用率(i) & "*'"
+            Next j
+            WK_WHERE = WK_WHERE & ")"
+        Next i
+    End If
+
+    Dim w特徴選択 As String
+    w特徴選択 = String(24, "?")
+
+    For i = 0 To Form_設計検索.特徴選択.ListCount - 1
+        If Form_設計検索.特徴選択.Selected(i) Then
+            Dim i特徴選択 As Integer
+            i特徴選択 = Form_設計検索.特徴選択.Column(0, i)
+            Mid(w特徴選択, i特徴選択, 1) = "1"
+        End If
+    Next i
+
+    If w特徴選択 <> String(24, "?") Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[特徴選択] LIKE '" & w特徴選択 & "'"
+    End If
+
+    Dim w機能選択 As String
+    w機能選択 = String(24, "?")
+
+    For i = 0 To Form_設計検索.機能選択.ListCount - 1
+        If Form_設計検索.機能選択.Selected(i) Then
+            Dim i機能選択 As Integer
+            i機能選択 = Form_設計検索.機能選択.Column(0, i)
+            Mid(w機能選択, i機能選択, 1) = "1"
+        End If
+    Next i
+
+    If w機能選択 <> String(24, "?") Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " and "
+        End If
+        WK_WHERE = WK_WHERE & "[機能選択] LIKE '" & w機能選択 & "'"
+    End If
+
+
+    sWHERE1 = ""
+    If Not IsNull(Me.検索原糸品番1) Then
+        sScanWord = Trim(Me.検索原糸品番1)
+        j = 0
+        Do While Len(sScanWord) > 0
+            j = j + 1
+            iPosEnd = InStr(1, sScanWord, " ")
+            If iPosEnd = 0 Then
+                sWord(j) = "*" & sScanWord & "*"
+                sScanWord = ""
+            Else
+                sWord(j) = "*" & Trim(Left(sScanWord, iPosEnd)) & "*"
+                sScanWord = Trim(Mid(sScanWord, iPosEnd))
+            End If
+        Loop
+        sWHERE1 = "("
+        For i = 1 To j
+            If i <> 1 Then
+                sWHERE1 = sWHERE1 & " and"
+            End If
+            sWHERE1 = sWHERE1 & " [原糸品番] Like '" & sWord(i) & "'"
+        Next i
+        sWHERE1 = sWHERE1 & ")"
+    End If
+
+'-----------------------------------------------------------------------------------------------------20150626
+    'gl検索_組織CD(1～24)→l検索_組織CD(1～24) ･･･ ０データと重複を除いて先頭から詰める
+    l検索_組織図Cnt = 0
+    For i = 1 To 24
+        l検索_組織CD(i) = 0
+        l検索_組織CD個数(i) = 0
+    Next i
+    For i = 1 To 24
+        If gl検索_組織CD(i) <> 0 Then
+            For j = 1 To l検索_組織図Cnt + 1
+                If l検索_組織CD(j) = 0 Then
+                    l検索_組織図Cnt = l検索_組織図Cnt + 1
+                    l検索_組織CD個数(j) = 1
+                    l検索_組織CD(l検索_組織図Cnt) = gl検索_組織CD(i)
+                    Exit For
+                Else
+                    If l検索_組織CD(j) = gl検索_組織CD(i) Then
+                        l検索_組織CD個数(j) = l検索_組織CD個数(j) + 1
+                        Exit For
+                    End If
+                End If
+            Next j
+        End If
+    Next i
+
+    '
+    b検索_原糸品番チェック = False
+    For i = 1 To 6
+        If Trim(gl検索_原糸品番(i)) <> "" Then
+            b検索_原糸品番チェック = True
+            Exit For
+        End If
+    Next i
+
+    '
+    DoCmd.RunSQL "DELETE FROM wk設計一覧;"
+    If (b検索_原糸品番チェック) Or (l検索_組織図Cnt > 0) Then
+
+        If WK_WHERE = "" Then
+            DoCmd.RunSQL "INSERT INTO wk設計一覧 (設計ID,組織CD01,組織CD02,組織CD03,組織CD04,組織CD05,組織CD06,組織CD07,組織CD08,組織CD09,組織CD10,組織CD11,組織CD12,組織CD13,組織CD14,組織CD15,組織CD16,組織CD17,組織CD18,組織CD19,組織CD20,組織CD21,組織CD22,組織CD23,組織CD24) SELECT 設計ID,組織CD01,組織CD02,組織CD03,組織CD04,組織CD05,組織CD06,組織CD07,組織CD08,組織CD09,組織CD10,組織CD11,組織CD12,組織CD13,組織CD14,組織CD15,組織CD16,組織CD17,組織CD18,組織CD19,組織CD20,組織CD21,組織CD22,組織CD23,組織CD24 FROM 設計Ｈ;"
+        Else
+''''''''''            DoCmd.RunSQL "INSERT INTO wk設計一覧 (設計ID,組織CD01,組織CD02,組織CD03,組織CD04,組織CD05,組織CD06,組織CD07,組織CD08,組織CD09,組織CD10,組織CD11,組織CD12,組織CD13,組織CD14,組織CD15,組織CD16,組織CD17,組織CD18,組織CD19,組織CD20,組織CD21,組織CD22,組織CD23,組織CD24) SELECT 設計ID,組織CD01,組織CD02,組織CD03,組織CD04,組織CD05,組織CD06,組織CD07,組織CD08,組織CD09,組織CD10,組織CD11,組織CD12,組織CD13,組織CD14,組織CD15,組織CD16,組織CD17,組織CD18,組織CD19,組織CD20,組織CD21,組織CD22,組織CD23,組織CD24 FROM 設計Ｈ WHERE " & WK_WHERE & ";"
+            DoCmd.RunSQL "INSERT INTO wk設計一覧 (設計ID,組織CD01,組織CD02,組織CD03,組織CD04,組織CD05,組織CD06,組織CD07,組織CD08,組織CD09,組織CD10,組織CD11,組織CD12,組織CD13,組織CD14,組織CD15,組織CD16,組織CD17,組織CD18,組織CD19,組織CD20,組織CD21,組織CD22,組織CD23,組織CD24) SELECT 設計Ｈ.設計ID, 設計Ｈ.組織CD01, 設計Ｈ.組織CD02, 設計Ｈ.組織CD03, 設計Ｈ.組織CD04, 設計Ｈ.組織CD05, 設計Ｈ.組織CD06, 設計Ｈ.組織CD07, 設計Ｈ.組織CD08, 設計Ｈ.組織CD09, 設計Ｈ.組織CD10, 設計Ｈ.組織CD11, 設計Ｈ.組織CD12, 設計Ｈ.組織CD13, 設計Ｈ.組織CD14, 設計Ｈ.組織CD15, 設計Ｈ.組織CD16, 設計Ｈ.組織CD17, 設計Ｈ.組織CD18, 設計Ｈ.組織CD19, 設計Ｈ.組織CD20, 設計Ｈ.組織CD21, 設計Ｈ.組織CD22, 設計Ｈ.組織CD23, 設計Ｈ.組織CD24 FROM 設計Ｈ LEFT JOIN 設計Ｈ社内備考 ON 設計Ｈ.設計ID = 設計Ｈ社内備考.設計ID WHERE " & WK_WHERE & ";"
+        End If
+
+        Set cn = CurrentProject.Connection
+        If l検索_組織図Cnt > 0 Then
+            rs.Open "SELECT * FROM wk設計一覧;", cn, adOpenForwardOnly, adLockReadOnly
+            If Not rs.EOF Then
+                Do While Not rs.EOF
+
+                    For i = 1 To 24
+                        If IsNumeric(rs.Fields("組織CD" & Format(i, "00"))) Then
+                            lRs検索_組織図(i) = rs.Fields("組織CD" & Format(i, "00"))
+                        Else
+                            lRs検索_組織図(i) = 0
+                        End If
+                    Next i
+
+                    '組織図の一致フラグをAll Reset
+                    For i = 1 To l検索_組織図Cnt
+                        l検索_組織図条件(i) = 0
+                    Next i
+
+                    Dim bDisagree As Boolean    '不一致の組織図が存在するか
+                    bDisagree = False
+                    '組織図の一致フラグをSet
+                    For i = 1 To 24
+                        If lRs検索_組織図(i) <> 0 Then
+                            For j = 1 To l検索_組織図Cnt
+                                If lRs検索_組織図(i) = l検索_組織CD(j) Then
+                                    l検索_組織図条件(j) = l検索_組織図条件(j) + 1
+                                    Exit For
+                                End If
+                                If j = l検索_組織図Cnt Then
+                                    bDisagree = True    '不一致の組織図が存在すると判定
+                                End If
+                            Next j
+                        End If
+                    Next i
+                    '組織図の一致フラグを判定
+                    Dim setCnt As Currency
+                    setCnt = 0
+                    If gl検索_組織方法 = 1 Then
+                        '含む
+                        For i = 1 To l検索_組織図Cnt
+                            If l検索_組織図条件(i) = 0 Then
+                                DoCmd.RunSQL "DELETE FROM wk設計一覧 WHERE 設計ＩＤ=" & rs.Fields("設計ID") & ";"
+                                Exit For
+                            End If
+                            setCnt = Int(l検索_組織図条件(i) / l検索_組織CD個数(i))
+                            If setCnt = 0 Then
+                                DoCmd.RunSQL "DELETE FROM wk設計一覧 WHERE 設計ＩＤ=" & rs.Fields("設計ID") & ";"
+                                Exit For
+                            End If
+                        Next i
+                    Else
+                        '一致
+                        If bDisagree Then
+                            DoCmd.RunSQL "DELETE FROM wk設計一覧 WHERE 設計ＩＤ=" & rs.Fields("設計ID") & ";"
+                        Else
+                            For i = 1 To l検索_組織図Cnt
+                                If l検索_組織図条件(i) = 0 Then
+                                    DoCmd.RunSQL "DELETE FROM wk設計一覧 WHERE 設計ＩＤ=" & rs.Fields("設計ID") & ";"
+                                    Exit For
+                                End If
+                                setCnt = l検索_組織図条件(i) / l検索_組織CD個数(i)
+                                If setCnt <> 1# Then
+                                    DoCmd.RunSQL "DELETE FROM wk設計一覧 WHERE 設計ＩＤ=" & rs.Fields("設計ID") & ";"
+                                    Exit For
+                                End If
+                            Next i
+                        End If
+                    End If
+
+                    rs.MoveNext
+                Loop
+            End If
+            rs.Close
+        End If
+
+        If b検索_原糸品番チェック Then
+            rs.Open "SELECT 設計Ｂ.* FROM wk設計一覧 INNER JOIN 設計Ｂ ON wk設計一覧.設計ID = 設計Ｂ.設計ＩＤ ORDER BY 設計Ｂ.設計ＩＤ, 設計Ｂ.設計明細ＮＯ;", cn, adOpenForwardOnly, adLockReadOnly
+            If Not rs.EOF Then
+                lOld_設計ID = rs.Fields("設計ID")
+                For i = 1 To 6
+                    b検索_原糸条件(i) = False
+                Next i
+
+                Do While Not rs.EOF
+                    If rs.Fields("設計ID") <> lOld_設計ID Then
+                        For i = 1 To 5
+                            If gl検索_or(i) Then
+                                If b検索_原糸条件(i) Or b検索_原糸条件(i + 1) Then
+                                    b検索_原糸条件(i) = True
+                                    b検索_原糸条件(i + 1) = True
+                                End If
+                            End If
+                        Next i
+
+                        b検索_原糸品番判定 = True
+                        For i = 1 To 6
+                            If (Trim(gl検索_原糸品番(i)) <> "") And (Not b検索_原糸条件(i)) Then
+                                b検索_原糸品番判定 = False
+                            End If
+                        Next i
+
+                        If Not b検索_原糸品番判定 Then '原糸検索条件不一致
+                            DoCmd.RunSQL "DELETE FROM wk設計一覧 WHERE 設計ＩＤ=" & lOld_設計ID & ";"
+                        End If
+
+                        lOld_設計ID = rs.Fields("設計ID")
+                        For i = 1 To 6
+                            b検索_原糸条件(i) = False
+                        Next i
+                    End If
+
+                    v原糸品番 = rs.Fields("原糸品番")
+                    If Not IsNull(v原糸品番) Then
+                        If Trim(v原糸品番) <> "" Then
+                            For i = 1 To 6
+                                If RTrim(v原糸品番) = RTrim(gl検索_原糸品番(i)) Then
+                                    b検索_原糸条件(i) = True
+                                End If
+                            Next i
+                        End If
+                    End If
+                    rs.MoveNext
+                Loop
+
+                For i = 1 To 5
+                    If gl検索_or(i) Then
+                        If b検索_原糸条件(i) Or b検索_原糸条件(i + 1) Then
+                            b検索_原糸条件(i) = True
+                            b検索_原糸条件(i + 1) = True
+                        End If
+                    End If
+                Next i
+
+                b検索_原糸品番判定 = True
+                For i = 1 To 6
+                    If (Trim(gl検索_原糸品番(i)) <> "") And (Not b検索_原糸条件(i)) Then
+                        b検索_原糸品番判定 = False
+                    End If
+                Next i
+
+                If Not b検索_原糸品番判定 Then '原糸検索条件不一致
+                    DoCmd.RunSQL "DELETE FROM wk設計一覧 WHERE 設計ＩＤ=" & lOld_設計ID & ";"
+                End If
+            End If
+            rs.Close
+            Set rs = Nothing
+        End If
+        cn.Close
+        Set cn = Nothing
+
+        If (Not b検索_原糸品番チェック) And (sWHERE1 <> "") Then
+            sSQL = "INSERT INTO WK設計一覧表 ( 設計ID, 生機品番, 設計区分, 機能名, 編機タイプ, 編機ゲージ, 編機釜経, 担当者, ハンガー№, サンプル№, 作成日付, 区分, メーカー商社名, 気付先名, 組織名, 用途名 )"
+            sSQL = sSQL & " SELECT DISTINCT 設計Ｈ.設計ID, 設計Ｈ.生機品番, 設計Ｈ.設計区分, Choose([機能]+1,'','撥水','防風','ストレッチ') AS 機能名, 設計Ｈ.編機タイプ, 設計Ｈ.編機ゲージ, 設計Ｈ.編機釜経, 設計Ｈ.担当者, 設計Ｈ.ハンガー№, 設計Ｈ.サンプル№, 設計Ｈ.作成日付, Choose([設計区分],'机上','試験','暫定','登録','ルート') AS 区分, メーカー商社マスタ.メーカー商社名, 気付先マスタ.気付先名, 組織マスタ.組織名, 用途マスタ.用途名"
+            sSQL = sSQL & " FROM (((((設計Ｈ LEFT JOIN 気付先マスタ ON 設計Ｈ.気付先ＣＤ = 気付先マスタ.気付先ＣＤ) LEFT JOIN 組織マスタ ON 設計Ｈ.組織ＣＤ = 組織マスタ.組織ＣＤ) LEFT JOIN 用途マスタ ON 設計Ｈ.用途ＣＤ = 用途マスタ.用途ＣＤ) LEFT JOIN メーカー商社マスタ ON 設計Ｈ.メーカーＣＤ = メーカー商社マスタ.メーカー商社CD) INNER JOIN wk設計一覧 ON 設計Ｈ.設計ID = wk設計一覧.設計ID) INNER JOIN 設計Ｂ ON 設計Ｈ.設計ID = 設計Ｂ.設計ＩＤ"
+            sSQL = sSQL & " WHERE " & sWHERE1
+            sSQL = sSQL & ";"
+            Debug.Print "1:" & sSQL
+            DoCmd.SetWarnings False
+            DoCmd.RunSQL "DELETE FROM WK設計一覧表;"
+            DoCmd.RunSQL sSQL
+        Else
+            sSQL = "INSERT INTO WK設計一覧表 ( 設計ID, 生機品番, 設計区分, 機能名, 編機タイプ, 編機ゲージ, 編機釜経, 担当者, ハンガー№, サンプル№, 作成日付, 区分, メーカー商社名, 気付先名, 組織名, 用途名 )"
+            sSQL = sSQL & " SELECT 設計Ｈ.設計ID, 設計Ｈ.生機品番, 設計Ｈ.設計区分, Choose([機能]+1,'','撥水','防風','ストレッチ') AS 機能名, 設計Ｈ.編機タイプ, 設計Ｈ.編機ゲージ, 設計Ｈ.編機釜経, 設計Ｈ.担当者, 設計Ｈ.ハンガー№, 設計Ｈ.サンプル№, 設計Ｈ.作成日付, Choose([設計区分],'机上','試験','暫定','登録','ルート') AS 区分, メーカー商社マスタ.メーカー商社名, 気付先マスタ.気付先名, 組織マスタ.組織名, 用途マスタ.用途名"
+            sSQL = sSQL & " FROM ((((設計Ｈ LEFT JOIN 気付先マスタ ON 設計Ｈ.気付先ＣＤ = 気付先マスタ.気付先ＣＤ) LEFT JOIN 組織マスタ ON 設計Ｈ.組織ＣＤ = 組織マスタ.組織ＣＤ) LEFT JOIN 用途マスタ ON 設計Ｈ.用途ＣＤ = 用途マスタ.用途ＣＤ) LEFT JOIN メーカー商社マスタ ON 設計Ｈ.メーカーＣＤ = メーカー商社マスタ.メーカー商社CD) INNER JOIN wk設計一覧 ON 設計Ｈ.設計ID = wk設計一覧.設計ID;"
+            Debug.Print "2:" & sSQL
+            DoCmd.SetWarnings False
+            DoCmd.RunSQL "DELETE FROM WK設計一覧表;"
+            DoCmd.RunSQL sSQL
+        End If
+    Else
+        If WK_WHERE <> "" Or sWHERE1 <> "" Then
+            If sWHERE1 = "" Then
+                sSQL = "INSERT INTO WK設計一覧表 ( 設計ID, 生機品番, 設計区分, 機能名, 編機タイプ, 編機ゲージ, 編機釜経, 担当者, ハンガー№, サンプル№, 作成日付, 区分, メーカー商社名, 気付先名, 組織名, 用途名 )"
+                sSQL = sSQL & " SELECT 設計Ｈ.設計ID, 設計Ｈ.生機品番, 設計Ｈ.設計区分, Choose([機能]+1,'','撥水','防風','ストレッチ') AS 機能名, 設計Ｈ.編機タイプ, 設計Ｈ.編機ゲージ, 設計Ｈ.編機釜経, 設計Ｈ.担当者, 設計Ｈ.ハンガー№, 設計Ｈ.サンプル№, 設計Ｈ.作成日付, Choose([設計区分],'机上','試験','暫定','登録','ルート') AS 区分, メーカー商社マスタ.メーカー商社名, 気付先マスタ.気付先名, 組織マスタ.組織名, 用途マスタ.用途名 FROM ((((設計Ｈ LEFT JOIN 気付先マスタ ON 設計Ｈ.気付先ＣＤ = 気付先マスタ.気付先ＣＤ) LEFT JOIN 組織マスタ ON 設計Ｈ.組織ＣＤ = 組織マスタ.組織ＣＤ) LEFT JOIN 用途マスタ ON 設計Ｈ.用途ＣＤ = 用途マスタ.用途ＣＤ) LEFT JOIN メーカー商社マスタ ON 設計Ｈ.メーカーＣＤ = メーカー商社マスタ.メーカー商社CD) LEFT JOIN 設計Ｈ社内備考 ON 設計Ｈ.設計ID = 設計Ｈ社内備考.設計ID  WHERE " & WK_WHERE & ";"
+                Debug.Print "3:" & sSQL
+                DoCmd.SetWarnings False
+                DoCmd.RunSQL "DELETE FROM WK設計一覧表;"
+                DoCmd.RunSQL sSQL
+            Else
+                If WK_WHERE = "" Then
+                    WK_WHERE = sWHERE1
+                Else
+                    WK_WHERE = WK_WHERE & " and " & sWHERE1
+                End If
+                sSQL = "INSERT INTO WK設計一覧表 ( 設計ID, 生機品番, 設計区分, 機能名, 編機タイプ, 編機ゲージ, 編機釜経, 担当者, ハンガー№, サンプル№, 作成日付, 区分, メーカー商社名, 気付先名, 組織名, 用途名 )"
+                sSQL = sSQL & " SELECT 設計Ｈ.設計ID, 設計Ｈ.生機品番, 設計Ｈ.設計区分, Choose([機能]+1,'','撥水','防風','ストレッチ') AS 機能名, 設計Ｈ.編機タイプ, 設計Ｈ.編機ゲージ, 設計Ｈ.編機釜経, 設計Ｈ.担当者, 設計Ｈ.ハンガー№, 設計Ｈ.サンプル№, 設計Ｈ.作成日付, Choose([設計区分],'机上','試験','暫定','登録','ルート') AS 区分, メーカー商社マスタ.メーカー商社名, 気付先マスタ.気付先名, 組織マスタ.組織名, 用途マスタ.用途名 FROM (((((設計Ｈ LEFT JOIN 気付先マスタ ON 設計Ｈ.気付先ＣＤ = 気付先マスタ.気付先ＣＤ) LEFT JOIN 組織マスタ ON 設計Ｈ.組織ＣＤ = 組織マスタ.組織ＣＤ) LEFT JOIN 用途マスタ ON 設計Ｈ.用途ＣＤ = 用途マスタ.用途ＣＤ) LEFT JOIN メーカー商社マスタ ON 設計Ｈ.メーカーＣＤ = メーカー商社マスタ.メーカー商社CD) INNER JOIN 設計Ｂ ON 設計Ｈ.設計ID = 設計Ｂ.設計ＩＤ) LEFT JOIN 設計Ｈ社内備考 ON 設計Ｈ.設計ID = 設計Ｈ社内備考.設計ID WHERE " & WK_WHERE & ";"
+                Debug.Print "4:" & sSQL
+                DoCmd.SetWarnings False
+                DoCmd.RunSQL "DELETE FROM WK設計一覧表;"
+                DoCmd.RunSQL sSQL
+            End If
+        End If
+    End If
+
+    If Trim(IfString(Me.検索社内備考)) <> "" Then
+        Call 社内備考検索
+    End If
+
+    Me.Requery
+
+    Dim rsCnt As DAO.Recordset
+    Set rsCnt = Me.RecordsetClone
+    gl検索件数 = rsCnt.RecordCount
+    Me.検索件数 = gl検索件数
+
+    ReDim gl設計No(gl検索件数) As Long
+
+    On Error Resume Next
+    rsCnt.MoveFirst
+    On Error GoTo 0
+
+    i = 0
+    Do Until rsCnt.EOF
+        i = i + 1
+        gl設計No(i) = rsCnt!設計ID
+        rsCnt.MoveNext
+    Loop
+
+    rsCnt.Close
+    Set rsCnt = Nothing
+
+    On Error Resume Next
+    Me.検索品番.SetFocus
+    On Error GoTo 0
+    DoCmd.Hourglass False
+End Sub
+
+Private Sub 試編生機出荷案内書_Click()
+    On Error GoTo Err_試編生機出荷案内書_Click
+    If Not IsNull(Me![設計ID]) Then
+        Dim db As DAO.Database
+        Dim qd As DAO.QueryDef
+        Dim mysql As String
+        Set db = CurrentDb
+        db.Execute "DELETE 試編出荷データワーク.* FROM 試編出荷データワーク"
+        Set qd = db.QueryDefs("試編出荷データワークの新規追加")
+        qd.Parameters("P設計ID") = Me![設計ID]
+        qd.Parameters("P連番") = 採番()
+        qd.Execute
+        qd.Close
+        Set qd = Nothing
+        DoCmd.OpenForm "試編生機出荷案内書", , , , , , Me.Name
+    End If
+Exit_試編生機出荷案内書_Click:
+    Exit Sub
+Err_試編生機出荷案内書_Click:
+    Exit Sub
+End Sub
+
+Private Sub 新規設計_Click()
+    Dim db As DAO.Database
+    Dim qrdef As DAO.QueryDef
+    Dim mysql As String
+    Set db = CurrentDb
+    mysql = "DELETE 設計Ｈワーク.* FROM 設計Ｈワーク"
+    db.Execute mysql
+    mysql = "INSERT INTO 設計Ｈワーク SELECT 設計Ｈ新規.* FROM 設計Ｈ新規"
+    db.Execute mysql
+    mysql = "DELETE 設計Ｂワーク.* FROM 設計Ｂワーク"
+    db.Execute mysql
+    mysql = "INSERT INTO 設計Ｂワーク SELECT 設計Ｂ新規.* FROM 設計Ｂ新規"
+    db.Execute mysql
+    Set db = Nothing
+    DoCmd.OpenForm "設計Ｈメンテ"
+End Sub
+
+Private Sub 設計書印刷_Click()
+    Dim i As Long
+    If Not IsNull(Me![設計ID]) Then
+        Dim db As DAO.Database
+        Dim qrdef As DAO.QueryDef
+        Dim mysql As String
+        Set db = CurrentDb
+        mysql = "DELETE 設計Ｈワーク.* FROM 設計Ｈワーク"
+        db.Execute mysql
+        mysql = "INSERT INTO 設計Ｈワーク SELECT 設計Ｈ.* FROM 設計Ｈ Where 設計ID = " & Format(Me![設計ID]) & ";"
+        db.Execute mysql
+        mysql = "UPDATE 設計Ｈワーク INNER JOIN 設計Ｈ社内備考 ON 設計Ｈワーク.設計ID = 設計Ｈ社内備考.設計ID SET"
+        mysql = mysql & " 設計Ｈワーク.社内備考 = [設計Ｈ社内備考].[社内備考]"
+        For i = 1 To 15
+            mysql = mysql & ", 設計Ｈワーク.社内備考添付資料" & i & " = [設計Ｈ社内備考].[社内備考添付資料" & i & "]"
+        Next i
+        mysql = mysql & ", 設計Ｈワーク.社内備考メモ = [設計Ｈ社内備考].[社内備考メモ]"
+        mysql = mysql & ", 設計Ｈワーク.暫定設計ID = [設計Ｈ社内備考].[暫定設計ID]"
+        mysql = mysql & ", 設計Ｈワーク.備考右 = [設計Ｈ社内備考].[備考右]"
+        mysql = mysql & ", 設計Ｈワーク.備考左 = [設計Ｈ社内備考].[備考左]"
+        mysql = mysql & ", 設計Ｈワーク.計算カウント = [設計Ｈ社内備考].[計算カウント]"
+        mysql = mysql & ", 設計Ｈワーク.染検品質 = [設計Ｈ社内備考].[染検品質]"
+        mysql = mysql & ", 設計Ｈワーク.規格性量＿生機目付平米 = [設計Ｈ社内備考].[規格性量＿生機目付平米]"
+        mysql = mysql & ", 設計Ｈワーク.規格性量＿仕上目付平米 = [設計Ｈ社内備考].[規格性量＿仕上目付平米]"
+        mysql = mysql & ", 設計Ｈワーク.加工注番 = [設計Ｈ社内備考].[加工注番]"
+        mysql = mysql & ", 設計Ｈワーク.量産可否 = [設計Ｈ社内備考].[量産可否]"
+        mysql = mysql & ", 設計Ｈワーク.通気量 = [設計Ｈ社内備考].[通気量]"
+        mysql = mysql & ", 設計Ｈワーク.通気量加工注番 = [設計Ｈ社内備考].[通気量加工注番]"
+        mysql = mysql & ", 設計Ｈワーク.UPF = [設計Ｈ社内備考].[UPF]"
+        mysql = mysql & ", 設計Ｈワーク.UPF加工注番 = [設計Ｈ社内備考].[UPF加工注番]"
+        mysql = mysql & ", 設計Ｈワーク.引裂強度タテ = [設計Ｈ社内備考].[引裂強度タテ]"
+        mysql = mysql & ", 設計Ｈワーク.引裂強度ヨコ = [設計Ｈ社内備考].[引裂強度ヨコ]"
+        mysql = mysql & ", 設計Ｈワーク.引裂強度加工注番 = [設計Ｈ社内備考].[引裂強度加工注番]"
+        mysql = mysql & ", 設計Ｈワーク.引張強度タテ = [設計Ｈ社内備考].[引張強度タテ]"
+        mysql = mysql & ", 設計Ｈワーク.引張強度ヨコ = [設計Ｈ社内備考].[引張強度ヨコ]"
+        mysql = mysql & ", 設計Ｈワーク.引張強度加工注番 = [設計Ｈ社内備考].[引張強度加工注番]"
+        mysql = mysql & ", 設計Ｈワーク.引張伸度タテ = [設計Ｈ社内備考].[引張伸度タテ]"
+        mysql = mysql & ", 設計Ｈワーク.引張伸度ヨコ = [設計Ｈ社内備考].[引張伸度ヨコ]"
+        mysql = mysql & ", 設計Ｈワーク.引張伸度加工注番 = [設計Ｈ社内備考].[引張伸度加工注番]"
+        mysql = mysql & ", 設計Ｈワーク.厚み径 = [設計Ｈ社内備考].[厚み径]"
+        mysql = mysql & ", 設計Ｈワーク.厚み = [設計Ｈ社内備考].[厚み]"
+        mysql = mysql & ", 設計Ｈワーク.厚み加工注番 = [設計Ｈ社内備考].[厚み加工注番]"
+        mysql = mysql & ";"
+        db.Execute mysql
+        mysql = "DELETE 設計Ｂワーク.* FROM 設計Ｂワーク"
+        db.Execute mysql
+        mysql = "INSERT INTO 設計Ｂワーク SELECT 設計Ｂ.* FROM 設計Ｂ Where 設計ID = " & Format(Me![設計ID]) & ";"
+        db.Execute mysql
+        Set db = Nothing
+        DoCmd.OpenForm "設計書印刷", , , "設計ID =" & Format(Me![設計ID])
+    End If
+End Sub
+
+Private Sub 選択_Click()
+On Error GoTo Err_選択_Click
+    If IsNumeric(Me![設計ID]) Then
+        Dim n As Long
+        n = val(Me![設計ID])
+        Dim i As Long
+        gl一覧行 = 1
+        For i = 1 To gl検索件数
+            If gl設計No(i) = n Then
+                gl一覧行 = i
+                Exit For
+            End If
+        Next i
+        Call ワークに設計データをセット
+        DoCmd.OpenForm "設計Ｈメンテ", , , , , , Me.Name
+    End If
+Exit_選択_Click:
+    Exit Sub
+
+Err_選択_Click:
+    MsgBox Err.Description
+    Resume Exit_選択_Click
+End Sub
+
+Private Function 採番() As Long
+    Dim db As DAO.Database
+    Dim rs As DAO.Recordset
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset("SELECT カウント FROM 設計ＣＴマスタ where コード='01'")
+    If Not rs.EOF Then
+        rs.Edit
+            採番 = rs.Fields("カウント")
+            rs.Fields("カウント") = rs.Fields("カウント") + 1
+        rs.Update
+    Else
+        採番 = 0
+    End If
+    rs.Close
+    Set rs = Nothing
+    Set db = Nothing
+End Function
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    If Shift = 0 Then
+        Select Case KeyCode
+        Case 112    'F1
+            KeyCode = 0
+        Case 113    'F2
+            KeyCode = 0
+            Call 設計書印刷_Click
+        Case 114    'F3
+            KeyCode = 0
+            Call 試編生機出荷案内書_Click
+        Case 115    'F4
+            KeyCode = 0
+            Call 選択_Click
+        Case 120    'F9
+            KeyCode = 0
+            Call HangerNoSet_Click
+        Case 121    'F10
+            KeyCode = 0
+            Call SampleNoSet_Click
+        Case 27     'ESC
+            KeyCode = 0
+            If Me.Dirty Then
+                On Error Resume Next
+                DoCmd.RunCommand acCmdUndo
+                On Error GoTo 0
+                If Not Me.Dirty Then
+'                   Call Form_Current
+                End If
+            End If
+        End Select
+    End If
+    If Shift = 1 Then
+        Select Case KeyCode
+        Case 112    'F1
+            KeyCode = 0
+            Call リセット_Click
+        Case 113    'F2
+            KeyCode = 0
+        Case 114    'F3
+            KeyCode = 0
+        Case 115    'F4
+            KeyCode = 0
+        Case 116    'F5
+            KeyCode = 0
+        End Select
+    End If
+End Sub
+
+Private Sub 組織図検索条件設定_Click()
+    On Error GoTo Err_組織図検索条件設定_Click
+    DoCmd.OpenForm "設計組織図原糸品番検索", , , , , , Me.Name
+Err_組織図検索条件設定_Click:
+    On Error GoTo 0
+End Sub
+
+Private Sub 社内備考検索()
+    Dim wd As String
+    wd = Trim(IfString(Me.検索社内備考))
+    Dim st, en As Currency
+    st = val(IfNumeric(Me.検索開始社内備考))
+    en = val(IfNumeric(Me.検索終了社内備考))
+
+    Dim rs As DAO.Recordset
+    Set rs = CurrentDb.OpenRecordset("WK設計一覧表")
+
+    Do While Not rs.EOF()
+        Dim S As String
+        S = DLookup("社内備考メモ", "設計Ｈ社内備考", "設計ID=" & IfNumeric(rs!設計ID))
+        Dim p As Long
+        p = InStr(1, S, wd, vbTextCompare)
+        Dim valstr As String
+        valstr = ""
+        If 0 < p Then
+            p = p + Len(wd)
+            Dim l As Long
+            l = Len(S)
+            Dim i As Long
+            i = 6
+            Do While 0 < i
+                If l < p Then
+                    i = 0
+                Else
+                    Dim ps As String
+                    ps = Mid(S, p, 1)
+                    If ps = "0" Or ps = "1" Or ps = "2" Or ps = "3" Or ps = "4" Or ps = "5" Or ps = "6" Or ps = "7" Or ps = "8" Or ps = "9" Or ps = "." Then
+                        valstr = valstr & ps
+                        p = p + 1
+                        i = i - 1
+                    Else
+                        i = 0
+                    End If
+                End If
+            Loop
+        End If
+        Dim valnum As Currency
+        valnum = val(valstr)
+        Debug.Print S
+        Debug.Print valnum
+        If en = 0 Then
+            If valnum < st Then
+                rs.Delete
+            End If
+        Else
+            If valnum < st Or en < valnum Then
+                rs.Delete
+            End If
+        End If
+        rs.MoveNext
+    Loop
+
+    rs.Close
+    Set rs = Nothing
+End Sub

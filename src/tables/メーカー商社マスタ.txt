@@ -1,0 +1,7 @@
+TABLE	メーカー商社マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.メーカー商社マスタ
+FIELD	メーカー商社CD	Text	Size=3	Req=True	ZeroLen=True
+FIELD	メーカー商社名	Text	Size=32	Req=False	ZeroLen=True
+FIELD	メーカー商社名カナ	Text	Size=10	Req=False	ZeroLen=True
+INDEX	PK_メーカー商社マスタ	(メーカー商社CD)	PK=True	Unique=True

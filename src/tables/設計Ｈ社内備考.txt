@@ -1,0 +1,47 @@
+TABLE	設計Ｈ社内備考
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.設計Ｈ社内備考
+FIELD	設計ID	Long	Size=4	Req=True	ZeroLen=False
+FIELD	社内備考	Memo	Size=0	Req=False	ZeroLen=True
+FIELD	社内備考添付資料1	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料2	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料3	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料4	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料5	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料6	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料7	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料8	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考メモ	Memo	Size=0	Req=False	ZeroLen=True
+FIELD	暫定設計ID	Long	Size=4	Req=False	ZeroLen=False
+FIELD	備考右	Text	Size=255	Req=False	ZeroLen=True
+FIELD	備考左	Text	Size=255	Req=False	ZeroLen=True
+FIELD	計算カウント	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	染検品質	Text	Size=17	Req=False	ZeroLen=True
+FIELD	規格性量＿生機目付平米	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	規格性量＿仕上目付平米	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	加工注番	Text	Size=50	Req=False	ZeroLen=True
+FIELD	量産可否	Text	Size=5	Req=False	ZeroLen=True
+FIELD	通気量	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	通気量加工注番	Text	Size=50	Req=False	ZeroLen=True
+FIELD	UPF	Text	Size=3	Req=False	ZeroLen=True
+FIELD	UPF加工注番	Text	Size=50	Req=False	ZeroLen=True
+FIELD	引裂強度タテ	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	引裂強度ヨコ	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	引裂強度加工注番	Text	Size=50	Req=False	ZeroLen=True
+FIELD	引張強度タテ	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	引張強度ヨコ	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	引張強度加工注番	Text	Size=50	Req=False	ZeroLen=True
+FIELD	引張伸度タテ	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	引張伸度ヨコ	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	引張伸度加工注番	Text	Size=50	Req=False	ZeroLen=True
+FIELD	厚み径	Text	Size=5	Req=False	ZeroLen=True
+FIELD	厚み	Decimal	Size=16	Req=False	ZeroLen=False
+FIELD	厚み加工注番	Text	Size=50	Req=False	ZeroLen=True
+FIELD	社内備考添付資料9	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料10	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料11	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料12	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料13	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料14	Text	Size=100	Req=False	ZeroLen=True
+FIELD	社内備考添付資料15	Text	Size=100	Req=False	ZeroLen=True
+INDEX	PK_設計Ｈ社内備考	(設計ID)	PK=True	Unique=True

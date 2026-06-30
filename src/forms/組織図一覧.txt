@@ -1,0 +1,634 @@
+Version =21
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    PopUp = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    AllowDeletions = NotDefault
+    CloseButton = NotDefault
+    AllowAdditions = NotDefault
+    KeyPreview = NotDefault
+    ScrollBars =2
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =50
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridX =64
+    GridY =64
+    Width =7901
+    DatasheetFontHeight =9
+    ItemSuffix =41
+    Left =14870
+    Top =3600
+    Right =23310
+    Bottom =12730
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x4a04967c316ce640
+    End
+    RecordSource ="SELECT 組織図マスタ.組織CD, 組織図マスタ.組織図, 組織図マスタ.dial, 組織図マスタ.cylinder FROM 組織図マスタ WHERE ("
+        "((組織図マスタ.組織CD)>Forms!設計Ｈメンテ!出合い*100000 And (組織図マスタ.組織CD)<(Forms!設計Ｈメンテ!出合い+1)*10"
+        "0000)) ORDER BY 組織図マスタ.組織CD DESC; "
+    Caption ="組織図一覧"
+    OnCurrent ="[Event Procedure]"
+    OnOpen ="[Event Procedure]"
+    OnClose ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0x8905000089050000890500008905000000000000561a0000fe01000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    FilterOnLoad =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Image
+            BackStyle =0
+            OldBorderStyle =0
+            BorderLineStyle =0
+            PictureAlignment =2
+            Width =1701
+            Height =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin BoundObjectFrame
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =4536
+            Height =2835
+            LabelX =-1701
+        End
+        Begin TextBox
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ListBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin UnboundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin ToggleButton
+            TextFontCharSet =128
+            Width =283
+            Height =283
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin FormHeader
+            Height =1488
+            BackColor =-2147483633
+            Name ="フォームヘッダー"
+            Begin
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =6510
+                    Top =165
+                    Width =1290
+                    Height =513
+                    FontSize =14
+                    Name ="閉じる"
+                    Caption ="閉じる"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =15
+                    Top =900
+                    Width =2384
+                    Height =255
+                    TabIndex =1
+                    BorderColor =4210752
+                    Name ="検索dial"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    Left =15
+                    Top =1155
+                    Width =2384
+                    Height =255
+                    TabIndex =2
+                    BorderColor =4210752
+                    Name ="検索cylinder"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =6510
+                    Top =915
+                    Width =1290
+                    Height =513
+                    FontSize =14
+                    FontWeight =700
+                    TabIndex =3
+                    Name ="全部"
+                    Caption ="All"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin Image
+                    SpecialEffect =2
+                    BackStyle =1
+                    OldBorderStyle =1
+                    SizeMode =3
+                    Width =5040
+                    Height =810
+                    Name ="非連結OLE37"
+
+                    TabIndex =7
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =2460
+                    Top =915
+                    Width =1290
+                    Height =513
+                    FontSize =14
+                    FontWeight =700
+                    TabIndex =4
+                    Name ="Just"
+                    Caption ="Just"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =3810
+                    Top =915
+                    Width =1290
+                    Height =513
+                    FontSize =14
+                    FontWeight =700
+                    TabIndex =5
+                    Name ="serial"
+                    Caption ="Serial"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =5160
+                    Top =915
+                    Width =1290
+                    Height =513
+                    FontSize =14
+                    FontWeight =700
+                    TabIndex =6
+                    Name ="parallel"
+                    Caption ="Parallel"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+            End
+        End
+        Begin Section
+            Height =510
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =7142
+                    Top =150
+                    Width =609
+                    Height =210
+                    BackColor =65535
+                    Name ="組織CD"
+                    ControlSource ="組織CD"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin BoundObjectFrame
+                    TabStop = NotDefault
+                    SizeMode =1
+                    SpecialEffect =0
+                    BorderWidth =1
+                    OverlapFlags =85
+                    Left =2460
+                    Width =4626
+                    Height =510
+                    TabIndex =1
+                    AutoActivate =0
+                    UpdateOptions =2
+                    Name ="組織図"
+                    ControlSource ="組織図"
+                    OnDblClick ="[Event Procedure]"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    IMEMode =3
+                    Width =2399
+                    Height =255
+                    TabIndex =2
+                    Name ="dial"
+                    ControlSource ="dial"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextFontFamily =49
+                    IMEMode =3
+                    Top =255
+                    Width =2399
+                    Height =255
+                    TabIndex =3
+                    Name ="cylinder"
+                    ControlSource ="cylinder"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+            End
+        End
+        Begin FormFooter
+            Height =0
+            BackColor =-2147483633
+            Name ="フォームフッター"
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_Close()
+    LINK_Sosiki = 0
+End Sub
+
+Private Sub Form_Current()
+    LINK_Sosiki = Me.組織CD
+End Sub
+
+Private Sub Form_Open(Cancel As Integer)
+'''''    Form_設計Hメンテ.マスタメンテ.Enabled = False
+    LINK_Sosiki = 0
+    Call set_sql("")
+End Sub
+
+Private Sub Just_Click()
+    Dim dial As String
+    dial = Trim(Nz(Me.検索dial))
+
+    Dim dial_len As Integer
+    dial_len = Len(dial)
+
+    Dim cylinder As String
+    cylinder = Trim(Nz(Me.検索cylinder))
+
+    Dim cylinder_len As Integer
+    cylinder_len = Len(cylinder)
+
+    If dial_len = 0 And cylinder_len = 0 Then
+        Me.Requery
+        Me.Filter = "[dial] LIKE '*'"
+        Me.FilterOn = True
+        Me.FilterOn = False
+        Exit Sub
+    End If
+
+    Dim WK_WHERE As String
+    WK_WHERE = ""
+
+    If dial_len > 0 Then
+        WK_WHERE = WK_WHERE & "([dial] = '" & dial & "'"
+        WK_WHERE = WK_WHERE & " OR [dial] = '" & dial & "@')"
+    End If
+
+    If cylinder_len > 0 Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " AND "
+        End If
+
+        WK_WHERE = WK_WHERE & "([cylinder] = '" & cylinder & "'"
+        WK_WHERE = WK_WHERE & " OR [cylinder] = '" & cylinder & "@')"
+    End If
+    Call set_sql(WK_WHERE)
+End Sub
+
+Private Sub set_sql(WK_WHERE As String)
+    Dim S As String
+    S = "SELECT 組織CD, 組織図, dial, cylinder FROM 組織図マスタ WHERE 組織CD > Forms!設計Ｈメンテ!出合い*100000 And 組織CD < (Forms!設計Ｈメンテ!出合い+1)*100000"
+    If WK_WHERE <> "" Then
+        S = S & " AND (" & WK_WHERE & ")"
+    End If
+    S = S & " ORDER BY 組織CD DESC;"
+    Me.RecordSource = S
+End Sub
+
+Private Sub parallel_Click()
+    Dim dial As String
+    dial = Trim(Nz(Me.検索dial))
+
+    Dim dial_len As Integer
+    dial_len = Len(dial)
+
+    Dim cylinder As String
+    cylinder = Trim(Nz(Me.検索cylinder))
+
+    Dim cylinder_len As Integer
+    cylinder_len = Len(cylinder)
+
+    If dial_len = 0 And cylinder_len = 0 Then
+        Me.Requery
+        Me.Filter = "[dial] LIKE '*'"
+        Me.FilterOn = True
+        Me.FilterOn = False
+        Exit Sub
+    End If
+
+    Dim WK_WHERE As String
+    WK_WHERE = ""
+
+    Dim i As Integer
+
+    If dial_len > 0 Then
+        WK_WHERE = WK_WHERE & "("
+        For i = 1 To dial_len
+            If i > 1 Then
+                WK_WHERE = WK_WHERE & " OR "
+            End If
+            dial = RotateStringLeft(dial)
+            WK_WHERE = WK_WHERE & "([dial] = '" & dial & "'"
+            WK_WHERE = WK_WHERE & " OR [dial] = '" & dial & "@')"
+        Next i
+        WK_WHERE = WK_WHERE & ")"
+    End If
+    If cylinder_len > 0 Then
+        If WK_WHERE <> "" Then
+            WK_WHERE = WK_WHERE & " AND "
+        End If
+
+        WK_WHERE = WK_WHERE & "("
+        For i = 1 To cylinder_len
+            If i > 1 Then
+                WK_WHERE = WK_WHERE & " OR "
+            End If
+            cylinder = RotateStringLeft(cylinder)
+            WK_WHERE = WK_WHERE & "([cylinder] = '" & cylinder & "'"
+            WK_WHERE = WK_WHERE & " OR [cylinder] = '" & cylinder & "@')"
+        Next i
+        WK_WHERE = WK_WHERE & ")"
+    End If
+    Call set_sql(WK_WHERE)
+End Sub
+
+Private Sub serial_Click()
+    Dim dial As String
+    dial = Trim(Nz(Me.検索dial))
+
+    Dim dial_len As Integer
+    dial_len = Len(dial)
+
+    Dim cylinder As String
+    cylinder = Trim(Nz(Me.検索cylinder))
+
+    Dim cylinder_len As Integer
+    cylinder_len = Len(cylinder)
+
+    If dial_len = 0 And cylinder_len = 0 Then
+        Me.Requery
+        Me.Filter = "[dial] LIKE '*'"
+        Me.FilterOn = True
+        Me.FilterOn = False
+        Exit Sub
+    End If
+
+    Dim lcm_Long As Long
+    lcm_Long = LCM(dial_len, cylinder_len)
+    If lcm_Long = 0 Then
+        If dial_len > 0 Then
+            lcm_Long = dial_len
+        Else
+            lcm_Long = cylinder_len
+        End If
+    End If
+
+    Dim i As Integer
+    If dial_len > 0 Then
+        Dim dial_Multiple As Long
+        dial_Multiple = lcm_Long / dial_len
+        For i = 1 To dial_Multiple
+            If i > 1 Then
+                dial = dial & dial
+            End If
+        Next i
+    End If
+
+    If cylinder_len > 0 Then
+        Dim cylinder_Multiple As Long
+        cylinder_Multiple = lcm_Long / cylinder_len
+        For i = 1 To cylinder_Multiple
+            If i > 1 Then
+                cylinder = cylinder & cylinder
+            End If
+        Next i
+    End If
+
+    Dim WK_WHERE As String
+    WK_WHERE = ""
+
+    For i = 1 To lcm_Long
+        If i > 1 Then
+            WK_WHERE = WK_WHERE & " OR "
+        End If
+
+        WK_WHERE = WK_WHERE & "("
+
+        If dial_len > 0 Then
+            dial = RotateStringLeft(dial)
+            WK_WHERE = WK_WHERE & "([dial] = '" & Left(dial, dial_len) & "'"
+            WK_WHERE = WK_WHERE & " OR [dial] = '" & Left(dial, dial_len) & "@')"
+            If cylinder_len > 0 Then
+                WK_WHERE = WK_WHERE & " AND "
+            End If
+        End If
+        If cylinder_len > 0 Then
+            cylinder = RotateStringLeft(cylinder)
+            WK_WHERE = WK_WHERE & "([cylinder] = '" & Left(cylinder, cylinder_len) & "'"
+            WK_WHERE = WK_WHERE & " OR [cylinder] = '" & Left(cylinder, cylinder_len) & "@')"
+        End If
+        WK_WHERE = WK_WHERE & ")"
+    Next i
+    Call set_sql(WK_WHERE)
+End Sub
+
+''' <summary>
+''' 文字列を左に1文字ローテーションします。
+''' </summary>
+''' <param name="inputText">対象の文字列</param>
+''' <returns>ローテーション後の文字列</returns>
+Private Function RotateStringLeft(ByVal inputText As String) As String
+    ' 文字列が1文字以下の場合は、そのまま返す
+    If Len(inputText) <= 1 Then
+        RotateStringLeft = inputText
+        Exit Function
+    End If
+
+    ' 2文字目から最後までを取得し、それに最初の1文字を連結する
+    RotateStringLeft = Mid(inputText, 2) & Left(inputText, 1)
+End Function
+
+''' <summary>
+''' 2つの整数の最小公倍数 (LCM) を計算します。
+''' </summary>
+''' <param name="a">1つ目の整数</param>
+''' <param name="b">2つ目の整数</param>
+''' <returns>最小公倍数</returns>
+Private Function LCM(ByVal a As Long, ByVal b As Long) As Long
+    ' 0が含まれる場合のLCMは0とする
+    If a = 0 Or b = 0 Then
+        LCM = 0
+        Exit Function
+    End If
+
+    ' 公式: LCM(a, b) = |a * b| / GCD(a, b)
+    ' 大きな数でのオーバーフローを防ぐため、先に割り算を行う
+    LCM = (Abs(a) / GCD(a, b)) * Abs(b)
+End Function
+
+''' <summary>
+''' 2つの整数の最大公約数 (GCD) を計算します。（ユークリッドの互除法）
+''' この関数はLCM関数から呼び出されます。
+''' </summary>
+''' <param name="a">1つ目の整数</param>
+''' <param name="b">2つ目の整数</param>
+''' <returns>最大公約数</returns>
+Private Function GCD(ByVal a As Long, ByVal b As Long) As Long
+    Dim temp As Long
+
+    ' 正の数で計算を行う
+    a = Abs(a)
+    b = Abs(b)
+
+    ' ユークリッドの互除法
+    Do While b <> 0
+        temp = b
+        b = a Mod b
+        a = temp
+    Loop
+
+    GCD = a
+End Function
+
+Private Sub 全部_Click()
+    Me.検索dial = ""
+    Me.検索cylinder = ""
+    Call set_sql("")
+End Sub
+
+Private Sub 組織図_DblClick(Cancel As Integer)
+    Me.検索dial = Trim(Nz(Me.dial))
+    Me.検索cylinder = Trim(Nz(Me.cylinder))
+End Sub
+
+Private Sub 閉じる_Click()
+    Form_設計Hメンテ.マスタメンテ.Enabled = True
+    DoCmd.Close
+End Sub

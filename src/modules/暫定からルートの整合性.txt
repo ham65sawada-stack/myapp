@@ -1,0 +1,500 @@
+Option Compare Database
+Option Explicit
+
+
+Public Sub 暫定からルート更新(db As DAO.Database, lng暫定設計ID As Long)
+    Dim str生機品番 As String
+    Dim str社内備考メモ As String
+    str生機品番 = ""
+    str社内備考メモ = ""
+    Dim rs As DAO.Recordset
+    Set rs = db.OpenRecordset("select * from 設計Ｈ社内備考 where 暫定設計ID=" & lng暫定設計ID & ";")
+    Dim rsH As DAO.Recordset
+    Set rsH = db.OpenRecordset("select * from 設計Ｈ where 設計ID=" & lng暫定設計ID & ";")
+    Dim rsH社内備考 As DAO.Recordset
+    Set rsH社内備考 = db.OpenRecordset("select * from 設計Ｈ社内備考 where 設計ID=" & lng暫定設計ID & ";")
+    Dim cnt As Long
+    cnt = 0
+    Do Until rs.EOF
+        cnt = cnt + 1
+        If cnt = 1 Then
+            str生機品番 = Trim(IfString(rsH!生機品番))
+            str社内備考メモ = Trim(IfString(rsH社内備考!社内備考メモ))
+        End If
+        Dim lngRoot設計ID As Long
+        lngRoot設計ID = val(IfNumeric(rs!設計ID))
+        Call 設計H社内備考更新(db, rsH社内備考, lngRoot設計ID)
+
+        Dim cur生産量反月 As Currency
+        Dim cur生産量K月 As Currency
+        cur生産量反月 = 0
+        cur生産量K月 = 0
+        Call 契約B更新と生産量計算(db, lng暫定設計ID, lngRoot設計ID, rsH, cur生産量反月, cur生産量K月)   '生産量の計算も行う
+        Call 契約H更新(db, rsH, lngRoot設計ID, cur生産量反月, cur生産量K月)                              '生産量の更新
+        rs.MoveNext
+    Loop
+    rsH社内備考.Close
+    Set rsH社内備考 = Nothing
+    rsH.Close
+    Set rsH = Nothing
+    rs.Close
+    Set rs = Nothing
+    If cnt > 0 Then
+        If MsgBox(cnt & "件のルート設計に影響が有ります。" & vbCrLf & "連絡メールを送信しますか？", vbYesNo, "確認メッセージ") = vbYes Then
+            Dim rt
+'''''''''''''''''''''            rt = SendMail("mitsukawa.com:587", "rootdesignmodify@mitsukawa.com" & vbTab & "bcc" & vbTab & pubsMail, pubsMail & vbTab & "send:0120219969", "設計変更連絡　品番[" & str生機品番 & "](" & Format(Date, "yyyy/mm/dd") & ")", str社内備考メモ, "")
+        End If
+    End If
+End Sub
+
+Private Sub 設計H社内備考更新(db As DAO.Database, rsH社内備考 As DAO.Recordset, lngRoot設計ID As Long)
+    Dim rsHroot社内備考 As DAO.Recordset
+    Set rsHroot社内備考 = db.OpenRecordset("SELECT * FROM 設計Ｈ社内備考 WHERE 設計ID=" & lngRoot設計ID & ";")
+    If Not rsHroot社内備考.EOF Then
+        rsHroot社内備考.Edit
+        rsHroot社内備考!社内備考 = Trim(IfString(rsH社内備考!社内備考))
+        rsHroot社内備考!社内備考添付資料1 = Trim(IfString(rsH社内備考!社内備考添付資料1))
+        rsHroot社内備考!社内備考添付資料2 = Trim(IfString(rsH社内備考!社内備考添付資料2))
+        rsHroot社内備考!社内備考添付資料3 = Trim(IfString(rsH社内備考!社内備考添付資料3))
+        rsHroot社内備考!社内備考添付資料4 = Trim(IfString(rsH社内備考!社内備考添付資料4))
+        rsHroot社内備考!社内備考添付資料5 = Trim(IfString(rsH社内備考!社内備考添付資料5))
+        rsHroot社内備考!社内備考添付資料6 = Trim(IfString(rsH社内備考!社内備考添付資料6))
+        rsHroot社内備考!社内備考添付資料7 = Trim(IfString(rsH社内備考!社内備考添付資料7))
+        rsHroot社内備考!社内備考添付資料8 = Trim(IfString(rsH社内備考!社内備考添付資料8))
+        rsHroot社内備考!社内備考メモ = Trim(IfString(rsH社内備考!社内備考メモ))
+        rsHroot社内備考!備考右 = Trim(IfString(rsH社内備考!備考右))
+        rsHroot社内備考!備考左 = Trim(IfString(rsH社内備考!備考左))
+        rsHroot社内備考!計算カウント = val(IfNumeric(rsH社内備考!計算カウント))
+        rsHroot社内備考!染検品質 = Trim(IfString(rsH社内備考!染検品質))
+        rsHroot社内備考!規格性量_仕上目付平米 = val(IfNumeric(rsH社内備考!規格性量_仕上目付平米))
+        rsHroot社内備考!規格性量_生機目付平米 = val(IfNumeric(rsH社内備考!規格性量_生機目付平米))
+        rsHroot社内備考!加工注番 = Trim(IfString(rsH社内備考!加工注番))
+        rsHroot社内備考!量産可否 = Trim(IfString(rsH社内備考!量産可否))
+        rsHroot社内備考!通気量 = val(IfNumeric(rsH社内備考!通気量))
+        rsHroot社内備考!通気量加工注番 = Trim(IfString(rsH社内備考!通気量加工注番))
+        rsHroot社内備考!UPF = Trim(IfString(rsH社内備考!UPF))
+        rsHroot社内備考!UPF加工注番 = Trim(IfString(rsH社内備考!UPF加工注番))
+        rsHroot社内備考!引張強度タテ = val(IfNumeric(rsH社内備考!引張強度タテ))
+        rsHroot社内備考!引張強度ヨコ = val(IfNumeric(rsH社内備考!引張強度ヨコ))
+        rsHroot社内備考!引張強度加工注番 = Trim(IfString(rsH社内備考!引張強度加工注番))
+        rsHroot社内備考!引張伸度タテ = val(IfNumeric(rsH社内備考!引張伸度タテ))
+        rsHroot社内備考!引張伸度ヨコ = val(IfNumeric(rsH社内備考!引張伸度ヨコ))
+        rsHroot社内備考!引張伸度加工注番 = Trim(IfString(rsH社内備考!引張伸度加工注番))
+        rsHroot社内備考!引裂強度タテ = val(IfNumeric(rsH社内備考!引裂強度タテ))
+        rsHroot社内備考!引裂強度ヨコ = val(IfNumeric(rsH社内備考!引裂強度ヨコ))
+        rsHroot社内備考!引裂強度加工注番 = Trim(IfString(rsH社内備考!引裂強度加工注番))
+        rsHroot社内備考!厚み径 = Trim(IfString(rsH社内備考!厚み径))
+        rsHroot社内備考!厚み = val(IfNumeric(rsH社内備考!厚み))
+        rsHroot社内備考!厚み加工注番 = Trim(IfString(rsH社内備考!厚み加工注番))
+        rsHroot社内備考!社内備考添付資料9 = Trim(IfString(rsH社内備考!社内備考添付資料9))
+        rsHroot社内備考!社内備考添付資料10 = Trim(IfString(rsH社内備考!社内備考添付資料10))
+        rsHroot社内備考!社内備考添付資料11 = Trim(IfString(rsH社内備考!社内備考添付資料11))
+        rsHroot社内備考!社内備考添付資料12 = Trim(IfString(rsH社内備考!社内備考添付資料12))
+        rsHroot社内備考!社内備考添付資料13 = Trim(IfString(rsH社内備考!社内備考添付資料13))
+        rsHroot社内備考!社内備考添付資料14 = Trim(IfString(rsH社内備考!社内備考添付資料14))
+        rsHroot社内備考!社内備考添付資料15 = Trim(IfString(rsH社内備考!社内備考添付資料15))
+        rsHroot社内備考.Update
+    End If
+    rsHroot社内備考.Close
+    Set rsHroot社内備考 = Nothing
+End Sub
+
+Private Sub 契約B更新と生産量計算(db As DAO.Database, lng暫定設計ID As Long, lngRoot設計ID As Long, rsH As DAO.Recordset, ByRef cur生産量反月 As Currency, ByRef cur生産量K月 As Currency)
+    Rem 生産量計算
+    Dim W規格性量_生機長_インチ
+    Dim WK_KYUSI_TBL(1 To 99) As Integer
+    Dim WK_KYUSI_NO(1 To 6, 1 To 99) As Integer
+    Dim WK_KYUSI_HON(1 To 6) As Integer
+    Dim WK_MIKAKE_SENNDO(1 To 6) As Integer
+    Dim WK_LOOP1(1 To 6) As Integer
+    Dim WK_LOOP2(1 To 6) As Integer
+    Dim WK_KYUSI_KUTI_ALL As Integer
+    Dim WK生産量K月 As Double
+    Dim l As Integer
+    Dim i As Integer
+    Erase WK_KYUSI_TBL
+    Erase WK_KYUSI_NO
+    Erase WK_KYUSI_HON
+    Erase WK_MIKAKE_SENNDO
+    Erase WK_LOOP1
+    Erase WK_LOOP2
+    WK生産量K月 = 0
+    WK_KYUSI_KUTI_ALL = 0
+
+    db.Execute "DELETE * FROM 設計Ｂ Where 設計ID = " & Format(lngRoot設計ID) & ";"
+    Dim rsB As DAO.Recordset
+    Set rsB = db.OpenRecordset("SELECT * FROM 設計Ｂ WHERE 設計ID=" & lng暫定設計ID & ";")
+    Dim rsBroot As DAO.Recordset
+    Set rsBroot = db.OpenRecordset("設計Ｂ")
+    Do Until rsB.EOF
+        i = i + 1
+        If VarType(rsB![ループ長1]) = vbCurrency Then
+            WK_LOOP1(i) = rsB![ループ長1]
+        End If
+        If VarType(rsB![ループ長2]) = vbCurrency Then
+            WK_LOOP2(i) = rsB![ループ長2]
+        End If
+        If VarType(rsB![給糸本数]) = vbByte Then
+            WK_KYUSI_HON(i) = rsB![給糸本数]
+        End If
+        If VarType(rsB![見掛繊度]) = vbCurrency Then
+            WK_MIKAKE_SENNDO(i) = rsB![見掛繊度]
+        End If
+        If VarType(rsB![給糸NOU01]) = vbCurrency Then
+            WK_KYUSI_NO(i, 1) = rsB![給糸NOU01]
+        End If
+        If VarType(rsB![給糸NOU02]) = vbCurrency Then
+            WK_KYUSI_NO(i, 2) = rsB![給糸NOU02]
+        End If
+        If VarType(rsB![給糸NOU03]) = vbCurrency Then
+            WK_KYUSI_NO(i, 3) = rsB![給糸NOU03]
+        End If
+        If VarType(rsB![給糸NOU04]) = vbCurrency Then
+            WK_KYUSI_NO(i, 4) = rsB![給糸NOU04]
+        End If
+        If VarType(rsB![給糸NOU05]) = vbCurrency Then
+            WK_KYUSI_NO(i, 5) = rsB![給糸NOU05]
+        End If
+        If VarType(rsB![給糸NOU06]) = vbCurrency Then
+            WK_KYUSI_NO(i, 6) = rsB![給糸NOU06]
+        End If
+        If VarType(rsB![給糸NOU07]) = vbCurrency Then
+            WK_KYUSI_NO(i, 7) = rsB![給糸NOU07]
+        End If
+        If VarType(rsB![給糸NOU08]) = vbCurrency Then
+            WK_KYUSI_NO(i, 8) = rsB![給糸NOU08]
+        End If
+        If VarType(rsB![給糸NOD01]) = vbCurrency Then
+            WK_KYUSI_NO(i, 9) = rsB![給糸NOD01]
+        End If
+        If VarType(rsB![給糸NOD02]) = vbCurrency Then
+            WK_KYUSI_NO(i, 10) = rsB![給糸NOD02]
+        End If
+        If VarType(rsB![給糸NOD03]) = vbCurrency Then
+            WK_KYUSI_NO(i, 11) = rsB![給糸NOD03]
+        End If
+        If VarType(rsB![給糸NOD04]) = vbCurrency Then
+            WK_KYUSI_NO(i, 12) = rsB![給糸NOD04]
+        End If
+        If VarType(rsB![給糸NOD05]) = vbCurrency Then
+            WK_KYUSI_NO(i, 13) = rsB![給糸NOD05]
+        End If
+        If VarType(rsB![給糸NOD06]) = vbCurrency Then
+            WK_KYUSI_NO(i, 14) = rsB![給糸NOD06]
+        End If
+        If VarType(rsB![給糸NOD07]) = vbCurrency Then
+            WK_KYUSI_NO(i, 15) = rsB![給糸NOD07]
+        End If
+        If VarType(rsB![給糸NOD08]) = vbCurrency Then
+            WK_KYUSI_NO(i, 16) = rsB![給糸NOD08]
+        End If
+
+        rsBroot.AddNew
+        rsBroot!設計ID = lngRoot設計ID
+        rsBroot!設計明細NO = rsB!設計明細NO
+        rsBroot!原糸区分 = rsB!原糸区分
+        rsBroot!原糸品番 = rsB!原糸品番
+        rsBroot!原糸コメント = rsB!原糸コメント
+        rsBroot!給糸本数 = rsB!給糸本数
+        rsBroot!見掛繊度 = rsB!見掛繊度
+        rsBroot!給糸NOU01 = rsB!給糸NOU01
+        rsBroot!給糸NOU02 = rsB!給糸NOU02
+        rsBroot!給糸NOU03 = rsB!給糸NOU03
+        rsBroot!給糸NOU04 = rsB!給糸NOU04
+        rsBroot!給糸NOU05 = rsB!給糸NOU05
+        rsBroot!給糸NOU06 = rsB!給糸NOU06
+        rsBroot!給糸NOU07 = rsB!給糸NOU07
+        rsBroot!給糸NOU08 = rsB!給糸NOU08
+        rsBroot!給糸NOD01 = rsB!給糸NOD01
+        rsBroot!給糸NOD02 = rsB!給糸NOD02
+        rsBroot!給糸NOD03 = rsB!給糸NOD03
+        rsBroot!給糸NOD04 = rsB!給糸NOD04
+        rsBroot!給糸NOD05 = rsB!給糸NOD05
+        rsBroot!給糸NOD06 = rsB!給糸NOD06
+        rsBroot!給糸NOD07 = rsB!給糸NOD07
+        rsBroot!給糸NOD08 = rsB!給糸NOD08
+        rsBroot!ループ長1 = rsB!ループ長1
+        rsBroot!ループ長2 = rsB!ループ長2
+        rsBroot!交編率 = rsB!交編率
+        rsBroot!QR原糸区分 = rsB!QR原糸区分
+        rsBroot!QR原糸品名 = rsB!QR原糸品名
+        rsBroot!QR原糸品種 = rsB!QR原糸品種
+        rsBroot!QR糸加工コメント = rsB!QR糸加工コメント
+        rsBroot!QR見掛繊度 = rsB!QR見掛繊度
+        rsBroot!QR正味糸量 = rsB!QR正味糸量
+        rsBroot!QR糸量単位 = rsB!QR糸量単位
+        rsBroot!QR持掛糸量 = rsB!QR持掛糸量
+        rsBroot!QR交編率 = rsB!QR交編率
+        rsBroot!QR編立ロス率 = rsB!QR編立ロス率
+        rsBroot!QR整経本数 = rsB!QR整経本数
+        rsBroot!一周長1 = rsB!一周長1
+        rsBroot!一周長2 = rsB!一周長2
+        rsBroot.Update
+        rsB.MoveNext
+    Loop
+    rsBroot.Close
+    Set rsBroot = Nothing
+
+    For i = 1 To 6
+        For l = 1 To 16
+            If WK_KYUSI_NO(i, l) <> 0 Then
+                WK_KYUSI_TBL(WK_KYUSI_NO(i, l)) = WK_KYUSI_TBL(WK_KYUSI_NO(i, l)) + 1
+                If WK_KYUSI_TBL(WK_KYUSI_NO(i, l)) = 1 Then
+                    WK_KYUSI_KUTI_ALL = WK_KYUSI_KUTI_ALL + 1
+                End If
+            End If
+        Next l
+    Next i
+
+    Dim WK_KYUSI_KUTI_UP As Integer
+    Dim WK_KYUSI_KUTI_DOWN As Integer
+    Dim WK_1REP_HON As Double
+    Dim WK_1KAITEN_KG1 As Double
+    Dim WK_1KAITEN_KG2 As Double
+    Dim WK_1KAITEN_KG3 As Double
+    Dim WK_GETUSAN_KG1 As Double
+    Dim WK_GETUSAN_KG2 As Double
+    WK_KYUSI_KUTI_UP = 0
+    WK_KYUSI_KUTI_DOWN = 0
+    WK_1REP_HON = 0
+    WK_1KAITEN_KG1 = 0
+    WK_1KAITEN_KG2 = 0
+    WK_1KAITEN_KG3 = 0
+    WK_GETUSAN_KG1 = 0
+    WK_GETUSAN_KG2 = 0
+
+    For i = 1 To 6
+        WK_KYUSI_KUTI_UP = 0
+        WK_KYUSI_KUTI_DOWN = 0
+        For l = 1 To 16
+            If WK_KYUSI_NO(i, l) <> 0 Then
+                If l <= 8 Or WK_LOOP2(i) = 0 Then
+                    WK_KYUSI_KUTI_UP = WK_KYUSI_KUTI_UP + 1
+                Else
+                    WK_KYUSI_KUTI_DOWN = WK_KYUSI_KUTI_DOWN + 1
+                End If
+            End If
+        Next l
+        If rsH!ウエル数 = 0 Or WK_KYUSI_KUTI_ALL = 0 Or WK_KYUSI_KUTI_UP = 0 Then
+        Else
+            WK_1REP_HON = Fix(((rsH!給糸本数 / WK_KYUSI_KUTI_ALL) * WK_KYUSI_KUTI_UP * WK_KYUSI_HON(i)) * 10000) / 10000
+            WK_1KAITEN_KG1 = Fix(((WK_LOOP1(i) / 1000) * (rsH!編機針数 / rsH!ウエル数)) * 10000) / 10000
+            WK_1KAITEN_KG2 = Fix((WK_1KAITEN_KG1 * WK_1REP_HON) * 10000) / 10000
+            WK_1KAITEN_KG3 = Fix((WK_1KAITEN_KG2 * WK_MIKAKE_SENNDO(i)) * 10000) / 10000
+            WK_GETUSAN_KG1 = Fix((WK_1KAITEN_KG3 * rsH!RPM * 0.0036) * 10000) / 10000
+            WK_GETUSAN_KG2 = Fix((WK_GETUSAN_KG1 * (rsH!稼動率 / 100)) * 10000) / 10000
+            WK生産量K月 = Fix(WK生産量K月 + WK_GETUSAN_KG2)
+        End If
+        If rsH!ウエル数 = 0 Or WK_KYUSI_KUTI_ALL = 0 Or WK_KYUSI_KUTI_DOWN = 0 Then
+        Else
+            WK_1REP_HON = Fix(((rsH!給糸本数 / WK_KYUSI_KUTI_ALL) * WK_KYUSI_KUTI_DOWN * WK_KYUSI_HON(i)) * 10000) / 10000
+            WK_1KAITEN_KG1 = Fix(((WK_LOOP2(i) / 1000) * (rsH!編機針数 / rsH!ウエル数)) * 10000) / 10000
+            WK_1KAITEN_KG2 = Fix((WK_1KAITEN_KG1 * WK_1REP_HON) * 10000) / 10000
+            WK_1KAITEN_KG3 = Fix((WK_1KAITEN_KG2 * WK_MIKAKE_SENNDO(i)) * 10000) / 10000
+            WK_GETUSAN_KG1 = Fix((WK_1KAITEN_KG3 * rsH!RPM * 0.0036) * 10000) / 10000
+            WK_GETUSAN_KG2 = Fix((WK_GETUSAN_KG1 * (rsH!稼動率 / 100)) * 10000) / 10000
+            WK生産量K月 = Fix(WK生産量K月 + WK_GETUSAN_KG2)
+        End If
+    Next i
+
+    If rsH!規格性量_生機重量 = 0 Then
+        cur生産量反月 = 0
+    Else
+        cur生産量反月 = Fix(WK生産量K月 / rsH!規格性量_生機重量)
+    End If
+
+    cur生産量K月 = WK生産量K月
+End Sub
+
+Private Sub 契約H更新(db As DAO.Database, rsH As DAO.Recordset, lngRoot設計ID As Long, ByVal cur生産量反月 As Currency, ByVal cur生産量K月 As Currency)
+    Dim rsHroot As DAO.Recordset
+    Set rsHroot = db.OpenRecordset("SELECT * FROM 設計Ｈ WHERE 設計ID=" & lngRoot設計ID & ";")
+    If Not rsHroot.EOF Then
+        rsHroot.Edit
+        ''''rsHroot!設計ID = rsH!設計ID
+        rsHroot!生機品番 = rsH!生機品番
+        ''''rsHroot!設計区分 = rsH!設計区分
+        ''''rsHroot!作成者CD = rsH!作成者CD
+        rsHroot!修正者CD = rsH!修正者CD
+        rsHroot!メーカーCD = rsH!メーカーCD
+        rsHroot!気付先CD = rsH!気付先CD
+        rsHroot!担当者 = rsH!担当者
+        rsHroot!商社CD = rsH!商社CD
+        rsHroot!出荷先CD = rsH!出荷先CD
+        rsHroot!出荷先名 = rsH!出荷先名
+        rsHroot!編立工場CD = rsH!編立工場CD
+        ''''rsHroot!号機 = rsH!号機
+        rsHroot!組織CD = rsH!組織CD
+        rsHroot!用途CD = rsH!用途CD
+        rsHroot!機能 = rsH!機能
+        rsHroot!品名 = rsH!品名
+        ''''rsHroot!編機CD = rsH!編機CD
+        ''''rsHroot!編機タイプ = rsH!編機タイプ
+        ''''rsHroot!編機ゲージ = rsH!編機ゲージ
+        ''''rsHroot!編機釜経 = rsH!編機釜経
+        ''''rsHroot!編機針数 = rsH!編機針数
+        ''''rsHroot!給糸口数 = rsH!給糸口数          //編機口数
+        ''''rsHroot!使用口数 = rsH!使用口数
+        ''''rsHroot!給糸本数 = rsH!給糸本数
+        rsHroot!RPM = rsH!RPM
+        rsHroot!CR = rsH!CR
+        rsHroot!稼動率 = rsH!稼動率
+        rsHroot!一反カウント = rsH!一反カウント
+        rsHroot!出荷許容範囲_自 = rsH!出荷許容範囲_自
+        rsHroot!出荷許容範囲_至 = rsH!出荷許容範囲_至
+        rsHroot!出荷許容罰点数 = rsH!出荷許容罰点数
+        rsHroot!使用面 = rsH!使用面
+        rsHroot!染検査 = rsH!染検査
+        rsHroot!生産量反月 = cur生産量反月                      'root別計算
+        rsHroot!生産量K月 = cur生産量K月                        'root別計算
+        rsHroot!試編納期 = rsH!試編納期
+        rsHroot!ハンガー№ = rsH!ハンガー№
+        rsHroot![ｻﾝﾌﾟﾙ№] = rsH![ｻﾝﾌﾟﾙ№]
+        rsHroot!試編数量 = rsH!試編数量
+        rsHroot!規格性量_生機巾 = rsH!規格性量_生機巾
+        rsHroot!規格性量_生機長 = rsH!規格性量_生機長
+        rsHroot!規格性量_生機重量 = rsH!規格性量_生機重量
+        rsHroot!規格性量_生機目付 = rsH!規格性量_生機目付
+        rsHroot!規格性量_生機ウエル = rsH!規格性量_生機ウエル
+        rsHroot!規格性量_生機コース = rsH!規格性量_生機コース
+        rsHroot!規格性量_仕上巾 = rsH!規格性量_仕上巾
+        rsHroot!規格性量_仕上長 = rsH!規格性量_仕上長
+        rsHroot!規格性量_仕上重量 = rsH!規格性量_仕上重量
+        rsHroot!規格性量_仕上目付 = rsH!規格性量_仕上目付
+        rsHroot!規格性量_仕上ウエル = rsH!規格性量_仕上ウエル
+        rsHroot!規格性量_仕上コース = rsH!規格性量_仕上コース
+        rsHroot!出合い = rsH!出合い
+        rsHroot!ウエル数 = rsH!ウエル数
+        ''''rsHroot!作成日付 = rsH!作成日付
+        rsHroot!修正日付 = rsH!修正日付
+        rsHroot!備考1 = rsH!備考1
+        rsHroot!備考2 = rsH!備考2
+        rsHroot!備考3 = rsH!備考3
+        rsHroot!備考4 = rsH!備考4
+        rsHroot!備考5 = rsH!備考5
+        rsHroot!備考6 = rsH!備考6
+        rsHroot!備考7 = rsH!備考7
+        rsHroot!備考8 = rsH!備考8
+        rsHroot!備考9 = rsH!備考9
+        rsHroot!備考10 = rsH!備考10
+        rsHroot!組織CD01 = rsH!組織CD01
+        rsHroot!組織CD02 = rsH!組織CD02
+        rsHroot!組織CD03 = rsH!組織CD03
+        rsHroot!組織CD04 = rsH!組織CD04
+        rsHroot!組織CD05 = rsH!組織CD05
+        rsHroot!組織CD06 = rsH!組織CD06
+        rsHroot!組織CD07 = rsH!組織CD07
+        rsHroot!組織CD08 = rsH!組織CD08
+        rsHroot!組織CD09 = rsH!組織CD09
+        rsHroot!組織CD10 = rsH!組織CD10
+        rsHroot!組織CD11 = rsH!組織CD11
+        rsHroot!組織CD12 = rsH!組織CD12
+        rsHroot!組織CD13 = rsH!組織CD13
+        rsHroot!組織CD14 = rsH!組織CD14
+        rsHroot!組織CD15 = rsH!組織CD15
+        rsHroot!組織CD16 = rsH!組織CD16
+        rsHroot!組織CD17 = rsH!組織CD17
+        rsHroot!組織CD18 = rsH!組織CD18
+        rsHroot!組織CD19 = rsH!組織CD19
+        rsHroot!組織CD20 = rsH!組織CD20
+        rsHroot!組織CD21 = rsH!組織CD21
+        rsHroot!組織CD22 = rsH!組織CD22
+        rsHroot!組織CD23 = rsH!組織CD23
+        rsHroot!組織CD24 = rsH!組織CD24
+        rsHroot!承認NO = rsH!承認NO
+        rsHroot!設計承認DR1 = rsH!設計承認DR1
+        rsHroot!設計承認DR2 = rsH!設計承認DR2
+        rsHroot!設計承認DR3 = rsH!設計承認DR3
+        rsHroot!設計承認営業承認 = rsH!設計承認営業承認
+        rsHroot!設計承認技術承認 = rsH!設計承認技術承認
+        rsHroot!設計承認者DR1 = rsH!設計承認者DR1
+        rsHroot!設計承認者DR2 = rsH!設計承認者DR2
+        rsHroot!設計承認者DR3 = rsH!設計承認者DR3
+        rsHroot!設計承認営業承認者 = rsH!設計承認営業承認者
+        rsHroot!設計承認技術承認者 = rsH!設計承認技術承認者
+        rsHroot!QR作成日付 = rsH!QR作成日付
+        rsHroot!QR送信区分 = rsH!QR送信区分
+        rsHroot!QR送信日付 = rsH!QR送信日付
+        rsHroot!QR編工場 = rsH!QR編工場
+        rsHroot!QR設計区分 = rsH!QR設計区分
+        rsHroot!QR織編区分 = rsH!QR織編区分
+        rsHroot!QR部課 = rsH!QR部課
+        rsHroot!QR品名 = rsH!QR品名
+        rsHroot!QR品番 = rsH!QR品番
+        rsHroot!QR織物柄名 = rsH!QR織物柄名
+        rsHroot!QR修正区分 = rsH!QR修正区分
+        rsHroot!QR糸量計算区分 = rsH!QR糸量計算区分
+        rsHroot!QR編物設計登録者名 = rsH!QR編物設計登録者名
+        rsHroot!QR公称巾 = rsH!QR公称巾
+        rsHroot!QR公称単位 = rsH!QR公称単位
+        rsHroot!QR公称長 = rsH!QR公称長
+        rsHroot!QR総正味糸量 = rsH!QR総正味糸量
+        rsHroot!QR総持掛糸量 = rsH!QR総持掛糸量
+        rsHroot!QR糸量単位名 = rsH!QR糸量単位名
+        rsHroot!QR柄名CD = rsH!QR柄名CD
+        rsHroot!QR地組織CD = rsH!QR地組織CD
+        rsHroot!QR用途CD = rsH!QR用途CD
+        rsHroot!QR生機巾 = rsH!QR生機巾
+        rsHroot!QR下晒巾 = rsH!QR下晒巾
+        rsHroot!QR製品巾 = rsH!QR製品巾
+        rsHroot!QR巾単位 = rsH!QR巾単位
+        rsHroot!QR生機巾取数 = rsH!QR生機巾取数
+        rsHroot!QR下晒取数 = rsH!QR下晒取数
+        rsHroot!QR製品巾取数 = rsH!QR製品巾取数
+        rsHroot!QR生機長 = rsH!QR生機長
+        rsHroot!QR下晒長 = rsH!QR下晒長
+        rsHroot!QR製品長 = rsH!QR製品長
+        rsHroot!QR生機ウェル = rsH!QR生機ウェル
+        rsHroot!QR下晒ウェル = rsH!QR下晒ウェル
+        rsHroot!QR製品ウェル = rsH!QR製品ウェル
+        rsHroot!QR生機コース = rsH!QR生機コース
+        rsHroot!QR下晒コース = rsH!QR下晒コース
+        rsHroot!QR製品コース = rsH!QR製品コース
+        rsHroot!QR生機重量 = rsH!QR生機重量
+        rsHroot!QR下晒重量 = rsH!QR下晒重量
+        rsHroot!QR製品重量 = rsH!QR製品重量
+        rsHroot!QR生機目付 = rsH!QR生機目付
+        rsHroot!QR下晒目付 = rsH!QR下晒目付
+        rsHroot!QR製品目付 = rsH!QR製品目付
+        rsHroot!QR持掛目付 = rsH!QR持掛目付
+        rsHroot!QR仕上目付 = rsH!QR仕上目付
+        rsHroot!QR混用率1 = rsH!QR混用率1
+        rsHroot!QR混用率2 = rsH!QR混用率2
+        rsHroot!QR混用率3 = rsH!QR混用率3
+        rsHroot!QR混用率4 = rsH!QR混用率4
+        rsHroot!QR編機区分 = rsH!QR編機区分
+        rsHroot!QRメーカ区分 = rsH!QRメーカ区分
+        rsHroot!QR編機タイプ = rsH!QR編機タイプ
+        rsHroot!QRゲージ = rsH!QRゲージ
+        rsHroot!QR針本数 = rsH!QR針本数
+        rsHroot!QR釜経 = rsH!QR釜経
+        rsHroot!QR出合い = rsH!QR出合い
+        rsHroot!QR給糸口数 = rsH!QR給糸口数
+        rsHroot!QR使用口数 = rsH!QR使用口数
+        rsHroot!QR回転数 = rsH!QR回転数
+        rsHroot!QR加工区分 = rsH!QR加工区分
+        rsHroot!QR特殊加工CD = rsH!QR特殊加工CD
+        rsHroot!QR特殊加工 = rsH!QR特殊加工
+        rsHroot!QR耳カット巾 = rsH!QR耳カット巾
+        rsHroot!QR耳カット単位 = rsH!QR耳カット単位
+        rsHroot!QR反末ロス = rsH!QR反末ロス
+        rsHroot!QR反末ロス単位 = rsH!QR反末ロス単位
+        rsHroot!QR精練原料率 = rsH!QR精練原料率
+        rsHroot!QR耳カットロス率 = rsH!QR耳カットロス率
+        rsHroot!QR反末ロス率 = rsH!QR反末ロス率
+        rsHroot!QRその他ロス率 = rsH!QRその他ロス率
+        rsHroot!QRロス率合計 = rsH!QRロス率合計
+        rsHroot!QR染加工場 = rsH!QR染加工場
+        rsHroot!QRコメント1 = rsH!QRコメント1
+        rsHroot!QRコメント2 = rsH!QRコメント2
+        rsHroot!QR編条件 = rsH!QR編条件
+        rsHroot!妥当性確認 = rsH!妥当性確認
+        rsHroot!特記事項 = rsH!特記事項
+        rsHroot!特徴選択 = rsH!特徴選択
+        rsHroot!機能選択 = rsH!機能選択
+        rsHroot!染検査目面 = rsH!染検査目面
+        rsHroot.Update
+    End If
+    rsHroot.Close
+    Set rsHroot = Nothing
+End Sub

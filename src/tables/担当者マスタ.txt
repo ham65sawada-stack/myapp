@@ -1,0 +1,7 @@
+TABLE	担当者マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.担当者マスタ
+FIELD	担当者CD	Text	Size=8	Req=True	ZeroLen=True
+FIELD	担当者	Text	Size=8	Req=False	ZeroLen=True
+FIELD	メールアドレス	Text	Size=50	Req=False	ZeroLen=True
+INDEX	PK_担当者マスタ	(担当者CD)	PK=True	Unique=True

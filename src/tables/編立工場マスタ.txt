@@ -1,0 +1,8 @@
+TABLE	編立工場マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.編立工場マスタ
+FIELD	編立工場ＣＤ	Text	Size=5	Req=True	ZeroLen=True
+FIELD	編立工場名	Text	Size=32	Req=False	ZeroLen=True
+FIELD	FAX	Text	Size=50	Req=False	ZeroLen=True
+FIELD	MAIL	Text	Size=50	Req=False	ZeroLen=True
+INDEX	PK_編立工場マスタ	(編立工場ＣＤ)	PK=True	Unique=True

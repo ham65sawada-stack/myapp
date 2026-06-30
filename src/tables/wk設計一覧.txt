@@ -1,0 +1,27 @@
+TABLE	wk設計一覧
+FIELD	設計ID	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD01	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD02	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD03	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD04	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD05	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD06	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD07	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD08	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD09	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD10	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD11	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD12	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD13	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD14	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD15	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD16	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD17	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD18	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD19	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD20	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD21	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD22	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD23	Long	Size=4	Req=False	ZeroLen=False
+FIELD	組織CD24	Long	Size=4	Req=False	ZeroLen=False
+INDEX	PrimaryKey	(設計ID)	PK=True	Unique=True

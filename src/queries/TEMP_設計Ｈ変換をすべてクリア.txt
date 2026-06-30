@@ -1,0 +1,87 @@
+Operation =4
+Option =0
+Begin InputTables
+    Name ="設計Ｈ社内備考"
+End
+Begin OutputColumns
+    Name ="設計Ｈ社内備考.備考右"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.備考左"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.計算カウント"
+    Expression ="0"
+    Name ="設計Ｈ社内備考.染検品質"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.規格性量＿生機目付平米"
+    Expression ="0"
+    Name ="設計Ｈ社内備考.規格性量＿仕上目付平米"
+    Expression ="0"
+    Name ="設計Ｈ社内備考.加工注番"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.量産可否"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.通気量"
+    Expression ="0"
+    Name ="設計Ｈ社内備考.通気量加工注番"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.UPF"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.UPF加工注番"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.厚み径"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.厚み"
+    Expression ="0"
+    Name ="設計Ｈ社内備考.厚み加工注番"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.引張強度タテ"
+    Expression ="0"
+    Name ="設計Ｈ社内備考.引張強度ヨコ"
+    Expression ="0"
+    Name ="設計Ｈ社内備考.引張強度加工注番"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.社内備考添付資料9"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.社内備考添付資料10"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.社内備考添付資料11"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.社内備考添付資料12"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.社内備考添付資料13"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.社内備考添付資料14"
+    Expression ="\"\""
+    Name ="設計Ｈ社内備考.社内備考添付資料15"
+    Expression ="\"\""
+End
+dbBoolean "ReturnsRecords" ="-1"
+dbInteger "ODBCTimeout" ="60"
+dbBoolean "UseTransaction" ="-1"
+dbBoolean "FailOnError" ="0"
+dbByte "Orientation" ="0"
+Begin
+End
+Begin
+    State =0
+    Left =18
+    Top =40
+    Right =1898
+    Bottom =444
+    Left =-1
+    Top =-1
+    Right =1865
+    Bottom =230
+    Left =0
+    Top =0
+    ColumnsShown =579
+    Begin
+        Left =38
+        Top =6
+        Right =224
+        Bottom =204
+        Top =27
+        Name ="設計Ｈ社内備考"
+        Name =""
+    End
+End

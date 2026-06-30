@@ -1,0 +1,11 @@
+TABLE	組織図マスタ1
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.組織図マスタ
+FIELD	組織CD	Long	Size=4	Req=True	ZeroLen=False
+FIELD	組織図	LongBinary(OLE)	Size=0	Req=False	ZeroLen=False
+FIELD	ダイヤル	Text	Size=5	Req=False	ZeroLen=True
+FIELD	シリンダ	Text	Size=5	Req=False	ZeroLen=True
+FIELD	組織図DATA	LongBinary(OLE)	Size=0	Req=False	ZeroLen=False
+FIELD	dial	Text	Size=50	Req=False	ZeroLen=True
+FIELD	cylinder	Text	Size=50	Req=False	ZeroLen=True
+INDEX	PK_組織図マスタ	(組織CD)	PK=True	Unique=True

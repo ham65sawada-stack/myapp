@@ -1,0 +1,43 @@
+TABLE	設計Ｂ新規
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.設計Ｂ新規
+FIELD	設計ＩＤ	Long	Size=4	Req=True	ZeroLen=False
+FIELD	設計明細ＮＯ	Byte	Size=1	Req=True	ZeroLen=False
+FIELD	原糸区分	Text	Size=1	Req=False	ZeroLen=True
+FIELD	原糸品番	Text	Size=30	Req=False	ZeroLen=True
+FIELD	原糸コメント	Text	Size=50	Req=False	ZeroLen=True
+FIELD	給糸本数	Byte	Size=1	Req=False	ZeroLen=False
+FIELD	見掛繊度	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ01	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ02	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ03	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ04	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ05	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ06	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ07	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＵ08	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ01	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ02	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ03	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ04	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ05	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ06	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ07	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	給糸ＮＯＤ08	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	ループ長１	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	ループ長２	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	交編率	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	ＱＲ原糸区分	Text	Size=1	Req=False	ZeroLen=True
+FIELD	ＱＲ原糸品名	Text	Size=5	Req=False	ZeroLen=True
+FIELD	ＱＲ原糸品種	Text	Size=26	Req=False	ZeroLen=True
+FIELD	ＱＲ糸加工コメント	Text	Size=13	Req=False	ZeroLen=True
+FIELD	ＱＲ見掛繊度	Double	Size=8	Req=False	ZeroLen=False
+FIELD	ＱＲ正味糸量	Double	Size=8	Req=False	ZeroLen=False
+FIELD	ＱＲ糸量単位	Text	Size=1	Req=False	ZeroLen=True
+FIELD	ＱＲ持掛糸量	Double	Size=8	Req=False	ZeroLen=False
+FIELD	ＱＲ交編率	Double	Size=8	Req=False	ZeroLen=False
+FIELD	ＱＲ編立ロス率	Double	Size=8	Req=False	ZeroLen=False
+FIELD	ＱＲ整経本数	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	一周長１	Long	Size=4	Req=False	ZeroLen=False
+FIELD	一周長２	Long	Size=4	Req=False	ZeroLen=False
+INDEX	PK_設計Ｂ新規	(設計ＩＤ,設計明細ＮＯ)	PK=True	Unique=True

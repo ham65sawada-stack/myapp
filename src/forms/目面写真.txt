@@ -1,0 +1,367 @@
+Version =20
+VersionRequired =20
+Begin Form
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    DividingLines = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    TabularCharSet =128
+    TabularFamily =0
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =13629
+    DatasheetFontHeight =9
+    ItemSuffix =10
+    Left =2070
+    Top =270
+    Right =18915
+    Bottom =10860
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x511f82571010e540
+    End
+    Caption ="目面写真"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0xa9050000a3050000a3050000a305000000000000201c0000e010000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Image
+            BackStyle =0
+            OldBorderStyle =0
+            PictureAlignment =2
+            Width =1701
+            Height =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CustomControl
+            SpecialEffect =2
+            Width =4536
+            Height =2835
+        End
+        Begin Section
+            Height =8200
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =2
+                    OverlapFlags =93
+                    TextAlign =2
+                    TextFontFamily =49
+                    Top =520
+                    Width =6804
+                    Height =360
+                    FontSize =16
+                    FontWeight =700
+                    TopMargin =14
+                    BackColor =16777088
+                    BorderColor =4210752
+                    Name ="ラベル81"
+                    Caption ="表面"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Image
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =2
+                    SizeMode =3
+                    PictureType =1
+                    Left =6804
+                    Top =880
+                    Width =6804
+                    Height =6804
+                    Name ="裏面"
+                End
+                Begin Label
+                    BackStyle =1
+                    OldBorderStyle =1
+                    BorderWidth =2
+                    OverlapFlags =95
+                    TextAlign =2
+                    TextFontFamily =49
+                    Left =6804
+                    Top =520
+                    Width =6804
+                    Height =360
+                    FontSize =16
+                    FontWeight =700
+                    TopMargin =14
+                    BackColor =16777088
+                    BorderColor =4210752
+                    Name ="ラベル4"
+                    Caption ="裏面"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin CommandButton
+                    OverlapFlags =215
+                    TextFontFamily =50
+                    Top =45
+                    Width =13613
+                    Height =475
+                    FontSize =16
+                    FontWeight =700
+                    Name ="閉じる"
+                    Caption ="閉じる"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin CustomControl
+                    Enabled = NotDefault
+                    SizeMode =1
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =2
+                    OverlapFlags =95
+                    Top =880
+                    Width =6805
+                    Height =6805
+                    AutoActivate =1
+                    TabIndex =1
+                    Name ="ListView表"
+                    OLEClass ="ListViewCtrl"
+                    Class ="MSComctlLib.ListViewCtrl.2"
+                End
+                Begin CustomControl
+                    Enabled = NotDefault
+                    SizeMode =1
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    BorderWidth =2
+                    OverlapFlags =223
+                    Left =6804
+                    Top =880
+                    Width =6805
+                    Height =6805
+                    AutoActivate =1
+                    TabIndex =2
+                    Name ="ListView裏"
+                    OLEClass ="ListViewCtrl"
+                    Class ="MSComctlLib.ListViewCtrl.2"
+                End
+                Begin CommandButton
+                    Enabled = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Top =7725
+                    Width =6804
+                    Height =475
+                    FontSize =16
+                    FontWeight =700
+                    TabIndex =3
+                    Name ="表面削除"
+                    Caption ="表面削除"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin CommandButton
+                    Enabled = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =50
+                    Left =6825
+                    Top =7725
+                    Width =6804
+                    Height =475
+                    FontSize =16
+                    FontWeight =700
+                    TabIndex =4
+                    Name ="裏面削除"
+                    Caption ="裏面削除"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin Image
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =2
+                    SizeMode =3
+                    PictureType =1
+                    Top =880
+                    Width =6804
+                    Height =6804
+                    Name ="表面"
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Dim s設計ID As String
+Dim sモード As String
+
+
+Private Sub Form_Open(Cancel As Integer)
+    On Error Resume Next
+    If val(IfNumeric(Form_設計Hメンテ!暫定設計ID)) > 0 Then
+        s設計ID = Format(val(IfNumeric(Form_設計Hメンテ!暫定設計ID)), "000000")
+    Else
+        s設計ID = Format(val(IfNumeric(Form_設計Hメンテ.設計ID)), "000000")
+    End If
+    sモード = Form_設計Hメンテ.モード.Caption
+    On Error GoTo 0
+    Me.ListView表.OLEDropMode = 1
+    Me.ListView表.View = 2
+    Me.ListView表.Visible = False
+    Me.ListView裏.OLEDropMode = 1
+    Me.ListView裏.View = 2
+    Me.ListView裏.Visible = False
+
+    Dim FileName As String
+    FileName = Dir(Path目面写真 & "表\" & s設計ID & ".*")
+    If FileName = "" Then
+        Me.表面.Visible = False
+        Me.ListView表.Visible = True
+        Me.表面削除.Enabled = False
+    Else
+        Me.表面.Picture = Path目面写真 & "表\" & FileName
+        Me.表面.HyperlinkAddress = Me.表面.Picture
+        Me.表面.Visible = True
+        If val(IfNumeric(Form_設計Hメンテ!暫定設計ID)) = 0 Then
+            Me.表面削除.Enabled = True
+        End If
+    End If
+    FileName = Dir(Path目面写真 & "裏\" & s設計ID & ".*")
+    If FileName = "" Then
+        Me.裏面.Visible = False
+        Me.ListView裏.Visible = True
+        Me.裏面削除.Enabled = False
+    Else
+        Me.裏面.Picture = Path目面写真 & "裏\" & FileName
+        Me.裏面.HyperlinkAddress = Me.裏面.Picture
+        Me.裏面.Visible = True
+        If val(IfNumeric(Form_設計Hメンテ!暫定設計ID)) = 0 Then
+            Me.裏面削除.Enabled = True
+        End If
+    End If
+End Sub
+
+Private Sub 表面削除_Click()
+    If val(IfNumeric(Form_設計Hメンテ!暫定設計ID)) = 0 Then
+        If MsgBox("表面を削除しますか？", vbOKCancel, "確認メッセージ") = vbOK Then
+            On Error Resume Next
+            Me.閉じる.SetFocus
+            On Error GoTo 0
+            Me.ListView表.Visible = True
+            Me.表面.Visible = False
+            Me.表面削除.Enabled = False
+            On Error Resume Next
+            Kill Me.表面.Picture
+            On Error GoTo 0
+        End If
+    End If
+End Sub
+
+Private Sub 閉じる_Click()
+    DoCmd.Close acForm, Me.Name
+End Sub
+
+Private Sub 裏面削除_Click()
+    If val(IfNumeric(Form_設計Hメンテ!暫定設計ID)) = 0 Then
+        If MsgBox("裏面を削除しますか？", vbOKCancel, "確認メッセージ") = vbOK Then
+            On Error Resume Next
+            Me.閉じる.SetFocus
+            On Error GoTo 0
+            Me.ListView裏.Visible = True
+            Me.裏面.Visible = False
+            Me.裏面削除.Enabled = False
+            On Error Resume Next
+            Kill Me.裏面.Picture
+            On Error GoTo 0
+        End If
+    End If
+End Sub
+
+Private Sub ListView表_OLEDragDrop(Data As Object, Effect As Long, Button As Integer, Shift As Integer, x As Single, Y As Single)
+    If val(IfNumeric(Form_設計Hメンテ!暫定設計ID)) = 0 Then
+        Dim S As String
+        On Error Resume Next
+        S = ""
+        S = Data.files(1)
+        On Error GoTo 0
+        If S <> "" Then
+            Dim newFileName As String
+            newFileName = CopyFile(S, "表")
+            If newFileName <> "" Then
+                On Error Resume Next
+                Me.閉じる.SetFocus
+                On Error GoTo 0
+                Me.表面.Picture = newFileName
+                Me.表面.HyperlinkAddress = newFileName
+                Me.表面.Visible = True
+                Me.ListView表.Visible = False
+                Me.表面削除.Enabled = True
+            End If
+        End If
+    End If
+End Sub
+
+Private Sub ListView裏_OLEDragDrop(Data As Object, Effect As Long, Button As Integer, Shift As Integer, x As Single, Y As Single)
+    If val(IfNumeric(Form_設計Hメンテ!暫定設計ID)) = 0 Then
+        Dim S As String
+        On Error Resume Next
+        S = ""
+        S = Data.files(1)
+        On Error GoTo 0
+        If S <> "" Then
+            Dim newFileName As String
+            newFileName = CopyFile(S, "裏")
+            If newFileName <> "" Then
+                On Error Resume Next
+                Me.閉じる.SetFocus
+                On Error GoTo 0
+                Me.裏面.Picture = newFileName
+                Me.裏面.HyperlinkAddress = newFileName
+                Me.裏面.Visible = True
+                Me.ListView裏.Visible = False
+                Me.裏面削除.Enabled = True
+            End If
+        End If
+    End If
+End Sub
+
+Private Function CopyFile(コピー元 As String, 表面 As String) As String
+    CopyFile = ""
+    Dim fso As Object
+    Set fso = CreateObject("Scripting.FileSystemObject")
+    Dim ext As String
+    ext = fso.GetExtensionName(コピー元)
+    If ext = "png" Or ext = "jpeg" Or ext = "jpg" Then
+        On Error Resume Next
+        Kill Path目面写真 & 表面 & "\" & s設計ID & ".*"
+        On Error GoTo 0
+        CopyFile = Path目面写真 & 表面 & "\" & s設計ID & "." & ext
+        FileCopy コピー元, CopyFile
+    End If
+End Function

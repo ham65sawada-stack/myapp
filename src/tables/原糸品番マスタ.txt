@@ -1,0 +1,6 @@
+TABLE	原糸品番マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.原糸品番マスタ
+FIELD	商社集計ＣＤ	Text	Size=4	Req=True	ZeroLen=True
+FIELD	原糸品番	Text	Size=30	Req=True	ZeroLen=True
+INDEX	PK_原糸品番マスタ	(商社集計ＣＤ,原糸品番)	PK=True	Unique=True

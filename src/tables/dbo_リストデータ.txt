@@ -1,0 +1,6 @@
+TABLE	dbo_リストデータ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;DATABASE=DB2;
+SOURCE	dbo.リストデータ
+FIELD	リスト名	Text	Size=50	Req=True	ZeroLen=True
+FIELD	リスト	Memo	Size=0	Req=False	ZeroLen=True
+INDEX	PK_リストデータ	(リスト名)	PK=True	Unique=True

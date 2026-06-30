@@ -1,0 +1,223 @@
+Version =20
+VersionRequired =20
+Begin Form
+    PopUp = NotDefault
+    Modal = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    AutoCenter = NotDefault
+    KeyPreview = NotDefault
+    AllowDesignChanges = NotDefault
+    ScrollBars =2
+    TabularCharSet =128
+    TabularFamily =0
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =1842
+    DatasheetFontHeight =9
+    ItemSuffix =2
+    Left =5520
+    Top =2130
+    Right =11040
+    Bottom =9330
+    DatasheetGridlinesColor =12632256
+    Filter ="設計ＮＯ=339563"
+    RecSrcDt = Begin
+        0x6e7f90d955d0e240
+    End
+    RecordSource ="SELECT 試編出荷データ.伝票日付, 試編出荷データ.連番, 試編出荷データ.設計ＮＯ FROM 試編出荷データ ORDER BY 試編出荷データ.伝票日付"
+        " DESC , 試編出荷データ.連番 DESC; "
+    Caption ="修正一覧"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0x890500008905000089050000890500000000000032070000f200000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    OnKeyDown ="[Event Procedure]"
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            SpecialEffect =2
+            OldBorderStyle =0
+            TextFontCharSet =128
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            AsianLineBreak =255
+        End
+        Begin FormHeader
+            Height =795
+            BackColor =-2147483633
+            Name ="フォームヘッダー"
+            Begin
+                Begin Label
+                    OverlapFlags =93
+                    TextAlign =2
+                    Left =390
+                    Top =570
+                    Width =816
+                    Height =225
+                    Name ="ラベル0"
+                    Caption ="伝票日付"
+                End
+                Begin Label
+                    OverlapFlags =87
+                    TextAlign =2
+                    Left =1206
+                    Top =570
+                    Width =636
+                    Height =225
+                    Name ="ラベル1"
+                    Caption ="連番"
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =90
+                    Top =105
+                    Width =1695
+                    Height =405
+                    Name ="取り消し"
+                    Caption ="閉じる(F5)"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                End
+            End
+        End
+        Begin Section
+            Height =242
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =93
+                    Left =390
+                    Width =816
+                    BackColor =8454143
+                    Name ="伝票日付"
+                    ControlSource ="伝票日付"
+                End
+                Begin TextBox
+                    Locked = NotDefault
+                    SpecialEffect =0
+                    OldBorderStyle =1
+                    OverlapFlags =87
+                    TextAlign =3
+                    Left =1206
+                    Width =636
+                    TabIndex =1
+                    BackColor =8454143
+                    Name ="連番"
+                    ControlSource ="連番"
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =30
+                    Top =15
+                    Width =358
+                    Height =227
+                    FontSize =6
+                    TabIndex =2
+                    Name ="選択"
+                    Caption ="F1"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+                End
+            End
+        End
+        Begin FormFooter
+            Height =0
+            BackColor =-2147483633
+            Name ="フォームフッター"
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Dim vOyaForm As Variant
+
+Private Sub Form_Open(Cancel As Integer)
+    On Error Resume Next
+    vOyaForm = Me.OpenArgs
+    On Error GoTo 0
+End Sub
+
+Private Sub 取り消し_Click()
+    DoCmd.OpenForm "試編生機出荷案内書", , , , , , vOyaForm
+    DoCmd.Close acForm, Me.Name
+End Sub
+
+Private Sub 選択_Click()
+    On Error GoTo Err_選択_Click
+    If IsNumeric(Me.連番) Then
+        Dim db As DAO.Database
+        Set db = CurrentDb
+        db.Execute "DELETE 試編出荷データワーク.* FROM 試編出荷データワーク"
+        db.Execute "INSERT INTO 試編出荷データワーク SELECT 試編出荷データ.* FROM 試編出荷データ Where 連番=" & Me.連番
+        db.Close
+        DoCmd.OpenForm "試編生機出荷案内書", , , , , , vOyaForm
+        DoCmd.Close acForm, Me.Name
+    End If
+Exit_選択_Click:
+    Exit Sub
+Err_選択_Click:
+    Exit Sub
+End Sub
+
+Private Sub Form_KeyDown(KeyCode As Integer, Shift As Integer)
+    If Shift = 0 Then
+        Select Case KeyCode
+        Case 112    'F1
+            KeyCode = 0
+            Call 選択_Click
+        Case 113    'F2
+            KeyCode = 0
+        Case 114    'F3
+            KeyCode = 0
+        Case 115    'F4
+            KeyCode = 0
+        Case 116    'F5
+            KeyCode = 0
+            Call 取り消し_Click
+        Case 27     'ESC
+            KeyCode = 0
+            If Me.Dirty Then
+                On Error Resume Next
+                DoCmd.RunCommand acCmdUndo
+                On Error GoTo 0
+                If Not Me.Dirty Then
+'                   Call Form_Current
+                End If
+            End If
+        End Select
+    End If
+End Sub

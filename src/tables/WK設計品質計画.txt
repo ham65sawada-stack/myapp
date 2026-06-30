@@ -1,0 +1,5 @@
+TABLE	WK設計品質計画
+FIELD	ID	Long	Size=4	Req=False	ZeroLen=False
+FIELD	設計ID	Long	Size=4	Req=False	ZeroLen=False
+INDEX	PrimaryKey	(ID)	PK=True	Unique=True
+INDEX	設計ID	(設計ID)	PK=False	Unique=False

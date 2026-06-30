@@ -1,0 +1,372 @@
+Version =21
+VersionRequired =20
+Begin Form
+    PopUp = NotDefault
+    Modal = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    AutoCenter = NotDefault
+    CloseButton = NotDefault
+    ScrollBars =2
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =50
+    BorderStyle =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =9495
+    DatasheetFontHeight =9
+    ItemSuffix =10
+    Left =11490
+    Top =5670
+    Right =21420
+    Bottom =12320
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x815c58e355d0e240
+    End
+    RecordSource ="SELECT 編立工場マスタ.編立工場ＣＤ, 編立工場マスタ.編立工場名, 編立工場マスタ.FAX, 編立工場マスタ.MAIL FROM 編立工場マスタ ORD"
+        "ER BY 編立工場マスタ.編立工場ＣＤ; "
+    Caption ="編立工場マスタ"
+    OnDelete ="[Event Procedure]"
+    BeforeUpdate ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0x8905000089050000890500008905000000000000182500002c01000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    OnError ="[Event Procedure]"
+    FilterOnLoad =0
+    AllowLayoutView =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            TextFontFamily =50
+            FontSize =9
+            BackColor =-2147483633
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            BorderLineStyle =0
+            Width =850
+            Height =850
+        End
+        Begin Line
+            BorderLineStyle =0
+            SpecialEffect =3
+            Width =1701
+        End
+        Begin Image
+            BackStyle =0
+            OldBorderStyle =0
+            BorderLineStyle =0
+            PictureAlignment =2
+            Width =1701
+            Height =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            TextFontFamily =50
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin BoundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =0
+            BorderLineStyle =0
+            BackStyle =0
+            Width =4536
+            Height =2835
+            LabelX =-1701
+        End
+        Begin TextBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            TextFontFamily =50
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            BackColor =-2147483643
+            ForeColor =-2147483640
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ListBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            TextFontFamily =50
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontSize =9
+            BackColor =-2147483643
+            ForeColor =-2147483640
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            TextFontFamily =50
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            BackColor =-2147483643
+            ForeColor =-2147483640
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Subform
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin UnboundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin ToggleButton
+            TextFontCharSet =128
+            TextFontFamily =50
+            Width =283
+            Height =283
+            FontSize =9
+            FontWeight =400
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin Tab
+            TextFontCharSet =128
+            TextFontFamily =50
+            BackStyle =0
+            Width =5103
+            Height =3402
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin FormHeader
+            Height =855
+            BackColor =-2147483633
+            Name ="フォームヘッダー"
+            Begin
+                Begin Label
+                    OverlapFlags =85
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =60
+                    Top =630
+                    Width =810
+                    Height =225
+                    Name ="編立工場ＣＤラベル"
+                    Caption ="ＣＤ"
+                    FontName ="ＭＳ ゴシック"
+                    Tag ="DetachedLabel"
+                End
+                Begin Label
+                    OverlapFlags =85
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =918
+                    Top =630
+                    Width =3720
+                    Height =225
+                    Name ="編立工場名ラベル"
+                    Caption ="編立工場名"
+                    FontName ="ＭＳ ゴシック"
+                    Tag ="DetachedLabel"
+                End
+                Begin Label
+                    OverlapFlags =85
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =4740
+                    Top =630
+                    Width =1215
+                    Height =225
+                    Name ="略称ラベル"
+                    Caption ="ファックス"
+                    FontName ="ＭＳ ゴシック"
+                    Tag ="DetachedLabel"
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    Left =8715
+                    Top =60
+                    Width =705
+                    Height =510
+                    Name ="閉じる"
+                    Caption ="閉じる"
+                    OnClick ="[Event Procedure]"
+                    FontName ="ＭＳ ゴシック"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin Label
+                    OverlapFlags =85
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =6375
+                    Top =630
+                    Width =2790
+                    Height =225
+                    Name ="ラベル8"
+                    Caption ="メール"
+                    FontName ="ＭＳ ゴシック"
+                    Tag ="DetachedLabel"
+                End
+            End
+        End
+        Begin Section
+            Height =300
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    DecimalPlaces =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =57
+                    Top =57
+                    Width =795
+                    ColumnWidth =2310
+                    Name ="編立工場ＣＤ"
+                    ControlSource ="編立工場ＣＤ"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =4
+                    Left =915
+                    Top =57
+                    Width =3720
+                    ColumnWidth =3000
+                    TabIndex =1
+                    Name ="編立工場名"
+                    ControlSource ="編立工場名"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =4725
+                    Top =60
+                    Width =1560
+                    ColumnWidth =1560
+                    TabIndex =2
+                    Name ="FAX"
+                    ControlSource ="FAX"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =6360
+                    Top =60
+                    Width =3135
+                    TabIndex =3
+                    Name ="MAIL"
+                    ControlSource ="MAIL"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+            End
+        End
+        Begin FormFooter
+            Height =0
+            BackColor =-2147483633
+            Name ="フォームフッター"
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_BeforeUpdate(Cancel As Integer)
+    If IsNull(Me![編立工場CD]) Then
+        MsgBox "編立工場ＣＤを入力して下さい", vbOKOnly + vbCritical + vbDefaultButton2, "エラーメッセージ"
+        Cancel = True
+        Exit Sub
+    End If
+End Sub
+
+Private Sub Form_Error(DataErr As Integer, Response As Integer)
+    If DataErr = 3022 Then
+        MsgBox "同じデータが入力されています", vbOKOnly + vbCritical + vbDefaultButton2, "エラーメッセージ"
+        Response = True
+    End If
+End Sub
+
+Private Sub 閉じる_Click()
+    On Error GoTo Err_閉じる_Click
+'    DoCmd.DoMenuItem acFormBar, acRecordsMenu, acSaveRecord, , acMenuVer70
+    DoCmd.RunCommand acCmdSaveRecord
+Exit_閉じる_Click:
+    DoCmd.Close
+    Exit Sub
+
+Err_閉じる_Click:
+    Resume Exit_閉じる_Click
+End Sub
+
+Private Sub Form_Delete(Cancel As Integer)
+On Error GoTo Err_Form_Delete
+    Dim Anser As Integer
+    Anser = MsgBox("削除します確認して下さい。", vbYesNo + vbCritical + vbDefaultButton2, "確認メッセージ")
+    If Anser = vbNo Then
+        Cancel = True
+    End If
+Exit_Form_Delete:
+    Exit Sub
+Err_Form_Delete:
+    Resume Exit_Form_Delete
+End Sub

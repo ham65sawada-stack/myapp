@@ -1,0 +1,3881 @@
+Version =20
+VersionRequired =20
+Begin Report
+    LayoutForPrint = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    TabularCharSet =128
+    TabularFamily =191
+    DateGrouping =1
+    Orientation =1
+    GrpKeepTogether =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =14910
+    DatasheetFontHeight =9
+    ItemSuffix =375
+    Left =4755
+    Top =570
+    Right =20610
+    Bottom =11805
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x086bec310a2ce540
+    End
+    RecordSource ="SELECT 試編出荷データワーク.*, 設計Ｈ.編機タイプ, 設計Ｈ.編機ゲージ, 設計Ｈ.給糸口数, 編立工場マスタ.編立工場名 FROM (試編出荷データ"
+        "ワーク INNER JOIN 設計Ｈ ON 試編出荷データワーク.設計ＮＯ=設計Ｈ.設計ID) LEFT JOIN 編立工場マスタ ON 試編出荷データワーク."
+        "出荷元=編立工場マスタ.編立工場ＣＤ; "
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0xe10200006e040000a800000025010000000000003e3a00007b23000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            Width =850
+            Height =850
+        End
+        Begin Line
+            Width =1701
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            OldBorderStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            Width =1701
+            Height =225
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            AsianLineBreak =255
+        End
+        Begin PageHeader
+            Height =0
+            Name ="ページヘッダーセクション"
+        End
+        Begin Section
+            KeepTogether = NotDefault
+            CanGrow = NotDefault
+            Height =9083
+            OnPrint ="[Event Procedure]"
+            Name ="詳細"
+            Begin
+                Begin TextBox
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =8505
+                    Top =7365
+                    Width =6212
+                    Height =1709
+                    FontSize =11
+                    TabIndex =181
+                    LeftMargin =29
+                    TopMargin =29
+                    Name ="備考"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =5295
+                    Top =30
+                    Width =3315
+                    Height =405
+                    FontSize =18
+                    TopMargin =29
+                    Name ="ラベル0"
+                    Caption ="試編生機出荷案内書"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =7407
+                    Top =2040
+                    Width =284
+                    Height =284
+                    FontSize =11
+                    Name ="ラベル1"
+                    Caption ="年"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =8175
+                    Top =2040
+                    Width =284
+                    Height =284
+                    FontSize =11
+                    Name ="ラベル2"
+                    Caption ="月"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6885
+                    Top =2040
+                    Width =507
+                    Height =284
+                    FontSize =11
+                    Name ="日付年"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =7665
+                    Top =2040
+                    Width =507
+                    Height =284
+                    FontSize =11
+                    TabIndex =1
+                    Name ="日付月"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =17
+                    BackStyle =0
+                    Left =8460
+                    Top =2040
+                    Width =507
+                    Height =284
+                    FontSize =11
+                    TabIndex =2
+                    Name ="日付日"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =12795
+                    Top =1
+                    Width =300
+                    Height =270
+                    FontSize =11
+                    Name ="ラベル9"
+                    Caption ="№"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    TextFontFamily =17
+                    Left =13134
+                    Width =857
+                    Height =284
+                    FontSize =11
+                    TabIndex =3
+                    Name ="NO"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =12720
+                    Top =286
+                    Width =1391
+                    Name ="直線10"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Top =2892
+                    Width =510
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル5"
+                    Caption ="反\015\012数"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =512
+                    Top =2892
+                    Width =1531
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル6"
+                    Caption ="\015\012品    番"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =2043
+                    Top =2892
+                    Width =1127
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル7"
+                    Caption ="\015\012反  番"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =3165
+                    Top =2895
+                    Width =581
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル8"
+                    Caption ="巾\015\012cm"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =3748
+                    Top =2898
+                    Width =739
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル10"
+                    Caption ="長\015\012m"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =4483
+                    Top =2898
+                    Width =672
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル11"
+                    Caption ="重量\015\012kg"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =5158
+                    Top =2898
+                    Width =574
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル12"
+                    Caption ="目付\015\012g/m"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =3402
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =4
+                    Name ="品番01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =3402
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =5
+                    RightMargin =284
+                    Name ="反番01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =3405
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =6
+                    RightMargin =57
+                    Name ="巾01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =3408
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =7
+                    RightMargin =57
+                    Name ="長さ01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =3408
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =8
+                    RightMargin =57
+                    Name ="重量01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =3408
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =9
+                    RightMargin =57
+                    Name ="目付01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =11337
+                    Top =1545
+                    Width =735
+                    Height =270
+                    FontSize =11
+                    Name ="ラベル112"
+                    Caption ="設計№"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =120
+                    Top =810
+                    Width =510
+                    Height =255
+                    FontSize =11
+                    Name ="ラベル113"
+                    Caption ="（写）"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Line
+                    LineSlant = NotDefault
+                    BorderWidth =1
+                    Left =5220
+                    Top =465
+                    Width =3536
+                    Name ="直線0"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =8970
+                    Top =2055
+                    Width =735
+                    Height =270
+                    FontSize =11
+                    Name ="ラベル3"
+                    Caption ="日出荷"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    TextFontFamily =17
+                    Left =12099
+                    Top =1552
+                    Width =1052
+                    Height =284
+                    FontSize =11
+                    TabIndex =10
+                    Name ="非連結設計NO"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =11280
+                    Top =1829
+                    Width =1976
+                    Name ="直線5"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =11346
+                    Top =2061
+                    Width =735
+                    Height =270
+                    FontSize =11
+                    Name ="ラベル13"
+                    Caption ="出荷元"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    TextFontFamily =17
+                    Left =12108
+                    Top =2061
+                    Width =2372
+                    Height =284
+                    FontSize =11
+                    TabIndex =11
+                    Name ="出荷元"
+                    ControlSource ="編立工場名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =11280
+                    Top =2338
+                    Width =3176
+                    Name ="直線15"
+                End
+                Begin TextBox
+                    CanGrow = NotDefault
+                    TextFontFamily =18
+                    Left =120
+                    Top =1065
+                    Width =6425
+                    Height =479
+                    FontSize =11
+                    TabIndex =12
+                    Name ="気付先名"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =75
+                    Top =1545
+                    Width =6506
+                    Name ="直線18"
+                End
+                Begin TextBox
+                    TextFontFamily =17
+                    Left =126
+                    Top =2070
+                    Width =5792
+                    Height =284
+                    FontSize =11
+                    TabIndex =13
+                    Name ="非連結出荷先名"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =75
+                    Top =2370
+                    Width =6461
+                    Name ="直線28"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =6825
+                    Top =2340
+                    Width =2981
+                    Name ="直線29"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =5728
+                    Top =2898
+                    Width =629
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル30"
+                    Caption ="落\015\012傷"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =6358
+                    Top =2898
+                    Width =629
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル31"
+                    Caption ="針\015\012折"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =6988
+                    Top =2898
+                    Width =629
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル32"
+                    Caption ="ハ\015\012ネ"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =8878
+                    Top =2898
+                    Width =629
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル33"
+                    Caption ="ｿﾉ\015\012他"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =9507
+                    Top =2898
+                    Width =515
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル34"
+                    Caption ="ｶｯ\015\012ﾄ"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =10022
+                    Top =2898
+                    Width =605
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル35"
+                    Caption ="計"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =10627
+                    Top =2898
+                    Width =4100
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル36"
+                    Caption ="\015\012備      考"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =3408
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =14
+                    RightMargin =57
+                    Name ="落傷01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =3408
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =15
+                    RightMargin =57
+                    Name ="針折01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =3408
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =16
+                    RightMargin =57
+                    Name ="ハネ01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =3408
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =17
+                    RightMargin =57
+                    Name ="その他01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =3408
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =18
+                    RightMargin =57
+                    Name ="カット01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =3408
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =19
+                    RightMargin =57
+                    Name ="罰点計01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =3408
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =20
+                    Name ="備考01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =3686
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =21
+                    Name ="品番02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =3686
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =22
+                    RightMargin =284
+                    Name ="反番02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =3689
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =23
+                    RightMargin =57
+                    Name ="巾02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =3692
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =24
+                    RightMargin =57
+                    Name ="長さ02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =3692
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =25
+                    RightMargin =57
+                    Name ="重量02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =3692
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =26
+                    RightMargin =57
+                    Name ="目付02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =3692
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =27
+                    RightMargin =57
+                    Name ="落傷02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =3692
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =28
+                    RightMargin =57
+                    Name ="針折02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =3692
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =29
+                    RightMargin =57
+                    Name ="ハネ02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =3692
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =30
+                    RightMargin =57
+                    Name ="その他02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =3692
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =31
+                    RightMargin =57
+                    Name ="カット02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =3692
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =32
+                    RightMargin =57
+                    Name ="罰点計02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =3692
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =33
+                    Name ="備考02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =3969
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =34
+                    Name ="品番03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =3969
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =35
+                    RightMargin =284
+                    Name ="反番03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =3972
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =36
+                    RightMargin =57
+                    Name ="巾03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =3975
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =37
+                    RightMargin =57
+                    Name ="長さ03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =3975
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =38
+                    RightMargin =57
+                    Name ="重量03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =3975
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =39
+                    RightMargin =57
+                    Name ="目付03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =3975
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =40
+                    RightMargin =57
+                    Name ="落傷03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =3976
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =41
+                    RightMargin =57
+                    Name ="針折03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =3976
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =42
+                    RightMargin =57
+                    Name ="ハネ03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =3976
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =43
+                    RightMargin =57
+                    Name ="その他03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =3976
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =44
+                    RightMargin =57
+                    Name ="カット03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =3975
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =45
+                    RightMargin =57
+                    Name ="罰点計03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =3975
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =46
+                    Name ="備考03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =4253
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =47
+                    Name ="品番04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =4253
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =48
+                    RightMargin =284
+                    Name ="反番04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =4256
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =49
+                    RightMargin =57
+                    Name ="巾04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =4259
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =50
+                    RightMargin =57
+                    Name ="長さ04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =4259
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =51
+                    RightMargin =57
+                    Name ="重量04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =4259
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =52
+                    RightMargin =57
+                    Name ="目付04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =4259
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =53
+                    RightMargin =57
+                    Name ="落傷04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =4260
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =54
+                    RightMargin =57
+                    Name ="針折04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =4260
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =55
+                    RightMargin =57
+                    Name ="ハネ04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =4260
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =56
+                    RightMargin =57
+                    Name ="その他04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =4260
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =57
+                    RightMargin =57
+                    Name ="カット04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =4259
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =58
+                    RightMargin =57
+                    Name ="罰点計04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =4259
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =59
+                    Name ="備考04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =4536
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =60
+                    Name ="品番05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =4536
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =61
+                    RightMargin =284
+                    Name ="反番05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =4539
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =62
+                    RightMargin =57
+                    Name ="巾05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =4542
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =63
+                    RightMargin =57
+                    Name ="長さ05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =4542
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =64
+                    RightMargin =57
+                    Name ="重量05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =4542
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =65
+                    RightMargin =57
+                    Name ="目付05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =4542
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =66
+                    RightMargin =57
+                    Name ="落傷05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =4544
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =67
+                    RightMargin =57
+                    Name ="針折05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =4544
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =68
+                    RightMargin =57
+                    Name ="ハネ05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =4544
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =69
+                    RightMargin =57
+                    Name ="その他05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =4544
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =70
+                    RightMargin =57
+                    Name ="カット05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =4542
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =71
+                    RightMargin =57
+                    Name ="罰点計05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =4542
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =72
+                    Name ="備考05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =4820
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =73
+                    Name ="品番06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =4820
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =74
+                    RightMargin =284
+                    Name ="反番06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =4823
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =75
+                    RightMargin =57
+                    Name ="巾06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =4826
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =76
+                    RightMargin =57
+                    Name ="長さ06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =4826
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =77
+                    RightMargin =57
+                    Name ="重量06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =4826
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =78
+                    RightMargin =57
+                    Name ="目付06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =4825
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =79
+                    RightMargin =57
+                    Name ="落傷06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =4828
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =80
+                    RightMargin =57
+                    Name ="針折06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =4828
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =81
+                    RightMargin =57
+                    Name ="ハネ06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =4828
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =82
+                    RightMargin =57
+                    Name ="その他06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =4828
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =83
+                    RightMargin =57
+                    Name ="カット06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =4825
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =84
+                    RightMargin =57
+                    Name ="罰点計06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =4825
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =85
+                    Name ="備考06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =5104
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =86
+                    Name ="品番07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =5104
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =87
+                    RightMargin =284
+                    Name ="反番07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =5107
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =88
+                    RightMargin =57
+                    Name ="巾07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =5110
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =89
+                    RightMargin =57
+                    Name ="長さ07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =5110
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =90
+                    RightMargin =57
+                    Name ="重量07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =5110
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =91
+                    RightMargin =57
+                    Name ="目付07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =5109
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =92
+                    RightMargin =57
+                    Name ="落傷07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =5112
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =93
+                    RightMargin =57
+                    Name ="針折07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =5112
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =94
+                    RightMargin =57
+                    Name ="ハネ07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =5112
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =95
+                    RightMargin =57
+                    Name ="その他07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =5112
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =96
+                    RightMargin =57
+                    Name ="カット07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =5109
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =97
+                    RightMargin =57
+                    Name ="罰点計07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =5109
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =98
+                    Name ="備考07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =5388
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =99
+                    Name ="品番08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =5388
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =100
+                    RightMargin =284
+                    Name ="反番08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =5391
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =101
+                    RightMargin =57
+                    Name ="巾08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =5394
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =102
+                    RightMargin =57
+                    Name ="長さ08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =5394
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =103
+                    RightMargin =57
+                    Name ="重量08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =5394
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =104
+                    RightMargin =57
+                    Name ="目付08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =5393
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =105
+                    RightMargin =57
+                    Name ="落傷08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =5396
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =106
+                    RightMargin =57
+                    Name ="針折08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =5680
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =107
+                    RightMargin =57
+                    Name ="ハネ08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =5680
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =108
+                    RightMargin =57
+                    Name ="その他08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =5396
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =109
+                    RightMargin =57
+                    Name ="カット08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =5393
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =110
+                    RightMargin =57
+                    Name ="罰点計08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =5393
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =111
+                    Name ="備考08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =5672
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =112
+                    Name ="品番09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =5672
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =113
+                    RightMargin =284
+                    Name ="反番09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =5675
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =114
+                    RightMargin =57
+                    Name ="巾09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =5678
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =115
+                    RightMargin =57
+                    Name ="長さ09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =5678
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =116
+                    RightMargin =57
+                    Name ="重量09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =5678
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =117
+                    RightMargin =57
+                    Name ="目付09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =5676
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =118
+                    RightMargin =57
+                    Name ="落傷09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =5680
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =119
+                    RightMargin =57
+                    Name ="針折09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =5396
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =120
+                    RightMargin =57
+                    Name ="ハネ09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =5396
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =121
+                    RightMargin =57
+                    Name ="その他09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =5680
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =122
+                    RightMargin =57
+                    Name ="カット09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =5676
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =123
+                    RightMargin =57
+                    Name ="罰点計09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =5676
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =124
+                    Name ="備考09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =512
+                    Top =5956
+                    Width =1531
+                    Height =284
+                    FontSize =11
+                    TabIndex =125
+                    Name ="品番10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =2042
+                    Top =5956
+                    Width =1127
+                    Height =284
+                    FontSize =11
+                    TabIndex =126
+                    RightMargin =284
+                    Name ="反番10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3165
+                    Top =5959
+                    Width =581
+                    Height =284
+                    FontSize =11
+                    TabIndex =127
+                    RightMargin =57
+                    Name ="巾10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =5962
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =128
+                    RightMargin =57
+                    Name ="長さ10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =5962
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =129
+                    RightMargin =57
+                    Name ="重量10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =5962
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =130
+                    RightMargin =57
+                    Name ="目付10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =5960
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =131
+                    RightMargin =57
+                    Name ="落傷10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =5964
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =132
+                    RightMargin =57
+                    Name ="針折10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =5964
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =133
+                    RightMargin =57
+                    Name ="ハネ10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =5964
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =134
+                    RightMargin =57
+                    Name ="その他10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =9507
+                    Top =5964
+                    Width =515
+                    Height =284
+                    FontSize =11
+                    TabIndex =135
+                    RightMargin =57
+                    Name ="カット10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =5960
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =136
+                    RightMargin =57
+                    Name ="罰点計10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =10627
+                    Top =5960
+                    Width =4100
+                    Height =284
+                    FontSize =11
+                    TabIndex =137
+                    Name ="備考10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3748
+                    Top =6246
+                    Width =739
+                    Height =284
+                    FontSize =11
+                    TabIndex =138
+                    RightMargin =57
+                    Name ="合計長"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =4483
+                    Top =6246
+                    Width =672
+                    Height =284
+                    FontSize =11
+                    TabIndex =139
+                    RightMargin =57
+                    Name ="合計重量"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5158
+                    Top =6246
+                    Width =574
+                    Height =284
+                    FontSize =11
+                    TabIndex =140
+                    RightMargin =57
+                    Name ="合計目付"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =5728
+                    Top =6243
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =141
+                    RightMargin =57
+                    Name ="合計落傷"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6358
+                    Top =6248
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =142
+                    RightMargin =57
+                    Name ="合計針折"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =6988
+                    Top =6248
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =143
+                    RightMargin =57
+                    Name ="合計ハネ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8878
+                    Top =6248
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =144
+                    RightMargin =57
+                    Name ="合計その他"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =10022
+                    Top =6243
+                    Width =605
+                    Height =284
+                    FontSize =11
+                    TabIndex =145
+                    RightMargin =57
+                    Name ="合計罰点計"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Left =2042
+                    Top =6240
+                    Width =1708
+                    Height =284
+                    FontSize =11
+                    Name ="テキスト199"
+                    Caption ="合        計"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =15
+                    Top =7088
+                    Width =3604
+                    Height =284
+                    FontSize =11
+                    Name ="ラベル210"
+                    Caption ="使  用  原  糸"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =3615
+                    Top =7088
+                    Width =1046
+                    Height =284
+                    FontSize =11
+                    Name ="ラベル211"
+                    Caption ="交編率"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =4664
+                    Top =7088
+                    Width =3842
+                    Height =284
+                    FontSize =11
+                    Name ="ラベル212"
+                    Caption ="自家糸又は支給糸"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =1657
+                    Width =2665
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル213"
+                    Caption ="編          機"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =8505
+                    Top =7088
+                    Width =6229
+                    Height =284
+                    FontSize =11
+                    Name ="ラベル214"
+                    Caption ="備        考"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =15
+                    Top =7372
+                    Width =3604
+                    Height =284
+                    FontSize =11
+                    TabIndex =146
+                    Name ="原糸品番01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3615
+                    Top =7372
+                    Width =1046
+                    Height =284
+                    FontSize =11
+                    TabIndex =147
+                    RightMargin =170
+                    Name ="交編率01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4664
+                    Top =7372
+                    Width =3842
+                    Height =284
+                    FontSize =11
+                    TabIndex =148
+                    LeftMargin =170
+                    TopMargin =17
+                    Name ="買糸区分01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2905
+                    Top =284
+                    Width =1418
+                    Height =284
+                    FontSize =11
+                    TabIndex =149
+                    ForeColor =255
+                    Name ="機種"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =1657
+                    Top =284
+                    Width =1247
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル220"
+                    Caption ="機  種"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =15
+                    Top =7656
+                    Width =3604
+                    Height =284
+                    FontSize =11
+                    TabIndex =150
+                    Name ="原糸品番02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3615
+                    Top =7656
+                    Width =1046
+                    Height =284
+                    FontSize =11
+                    TabIndex =151
+                    RightMargin =170
+                    Name ="交編率02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4664
+                    Top =7656
+                    Width =3842
+                    Height =284
+                    FontSize =11
+                    TabIndex =152
+                    LeftMargin =170
+                    TopMargin =17
+                    Name ="買糸区分02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2905
+                    Top =568
+                    Width =1418
+                    Height =284
+                    FontSize =11
+                    TabIndex =153
+                    ForeColor =255
+                    Name ="ゲージ"
+                    Format ="General Number"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =1657
+                    Top =568
+                    Width =1247
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル225"
+                    Caption ="ゲージ"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =15
+                    Top =7940
+                    Width =3604
+                    Height =284
+                    FontSize =11
+                    TabIndex =154
+                    Name ="原糸品番03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3615
+                    Top =7940
+                    Width =1046
+                    Height =284
+                    FontSize =11
+                    TabIndex =155
+                    RightMargin =170
+                    Name ="交編率03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4664
+                    Top =7940
+                    Width =3842
+                    Height =284
+                    FontSize =11
+                    TabIndex =156
+                    LeftMargin =170
+                    TopMargin =17
+                    Name ="買糸区分03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2905
+                    Top =852
+                    Width =1418
+                    Height =284
+                    FontSize =11
+                    TabIndex =157
+                    ForeColor =255
+                    Name ="口径"
+                    Format ="General Number"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =1657
+                    Top =852
+                    Width =1247
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル230"
+                    Caption ="口  径"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =15
+                    Top =8224
+                    Width =3604
+                    Height =284
+                    FontSize =11
+                    TabIndex =158
+                    Name ="原糸品番04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3615
+                    Top =8224
+                    Width =1046
+                    Height =284
+                    FontSize =11
+                    TabIndex =159
+                    RightMargin =170
+                    Name ="交編率04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4664
+                    Top =8224
+                    Width =3842
+                    Height =284
+                    FontSize =11
+                    TabIndex =160
+                    LeftMargin =170
+                    TopMargin =17
+                    Name ="買糸区分04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =15
+                    Top =8508
+                    Width =3604
+                    Height =284
+                    FontSize =11
+                    TabIndex =161
+                    Name ="原糸品番05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3615
+                    Top =8508
+                    Width =1046
+                    Height =284
+                    FontSize =11
+                    TabIndex =162
+                    RightMargin =170
+                    Name ="交編率05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4664
+                    Top =8508
+                    Width =3842
+                    Height =284
+                    FontSize =11
+                    TabIndex =163
+                    LeftMargin =170
+                    TopMargin =17
+                    Name ="買糸区分05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =15
+                    Top =8792
+                    Width =3604
+                    Height =284
+                    FontSize =11
+                    TabIndex =164
+                    Name ="原糸品番06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =3615
+                    Top =8792
+                    Width =1046
+                    Height =284
+                    FontSize =11
+                    TabIndex =165
+                    RightMargin =170
+                    Name ="交編率06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =4664
+                    Top =8792
+                    Width =3842
+                    Height =284
+                    FontSize =11
+                    TabIndex =166
+                    LeftMargin =170
+                    TopMargin =17
+                    Name ="買糸区分06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =1657
+                    Top =1704
+                    Width =1247
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル245"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =1657
+                    Top =1420
+                    Width =1247
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル240"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =1657
+                    Top =1136
+                    Width =1247
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル235"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2905
+                    Top =1136
+                    Width =1418
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル234"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2905
+                    Top =1420
+                    Width =1418
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル239"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextFontFamily =17
+                    Left =2905
+                    Top =1704
+                    Width =1418
+                    Height =284
+                    FontSize =11
+                    ForeColor =255
+                    Name ="ラベル244"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =3402
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数01"
+                    Caption =" 1"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =3686
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数02"
+                    Caption =" 2"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =3969
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数03"
+                    Caption =" 3"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =4253
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数04"
+                    Caption =" 4"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =4536
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数05"
+                    Caption =" 5"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =4820
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数06"
+                    Caption =" 6"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =5104
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数07"
+                    Caption =" 7"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =5388
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数08"
+                    Caption =" 8"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =5672
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数09"
+                    Caption =" 9"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =17
+                    Top =5956
+                    Width =510
+                    Height =284
+                    FontSize =11
+                    Name ="反数10"
+                    Caption ="10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =10104
+                    Top =453
+                    Width =1731
+                    TabIndex =167
+                    ForeColor =255
+                    Name ="写"
+                    ControlSource ="写"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =10104
+                    Top =680
+                    Width =1731
+                    TabIndex =168
+                    ForeColor =255
+                    Name ="出荷先名"
+                    ControlSource ="出荷先名"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =10104
+                    Top =226
+                    Width =1731
+                    TabIndex =169
+                    ForeColor =255
+                    Name ="設計ＮＯ"
+                    ControlSource ="設計ＮＯ"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =10104
+                    Width =1731
+                    TabIndex =170
+                    ForeColor =255
+                    Name ="連番"
+                    ControlSource ="連番"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =10104
+                    Top =907
+                    Width =1731
+                    TabIndex =171
+                    ForeColor =255
+                    Name ="伝票日付"
+                    ControlSource ="伝票日付"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8910
+                    TabIndex =172
+                    ForeColor =255
+                    Name ="編機タイプ"
+                    ControlSource ="編機タイプ"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =226
+                    TabIndex =173
+                    ForeColor =255
+                    Name ="編機ゲージ"
+                    ControlSource ="編機ゲージ"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =453
+                    TabIndex =174
+                    ForeColor =255
+                    Name ="給糸口数"
+                    ControlSource ="給糸口数"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =680
+                    TabIndex =175
+                    ForeColor =255
+                    Name ="原糸備考１"
+                    ControlSource ="原糸備考１"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =907
+                    TabIndex =176
+                    ForeColor =255
+                    Name ="原糸備考２"
+                    ControlSource ="原糸備考２"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =1133
+                    TabIndex =177
+                    ForeColor =255
+                    Name ="原糸備考３"
+                    ControlSource ="原糸備考３"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =1360
+                    TabIndex =178
+                    ForeColor =255
+                    Name ="原糸備考４"
+                    ControlSource ="原糸備考４"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =1587
+                    TabIndex =179
+                    ForeColor =255
+                    Name ="原糸備考５"
+                    ControlSource ="原糸備考５"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    BackStyle =0
+                    Left =8914
+                    Top =1814
+                    TabIndex =180
+                    ForeColor =255
+                    Name ="原糸備考６"
+                    ControlSource ="原糸備考６"
+                End
+                Begin Rectangle
+                    BackStyle =0
+                    BorderWidth =1
+                    Left =8505
+                    Top =7372
+                    Width =6229
+                    Height =1711
+                    Name ="ボックス348"
+                End
+                Begin Label
+                    TextFontFamily =18
+                    Left =5925
+                    Top =2070
+                    Width =600
+                    Height =285
+                    FontSize =11
+                    Name ="ラベル349"
+                    Caption ="御中"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =7618
+                    Top =2898
+                    Width =629
+                    Height =510
+                    FontSize =11
+                    Name ="汚れ99"
+                    Caption ="汚\015\012れ"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin Label
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =2
+                    TextFontFamily =18
+                    Left =8248
+                    Top =2898
+                    Width =629
+                    Height =510
+                    FontSize =11
+                    Name ="ラベル352"
+                    Caption ="飛\015\012込"
+                    FontName ="ＭＳ Ｐ明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =3408
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =182
+                    RightMargin =57
+                    Name ="汚れ01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =3408
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =183
+                    RightMargin =57
+                    Name ="飛込01"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =3692
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =184
+                    RightMargin =57
+                    Name ="汚れ02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =3692
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =185
+                    RightMargin =57
+                    Name ="飛込02"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =3976
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =186
+                    RightMargin =57
+                    Name ="汚れ03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =3976
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =187
+                    RightMargin =57
+                    Name ="飛込03"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =4260
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =188
+                    RightMargin =57
+                    Name ="汚れ04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =4260
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =189
+                    RightMargin =57
+                    Name ="飛込04"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =4544
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =190
+                    RightMargin =57
+                    Name ="汚れ05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =4544
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =191
+                    RightMargin =57
+                    Name ="飛込05"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =4828
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =192
+                    RightMargin =57
+                    Name ="汚れ06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =4828
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =193
+                    RightMargin =57
+                    Name ="飛込06"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =5112
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =194
+                    RightMargin =57
+                    Name ="汚れ07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =5112
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =195
+                    RightMargin =57
+                    Name ="飛込07"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =5396
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =196
+                    RightMargin =57
+                    Name ="汚れ08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =5396
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =197
+                    RightMargin =57
+                    Name ="飛込08"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =5680
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =198
+                    RightMargin =57
+                    Name ="汚れ09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =5680
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =199
+                    RightMargin =57
+                    Name ="飛込09"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =5964
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =200
+                    RightMargin =57
+                    Name ="汚れ10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =5964
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =201
+                    RightMargin =57
+                    Name ="飛込10"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =7618
+                    Top =6248
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =202
+                    RightMargin =57
+                    Name ="合計汚れ"
+                    FontName ="ＭＳ 明朝"
+                End
+                Begin TextBox
+                    OldBorderStyle =1
+                    BorderWidth =1
+                    TextAlign =3
+                    TextFontFamily =17
+                    Left =8248
+                    Top =6248
+                    Width =629
+                    Height =284
+                    FontSize =11
+                    TabIndex =203
+                    RightMargin =57
+                    Name ="合計飛込"
+                    FontName ="ＭＳ 明朝"
+                End
+            End
+        End
+        Begin PageFooter
+            Height =0
+            Name ="ページフッターセクション"
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private f_dbsDB         As DAO.Database
+Private f_rstSiami      As DAO.Recordset
+Private f_rstSekkeiH    As DAO.Recordset
+Private f_rstSekkeiB    As DAO.Recordset
+
+Private Sub Report_Open(Cancel As Integer)
+    Set f_dbsDB = CurrentDb
+    Set f_rstSiami = Nothing
+End Sub
+
+Private Sub 詳細_Print(Cancel As Integer, PrintCount As Integer)
+    Dim sIndex      As String
+    Dim sFldIndex   As String
+    Dim iIndex      As Integer
+    Dim i      As Integer
+    Dim sSQL        As String
+    Dim s使用面     As String
+
+    気付先名 = Me.写
+
+    非連結出荷先名 = Me.出荷先名
+    日付年 = Format(Me.伝票日付, "YY")
+    日付月 = Format(Me.伝票日付, "MM")
+    日付日 = Format(Me.伝票日付, "DD")
+    非連結設計NO = Me.設計NO
+
+    NO = 連番
+    合計その他 = 0
+    合計ハネ = 0
+    合計重量 = 0
+    合計針折 = 0
+    合計汚れ = 0
+    合計飛込 = 0
+    合計長 = 0
+    合計罰点計 = 0
+    合計目付 = Null
+    合計落傷 = 0
+
+    sSQL = "SELECT * FROM 試編出荷データワーク"
+    Set f_rstSiami = f_dbsDB.OpenRecordset(sSQL, dbOpenSnapshot)
+    If f_rstSiami.EOF Then
+        Exit Sub
+    End If
+
+    備考 = f_rstSiami.Fields("備考")
+
+    For iIndex = 1 To 10
+        sIndex = Format(iIndex, "00")
+        sFldIndex = StrConv(Trim$(str(iIndex)), vbWide)
+
+        With f_rstSiami
+            If Not IsNull(.Fields("反番" & sFldIndex)) And Trim(.Fields("反番" & sFldIndex)) > "" Then
+                Me.Controls("品番" & sIndex) = .Fields("品番" & sFldIndex)
+                Me.Controls("反番" & sIndex) = .Fields("反番" & sFldIndex)
+                Me.Controls("巾" & sIndex) = Format(.Fields("巾" & sFldIndex), "0")
+                Me.Controls("長さ" & sIndex) = Format(.Fields("長" & sFldIndex), "0.0")
+                Me.Controls("重量" & sIndex) = Format(.Fields("重量" & sFldIndex), "0.0")
+                Me.Controls("目付" & sIndex) = Format(.Fields("目付" & sFldIndex), "0")
+                Me.Controls("落傷" & sIndex) = Format(.Fields("落傷" & sFldIndex), "0;0;#")
+                Me.Controls("針折" & sIndex) = Format(.Fields("針折" & sFldIndex), "0;0;#")
+                Me.Controls("ハネ" & sIndex) = Format(.Fields("ハネ" & sFldIndex), "0;0;#")
+                Me.Controls("汚れ" & sIndex) = Format(.Fields("汚れ" & sFldIndex), "0;0;#")
+                Me.Controls("飛込" & sIndex) = Format(.Fields("飛込" & sFldIndex), "0;0;#")
+                Me.Controls("その他" & sIndex) = Format(.Fields("その他" & sFldIndex), "0;0;#")
+                Me.Controls("カット" & sIndex) = Format(.Fields("カット" & sFldIndex), "0;0;#")
+                Me.Controls("罰点計" & sIndex) = Format(.Fields("落傷" & sFldIndex) + .Fields("針折" & sFldIndex) + .Fields("ハネ" & sFldIndex) + .Fields("その他" & sFldIndex), "0;0;0")
+                Me.Controls("備考" & sIndex) = .Fields("明細備考" & sFldIndex)
+                合計その他 = 合計その他 + val(IfNumeric(.Fields("その他" & sFldIndex)))
+                合計ハネ = 合計ハネ + val(IfNumeric(.Fields("ハネ" & sFldIndex)))
+                合計汚れ = 合計汚れ + val(IfNumeric(.Fields("汚れ" & sFldIndex)))
+                合計飛込 = 合計飛込 + val(IfNumeric(.Fields("飛込" & sFldIndex)))
+                合計重量 = 合計重量 + val(IfNumeric(.Fields("重量" & sFldIndex)))
+                合計針折 = 合計針折 + val(IfNumeric(.Fields("針折" & sFldIndex)))
+                合計長 = 合計長 + val(IfNumeric(.Fields("長" & sFldIndex)))
+                合計罰点計 = 合計罰点計 + val(IfNumeric(.Fields("罰計" & sFldIndex)))
+                合計落傷 = 合計落傷 + val(IfNumeric(.Fields("落傷" & sFldIndex)))
+            Else
+                Me.Controls("品番" & sIndex) = Null
+                Me.Controls("反番" & sIndex) = Null
+                Me.Controls("巾" & sIndex) = Null
+                Me.Controls("長さ" & sIndex) = Null
+                Me.Controls("重量" & sIndex) = Null
+                Me.Controls("目付" & sIndex) = Null
+                Me.Controls("落傷" & sIndex) = Null
+                Me.Controls("針折" & sIndex) = Null
+                Me.Controls("ハネ" & sIndex) = Null
+                Me.Controls("汚れ" & sIndex) = Null
+                Me.Controls("飛込" & sIndex) = Null
+                Me.Controls("その他" & sIndex) = Null
+                Me.Controls("カット" & sIndex) = Null
+                Me.Controls("罰点計" & sIndex) = Null
+                Me.Controls("備考" & sIndex) = Null
+            End If
+        End With
+
+    Next iIndex
+    合計重量 = Format(合計重量, "#,##0.0")
+    合計長 = Format(合計長, "#,##0.0")
+
+    '' 設計Ｈ
+    sSQL = "SELECT 編機タイプ,編機ゲージ,編機釜経,使用面"
+    sSQL = sSQL & " FROM 設計Ｈ"
+    sSQL = sSQL & " WHERE 設計ID=" & Me.設計NO
+    Set f_rstSekkeiH = f_dbsDB.OpenRecordset(sSQL, dbOpenSnapshot)
+
+    With f_rstSekkeiH
+        If Not .EOF Then
+            機種 = .Fields("編機タイプ")
+            ゲージ = .Fields("編機ゲージ")
+            口径 = .Fields("編機釜経")
+            s使用面 = Choose(.Fields("使用面") + 1, "中表", "", "裏面")
+        Else
+            s使用面 = ""
+        End If
+        .Close
+    End With
+    Set f_rstSekkeiH = Nothing
+
+    Dim b As String
+    b = Me("備考") & vbCrLf & s使用面
+
+    f_rstSiami.Close
+    Set f_rstSiami = Nothing
+
+    '' 設計Ｂ
+    sSQL = "SELECT 原糸品番,SUM(交編率) AS SUM交編率"
+    sSQL = sSQL & " FROM 設計Ｂ"
+    sSQL = sSQL & " WHERE 設計ID=" & Me.設計NO & " AND 原糸区分<>'X'"
+    sSQL = sSQL & " GROUP BY 原糸区分,原糸品番"
+    Set f_rstSekkeiB = f_dbsDB.OpenRecordset(sSQL, dbOpenSnapshot)
+    With f_rstSekkeiB
+        iIndex = 1
+        Do While Not .EOF
+            sIndex = Format(iIndex, "00")
+            Me.Controls("原糸品番" & sIndex) = .Fields("原糸品番")
+            Me.Controls("交編率" & sIndex) = Format(.Fields("SUM交編率"), "0.00;0.00;#")
+            Me.Controls("買糸区分" & sIndex) = Me("原糸備考" & iIndex)
+            iIndex = iIndex + 1
+            .MoveNext
+        Loop
+        .Close
+    End With
+    Set f_rstSekkeiB = Nothing
+End Sub

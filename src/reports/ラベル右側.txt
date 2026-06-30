@@ -1,0 +1,622 @@
+Version =20
+VersionRequired =20
+Begin Report
+    LayoutForPrint = NotDefault
+    PopUp = NotDefault
+    AutoCenter = NotDefault
+    OrderByOn = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    TabularCharSet =128
+    TabularFamily =0
+    DateGrouping =1
+    GrpKeepTogether =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    GridY =10
+    Width =5005
+    DatasheetFontHeight =9
+    ItemSuffix =61
+    Left =8505
+    Top =3600
+    Right =18705
+    Bottom =9390
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x282975ef53a6e440
+    End
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0x47000000000000004e00000000000000000000008d1300004d0d000001000000 ,
+        0x01000000c900000000000000a20700000100000001000000
+    End
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            Width =850
+            Height =850
+        End
+        Begin Line
+            Width =1701
+        End
+        Begin TextBox
+            FELineBreak = NotDefault
+            OldBorderStyle =0
+            TextFontCharSet =128
+            TextFontFamily =2
+            Width =1701
+            Height =225
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+            AsianLineBreak =255
+        End
+        Begin BreakLevel
+            ControlSource ="ID"
+        End
+        Begin Section
+            KeepTogether = NotDefault
+            Height =3405
+            OnFormat ="[Event Procedure]"
+            Name ="詳細"
+            Begin
+                Begin Line
+                    BorderWidth =2
+                    Left =555
+                    Top =862
+                    Width =3965
+                    Name ="直線0"
+                End
+                Begin Line
+                    Visible = NotDefault
+                    BorderWidth =1
+                    Width =0
+                    Name ="直線1"
+                End
+                Begin Line
+                    Visible = NotDefault
+                    BorderWidth =1
+                    Width =0
+                    Name ="直線2"
+                End
+                Begin Line
+                    Visible = NotDefault
+                    BorderWidth =1
+                    Width =0
+                    Name ="直線3"
+                End
+                Begin Line
+                    BorderWidth =1
+                    Left =570
+                    Top =1245
+                    Width =2223
+                    Name ="直線7"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextFontFamily =50
+                    Left =1320
+                    Top =465
+                    Width =3156
+                    Height =375
+                    FontSize =18
+                    FontWeight =700
+                    Name ="品番"
+                End
+                Begin Line
+                    Visible = NotDefault
+                    BorderWidth =1
+                    Width =0
+                    Name ="直線4"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextAlign =1
+                    TextFontFamily =50
+                    Width =0
+                    Height =0
+                    FontSize =10
+                    TabIndex =1
+                    Name ="左4"
+                End
+                Begin TextBox
+                    CanShrink = NotDefault
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =585
+                    Top =1560
+                    Width =3408
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =2
+                    Name ="原糸1"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    CanShrink = NotDefault
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =585
+                    Top =1857
+                    Width =3408
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =3
+                    Name ="原糸2"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    CanShrink = NotDefault
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =585
+                    Top =2154
+                    Width =3408
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =4
+                    Name ="原糸3"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    CanShrink = NotDefault
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =585
+                    Top =2460
+                    Width =3408
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =5
+                    Name ="原糸4"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    CanShrink = NotDefault
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =585
+                    Top =2757
+                    Width =3408
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =6
+                    Name ="原糸5"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    CanShrink = NotDefault
+                    TextAlign =1
+                    TextFontFamily =49
+                    Left =585
+                    Top =3054
+                    Width =3408
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =7
+                    Name ="原糸6"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =50
+                    Left =4095
+                    Top =1560
+                    Width =423
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =8
+                    Name ="交編率1"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =50
+                    Left =4095
+                    Top =1857
+                    Width =423
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =9
+                    Name ="交編率2"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =50
+                    Left =4095
+                    Top =2154
+                    Width =423
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =10
+                    Name ="交編率3"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =50
+                    Left =4095
+                    Top =2460
+                    Width =423
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =11
+                    Name ="交編率4"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =50
+                    Left =4095
+                    Top =2757
+                    Width =423
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =12
+                    Name ="交編率5"
+                End
+                Begin TextBox
+                    TextAlign =3
+                    TextFontFamily =50
+                    Left =4095
+                    Top =3054
+                    Width =423
+                    Height =255
+                    FontSize =10
+                    FontWeight =700
+                    TabIndex =13
+                    Name ="交編率6"
+                End
+                Begin Label
+                    TextFontFamily =50
+                    Left =585
+                    Top =1320
+                    Width =225
+                    Height =225
+                    FontSize =10
+                    Name ="ラベル糸"
+                    Caption ="糸"
+                End
+                Begin Label
+                    TextFontFamily =50
+                    Left =4275
+                    Top =1320
+                    Width =240
+                    Height =225
+                    FontSize =10
+                    Name ="ラベル交編率"
+                    Caption ="％"
+                End
+                Begin Line
+                    Visible = NotDefault
+                    BorderWidth =1
+                    Width =0
+                    Name ="直線5"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextAlign =1
+                    TextFontFamily =50
+                    Width =0
+                    Height =0
+                    FontSize =10
+                    TabIndex =14
+                    Name ="左5"
+                End
+                Begin Line
+                    Visible = NotDefault
+                    BorderWidth =1
+                    Width =0
+                    Name ="直線6"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextAlign =1
+                    TextFontFamily =50
+                    Width =0
+                    Height =0
+                    FontSize =10
+                    TabIndex =15
+                    Name ="左6"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextAlign =1
+                    TextFontFamily =50
+                    Width =0
+                    Height =0
+                    FontSize =10
+                    TabIndex =16
+                    Name ="左7"
+                End
+                Begin TextBox
+                    TextFontFamily =50
+                    Left =3795
+                    Top =105
+                    Width =1210
+                    Height =255
+                    FontSize =11
+                    TabIndex =17
+                    Name ="発行日"
+                    Format ="General Number"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextAlign =1
+                    TextFontFamily =50
+                    Width =0
+                    Height =0
+                    FontSize =10
+                    TabIndex =18
+                    Name ="左1"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextAlign =1
+                    TextFontFamily =50
+                    Width =0
+                    Height =0
+                    FontSize =10
+                    TabIndex =19
+                    Name ="左2"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextAlign =1
+                    TextFontFamily =50
+                    Width =0
+                    Height =0
+                    FontSize =10
+                    TabIndex =20
+                    Name ="左3"
+                End
+                Begin TextBox
+                    TextAlign =1
+                    TextFontFamily =50
+                    Left =600
+                    Top =1005
+                    Width =2155
+                    FontSize =10
+                    TabIndex =21
+                    Name ="右1"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    TextFontFamily =50
+                    Left =555
+                    Top =495
+                    Width =769
+                    Height =344
+                    FontSize =16
+                    Name ="品番ラベル"
+                    Caption ="品番:"
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    TextFontFamily =49
+                    Left =1849
+                    Top =465
+                    Width =2616
+                    Height =375
+                    FontSize =18
+                    FontWeight =700
+                    TabIndex =22
+                    Name ="サンプルNo"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Label
+                    Visible = NotDefault
+                    TextFontFamily =49
+                    Left =555
+                    Top =495
+                    Width =1294
+                    Height =344
+                    FontSize =16
+                    Name ="ｻﾝﾌﾟﾙNoラベル"
+                    Caption ="ｻﾝﾌﾟﾙ№:"
+                    FontName ="ＭＳ ゴシック"
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub 詳細_Format(Cancel As Integer, FormatCount As Integer)
+    If val(IfNumeric(Form_ラベル印刷画面.rb生機品番とサンプル切り替え)) = 1 Then
+        Me.品番.Visible = True
+        Me.品番ラベル.Visible = True
+        Me.サンプルNo.Visible = False
+        Me.ｻﾝﾌﾟﾙNoラベル.Visible = False
+    Else
+        Me.品番.Visible = False
+        Me.品番ラベル.Visible = False
+        Me.サンプルNo.Visible = True
+        Me.ｻﾝﾌﾟﾙNoラベル.Visible = True
+    End If
+    Me.直線1.Visible = False
+    Me.直線2.Visible = False
+    Me.直線3.Visible = False
+    Me.直線4.Visible = False
+    Me.直線5.Visible = False
+    Me.直線6.Visible = False
+    Me.直線7.Visible = False
+    Me.ラベル糸.Visible = False
+    Me.ラベル交編率.Visible = False
+
+    If Form_ラベル印刷画面.tb発行日 Then
+        Me.発行日 = Form_ラベル印刷画面.発行日
+    End If
+
+    Dim S As String
+    Me.品番 = Form_ラベル印刷画面.品番
+    Me.サンプルNo = Form_ラベル印刷画面.サンプルNo
+
+    Dim l As Long
+    l = 0
+    S = ""
+    If Form_ラベル印刷画面.tb全巾 Then
+        S = S & "全巾: " & Trim(Form_ラベル印刷画面.全巾)
+        S = S & "cm　"
+    End If
+    If Form_ラベル印刷画面.tb有効巾 Then
+        S = S & "有効巾: " & Trim(Form_ラベル印刷画面.有効巾)
+        S = S & "cm　"
+    End If
+    If Trim(S) <> "" Then
+        l = l + 1
+        Me("左" & l) = Trim(S)
+        Me("直線" & l).Visible = True
+    End If
+
+    S = ""
+    If Form_ラベル印刷画面.tb平方メートル目付 Then
+        If S = "" Then S = "目付: "
+        S = S & Trim(Form_ラベル印刷画面.平方メートル目付)
+        S = S & "g/㎡　"
+    End If
+    If Form_ラベル印刷画面.tbメートル目付 Then
+        If S = "" Then S = "目付: "
+        S = S & Trim(Form_ラベル印刷画面.メートル目付)
+        S = S & "g/m　"
+    End If
+    If Trim(S) <> "" Then
+        l = l + 1
+        Me("左" & l) = Trim(S)
+        Me("直線" & l).Visible = True
+    End If
+
+    S = ""
+    If Form_ラベル印刷画面.tb混率 Then
+        If Form_ラベル印刷画面.tbT2PET Then
+            S = "混率: " & Trim(IfString(混率T2PET(Trim(IfString(Form_ラベル印刷画面.混率)))))
+        Else
+            S = "混率: " & Trim(IfString(IfString(Form_ラベル印刷画面.混率)))
+        End If
+        l = l + 1
+        Me("左" & l) = Trim(S)
+        Me("直線" & l).Visible = True
+    End If
+
+    S = ""
+    If Trim(IfString(Form_ラベル印刷画面.備考1)) <> "" Then
+        S = Trim(IfString(Form_ラベル印刷画面.備考1))
+        l = l + 1
+        Me("左" & l) = Trim(S)
+        Me("直線" & l).Visible = True
+    End If
+
+    S = ""
+    If Trim(IfString(Form_ラベル印刷画面.備考2)) <> "" Then
+        S = Trim(IfString(Form_ラベル印刷画面.備考2))
+        l = l + 1
+        Me("左" & l) = Trim(S)
+        Me("直線" & l).Visible = True
+    End If
+
+    S = ""
+    If Trim(IfString(Form_ラベル印刷画面.備考3)) <> "" Then
+        S = Trim(IfString(Form_ラベル印刷画面.備考3))
+        l = l + 1
+        Me("左" & l) = Trim(S)
+        Me("直線" & l).Visible = True
+    End If
+
+    S = ""
+    If Trim(IfString(Form_ラベル印刷画面.備考4)) <> "" Then
+        S = Trim(IfString(Form_ラベル印刷画面.備考4))
+        l = l + 1
+        Me("左" & l) = Trim(S)
+        Me("直線" & l).Visible = True
+    End If
+
+    S = ""
+    If Form_ラベル印刷画面.tbゲージ Then
+        S = S & Format(val(IfNumeric(Form_ラベル印刷画面.ゲージ)), "0")
+        S = S & "G "
+    End If
+    If Form_ラベル印刷画面.tbインチ Then
+        S = S & Format(val(IfNumeric(Form_ラベル印刷画面.インチ)), "0")
+        S = S & "inch "
+    End If
+    If Form_ラベル印刷画面.tb機種 Then
+        S = S & Form_ラベル印刷画面.機種
+    End If
+    If Trim(S) <> "" Then
+        Me.右1 = Trim(S)
+        Me.直線7.Visible = True
+    End If
+
+    If Form_ラベル印刷画面.tb糸 Then
+        Me.ラベル糸.Visible = True
+    End If
+    If Form_ラベル印刷画面.tb交編率 Then
+        Me.ラベル交編率.Visible = True
+    End If
+    Dim i As Long
+    For i = 1 To 6
+        Dim g As String
+        g = ""
+        g = Trim(IfString(Form_ラベル印刷画面("原糸" & i)))
+        If Form_ラベル印刷画面.tb糸 Then
+            Me("原糸" & i) = g
+        End If
+        If Form_ラベル印刷画面.tb交編率 Then
+            If g <> "" Then
+                Me("交編率" & i) = Format(Form_ラベル印刷画面("交編率" & i), "0.0")
+            End If
+        End If
+    Next i
+End Sub
+
+Public Function 混率T2PET(S As String) As String
+    混率T2PET = ""
+    Dim lng As String
+    lng = Len(Trim(S))
+
+    If 0 < lng Then
+        Dim i As Long
+        For i = 1 To lng
+            If Mid(S, i, 1) = "T" Then
+                If i = lng Then
+                    混率T2PET = 混率T2PET & Mid(S, i, 1)
+                Else
+                    If IsNumeric(Mid(S, i + 1, 1)) Or (Mid(S, i + 1, 1) = " ") Then
+                        If i = 1 Then
+                            混率T2PET = 混率T2PET & "PET"
+                        Else
+                            If Mid(S, i - 1, 1) = " " Or Mid(S, i - 1, 1) = "%" Then
+                                混率T2PET = 混率T2PET & "PET"
+                            Else
+                                混率T2PET = 混率T2PET & Mid(S, i, 1)
+                            End If
+                        End If
+                    End If
+                End If
+            Else
+                混率T2PET = 混率T2PET & Mid(S, i, 1)
+            End If
+        Next i
+    End If
+End Function

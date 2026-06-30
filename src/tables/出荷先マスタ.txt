@@ -1,0 +1,6 @@
+TABLE	出荷先マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.出荷先マスタ
+FIELD	出荷先CD	Text	Size=10	Req=True	ZeroLen=True
+FIELD	出荷先名	Text	Size=50	Req=False	ZeroLen=True
+INDEX	PK_出荷先マスタ	(出荷先CD)	PK=True	Unique=True

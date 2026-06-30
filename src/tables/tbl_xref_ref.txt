@@ -1,0 +1,7 @@
+TABLE	tbl_xref_ref
+FIELD	id	Long	Size=4	Req=False	ZeroLen=False
+FIELD	ref_kind	Text	Size=16	Req=False	ZeroLen=False
+FIELD	src_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	src_detail	Text	Size=128	Req=False	ZeroLen=False
+FIELD	callee_name	Text	Size=128	Req=False	ZeroLen=False
+INDEX	Index_C0A21C25_1600_48D1	(id)	PK=True	Unique=True

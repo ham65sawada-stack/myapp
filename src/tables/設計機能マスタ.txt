@@ -1,0 +1,6 @@
+TABLE	設計機能マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.設計機能マスタ
+FIELD	機能CD	Long	Size=4	Req=True	ZeroLen=False
+FIELD	機能名	Text	Size=10	Req=False	ZeroLen=True
+INDEX	PK_設計機能マスタ	(機能CD)	PK=True	Unique=True

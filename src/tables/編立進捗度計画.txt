@@ -1,0 +1,21 @@
+TABLE	編立進捗度計画
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.編立進捗度計画
+FIELD	商社集計ＣＤ	Text	Size=4	Req=True	ZeroLen=True
+FIELD	契約ＮＯ	Text	Size=8	Req=True	ZeroLen=True
+FIELD	工場集計ＣＤ	Text	Size=2	Req=True	ZeroLen=True
+FIELD	号機	Integer	Size=2	Req=True	ZeroLen=False
+FIELD	編仕掛計画日	Date	Size=8	Req=True	ZeroLen=False
+FIELD	編完了計画日	Date	Size=8	Req=False	ZeroLen=False
+FIELD	編仕掛予測日	Date	Size=8	Req=False	ZeroLen=False
+FIELD	編完了予測日	Date	Size=8	Req=False	ZeroLen=False
+FIELD	編仕掛実績日	Date	Size=8	Req=False	ZeroLen=False
+FIELD	編完了実績日	Date	Size=8	Req=False	ZeroLen=False
+FIELD	遅れ日数	Long	Size=4	Req=False	ZeroLen=False
+FIELD	限月	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	契約反数	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	所要日数	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	日産反数	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	編立入庫反数	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	編立入庫最終日	Date	Size=8	Req=False	ZeroLen=False
+INDEX	PK_編立進捗度計画	(商社集計ＣＤ,契約ＮＯ,工場集計ＣＤ,号機,編仕掛計画日)	PK=True	Unique=True

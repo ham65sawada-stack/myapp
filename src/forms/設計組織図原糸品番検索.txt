@@ -1,0 +1,1854 @@
+Version =21
+VersionRequired =20
+Begin Form
+    AllowFilters = NotDefault
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    ControlBox = NotDefault
+    ShortcutMenu = NotDefault
+    AutoCenter = NotDefault
+    AllowDeletions = NotDefault
+    CloseButton = NotDefault
+    DividingLines = NotDefault
+    AllowAdditions = NotDefault
+    KeyPreview = NotDefault
+    AllowDesignChanges = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =119
+    BorderStyle =3
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    Cycle =1
+    GridY =10
+    Width =14173
+    DatasheetFontHeight =9
+    ItemSuffix =197
+    Left =8300
+    Top =2690
+    Right =27160
+    Bottom =14780
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x29237de432d8e240
+    End
+    Caption ="(組織図/原糸品番)検索"
+    OnOpen ="[Event Procedure]"
+    DatasheetFontName ="ＭＳ ゴシック"
+    PrtMip = Begin
+        0x89050000890500008905000089050000000000003e3b00001824000001000000 ,
+        0x010000006801000000000000a10700000100000001000000
+    End
+    FilterOnLoad =0
+    DatasheetGridlinesColor12 =12632256
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            OldBorderStyle =1
+            TextFontCharSet =128
+            TextAlign =2
+            TextFontFamily =50
+            FontSize =9
+            TopMargin =14
+            BackColor =16777088
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Line
+            BorderLineStyle =0
+            Width =1701
+        End
+        Begin Image
+            BackStyle =0
+            OldBorderStyle =0
+            BorderLineStyle =0
+            PictureAlignment =2
+            Width =1701
+            Height =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            BorderLineStyle =0
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin TextBox
+            AddColon = NotDefault
+            FELineBreak = NotDefault
+            LabelAlign =2
+            TextFontCharSet =128
+            TextAlign =3
+            TextFontFamily =49
+            BorderLineStyle =0
+            Width =861
+            Height =225
+            LabelX =427
+            LabelY =-225
+            FontSize =9
+            TopMargin =14
+            RightMargin =40
+            BackColor =-2147483643
+            ForeColor =-2147483640
+            FontName ="ＭＳ ゴシック"
+            AsianLineBreak =255
+        End
+        Begin ListBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            BorderLineStyle =0
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Subform
+            SpecialEffect =2
+            BorderLineStyle =0
+            Width =1701
+            Height =1701
+        End
+        Begin ToggleButton
+            TextFontCharSet =128
+            Width =283
+            Height =283
+            FontSize =9
+            FontWeight =400
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+            BorderLineStyle =0
+        End
+        Begin Section
+            CanGrow = NotDefault
+            Height =9600
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =570
+                    Width =4395
+                    Height =375
+                    Name ="組織図01"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =47
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =945
+                    Width =4395
+                    Height =375
+                    Name ="組織図02"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =46
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =1320
+                    Width =4395
+                    Height =375
+                    Name ="組織図03"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =44
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =1695
+                    Width =4395
+                    Height =375
+                    Name ="組織図04"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =43
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =2070
+                    Width =4395
+                    Height =375
+                    Name ="組織図05"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =42
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =2445
+                    Width =4395
+                    Height =375
+                    Name ="組織図06"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =36
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =2820
+                    Width =4395
+                    Height =375
+                    Name ="組織図07"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =41
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =3195
+                    Width =4395
+                    Height =375
+                    Name ="組織図08"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =40
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =3570
+                    Width =4395
+                    Height =375
+                    Name ="組織図09"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =39
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =3945
+                    Width =4395
+                    Height =375
+                    Name ="組織図10"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =38
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =4320
+                    Width =4395
+                    Height =375
+                    Name ="組織図11"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =37
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =4695
+                    Width =4395
+                    Height =375
+                    Name ="組織図12"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =59
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =5070
+                    Width =4395
+                    Height =375
+                    Name ="組織図13"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =58
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =5445
+                    Width =4395
+                    Height =375
+                    Name ="組織図14"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =52
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =5820
+                    Width =4395
+                    Height =375
+                    Name ="組織図15"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =57
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =6195
+                    Width =4395
+                    Height =375
+                    Name ="組織図16"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =56
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =6570
+                    Width =4395
+                    Height =375
+                    Name ="組織図17"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =55
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =6945
+                    Width =4395
+                    Height =375
+                    Name ="組織図18"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =54
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =7320
+                    Width =4395
+                    Height =375
+                    Name ="組織図19"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =53
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =7695
+                    Width =4395
+                    Height =375
+                    Name ="組織図20"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =51
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =8070
+                    Width =4395
+                    Height =375
+                    Name ="組織図21"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =50
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =8445
+                    Width =4395
+                    Height =375
+                    Name ="組織図22"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =49
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =8820
+                    Width =4395
+                    Height =375
+                    Name ="組織図23"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =48
+                End
+                Begin Image
+                    BackStyle =1
+                    OldBorderStyle =1
+                    PictureType =1
+                    Left =690
+                    Top =9195
+                    Width =4395
+                    Height =375
+                    Name ="組織図24"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+
+                    TabIndex =45
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =93
+                    TextFontFamily =50
+                    Left =10920
+                    Top =8835
+                    Width =3195
+                    Height =735
+                    FontSize =16
+                    FontWeight =700
+                    TabIndex =1
+                    ForeColor =0
+                    Name ="閉じる"
+                    Caption ="設計一覧へ戻る"
+                    OnClick ="[Event Procedure]"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =570
+                    Width =660
+                    Height =375
+                    TabIndex =2
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD01"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =945
+                    Width =660
+                    Height =375
+                    TabIndex =3
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD02"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =1320
+                    Width =660
+                    Height =375
+                    TabIndex =4
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD03"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =1695
+                    Width =660
+                    Height =375
+                    TabIndex =5
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD04"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =2070
+                    Width =660
+                    Height =375
+                    TabIndex =6
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD05"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =2445
+                    Width =660
+                    Height =375
+                    TabIndex =7
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD06"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =2820
+                    Width =660
+                    Height =375
+                    TabIndex =8
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD07"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =3195
+                    Width =660
+                    Height =375
+                    TabIndex =9
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD08"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =3570
+                    Width =660
+                    Height =375
+                    TabIndex =10
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD09"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =3945
+                    Width =660
+                    Height =375
+                    TabIndex =11
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD10"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =4320
+                    Width =660
+                    Height =375
+                    TabIndex =12
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD11"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =4695
+                    Width =660
+                    Height =375
+                    TabIndex =13
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD12"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =5070
+                    Width =660
+                    Height =375
+                    TabIndex =14
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD13"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =5445
+                    Width =660
+                    Height =375
+                    TabIndex =15
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD14"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =5820
+                    Width =660
+                    Height =375
+                    TabIndex =16
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD15"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =6195
+                    Width =660
+                    Height =375
+                    TabIndex =17
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD16"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =6570
+                    Width =660
+                    Height =375
+                    TabIndex =18
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD17"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =6945
+                    Width =660
+                    Height =375
+                    TabIndex =19
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD18"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =7320
+                    Width =660
+                    Height =375
+                    TabIndex =20
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD19"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =7695
+                    Width =660
+                    Height =375
+                    TabIndex =21
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD20"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =8070
+                    Width =660
+                    Height =375
+                    TabIndex =22
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD21"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =8445
+                    Width =660
+                    Height =375
+                    TabIndex =23
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD22"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =95
+                    TextFontFamily =50
+                    Left =30
+                    Top =8820
+                    Width =660
+                    Height =375
+                    TabIndex =24
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD23"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin TextBox
+                    Enabled = NotDefault
+                    Locked = NotDefault
+                    FELineBreak = NotDefault
+                    DecimalPlaces =0
+                    OverlapFlags =87
+                    TextFontFamily =50
+                    Left =30
+                    Top =9195
+                    Width =660
+                    Height =375
+                    TabIndex =25
+                    TopMargin =68
+                    RightMargin =17
+                    BackColor =8454143
+                    Name ="組織CD24"
+                    Format ="#"
+                    FontName ="ＭＳ Ｐゴシック"
+                    AsianLineBreak =0
+
+                End
+                Begin Label
+                    OverlapFlags =93
+                    TextFontFamily =49
+                    Left =10890
+                    Top =15
+                    Width =2775
+                    Height =270
+                    TopMargin =57
+                    Name ="ラベル221"
+                    Caption ="検 索 原 糸 品 種"
+                    FontName ="ＭＳ ゴシック"
+                End
+                Begin Image
+                    Visible = NotDefault
+                    Left =10950
+                    Top =8505
+                    Width =284
+                    Height =375
+                    Name ="イメージ空白"
+                    Picture ="000000.BMP"
+
+                    TabIndex =60
+                End
+                Begin Subform
+                    OverlapFlags =85
+                    SpecialEffect =0
+                    Left =5160
+                    Width =5670
+                    Height =9585
+                    TabIndex =26
+                    Name ="組織図一覧検索用"
+                    SourceObject ="Form.組織図一覧検索用"
+
+                End
+                Begin ListBox
+                    SpecialEffect =0
+                    OverlapFlags =85
+                    TextFontFamily =49
+                    OldBorderStyle =0
+                    ColumnCount =2
+                    Left =10920
+                    Top =3090
+                    Width =3195
+                    Height =5032
+                    TabIndex =27
+                    BoundColumn =1
+                    Name ="絞込みリスト"
+                    RowSourceType ="Table/Query"
+                    ColumnWidths ="341;2778"
+                    FontName ="ＭＳ ゴシック"
+
+                End
+                Begin TextBox
+                    FELineBreak = NotDefault
+                    OldBorderStyle =0
+                    OverlapFlags =87
+                    TextAlign =0
+                    IMEMode =2
+                    Left =10920
+                    Top =2235
+                    Width =3195
+                    Height =270
+                    TabIndex =28
+                    TopMargin =29
+                    RightMargin =0
+                    BackColor =16777215
+                    ForeColor =0
+                    Name ="原糸品種絞り込み条件"
+                    AsianLineBreak =0
+
+                    Begin
+                        Begin Label
+                            BackStyle =0
+                            OldBorderStyle =0
+                            OverlapFlags =93
+                            TextAlign =0
+                            TextFontFamily =34
+                            Left =10920
+                            Top =1980
+                            Width =1890
+                            Height =255
+                            TopMargin =29
+                            BackColor =16777215
+                            ForeColor =0
+                            Name ="ラベル89"
+                            Caption ="原糸品種絞り込み条件"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =10920
+                    Top =2619
+                    Width =3195
+                    TabIndex =29
+                    Name ="絞込み"
+                    Caption ="原糸品種絞込み"
+                    OnClick ="[Event Procedure]"
+                    ControlTipText ="レコードの検索"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin Label
+                    OverlapFlags =95
+                    TextAlign =0
+                    TextFontFamily =49
+                    Left =10890
+                    Top =285
+                    Width =2775
+                    Height =270
+                    TopMargin =57
+                    BackColor =16777215
+                    ForeColor =0
+                    Name ="原糸品番1"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                End
+                Begin Label
+                    OverlapFlags =95
+                    TextAlign =0
+                    TextFontFamily =49
+                    Left =10890
+                    Top =555
+                    Width =2775
+                    Height =270
+                    TopMargin =57
+                    BackColor =16777215
+                    ForeColor =0
+                    Name ="原糸品番2"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                End
+                Begin Label
+                    OverlapFlags =95
+                    TextAlign =0
+                    TextFontFamily =49
+                    Left =10890
+                    Top =825
+                    Width =2775
+                    Height =270
+                    TopMargin =57
+                    BackColor =16777215
+                    ForeColor =0
+                    Name ="原糸品番3"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                End
+                Begin Label
+                    OverlapFlags =95
+                    TextAlign =0
+                    TextFontFamily =49
+                    Left =10890
+                    Top =1095
+                    Width =2775
+                    Height =270
+                    TopMargin =57
+                    BackColor =16777215
+                    ForeColor =0
+                    Name ="原糸品番4"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                End
+                Begin Label
+                    OverlapFlags =95
+                    TextAlign =0
+                    TextFontFamily =49
+                    Left =10890
+                    Top =1365
+                    Width =2775
+                    Height =270
+                    TopMargin =57
+                    BackColor =16777215
+                    ForeColor =0
+                    Name ="原糸品番5"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                End
+                Begin Label
+                    OverlapFlags =87
+                    TextAlign =0
+                    TextFontFamily =49
+                    Left =10890
+                    Top =1635
+                    Width =2775
+                    Height =270
+                    TopMargin =57
+                    BackColor =16777215
+                    ForeColor =0
+                    Name ="原糸品番6"
+                    FontName ="ＭＳ ゴシック"
+                    OnClick ="[Event Procedure]"
+                    OnDblClick ="[Event Procedure]"
+                End
+                Begin CommandButton
+                    TabStop = NotDefault
+                    OverlapFlags =247
+                    Left =10920
+                    Top =8160
+                    Width =3195
+                    Height =600
+                    TabIndex =30
+                    Name ="検索条件クリア"
+                    Caption ="検索条件クリア"
+                    OnClick ="[Event Procedure]"
+                    ControlTipText ="レコードの検索"
+
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                    Overlaps =1
+                End
+                Begin CheckBox
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =13847
+                    Top =480
+                    TabIndex =31
+                    Name ="or1"
+                    DefaultValue ="False"
+
+                    Begin
+                        Begin Label
+                            BackStyle =0
+                            OldBorderStyle =0
+                            OverlapFlags =85
+                            TextAlign =1
+                            Left =13680
+                            Top =450
+                            Width =120
+                            Height =210
+                            Name ="ラベル185"
+                            Caption =">"
+                        End
+                    End
+                End
+                Begin CheckBox
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =13847
+                    Top =750
+                    TabIndex =32
+                    Name ="or2"
+                    DefaultValue ="False"
+
+                    Begin
+                        Begin Label
+                            BackStyle =0
+                            OldBorderStyle =0
+                            OverlapFlags =85
+                            TextAlign =1
+                            Left =13680
+                            Top =720
+                            Width =120
+                            Height =210
+                            Name ="ラベル189"
+                            Caption =">"
+                        End
+                    End
+                End
+                Begin CheckBox
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =13847
+                    Top =1020
+                    TabIndex =33
+                    Name ="or3"
+                    DefaultValue ="False"
+
+                    Begin
+                        Begin Label
+                            BackStyle =0
+                            OldBorderStyle =0
+                            OverlapFlags =85
+                            TextAlign =1
+                            Left =13680
+                            Top =990
+                            Width =120
+                            Height =210
+                            Name ="ラベル191"
+                            Caption =">"
+                        End
+                    End
+                End
+                Begin CheckBox
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =13847
+                    Top =1290
+                    TabIndex =34
+                    Name ="or4"
+                    DefaultValue ="False"
+
+                    Begin
+                        Begin Label
+                            BackStyle =0
+                            OldBorderStyle =0
+                            OverlapFlags =85
+                            TextAlign =1
+                            Left =13680
+                            Top =1260
+                            Width =120
+                            Height =210
+                            Name ="ラベル193"
+                            Caption =">"
+                        End
+                    End
+                End
+                Begin CheckBox
+                    TabStop = NotDefault
+                    OverlapFlags =85
+                    Left =13847
+                    Top =1560
+                    TabIndex =35
+                    Name ="or5"
+                    DefaultValue ="False"
+
+                    Begin
+                        Begin Label
+                            BackStyle =0
+                            OldBorderStyle =0
+                            OverlapFlags =85
+                            TextAlign =1
+                            Left =13680
+                            Top =1530
+                            Width =120
+                            Height =210
+                            Name ="ラベル195"
+                            Caption =">"
+                        End
+                    End
+                End
+                Begin Label
+                    BackStyle =0
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    Left =13800
+                    Top =210
+                    Width =227
+                    Height =227
+                    Name ="ラベル196"
+                    Caption ="or"
+                End
+                Begin OptionGroup
+                    OverlapFlags =85
+                    Top =120
+                    Width =3460
+                    Height =411
+                    Name ="検索方法"
+                    DefaultValue ="1"
+
+                    Begin
+                        Begin Label
+                            OldBorderStyle =0
+                            OverlapFlags =215
+                            TextAlign =0
+                            TextFontFamily =34
+                            Left =120
+                            Width =840
+                            Height =195
+                            TopMargin =0
+                            BackColor =16777215
+                            ForeColor =0
+                            Name ="ラベル検索方法"
+                            Caption ="検索方法"
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =240
+                            Top =280
+                            OptionValue =1
+                            Name ="オプション37"
+
+                            Begin
+                                Begin Label
+                                    BackStyle =0
+                                    OldBorderStyle =0
+                                    OverlapFlags =247
+                                    TextAlign =0
+                                    TextFontFamily =34
+                                    Left =467
+                                    Top =255
+                                    Width =1020
+                                    Height =225
+                                    TopMargin =0
+                                    BackColor =16777215
+                                    ForeColor =0
+                                    Name ="ラベル38"
+                                    Caption ="含む"
+                                End
+                            End
+                        End
+                        Begin OptionButton
+                            OverlapFlags =87
+                            Left =1965
+                            Top =280
+                            OptionValue =2
+                            Name ="オプション39"
+
+                            Begin
+                                Begin Label
+                                    BackStyle =0
+                                    OldBorderStyle =0
+                                    OverlapFlags =247
+                                    TextAlign =0
+                                    TextFontFamily =34
+                                    Left =2192
+                                    Top =255
+                                    Width =1050
+                                    Height =225
+                                    TopMargin =0
+                                    BackColor =16777215
+                                    ForeColor =0
+                                    Name ="ラベル40"
+                                    Caption ="一致"
+                                End
+                            End
+                        End
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub Form_Open(Cancel As Integer)
+Dim i As Long
+    If gl検索_組織方法 = 2 Then
+        Me.検索方法 = gl検索_組織方法
+    Else
+        Me.検索方法 = 1
+    End If
+    For i = 1 To 24
+        Me("組織CD" & Format(i, "00")) = gl検索_組織CD(i)
+        Me("組織図" & Format(i, "00")).PictureData = IIf(Me("組織CD" & Format(i, "00")) = 0, イメージ空白.PictureData, DLookup("組織図DATA", "組織図マスタ", "組織CD=" & Me("組織CD" & Format(i, "00"))))
+    Next i
+    For i = 1 To 6
+        Me("原糸品番" & i).Caption = gl検索_原糸品番(i)
+    Next i
+    For i = 1 To 5
+        Me("or" & i) = gl検索_or(i)
+    Next i
+End Sub
+
+Private Sub 検索条件クリア_Click()
+Dim i As Long
+    Me.検索方法 = 1
+    For i = 1 To 24
+        Call DelPic(Format(i, "00"))
+        gl検索_組織CD(i) = 0
+    Next i
+    For i = 1 To 6
+        Me("原糸品番" & i).Caption = ""
+        gl検索_原糸品番(i) = ""
+    Next i
+    For i = 1 To 5
+        Me("or" & i) = False
+        gl検索_or(i) = False
+    Next i
+    Me.原糸品種絞り込み条件 = Null
+End Sub
+
+Private Sub 原糸品番1_Click()
+    If Not IsNull(Me.絞込みリスト.Column(1)) Then
+        Me.原糸品番1.Caption = Me.絞込みリスト.Column(1)
+    End If
+End Sub
+
+Private Sub 原糸品番2_Click()
+    If Not IsNull(Me.絞込みリスト.Column(1)) Then
+        Me.原糸品番2.Caption = Me.絞込みリスト.Column(1)
+    End If
+End Sub
+
+Private Sub 原糸品番3_Click()
+    If Not IsNull(Me.絞込みリスト.Column(1)) Then
+        Me.原糸品番3.Caption = Me.絞込みリスト.Column(1)
+    End If
+End Sub
+
+Private Sub 原糸品番4_Click()
+    If Not IsNull(Me.絞込みリスト.Column(1)) Then
+        Me.原糸品番4.Caption = Me.絞込みリスト.Column(1)
+    End If
+End Sub
+
+Private Sub 原糸品番5_Click()
+    If Not IsNull(Me.絞込みリスト.Column(1)) Then
+        Me.原糸品番5.Caption = Me.絞込みリスト.Column(1)
+    End If
+End Sub
+
+Private Sub 原糸品番6_Click()
+    If Not IsNull(Me.絞込みリスト.Column(1)) Then
+        Me.原糸品番6.Caption = Me.絞込みリスト.Column(1)
+    End If
+End Sub
+
+Private Sub 原糸品番1_DblClick(Cancel As Integer)
+    Me.原糸品番1.Caption = ""
+End Sub
+
+Private Sub 原糸品番2_DblClick(Cancel As Integer)
+    Me.原糸品番2.Caption = ""
+End Sub
+
+Private Sub 原糸品番3_DblClick(Cancel As Integer)
+    Me.原糸品番3.Caption = ""
+End Sub
+
+Private Sub 原糸品番4_DblClick(Cancel As Integer)
+    Me.原糸品番4.Caption = ""
+End Sub
+
+Private Sub 原糸品番5_DblClick(Cancel As Integer)
+    Me.原糸品番5.Caption = ""
+End Sub
+
+Private Sub 原糸品番6_DblClick(Cancel As Integer)
+    Me.原糸品番6.Caption = ""
+End Sub
+
+Private Sub 絞込み_Click()
+    Dim sSQL As String
+    Dim sScanWord As String
+    Dim sWord(30) As String
+    Dim iCnt As Integer
+    Dim i As Integer
+    Dim iPosEnd As Integer
+
+    If Not IsNull(Me.原糸品種絞り込み条件) Then
+        sScanWord = Trim(Me.原糸品種絞り込み条件)
+        If Len(sScanWord) > 0 Then
+            iCnt = 0
+            Do While Len(sScanWord) > 0
+                iCnt = iCnt + 1
+                iPosEnd = InStr(1, sScanWord, " ")
+                If iPosEnd = 0 Then
+                    sWord(iCnt) = "*" & sScanWord & "*"
+                    sScanWord = ""
+                Else
+                    sWord(iCnt) = "*" & Trim(Left(sScanWord, iPosEnd)) & "*"
+                    sScanWord = Trim(Mid(sScanWord, iPosEnd))
+                End If
+            Loop
+
+            If iCnt > 0 Then
+                sSQL = "SELECT IIf([設計区分]=1,'ル','試') AS 区分, 設計原糸一覧マスタ.原糸品番"
+                sSQL = sSQL & " FROM 設計原糸一覧マスタ"
+                sSQL = sSQL & " GROUP BY IIf([設計区分]=1,'ル','試'), 設計原糸一覧マスタ.原糸品番"
+                For i = 1 To iCnt
+                    If i = iCnt Then
+                        If i = 1 Then
+                            sSQL = sSQL & " HAVING 原糸品番 Like '" & sWord(i) & "'"
+                        Else
+                            sSQL = sSQL & " 原糸品番 Like '" & sWord(i) & "'"
+                        End If
+                    Else
+                        If i = 1 Then
+                            sSQL = sSQL & " HAVING 原糸品番 Like '" & sWord(i) & "' and"
+                        Else
+                            sSQL = sSQL & " 原糸品番 Like '" & sWord(i) & "' and"
+                        End If
+                    End If
+                Next i
+                sSQL = sSQL & ";"
+                Me.Painting = False
+                Me.絞込みリスト.RowSource = sSQL
+            Else
+                Me.Painting = False
+                Me.絞込みリスト.RowSource = ""
+            End If
+
+            Me.絞込みリスト.Requery
+            Me.Painting = True
+        End If
+    End If
+
+    On Error Resume Next
+    Me.原糸品種絞り込み条件.SetFocus
+    On Error GoTo 0
+End Sub
+
+Private Sub 組織図01_Click()
+    Call GetPic("01")
+End Sub
+
+Private Sub 組織図02_Click()
+    Call GetPic("02")
+End Sub
+
+Private Sub 組織図03_Click()
+    Call GetPic("03")
+End Sub
+
+Private Sub 組織図04_Click()
+    Call GetPic("04")
+End Sub
+
+Private Sub 組織図05_Click()
+    Call GetPic("05")
+End Sub
+
+Private Sub 組織図06_Click()
+    Call GetPic("06")
+End Sub
+
+Private Sub 組織図07_Click()
+    Call GetPic("07")
+End Sub
+
+Private Sub 組織図08_Click()
+    Call GetPic("08")
+End Sub
+
+Private Sub 組織図09_Click()
+    Call GetPic("09")
+End Sub
+
+Private Sub 組織図10_Click()
+    Call GetPic("10")
+End Sub
+
+Private Sub 組織図11_Click()
+    Call GetPic("11")
+End Sub
+
+Private Sub 組織図12_Click()
+    Call GetPic("12")
+End Sub
+
+Private Sub 組織図13_Click()
+    Call GetPic("13")
+End Sub
+
+Private Sub 組織図14_Click()
+    Call GetPic("14")
+End Sub
+
+Private Sub 組織図15_Click()
+    Call GetPic("15")
+End Sub
+
+Private Sub 組織図16_Click()
+    Call GetPic("16")
+End Sub
+
+Private Sub 組織図17_Click()
+    Call GetPic("17")
+End Sub
+
+Private Sub 組織図18_Click()
+    Call GetPic("18")
+End Sub
+
+Private Sub 組織図19_Click()
+    Call GetPic("19")
+End Sub
+
+Private Sub 組織図20_Click()
+    Call GetPic("20")
+End Sub
+
+Private Sub 組織図21_Click()
+    Call GetPic("21")
+End Sub
+
+Private Sub 組織図22_Click()
+    Call GetPic("22")
+End Sub
+
+Private Sub 組織図23_Click()
+    Call GetPic("23")
+End Sub
+
+Private Sub 組織図24_Click()
+    Call GetPic("24")
+End Sub
+
+Private Sub 組織図01_DblClick(Cancel As Integer)
+    Call DelPic("01")
+End Sub
+
+Private Sub 組織図02_DblClick(Cancel As Integer)
+    Call DelPic("02")
+End Sub
+
+Private Sub 組織図03_DblClick(Cancel As Integer)
+    Call DelPic("03")
+End Sub
+
+Private Sub 組織図04_DblClick(Cancel As Integer)
+    Call DelPic("04")
+End Sub
+
+Private Sub 組織図05_DblClick(Cancel As Integer)
+    Call DelPic("05")
+End Sub
+
+Private Sub 組織図06_DblClick(Cancel As Integer)
+    Call DelPic("06")
+End Sub
+
+Private Sub 組織図07_DblClick(Cancel As Integer)
+    Call DelPic("07")
+End Sub
+
+Private Sub 組織図08_DblClick(Cancel As Integer)
+    Call DelPic("08")
+End Sub
+
+Private Sub 組織図09_DblClick(Cancel As Integer)
+    Call DelPic("09")
+End Sub
+
+Private Sub 組織図10_DblClick(Cancel As Integer)
+    Call DelPic("10")
+End Sub
+
+Private Sub 組織図11_DblClick(Cancel As Integer)
+    Call DelPic("11")
+End Sub
+
+Private Sub 組織図12_DblClick(Cancel As Integer)
+    Call DelPic("12")
+End Sub
+
+Private Sub 組織図13_DblClick(Cancel As Integer)
+    Call DelPic("13")
+End Sub
+
+Private Sub 組織図14_DblClick(Cancel As Integer)
+    Call DelPic("14")
+End Sub
+
+Private Sub 組織図15_DblClick(Cancel As Integer)
+    Call DelPic("15")
+End Sub
+
+Private Sub 組織図16_DblClick(Cancel As Integer)
+    Call DelPic("16")
+End Sub
+
+Private Sub 組織図17_DblClick(Cancel As Integer)
+    Call DelPic("17")
+End Sub
+
+Private Sub 組織図18_DblClick(Cancel As Integer)
+    Call DelPic("18")
+End Sub
+
+Private Sub 組織図19_DblClick(Cancel As Integer)
+    Call DelPic("19")
+End Sub
+
+Private Sub 組織図20_DblClick(Cancel As Integer)
+    Call DelPic("20")
+End Sub
+
+Private Sub 組織図21_DblClick(Cancel As Integer)
+    Call DelPic("21")
+End Sub
+
+Private Sub 組織図22_DblClick(Cancel As Integer)
+    Call DelPic("22")
+End Sub
+
+Private Sub 組織図23_DblClick(Cancel As Integer)
+    Call DelPic("23")
+End Sub
+
+Private Sub 組織図24_DblClick(Cancel As Integer)
+    Call DelPic("24")
+End Sub
+
+Private Sub GetPic(iNo As String)
+    On Error GoTo Err_GetPic
+'    If IsNumeric(Form_組織図一覧検索用.組織CD) Then
+'        Me("組織CD" & iNo) = Form_組織図一覧検索用.組織CD
+'        Me("組織図" & iNo).PictureData = IIf(Me("組織CD" & iNo) = 0, イメージ空白.PictureData, DLookup("組織図DATA", "組織図マスタ", "組織CD=" & Me("組織CD" & iNo)))
+'    End If
+Err_GetPic:
+    On Error GoTo 0
+End Sub
+
+Private Sub 閉じる_Click()
+'    DoCmd.Close
+Dim i As Long
+    gl検索_組織方法 = val(IfNumeric(Me.検索方法))
+    For i = 1 To 24
+        If IsNumeric(Me("組織CD" & Format(i, "00"))) Then
+            gl検索_組織CD(i) = Me("組織CD" & Format(i, "00"))
+        Else
+            gl検索_組織CD(i) = 0
+        End If
+    Next i
+    For i = 1 To 6
+        gl検索_原糸品番(i) = Me("原糸品番" & i).Caption
+    Next i
+    For i = 1 To 5
+        gl検索_or(i) = Me("or" & i)
+    Next i
+
+'    Me.Visible = False
+    DoCmd.Close
+End Sub
+
+Private Sub DelPic(iNo As String)
+    On Error GoTo Err_DelPic
+    Me("組織CD" & iNo) = 0
+    Me("組織図" & iNo).PictureData = イメージ空白.PictureData
+Err_DelPic:
+    On Error GoTo 0
+End Sub

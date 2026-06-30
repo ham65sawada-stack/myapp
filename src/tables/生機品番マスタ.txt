@@ -1,0 +1,35 @@
+TABLE	生機品番マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.生機品番マスタ
+FIELD	商社集計ＣＤ	Text	Size=4	Req=True	ZeroLen=True
+FIELD	生機品番	Text	Size=12	Req=True	ZeroLen=True
+FIELD	メーカＣＤ	Text	Size=6	Req=False	ZeroLen=True
+FIELD	規格巾	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	規格長	Double	Size=8	Req=False	ZeroLen=False
+FIELD	１反重量	Double	Size=8	Req=False	ZeroLen=False
+FIELD	許容範囲自	Double	Size=8	Req=False	ZeroLen=False
+FIELD	許容範囲至	Double	Size=8	Req=False	ZeroLen=False
+FIELD	許容罰点数	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	カウント数	Long	Size=4	Req=False	ZeroLen=False
+FIELD	所要分	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	原糸品番１	Text	Size=30	Req=False	ZeroLen=True
+FIELD	交編率１	Double	Size=8	Req=False	ZeroLen=False
+FIELD	買糸区分１	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	原糸品番２	Text	Size=30	Req=False	ZeroLen=True
+FIELD	交編率２	Double	Size=8	Req=False	ZeroLen=False
+FIELD	買糸区分２	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	原糸品番３	Text	Size=30	Req=False	ZeroLen=True
+FIELD	交編率３	Double	Size=8	Req=False	ZeroLen=False
+FIELD	買糸区分３	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	原糸品番４	Text	Size=30	Req=False	ZeroLen=True
+FIELD	交編率４	Double	Size=8	Req=False	ZeroLen=False
+FIELD	買糸区分４	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	原糸品番５	Text	Size=30	Req=False	ZeroLen=True
+FIELD	交編率５	Double	Size=8	Req=False	ZeroLen=False
+FIELD	買糸区分５	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	原糸品番６	Text	Size=30	Req=False	ZeroLen=True
+FIELD	交編率６	Double	Size=8	Req=False	ZeroLen=False
+FIELD	買糸区分６	Integer	Size=2	Req=False	ZeroLen=False
+FIELD	請求区分	Text	Size=1	Req=False	ZeroLen=True
+FIELD	作成日付	Date	Size=8	Req=False	ZeroLen=False
+INDEX	PK_生機品番マスタ	(商社集計ＣＤ,生機品番)	PK=True	Unique=True

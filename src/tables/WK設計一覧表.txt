@@ -1,0 +1,18 @@
+TABLE	WK設計一覧表
+FIELD	設計ID	Long	Size=4	Req=True	ZeroLen=False
+FIELD	生機品番	Text	Size=12	Req=False	ZeroLen=True
+FIELD	設計区分	Byte	Size=1	Req=False	ZeroLen=False
+FIELD	機能名	Text	Size=255	Req=False	ZeroLen=True
+FIELD	編機タイプ	Text	Size=10	Req=False	ZeroLen=True
+FIELD	編機ゲージ	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	編機釜経	Currency	Size=8	Req=False	ZeroLen=False
+FIELD	担当者	Text	Size=8	Req=False	ZeroLen=True
+FIELD	ハンガー№	Text	Size=6	Req=False	ZeroLen=True
+FIELD	サンプル№	Text	Size=7	Req=False	ZeroLen=True
+FIELD	作成日付	Date	Size=8	Req=False	ZeroLen=False
+FIELD	区分	Text	Size=255	Req=False	ZeroLen=True
+FIELD	メーカー商社名	Text	Size=32	Req=False	ZeroLen=True
+FIELD	気付先名	Text	Size=32	Req=False	ZeroLen=True
+FIELD	組織名	Text	Size=10	Req=False	ZeroLen=True
+FIELD	用途名	Text	Size=10	Req=False	ZeroLen=True
+INDEX	PrimaryKey	(設計ID)	PK=True	Unique=True

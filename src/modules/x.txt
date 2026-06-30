@@ -1,0 +1,204 @@
+Option Compare Database
+Option Explicit
+
+' @(f)
+'
+' 機能      : Nullを０レングス文字として扱う
+'
+' 返り値    : ０レングス文字かもとのママの文字列
+'
+' 引き数    : ARG1 - 文字列
+'
+' 機能説明  :
+'
+' 備考      : 省略呼び出しを安全にするため既定値を Null にした
+'
+Public Function IfString(Optional asString As Variant = Null) As String
+    If IsNull(asString) Then
+        IfString = ""
+    Else
+        IfString = asString
+    End If
+End Function
+
+' @(f)
+'
+' 機能      : 数字以外を０として扱う
+'
+' 返り値    :
+'
+' 引き数    :
+'
+' 機能説明  :
+'
+' 備考      :
+'
+Public Function IfNumeric(avNumeric As Variant) As Variant
+    If IsNumeric(avNumeric) Then
+        IfNumeric = avNumeric
+    Else
+        IfNumeric = 0
+    End If
+End Function
+
+' @(f)
+'
+' 機能      : 文字列の両側に '(Single Quote)を付加する
+'
+' 返り値    : '(Single Quote)を両側に追加した文字列
+'
+' 引き数    : ARG1 - 文字列
+'
+' 機能説明  : 文字列中の ' は '' に二重化してエスケープ(SQL標準/ACE対応)。
+'             Null・空文字・引用符混在を１行で処理する。
+'
+' 備考      : TRIM()機能は呼び出す側で行う
+'
+Public Function FormatString(Optional asString As Variant = Null) As String
+    FormatString = "'" & Replace(IfString(asString), "'", "''") & "'"
+End Function
+
+' @(f)
+'
+' 機能      : 文字列の両側に '(Single Quote)を付加し、ワイルドカードを後置
+'
+' 返り値    : '(Single Quote)を両側に追加した文字列
+'
+' 引き数    : ARG1 - 文字列
+'             ARG2 - ワイルドカード(省略時 "%")
+'
+' 機能説明  : 文字列中の ' は '' に二重化。Null も空文字として処理
+'             (旧 FormatLike は Null で実行時エラーになっていた)。
+'
+' 備考      : 入力中の % _ [ は LIKE メタ文字として素通しする。
+'             リテラル検索が必要なら ESCAPE 句を別途付与すること。
+'
+Public Function FormatLike(Optional asString As Variant = Null, _
+                           Optional asWild As String = "%") As String
+    FormatLike = "'" & Replace(IfString(asString), "'", "''") & asWild & "'"
+End Function
+
+' @(f)
+'
+' 機能      : 日付をＳＱＬ文に渡す形式に変換
+'
+' 返り値    : 文字列 "#yyyy/mm/dd#"
+'
+' 引き数    : ARG1 - 日付
+'
+' 機能説明  :
+'
+' 備考      : Jet/ACE 用の日付リテラル
+'
+Public Function FormatDate(avDate As Variant) As String
+    If IsDate(avDate) Then
+        FormatDate = "#" & Format$(avDate, "yyyy/mm/dd") & "#"
+    Else
+        FormatDate = "NULL"
+    End If
+End Function
+
+' @(f)
+'
+' 機能      : 日付・時間をＳＱＬ文に渡す形式に変換
+'
+' 返り値    : 文字列 "#yyyy/mm/dd hh:nn:ss#"
+'
+' 引き数    : ARG1 - 日付
+'
+' 機能説明  :
+'
+' 備考      : ※旧名 FormatDateTime は VBA 組込関数と衝突するため SqlDateTime に改名。
+'             呼び出し側の修正が必要。
+'
+Public Function SqlDateTime(avDate As Variant) As String
+    If IsDate(avDate) Then
+        SqlDateTime = "#" & Format$(avDate, "yyyy/mm/dd hh:nn:ss") & "#"
+    Else
+        SqlDateTime = "NULL"
+    End If
+End Function
+
+' @(f)
+'
+' 機能      : 時間をＳＱＬ文に渡す形式に変換
+'
+' 返り値    : 文字列 "#hh:nn:ss#"
+'
+' 引き数    : ARG1 - 日付
+'
+' 機能説明  :
+'
+' 備考      :
+'
+Public Function FormatTime(avDate As Variant) As String
+    If IsDate(avDate) Then
+        FormatTime = "#" & Format$(avDate, "hh:nn:ss") & "#"
+    Else
+        FormatTime = "NULL"
+    End If
+End Function
+
+' @(f)
+'
+' 機能      : 数字を属性チェックし、数字で無ければ０を返す(切り捨て整形)
+'
+' 返り値    :
+'
+' 引き数    : ARG1 - 数字
+'             ARG2 - 切り捨て小数桁数(0以下で無加工、最大4)
+'
+' 機能説明  : Fix() による切り捨て(０方向)。
+'
+' 備考      : 到達不能だった負値クランプ(alFew < -4)は削除。
+'             四捨五入が必要な場合は ExcelRound を使用すること。
+'
+Public Function FormatNumeric(avNumeric As Variant, Optional alFew As Long = -9) As Variant
+    If IsNumeric(avNumeric) Then
+        If alFew > 0 Then
+            If alFew > 4 Then alFew = 4
+            FormatNumeric = Fix(avNumeric * (10# ^ alFew)) / (10# ^ alFew)
+        Else
+            FormatNumeric = avNumeric
+        End If
+    Else
+        FormatNumeric = 0
+    End If
+End Function
+
+' @(f)
+'
+' 機能      : Excel互換の四捨五入(0.5は絶対値が大きくなる方向)
+'
+' 返り値    : 四捨五入後の数値(数値以外は０)
+'
+' 引き数    : ARG1 - 数値
+'             ARG2 - 丸める小数桁数(省略時0、負値で整数部:10/100単位)
+'
+' 機能説明  : VBA 組込 Round() は銀行丸め(0.5→偶数)のため Excel の ROUND と
+'             結果が異なる。本関数は round half away from zero で ROUND に一致。
+'             桁ずれ防止に Decimal(CDec)で計算し、負桁にも対応。
+'
+' 備考      : 入力値が既に二進浮動小数誤差を持つ極端なケース(例:2.675を
+'             Double で受けた場合)では稀に Excel と差異が出る。
+'             Currency/Decimal 型や整数倍の値で渡せば一致する。
+'
+Public Function Round(avNumeric As Variant, Optional alFew As Long = 0) As Variant
+    Dim vFactor As Variant
+    Dim vScaled As Variant
+
+    If Not IsNumeric(avNumeric) Then
+        Round = 0
+        Exit Function
+    End If
+
+    If alFew >= 0 Then
+        vFactor = CDec(10 ^ alFew)
+        vScaled = CDec(avNumeric) * vFactor
+        Round = Int(Abs(vScaled) + CDec(0.5)) * Sgn(vScaled) / vFactor
+    Else
+        vFactor = CDec(10 ^ (-alFew))
+        vScaled = CDec(avNumeric) / vFactor
+        Round = Int(Abs(vScaled) + CDec(0.5)) * Sgn(vScaled) * vFactor
+    End If
+End Function

@@ -1,0 +1,9 @@
+TABLE	tbl_xref_param
+FIELD	id	Long	Size=4	Req=False	ZeroLen=False
+FIELD	module_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	proc_name	Text	Size=128	Req=False	ZeroLen=False
+FIELD	param_count	Long	Size=4	Req=False	ZeroLen=False
+FIELD	param_names	Text	Size=255	Req=False	ZeroLen=False
+FIELD	arg_list	Text	Size=255	Req=False	ZeroLen=False
+FIELD	suspicious	Long	Size=4	Req=False	ZeroLen=False
+INDEX	Index_DBAB7AE5_4310_42CE	(id)	PK=True	Unique=True

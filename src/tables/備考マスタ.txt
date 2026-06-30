@@ -1,0 +1,5 @@
+TABLE	備考マスタ
+CONNECT	ODBC;DRIVER=ODBC Driver 13 for SQL Server;SERVER=192.168.2.11;UID=sa;PWD=324929;Trusted_Connection=No;APP=Microsoft Office;DATABASE=CNT;
+SOURCE	dbo.備考マスタ
+FIELD	備考	Text	Size=24	Req=True	ZeroLen=True
+INDEX	PK_備考マスタ	(備考)	PK=True	Unique=True

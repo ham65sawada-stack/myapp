@@ -1,0 +1,347 @@
+Version =20
+VersionRequired =20
+Begin Form
+    PopUp = NotDefault
+    Modal = NotDefault
+    RecordSelectors = NotDefault
+    MaxButton = NotDefault
+    MinButton = NotDefault
+    AutoCenter = NotDefault
+    NavigationButtons = NotDefault
+    DividingLines = NotDefault
+    KeyPreview = NotDefault
+    OrderByOn = NotDefault
+    DefaultView =0
+    ScrollBars =0
+    ViewsAllowed =1
+    TabularCharSet =128
+    TabularFamily =50
+    BorderStyle =1
+    PictureAlignment =2
+    DatasheetGridlinesBehavior =3
+    Cycle =1
+    GridY =10
+    Width =2948
+    DatasheetFontHeight =9
+    ItemSuffix =82
+    Left =6150
+    Top =2640
+    Right =9105
+    Bottom =4785
+    DatasheetGridlinesColor =12632256
+    RecSrcDt = Begin
+        0x2969c4176ecfe140
+    End
+    Caption ="設計品質計画／確認表"
+    DatasheetFontName ="ＭＳ Ｐゴシック"
+    PrtMip = Begin
+        0x8905000089050000890500008905000000000000130b00002c01000000000000 ,
+        0x030000001e01000000000000a20700000100000001000000
+    End
+    OnLoad ="[Event Procedure]"
+    OnError ="[Event Procedure]"
+    NoSaveCTIWhenDisabled =1
+    Begin
+        Begin Label
+            BackStyle =0
+            TextFontCharSet =128
+            TextFontFamily =50
+            FontSize =9
+            BackColor =-2147483633
+            ForeColor =-2147483630
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            Width =850
+            Height =850
+        End
+        Begin Line
+            SpecialEffect =3
+            Width =1701
+        End
+        Begin Image
+            BackStyle =0
+            OldBorderStyle =0
+            PictureAlignment =2
+            Width =1701
+            Height =1701
+        End
+        Begin CommandButton
+            TextFontCharSet =128
+            TextFontFamily =50
+            Width =1701
+            Height =390
+            FontSize =9
+            FontWeight =400
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin OptionButton
+            SpecialEffect =2
+            LabelX =230
+            LabelY =-30
+        End
+        Begin CheckBox
+            SpecialEffect =2
+            LabelX =230
+            LabelY =-30
+        End
+        Begin OptionGroup
+            SpecialEffect =3
+            Width =1701
+            Height =1701
+        End
+        Begin BoundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =0
+            BackStyle =0
+            Width =4536
+            Height =2835
+            LabelX =-1701
+        End
+        Begin TextBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            TextFontFamily =50
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            BackColor =-2147483643
+            ForeColor =-2147483640
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ListBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            TextFontFamily =50
+            Width =1701
+            Height =1417
+            LabelX =-1701
+            FontSize =9
+            BackColor =-2147483643
+            ForeColor =-2147483640
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin ComboBox
+            SpecialEffect =2
+            TextFontCharSet =128
+            TextFontFamily =50
+            Width =1701
+            LabelX =-1701
+            FontSize =9
+            BackColor =-2147483643
+            ForeColor =-2147483640
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Subform
+            SpecialEffect =2
+            Width =1701
+            Height =1701
+        End
+        Begin UnboundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =1
+            Width =4536
+            Height =2835
+        End
+        Begin ToggleButton
+            TextFontCharSet =128
+            TextFontFamily =50
+            Width =283
+            Height =283
+            FontSize =9
+            FontWeight =400
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Tab
+            TextFontCharSet =128
+            TextFontFamily =50
+            BackStyle =0
+            Width =5103
+            Height =3402
+            FontSize =9
+            FontName ="ＭＳ Ｐゴシック"
+        End
+        Begin Section
+            Height =1700
+            BackColor =-2147483633
+            Name ="詳細"
+            Begin
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =30
+                    Top =30
+                    Width =936
+                    Name ="コマンド印刷"
+                    Caption ="印刷"
+                    OnClick ="[Event Procedure]"
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =1278
+                    Top =680
+                    Width =846
+                    TabIndex =1
+                    Name ="開始日付"
+                    Format ="Short Date"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99\\/99\\/99;0;_"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =453
+                            Top =680
+                            Width =825
+                            Height =225
+                            Name ="ラベル77"
+                            Caption ="開始日付:"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =215
+                    TextFontCharSet =0
+                    TextFontFamily =34
+                    Left =2124
+                    Top =680
+                    Width =246
+                    Height =240
+                    FontSize =8
+                    TabIndex =2
+                    Name ="cmd開始日付"
+                    OnClick ="[Event Procedure]"
+                    FontName ="System"
+                    ObjectPalette = Begin
+                        0x0003100000000000800000000080000080800000000080008000800000808000 ,
+                        0x80808000c0c0c000ff00000000ff0000ffff00000000ff00ff00ff0000ffff00 ,
+                        0xffffff0000000000
+                    End
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =95
+                    TextFontFamily =49
+                    IMEMode =3
+                    Left =1278
+                    Top =1040
+                    Width =846
+                    TabIndex =3
+                    Name ="終了日付"
+                    Format ="Short Date"
+                    FontName ="ＭＳ ゴシック"
+                    InputMask ="99\\/99\\/99;0;_"
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Left =453
+                            Top =1040
+                            Width =825
+                            Height =225
+                            Name ="ラベル79"
+                            Caption ="終了日付:"
+                        End
+                    End
+                End
+                Begin CommandButton
+                    OverlapFlags =215
+                    TextFontCharSet =0
+                    TextFontFamily =34
+                    Left =2124
+                    Top =1040
+                    Width =246
+                    Height =240
+                    FontSize =8
+                    TabIndex =4
+                    Name ="cmd終了日付"
+                    OnClick ="[Event Procedure]"
+                    FontName ="System"
+                    ObjectPalette = Begin
+                        0x0003100000000000800000000080000080800000000080008000800000808000 ,
+                        0x80808000c0c0c000ff00000000ff0000ffff00000000ff00ff00ff0000ffff00 ,
+                        0xffffff0000000000
+                    End
+                End
+            End
+        End
+    End
+End
+CodeBehindForm
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = True
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Option Compare Database
+Option Explicit
+
+Private Sub cmd開始日付_Click()
+    Dim ctlDate As TextBox
+    Dim varReturn As Variant
+
+    Set ctlDate = Me!開始日付
+
+    ' Request date
+    varReturn = ahtGetDate(ctlDate.Value)
+
+    ' Only change the value if null is not
+    ' returned; otherwise user cancelled
+    ' so preserve existing value.
+    If Not IsNull(varReturn) Then
+        ctlDate = varReturn
+    End If
+End Sub
+
+Private Sub cmd終了日付_Click()
+    Dim ctlDate As TextBox
+    Dim varReturn As Variant
+
+    Set ctlDate = Me!終了日付
+
+    ' Request date
+    varReturn = ahtGetDate(ctlDate.Value)
+
+    ' Only change the value if null is not
+    ' returned; otherwise user cancelled
+    ' so preserve existing value.
+    If Not IsNull(varReturn) Then
+        ctlDate = varReturn
+    End If
+End Sub
+
+Private Sub Form_Error(DataErr As Integer, Response As Integer)
+    Response = ErrSyori(DataErr)
+End Sub
+
+Private Sub Form_Load()
+    開始日付 = Format(DateAdd("m", -1, Date), "yy/mm/01")
+    終了日付 = Format(CDate(Format(Date, "yy/mm/01")) - 1, "yy/mm/dd")
+End Sub
+
+Private Sub コマンド印刷_Click()
+    If Not IsDate(開始日付) Then
+        MsgBox "開始日付が正しくありません", , "確認メッセージ"
+        Me.開始日付.SetFocus
+        Exit Sub
+    End If
+    If Not IsDate(終了日付) Then
+        MsgBox "終了日付が正しくありません", , "確認メッセージ"
+        Me.終了日付.SetFocus
+        Exit Sub
+    End If
+
+    Dim db As Database
+    Set db = CurrentDb
+
+    db.Execute "DELETE * FROM WK設計品質計画"
+    db.Execute "INSERT INTO WK設計品質計画 (設計ID) SELECT 設計Ｈ.設計ID FROM 設計H WHERE ((設計Ｈ.設計区分=3)OR(設計Ｈ.設計区分=4)) AND ((設計Ｈ.作成日付)>=#" & Format(開始日付, "YYYY/MM/DD") & "# And (設計Ｈ.作成日付)<=#" & Format(終了日付, "YYYY/MM/DD") & "#);"
+    db.Close
+    Set db = Nothing
+
+    On Error Resume Next
+    DoCmd.OpenReport "設計品質計画／確認表"
+    On Error GoTo 0
+    DoCmd.Close acForm, Me.Name
+End Sub

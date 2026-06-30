@@ -1,0 +1,4 @@
+TABLE	ラベル印刷設定
+CONNECT	;DATABASE=C:\pin\Mitsukawa\Sekkei\設計設定.mdb
+SOURCE	ラベル印刷設定
+# 取得エラー: (-2146825244, 'OLE error 0x800a0be4', None, None)
