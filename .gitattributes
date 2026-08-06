@@ -1,0 +1,5 @@
+# Access SaveAsText 抽出物（accdb_export.py が UTF-8/LF 正規化）
+src/**/*.txt        text eol=lf
+src/_manifest.tsv   text eol=lf
+*.accdb   binary
+*.laccdb  binary

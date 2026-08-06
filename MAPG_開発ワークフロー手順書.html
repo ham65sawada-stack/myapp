@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAPG VBA 開発ワークフロー手順書</title>
+<style>
+  :root{
+    --bg:#eef2f4; --surface:#ffffff; --ink:#16242c; --muted:#5b6b73;
+    --line:#d4dde1; --accent:#0e6b78; --accent-deep:#0a4f59;
+    --safe:#1c7a4a; --safe-bg:#e7f3ec; --safe-line:#bfe0cc;
+    --danger:#b23320; --danger-bg:#fbeae6; --danger-line:#f0c7bd;
+    --caution:#9a6700; --caution-bg:#fbf3e2; --caution-line:#ecd9a8;
+    --code-bg:#12222b; --code-ink:#d6e3e7; --code-prompt:#54b0bd; --code-cmt:#6f8b95;
+    --mono:"Consolas","SFMono-Regular",ui-monospace,monospace;
+    --sans:"Yu Gothic UI","Yu Gothic","Meiryo","Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--sans); line-height:1.75; font-size:16px;
+    padding:48px 20px;
+  }
+  .wrap{max-width:880px; margin:0 auto;}
+
+  /* header */
+  .masthead{border-top:5px solid var(--accent); background:var(--surface);
+    border:1px solid var(--line); border-top:5px solid var(--accent);
+    border-radius:4px; padding:30px 34px 26px; margin-bottom:26px;}
+  .eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--accent); margin:0 0 10px;}
+  .masthead h1{font-size:27px; line-height:1.3; margin:0 0 8px; font-weight:800; letter-spacing:.01em;}
+  .masthead .sub{color:var(--muted); margin:0; font-size:14.5px;}
+  .statusbar{display:flex; flex-wrap:wrap; gap:8px 10px; margin-top:18px;
+    padding-top:16px; border-top:1px dashed var(--line);}
+  .chip{font-family:var(--mono); font-size:12px; padding:4px 9px; border-radius:999px;
+    border:1px solid var(--line); color:var(--muted); background:#f7fafb;}
+  .chip.done{color:var(--safe); border-color:var(--safe-line); background:var(--safe-bg);}
+  .chip.next{color:var(--accent-deep); border-color:#bcdde2; background:#e9f4f6;}
+
+  /* overview card + diagram */
+  .panel{background:var(--surface); border:1px solid var(--line); border-radius:4px;
+    padding:24px 28px; margin-bottom:22px;}
+  .panel h2{margin:0 0 14px;}
+  .principle{margin:0; padding:0; list-style:none;}
+  .principle li{position:relative; padding-left:22px; margin:7px 0; color:#27353d;}
+  .principle li::before{content:"▸"; position:absolute; left:0; color:var(--accent); font-size:14px;}
+  .principle b{color:var(--ink);}
+  figure.diagram{margin:18px 0 4px;}
+  figure.diagram svg{width:100%; height:auto; display:block;}
+  figcaption{font-size:12.5px; color:var(--muted); margin-top:8px; text-align:center;}
+
+  /* phase sections */
+  section.phase{background:var(--surface); border:1px solid var(--line);
+    border-radius:4px; margin-bottom:22px; overflow:hidden;}
+  .phase-head{display:flex; align-items:baseline; gap:14px;
+    padding:20px 28px 14px; border-bottom:1px solid var(--line);}
+  .num{font-family:var(--mono); font-size:22px; font-weight:700; color:var(--accent);
+    letter-spacing:.04em; flex:none;}
+  .phase-head h2{margin:0; font-size:20px;}
+  .phase-head .when{display:block; font-size:13px; color:var(--muted); font-weight:400; margin-top:3px;}
+  .phase-body{padding:18px 28px 24px;}
+  .phase-body > p:first-child{margin-top:0;}
+
+  h3.step{font-size:14px; letter-spacing:.02em; margin:20px 0 8px; color:var(--accent-deep);
+    display:flex; align-items:center; gap:8px;}
+  h3.step::before{content:""; width:6px; height:6px; background:var(--accent); border-radius:50%; flex:none;}
+  h3.step:first-of-type{margin-top:4px;}
+
+  /* code blocks */
+  pre{background:var(--code-bg); color:var(--code-ink); font-family:var(--mono);
+    font-size:13.5px; line-height:1.65; padding:15px 18px; border-radius:5px;
+    overflow-x:auto; margin:10px 0; -webkit-overflow-scrolling:touch;}
+  pre .c{color:var(--code-cmt);}      /* comment */
+  pre .p{color:var(--code-prompt);}   /* prompt / keyword */
+  code.inline{font-family:var(--mono); font-size:.9em; background:#e6edef;
+    padding:1.5px 6px; border-radius:4px; color:var(--accent-deep);}
+
+  /* callouts */
+  .call{border:1px solid; border-radius:5px; padding:14px 18px; margin:14px 0;}
+  .call .label{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em;
+    text-transform:uppercase; font-weight:700; display:block; margin-bottom:6px;}
+  .call p{margin:4px 0;}
+  .call p:last-child{margin-bottom:0;}
+  .safe{background:var(--safe-bg); border-color:var(--safe-line);}
+  .safe .label{color:var(--safe);}
+  .danger{background:var(--danger-bg); border-color:var(--danger-line);}
+  .danger .label{color:var(--danger);}
+  .caution{background:var(--caution-bg); border-color:var(--caution-line);}
+  .caution .label{color:var(--caution);}
+  .check{font-size:14px; color:#27353d; background:#f3f7f8; border-left:3px solid var(--accent);
+    padding:10px 16px; margin:12px 0; border-radius:0 4px 4px 0;}
+  .check b{color:var(--safe);}
+
+  /* table */
+  table{width:100%; border-collapse:collapse; margin:8px 0; font-size:14px;}
+  thead th{background:#10303a; color:#fff; text-align:left; padding:9px 12px; font-weight:600; font-size:13px;}
+  tbody td{border-bottom:1px solid var(--line); padding:9px 12px; vertical-align:top;}
+  tbody tr:nth-child(even){background:#f7fafb;}
+  td .mono{font-family:var(--mono); font-size:12.5px;}
+  .tag-ok{color:var(--safe); font-weight:600;}
+  .tag-no{color:var(--danger); font-weight:600;}
+
+  /* footer */
+  .foot{color:var(--muted); font-size:12.5px; text-align:center; margin-top:26px; padding-top:16px;
+    border-top:1px solid var(--line);}
+
+  @media (max-width:560px){
+    body{padding:24px 12px; font-size:15px;}
+    .masthead,.panel{padding:22px 18px;}
+    .phase-head,.phase-body{padding-left:18px; padding-right:18px;}
+    .masthead h1{font-size:22px;}
+  }
+  @media print{
+    body{background:#fff; padding:0; font-size:11.5pt;}
+    section.phase,.panel,.masthead{break-inside:avoid; box-shadow:none;}
+    pre{white-space:pre-wrap; word-break:break-all;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">MAPG / 丸編設計 — Access VBA</p>
+    <h1>開発ワークフロー手順書</h1>
+    <p class="sub">.accdb を正本として、エクスポート → AIへ修正依頼 → インポート の3手順をまとめたもの。</p>
+    <div class="statusbar">
+      <span class="chip done">✓ デッドコード削除：完了</span>
+      <span class="chip done">✓ .accdb と git：一致（90ee565）</span>
+      <span class="chip next">次：64bit移行の仕上げ（ctlDlg削除 / ListView確認）</span>
+      <span class="chip next">ツール更新：import v3＝フォーム書き戻しを既定ブロック</span>
+    </div>
+  </header>
+
+  <!-- OVERVIEW -->
+  <div class="panel">
+    <h2>全体像：何が正本で、何がコピーか</h2>
+    <ul class="principle">
+      <li><b>正本は <code class="inline">MAPG.accdb</code></b>。実際の修正はすべてここに反映される。</li>
+      <li><b><code class="inline">src/</code> は git 上のテキストミラー</b>。差分の確認とAIへの受け渡しに使う。</li>
+      <li><b>モジュール／クエリ</b>は無損失で往復できる（編集 → 書き戻し OK）。</li>
+      <li><b>フォーム／レポート</b>は抽出時に画像・プリンタ設定・ActiveXを間引いている。<b>丸ごと書き戻すと壊れる</b>ので、読む専用と考える（import v3 は既定でブロックする）。</li>
+    </ul>
+
+    <figure class="diagram">
+      <svg viewBox="0 0 840 210" xmlns="http://www.w3.org/2000/svg" font-family="Consolas,monospace">
+        <defs>
+          <marker id="ar" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+            <path d="M0,0 L9,4.5 L0,9 Z" fill="#0e6b78"/>
+          </marker>
+        </defs>
+        <!-- boxes -->
+        <g>
+          <rect x="24" y="74" width="150" height="62" rx="6" fill="#0a4f59"/>
+          <text x="99" y="100" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">MAPG.accdb</text>
+          <text x="99" y="120" fill="#b9d9de" font-size="11" text-anchor="middle">正本（Access）</text>
+        </g>
+        <g>
+          <rect x="345" y="74" width="150" height="62" rx="6" fill="#ffffff" stroke="#0e6b78" stroke-width="1.5"/>
+          <text x="420" y="100" fill="#16242c" font-size="15" font-weight="700" text-anchor="middle">src/ （git）</text>
+          <text x="420" y="120" fill="#5b6b73" font-size="11" text-anchor="middle">テキストミラー</text>
+        </g>
+        <g>
+          <rect x="666" y="74" width="150" height="62" rx="6" fill="#e9f4f6" stroke="#0e6b78" stroke-width="1.5"/>
+          <text x="741" y="100" fill="#0a4f59" font-size="15" font-weight="700" text-anchor="middle">AI（Claude）</text>
+          <text x="741" y="120" fill="#5b6b73" font-size="11" text-anchor="middle">修正・分析</text>
+        </g>
+        <!-- arrows -->
+        <line x1="178" y1="92" x2="341" y2="92" stroke="#0e6b78" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="259" y="84" fill="#0e6b78" font-size="11.5" font-weight="700" text-anchor="middle">① エクスポート</text>
+
+        <line x1="499" y1="92" x2="662" y2="92" stroke="#0e6b78" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="580" y="84" fill="#0e6b78" font-size="11.5" font-weight="700" text-anchor="middle">② ファイルを渡す</text>
+
+        <line x1="662" y1="118" x2="499" y2="118" stroke="#0e6b78" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="580" y="134" fill="#5b6b73" font-size="11" text-anchor="middle">修正版テキスト</text>
+
+        <path d="M345,118 C300,160 220,160 178,121" fill="none" stroke="#0e6b78" stroke-width="2" marker-end="url(#ar)"/>
+        <text x="261" y="170" fill="#0e6b78" font-size="11.5" font-weight="700" text-anchor="middle">③ インポート（モジュールのみ）</text>
+
+        <text x="420" y="22" fill="#9a6700" font-size="11.5" text-anchor="middle">フォームの修正は ③ を使わず Access デザインビューで直接</text>
+      </svg>
+      <figcaption>基本サイクル。フォーム／レポートの中身（画像・ActiveX）は ③ の対象外。</figcaption>
+    </figure>
+  </div>
+
+  <!-- PHASE 1 -->
+  <section class="phase">
+    <div class="phase-head">
+      <span class="num">01</span>
+      <div>
+        <h2>エクスポート（.accdb → src → git）</h2>
+        <span class="when">いつ：Accessでフォームやコードを直した後／AIに依頼する前（最新を渡すため）</span>
+      </div>
+    </div>
+    <div class="phase-body">
+      <p>正本 <code class="inline">.accdb</code> からテキストを抽出し、git に記録する。<b>Accessは閉じておく。</b>開いたままだと保存前の編集は抽出に反映されない（export は <code class="inline">.laccdb</code> を検出すると警告して続行する）。</p>
+      <pre><span class="c"># リポジトリ直下で実行</span>
+cd C:\work\myapp
+py accdb_export.py MAPG.accdb
+
+<span class="c"># 何が変わったか確認してからコミット</span>
+git status
+git diff --stat
+git add -A
+git commit -m <span class="p">"説明（例：設計Hメンテの計算ロジック修正）"</span>
+git push</pre>
+      <div class="check"><b>確認：</b> <code class="inline">git diff --stat</code> に、想定した変更だけが出ること。フォーム全体が大量に書き換わる等、身に覚えのない差分が出たらコミット前に止めて中身を見る。</div>
+    </div>
+  </section>
+
+  <!-- PHASE 2 -->
+  <section class="phase">
+    <div class="phase-head">
+      <span class="num">02</span>
+      <div>
+        <h2>AIへ修正を依頼する</h2>
+        <span class="when">いつ：コードの修正・分析・移行調査などを任せたいとき</span>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <h3 class="step">渡すもの</h3>
+      <p>該当する <code class="inline">src/</code> のファイルをアップロードする。AIはそれを読んで修正する。</p>
+      <ul class="principle">
+        <li><b>モジュールの修正</b> → <code class="inline">src/modules/共通モジュール.txt</code> など対象ファイル</li>
+        <li><b>フォームのコードの相談</b> → そのフォームの <code class="inline">src/forms/〇〇.txt</code>（コードを読ませる用）</li>
+        <li><b>DB全体の横断調査</b> → 上記に加え <code class="inline">VBA相互リファレンス_*.xlsx</code></li>
+      </ul>
+
+      <h3 class="step">依頼の書き方（テンプレ）</h3>
+      <pre>対象：src/modules/共通モジュール.txt の 関数〇〇
+やりたいこと：△△ になるよう直したい
+制約：64bit維持・呼び出し側のインターフェースは変えない
+出力：修正後のファイル全文（モジュール）／または変更箇所のプロシージャだけ</pre>
+      <p>「何を・どう・触ってはいけない所」を具体的に書くほど安全で速い。</p>
+
+      <h3 class="step">返ってくるもの（種類で扱いが変わる）</h3>
+      <table>
+        <thead><tr><th>修正の種類</th><th>AIの返し方</th><th>反映方法</th></tr></thead>
+        <tbody>
+          <tr><td>モジュール／クエリ</td><td>修正後のファイル全文</td><td><span class="tag-ok">③ インポート（安全）</span></td></tr>
+          <tr><td>フォームのVBAコード</td><td>変更するプロシージャだけ</td><td>VBEに手で貼る ／ 外科的スクリプト</td></tr>
+          <tr><td>フォームのデザイン（部品・配置）</td><td>手順の案内</td><td>Access デザインビューで操作</td></tr>
+        </tbody>
+      </table>
+      <div class="call caution">
+        <span class="label">なぜ分ける？</span>
+        <p>フォームのコードを「フォーム.txt 丸ごと書き戻し」で反映すると、間引かれた画像・プリンタ設定・ActiveX（ListView等）まで再生成され、フォームが壊れる。だからフォームのコードは部品単位で VBE に貼るのが安全。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PHASE 3 -->
+  <section class="phase">
+    <div class="phase-head">
+      <span class="num">03</span>
+      <div>
+        <h2>修正後のインポート（src → .accdb）</h2>
+        <span class="when">いつ：モジュール／クエリの修正を .accdb に反映するとき</span>
+      </div>
+    </div>
+    <div class="phase-body">
+
+      <h3 class="step">モジュール／クエリ ＝ 安全（無損失）</h3>
+      <p><b>Accessを閉じてから</b>、対象ファイルだけを指定して書き戻す。開いたままなら <code class="inline">.laccdb</code> 検出で自動中止する（v3）。スクリプトが自動でバックアップを作る。</p>
+      <pre>cd C:\work\myapp
+py accdb_import.py MAPG.accdb src\modules\共通モジュール.txt
+
+<span class="c"># 複数同時もOK</span>
+py accdb_import.py MAPG.accdb src\modules\共通モジュール.txt src\queries\設計原糸一覧マスタ.txt</pre>
+      <div class="check"><b>反映後は必ず：</b> Access → VBE（<code class="inline">Alt+F11</code>）→ [デバッグ] → [コンパイル] でエラーが無いか確認。</div>
+      <p>確認できたら git も合わせて更新する（②で受け取った修正を src に保存 → コミット）。</p>
+      <pre>git add -A
+git commit -m <span class="p">"共通モジュール：〇〇を修正"</span>
+git push</pre>
+
+      <h3 class="step">フォーム／レポート ＝ 書き戻し禁止</h3>
+      <div class="call danger">
+        <span class="label">やってはいけない</span>
+        <p><b><code class="inline">--force-risky</code> を使わない。</b>フォーム.txt の書き戻しは v3 でスクリプト側でも既定ブロックされる（このフラグを付けない限り反映されない）。解除は画像・ActiveX 喪失を承知した緊急用。<code class="inline">--all</code> も v3 からフォーム/レポートを含まないが、意図しない一括反映を避けるためファイル指定を基本とする。</p>
+      </div>
+      <div class="call safe">
+        <span class="label">安全な方法</span>
+        <p><b>コードの修正</b>：VBEで該当プロシージャを手で差し替える。<br>
+        <b>デザインの修正</b>：Access のデザインビューで操作する（例：移行で消す <code class="inline">ctlDlg</code> もデザインビューで削除）。<br>
+        反映後は <b>① エクスポート</b> し直して git を最新化する。</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SAFETY -->
+  <div class="panel">
+    <h2>安全ルール（毎回これだけ守る）</h2>
+    <ul class="principle">
+      <li><b>インポート前に Access を閉じる</b>（ファイルロック回避。v3 は <code class="inline">.laccdb</code> 検出で自動中止＝機械的に担保）。</li>
+      <li><b>インポートはファイル指定を基本に</b>。<code class="inline">--all</code> は v3 でフォーム/レポートを含まなくなったが、一括反映は避ける。<code class="inline">--force-risky</code> は禁止。</li>
+      <li><b>反映後は必ず VBE でコンパイル</b>してエラーを確認。</li>
+      <li><b>正常版のバックアップを1つ保管</b>：<code class="inline">MAPG_backup_20260629_165135.accdb</code>（18件削除・131件健在のクリーンな復元点）。</li>
+      <li><b>迷ったら現状確認</b>：<code class="inline">py accdb_state.py MAPG.accdb</code> で .accdb が正しい状態か一目で分かる（終了コード 0=OK / 1=NG / 2=エラー。バッチに組める）。</li>
+    </ul>
+  </div>
+
+  <!-- TROUBLE -->
+  <div class="panel">
+    <h2>困った時の戻し方</h2>
+    <h3 class="step">現状を点検する（読むだけ）</h3>
+    <pre>py accdb_state.py MAPG.accdb
+<span class="c"># 終了コード: 0=OK / 1=NG・リスト未検証 / 2=実行エラー</span></pre>
+    <h3 class="step">.accdb をバックアップから復元する</h3>
+    <pre><span class="c"># 先にAccessを閉じる</span>
+Move-Item MAPG.accdb MAPG_ng_$(Get-Date -Format yyyyMMdd_HHmmss).accdb
+Copy-Item MAPG_backup_20260629_165135.accdb MAPG.accdb</pre>
+    <h3 class="step">git を前の版に戻す</h3>
+    <pre>git log --oneline -5
+git reset --hard <span class="p">&lt;戻したいコミット&gt;</span>
+git push --force origin main</pre>
+  </div>
+
+  <!-- TOOLS -->
+  <div class="panel">
+    <h2>ツール早見表</h2>
+    <table>
+      <thead><tr><th>ツール</th><th>方向</th><th>用途</th><th>安全性</th></tr></thead>
+      <tbody>
+        <tr><td class="mono">accdb_export.py</td><td>.accdb → src</td><td>抽出（gitミラー作成）</td><td><span class="tag-ok">安全</span></td></tr>
+        <tr><td class="mono">accdb_import.py</td><td>src → .accdb</td><td>書き戻し</td><td>モジュール/クエリのみ<span class="tag-ok"> 安全</span>／フォーム<span class="tag-no"> 不可（v3で既定ブロック）</span></td></tr>
+        <tr><td class="mono">accdb_state.py</td><td>.accdb 読取</td><td>現状点検</td><td><span class="tag-ok">読むだけ</span></td></tr>
+        <tr><td class="mono">vba_deadcode_remove.py</td><td>.accdb 手術</td><td>指定プロシージャ削除</td><td>外科的（フォーム画像は保持）</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="foot">MAPG VBA 開発ワークフロー手順書 ／ 状態：.accdb と git は 90ee565 で一致・データ損失なし</p>
+
+</div>
+</body>
+</html>
